@@ -1,29 +1,31 @@
-<h1>Listing news_updates</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Source</th>
-    <th>Category</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @news_updates.each do |news_update| %>
-  <tr>
-    <td><%= news_update.title %></td>
-    <td><%= news_update.source %></td>
-    <td><%= news_update.category %></td>
-    <td><%= news_update.content %></td>
-    <td><%= link_to 'Show', admin_news_update_path(news_update) %></td>
-    <td><%= link_to 'Edit', edit_admin_news_update_path(news_update) %></td>
-    <td><%= link_to 'Destroy', admin_news_update_path(news_update), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New News update', new_admin_news_update_path %>
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <div id="main" class="right">
+    <div class="button"><a href="<%=new_admin_news_update_path%>"><img src="<%=get_current_host_and_port%>images/add.png">新增文章</a></div>
+    <div class="main-list">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="main-list-title">
+          <th width="17%" align="center" scope="col">日期</th>
+          <th width="63%" align="left" scope="col">標題</th>
+          <th width="9%" align="center" scope="col">編輯</th>
+          <th width="9%" align="center" scope="col">刪除</th>
+        </tr>
+        <% @news_updates.each do |news_update| %>
+          <tr>
+            <td align="center"><%= news_update.updated_at.to_date %></td>
+            <td align="left"><a href="<%=admin_news_update_path(news_update)%>"> <%= news_update.title %> </a></td>
+            <td align="center"><a href="<%=edit_admin_news_update_path(news_update)%>"><img src="<%=get_current_host_and_port%>images/edit.png"></a></td>
+            <td align="center"><a href='<%=admin_news_update_path(news_update)%>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%=get_current_host_and_port%>images/delete.png"></a></td>
+          </tr>       
+        <% end %> 
+      </table>
+    </div>
+  </div>
+  <!--main--> 
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->
