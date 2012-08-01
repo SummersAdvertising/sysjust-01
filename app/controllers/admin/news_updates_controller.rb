@@ -1,5 +1,6 @@
 class Admin::NewsUpdatesController < ApplicationController
-  layout 'admin'  
+  layout 'admin'
+  before_filter :require_sign_in  
   # GET /news_updates
   # GET /news_updates.json
   def index

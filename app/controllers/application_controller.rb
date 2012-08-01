@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def require_sign_in
+    unless (user_signed_in?)
+      flash[:alert] = "You must sign in!"
+      redirect_to root_path
+    end
+  end
 end
