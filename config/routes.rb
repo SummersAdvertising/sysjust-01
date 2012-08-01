@@ -1,7 +1,7 @@
 TestDevise::Application.routes.draw do
   devise_for :users, :path_prefix => 'admin', :controllers => { :registrations => 'registrations'}  
-  resources :users
-  resources :posts
+  resources :users  
+  resources :news_updates
 
   
 
@@ -54,7 +54,7 @@ TestDevise::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'posts#index'
+  root :to => 'news_updates#index'
 
   # See how all your routes lay out with "rake routes"
 
