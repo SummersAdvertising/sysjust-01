@@ -8,7 +8,8 @@ gem 'rails', '3.2.6'
 gem 'sqlite3'
 gem 'mysql2'
 gem 'devise'
-
+gem 'capistrano'
+gem 'capistrano-ext'
 
 # Gems used only for assets and not required
 # in production environments by default.
