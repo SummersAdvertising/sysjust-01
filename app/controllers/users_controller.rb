@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :require_is_admin
+	layout 'admin'
 
 	def index
 		@users = User.all	
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
 		if @user.save
 		  # sign_in @user
 		  # flash[:success] = "Welcome to the Sample App!"
-		  redirect_to root_path
+		  redirect_to users_path
 		else
 		  render 'index'
 		end
