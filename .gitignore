@@ -13,3 +13,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#Ignore production.rb
+/config/deploy/production.rb
+
+#Ignore database.yml.production
+/config/database.yml.production
