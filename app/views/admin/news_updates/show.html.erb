@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @news_update.title %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= @news_update.source %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @news_update.category %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @news_update.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_news_update_path(@news_update) %> |
+<%= link_to 'Back', admin_news_updates_path %>

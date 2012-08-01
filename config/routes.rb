@@ -3,6 +3,10 @@ TestDevise::Application.routes.draw do
   resources :users  
   resources :news_updates
 
+  namespace :admin do
+    resources :news_updates
+  end
+
   
 
   # The priority is based upon order of creation:
