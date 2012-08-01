@@ -1,17 +1,31 @@
-<h2>Sign in</h2>
-
+<%= render :partial => "shared/top" %>
+<!--top-out-->
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
+<div id="container">
+  <div id="main" class="main-sign">
+    <h2><img src="<%=get_current_host_and_port%>images/man.png" width="16" height="16" /> 使用者登入</h2>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="left">帳號<br>
+          <%= f.email_field :email %></td>
+      </tr>
+      <tr>
+        <td align="left">密碼<br>
+          <%= f.password_field :password %></td>
+      </tr>
+      <tr>
+        <td align="left">是否記住密碼？
+          <%= f.check_box :remember_me %></td>
+      </tr>
+    </table>
+    <div class="button">
+      <%= f.submit "" %>
+      <img src="<%=get_current_host_and_port%>images/login.png"><a href="#">登入</a></div>
+      <div class="button"><a href="#"><img src="<%=get_current_host_and_port%>images/psw.png">忘記密碼</a></div>
+  </div>
+  <!--main--> 
+</div>
+<!--container-->
 <% end %>
-
-<%= render "devise/shared/links" %>
+<div id="footer"></div>
+<!--footer-->
