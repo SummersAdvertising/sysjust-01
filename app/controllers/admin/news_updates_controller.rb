@@ -62,7 +62,7 @@ class Admin::NewsUpdatesController < ApplicationController
 
     respond_to do |format|
       if @news_update.update_attributes(params[:news_update])
-        format.html { redirect_to admin_news_update_path(@news_update), notice: 'News update was successfully updated.' }
+        format.html { redirect_to admin_news_updates_url, notice: 'News update was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

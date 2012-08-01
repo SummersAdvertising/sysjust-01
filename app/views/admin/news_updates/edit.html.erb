@@ -1,6 +1,46 @@
-<h1>Editing news_update</h1>
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <%= form_for([:admin,@news_update]) do |f| %>
+    <% if @news_update.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@news_update.errors.count, "error") %> prohibited this news_update from being saved:</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', admin_news_update_path(@news_update) %> |
-<%= link_to 'Back', admin_news_updates_path %>
+	      <ul>
+	      <% @news_update.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+    <% end %>
+    <div id="main" class="right">
+    <div class="main-title">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top" class="title" height="22" width="98"><%= @news_update.updated_at.to_date %></td>
+          <td valign="middle" class="text"><%= f.text_field :title %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="main-title" style="margin-top:10px">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="title2" height="27" width="94">消息來源</td>
+          <td class="text" width="233"><%= f.text_field :source %></td>
+          <td class="title2" width="94" style="border-left:1px solid #ccc">內容分類</td>
+          <td class="text" width="233"><%= f.text_field :category %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="main-text"><%= f.text_area :content, :rows => 0, :cols => 0, :class => 'autogrow' %></div>
+    <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
+    <div class="button"><a href="<%=admin_news_updates_path%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
+    <!--main-->     
+  </div>
+  <% end %>
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->
