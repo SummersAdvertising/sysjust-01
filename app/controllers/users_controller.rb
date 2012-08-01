@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 	before_filter :require_is_admin
 
 	def index
-		@users = User.all		
+		@users = User.all	
+		@user=User.new	
 	end
 
 	def new

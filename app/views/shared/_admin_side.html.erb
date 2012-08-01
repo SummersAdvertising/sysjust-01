@@ -1,0 +1,19 @@
+<div id="side" class="left">
+  <ul>
+    <li><a href="#" id="update">最新消息</a></li>
+    <li><a href="#" id="course">XQ課程資訊</a></li>
+    <li><a href="#" id="video">實機線上影片</a></li>
+    <li><a href="#" id="experience">體驗XQ模組</a></li>
+    <li><a href="#" id="banner">專家秘訣模組</a></li>
+    
+  <!-- 使用者管理 -->
+    <li><a href="<%=users_path%>" id="users" 
+      <%if params[:controller]=="users" && params[:action]=="index"%>
+        class="active"        
+      <%end%>
+      >使用者管理</a>
+  </li>
+
+  </ul>
+</div>
+<!--side-->

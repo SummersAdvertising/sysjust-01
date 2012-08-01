@@ -1,0 +1,6 @@
+<% @users.each do |user| %>
+<%=user.email%>||
+	<%if current_user.is_admin? && user!=current_user%>
+		<%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<%end%><br />
+<% end %>
