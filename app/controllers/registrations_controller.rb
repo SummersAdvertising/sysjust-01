@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+	#only admin can access sign up page
 	# before_filter :prevent_sign_up, only: [:new]
 
 	# private

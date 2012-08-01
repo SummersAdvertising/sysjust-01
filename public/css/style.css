@@ -1,0 +1,127 @@
+/*-------------------------------------------------------------------全域---*/
+
+html{font:300 13px "Helvetica";background:url(../images/background.jpg) 0 0 repeat}
+body{background:none!important}
+a{text-decoration:none;font:300 13px "Helvetica"}
+.left{float:left}
+.right{float:right}
+
+/*-------------------------------------------------------------------頁首---*/
+
+#top-out{background:url(../images/top.jpg) 0 0 repeat-x;width:100%;box-shadow:0 0 10px #222}
+#top{width:768px;margin:0 auto;height:38px;padding:12px 0 0 0;text-shadow:0 1px 0 #000;overflow:hidden;}
+#top a{text-shadow:0 1px 0 #000;}
+h1{width:200px;height:23px;padding:4px 0 0 2px}
+h1 a{font:700 15px "Helvetica";color:#eee;}
+#top .right{width:566px;height:20px;padding:5px 0 0 0;text-align:right;color:#aaa}
+#top .right a{border-radius:5px;border:1px solid #333;padding:5px 10px;background:#000;margin-left:10px;color:#aaa}
+#top .right a:hover{color:#fff;text-shadow:0 0 1px #fff}
+
+/*-------------------------------------------------------------------頁身---*/
+
+#container{width:768px;margin:0 auto;margin-top:10px;clear:both;overflow:hidden}
+
+/*-------------------------------------------------------------------側邊欄---*/
+
+#side{width:100px;position:relative;left:2px;text-align:center}
+#side li{height:100px}
+#side li a{background-image:url(../images/side.png);background-repeat:no-repeat;
+display:block;width:100%;height:40px;color:#83541A;text-shadow:0 1px 0 #F0C98C;padding-top:60px;}
+
+#update{background-position:-710px -68px}
+#update:hover{background-position:-710px 12px}
+/*
+#announcement{background-position:-70px -68px}
+#announcement:hover{background-position:-70px 12px}
+*/
+#course{background-position:12px -68px}
+#course:hover{background-position:12px 12px}
+#video{background-position:-310px -68px}
+#video:hover{background-position:-310px 12px}
+#experience{background-position:-388px -68px}
+#experience:hover{background-position:-388px 12px}
+#banner{background-position:-627px -68px}
+#banner:hover{background-position:-627px 12px}
+#users{background-position:-790px -68px}
+#users:hover{background-position:-790px 12px}
+
+#side .active{background-color:#fff;border-top:1px solid #999;border-left:1px solid #999;	
+border-bottom:1px solid #999;border-radius:5px 0 0 5px;
+color:#152529!important;text-shadow:0 1px 0 #eee!important}
+
+/*-------------------------------------------------------------------主內容---*/
+
+#main{background:#fff;border:1px solid #999;border-radius:5px;
+width:646px;padding:10px;min-height:580px;}
+
+/*-------------------------------------------------------------------表格---*/
+
+.main-list{border:1px solid #ccc;border-radius:5px;color:#555;clear:both;font-family:Verdana}
+.main-list a{color:#31343B}
+.main-list span{font:700 16px Georgia, "Times New Roman", Times, serif;color:#31343B;padding:0 2px 0 0}
+.main-list a:hover{text-decoration:underline}
+.main-list th{height:40px;background:url(../images/list.jpg) 0 0 repeat-x;text-shadow:0 1px 0 #fff;color:#555}
+.main-list td{height:30px;border-top:1px solid #D1D1DB;color:#999;padding:5px 0}
+.main-list tr:nth-child(2n) {background:#F9F9F9}
+
+#count span{font:700 16px Georgia, "Times New Roman", Times, serif;color:#31343B;padding:0 2px 0 0}
+
+/*-------------------------------------------------------------------按鈕---*/
+
+.button{background:url(../images/list.jpg) 0 0 repeat-x;border:1px solid #ccc;margin:0 0 10px 10px;
+border-radius:5px;height:27px;padding:3px 0 0 10px;width:100px;float:right;position:relative;z-index:1}
+.button a{color:#333;text-shadow:0 1px 0 #fff;font-weight:700}
+.button:hover a{color:#777}
+.button img{position:relative;top:3px;margin-right:10px}
+.button input{display:block;width:110px;height:30px;position:absolute;top:0;left:0;
+background:none;border:0;z-index:2;cursor:pointer}
+
+/*-------------------------------------------------------------------標題---*/
+
+.main-title{width:100%;border:1px solid #ccc;border-radius:5px;overflow:hidden;font-family:Verdana;line-height:20px;}
+.main-title .title{background:url(../images/title.jpg) right top no-repeat;padding:6px 0 0 10px;
+color:#999;text-shadow:0 1px 0 #fff;}
+.main-title .title2{background:url(../images/title.jpg) right top no-repeat;padding:0 0 0 25px;
+color:#999;text-shadow:0 1px 0 #fff;}
+.main-title .text{padding:5px 10px}
+.main-title input{border:0;width:100%;font:300 13px "Helvetica";color:#555;	height:18px;margin-top:0px}
+
+/*-------------------------------------------------------------------內文---*/
+
+.main-text{padding:10px;border:1px solid #ccc;border-radius:5px;margin:10px 0;clear:both;background:#F9F9F9;line-height:20px;}
+.main-text input{width:95%;border:1px solid #ddd;font:300 13px "Helvetica";color:#555;	height:18px;margin-top:0px}
+.main-text textarea{border:1px solid #ddd;width:99%;font:300 13px "Helvetica";color:#333;line-height:20px;overflow:hidden;min-height:100px}
+.main-text th{font:700 13px "新細明體";padding-top:3px;color:#31343B;text-shadow:0 1px 0 #fff}
+
+.main-data{padding:10px;border:1px solid #ccc;border-radius:5px;margin:10px 0;clear:both;background:#F9F9F9;line-height:20px;}
+.main-data th{font:700 13px "新細明體";color:#31343B;padding-top:3px;text-shadow:0 1px 0 #fff}
+.main-data input{width:90%;border:1px solid #ddd;font:300 13px "Helvetica";color:#555;	height:18px;margin-top:0px}
+
+/*-------------------------------------------------------------------表單---*/
+
+h2{font:italic 300 18px "細明體";padding:5px 0 0 10px}
+.main-sign{width:400px!important;margin:0 auto}
+.main-sign table,.main-form table{margin:20px 0}
+.main-sign table td,.main-form table td{padding:5px 0;font:300 15px "微軟正黑體";color:#222}
+.main-sign table td span,.main-form table td span{font:300 12px "微軟正黑體";color:#777}
+.main-sign table input{width:97%;background:#fff;border:1px solid #ccc!important;border-radius:5px;padding:8px 5px}
+.main-form input{width:53%;background:#fff;border:1px solid #ccc!important;border-radius:5px;padding:8px 5px}
+.main-form{padding-left:35px}
+
+/*-------------------------------------------------------------------分類---*/
+
+.main-category{width:100%;border:1px solid #ccc;border-radius:5px;overflow:hidden;font-family:Verdana;line-height:20px;}
+.main-category .title{background:url(../images/title.jpg) right top no-repeat;padding:0 0 0 25px;color:#999;text-shadow:0 1px 0 #fff}
+.main-category .text{padding:5px 10px}
+.main-category a{display:block;float:left;padding:2px 10px;color:#777;background:#eee;border-radius:5px;margin-right:10px}
+.main-category a:hover{text-decoration:underline}
+.main-category .active{color:#fff!important;background:#31343B}
+
+/*-------------------------------------------------------------------橫幅---*/
+
+.main-banner{padding:10px;border:1px solid #ccc;border-radius:5px;margin:10px 0;clear:both;background:#F9F9F9;line-height:20px;}
+.main-banner img{}
+.main-banner th{font:700 13px "新細明體";color:#31343B;padding-top:3px}
+.main-banner input{width:100%;border:1px solid #ddd;font:300 13px "Helvetica";color:#555;	height:18px;margin-top:0px}
+.main-banner textarea{border:1px solid #ddd;width:99%;font:300 13px "Helvetica";color:#333;line-height:20px;overflow:hidden;min-height:50px}
+.main-banner .upload-img{border:3px double #ccc;background:url(../images/upload-image.jpg) center center no-repeat}
