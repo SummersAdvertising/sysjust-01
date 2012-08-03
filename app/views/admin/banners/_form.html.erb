@@ -1,0 +1,76 @@
+<%= form_for [:admin,@banner], :html => { :multipart => true } do |f| %>
+  <% if @banner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@banner.errors.count, "error") %> prohibited this banner from being saved:</h2>
+
+      <ul>
+      <% @banner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title_01 %><br />
+    <%= f.text_field :title_01 %>
+  </div>
+  <div class="field">
+    <%= f.label :content_01 %><br />
+    <%= f.text_area :content_01 %>
+  </div>
+  <div class="field">
+    <%= f.label :hyperlink_01 %><br />
+    <%= f.text_field :hyperlink_01 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :upload_image_01 %><br />
+    <%= f.file_field :excerpt_image_01 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title_02 %><br />
+    <%= f.text_field :title_02 %>
+  </div>
+  <div class="field">
+    <%= f.label :content_02 %><br />
+    <%= f.text_area :content_02 %>
+  </div>
+  <div class="field">
+    <%= f.label :hyperlink_02 %><br />
+    <%= f.text_field :hyperlink_02 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :upload_image_02 %><br />
+    <%= f.file_field :excerpt_image_02 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title_03 %><br />
+    <%= f.text_field :title_03 %>
+  </div>
+  <div class="field">
+    <%= f.label :content_03 %><br />
+    <%= f.text_area :content_03 %>
+  </div>
+  <div class="field">
+    <%= f.label :hyperlink_03 %><br />
+    <%= f.text_field :hyperlink_03 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :upload_image_03 %><br />
+    <%= f.file_field :excerpt_image_03 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
