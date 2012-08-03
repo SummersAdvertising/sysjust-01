@@ -20,6 +20,12 @@
   <%= @banner.hyperlink_01 %>
 </p>
 
+<% if @banner.excerpt_image_01? %>
+<p>
+  <%= image_tag(@banner.excerpt_image_01.url(:medium)) %>
+</p>
+<% end %>
+
 <p>
   <b>Title 02:</b>
   <%= @banner.title_02 %>
@@ -35,6 +41,12 @@
   <%= @banner.hyperlink_02 %>
 </p>
 
+<% if @banner.excerpt_image_02? %>
+<p>
+  <%= image_tag(@banner.excerpt_image_02.url(:medium)) %>
+</p>
+<% end %>
+
 <p>
   <b>Title 03:</b>
   <%= @banner.title_03 %>
@@ -49,6 +61,12 @@
   <b>Hyperlink 03:</b>
   <%= @banner.hyperlink_03 %>
 </p>
+
+<% if @banner.excerpt_image_03? %>
+<p>
+  <%= image_tag(@banner.excerpt_image_03.url(:medium)) %>
+</p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_banner_path(@banner) %> |

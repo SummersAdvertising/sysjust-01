@@ -10,6 +10,7 @@ gem 'mysql2'
 gem 'devise'
 gem 'capistrano'
 gem 'capistrano-ext'
+gem "paperclip"
 
 # Gems used only for assets and not required
 # in production environments by default.

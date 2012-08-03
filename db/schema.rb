@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803014629) do
+ActiveRecord::Schema.define(:version => 20120803025511) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -24,8 +24,20 @@ ActiveRecord::Schema.define(:version => 20120803014629) do
     t.string   "title_03"
     t.text     "content_03"
     t.string   "hyperlink_03"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "excerpt_image_01_file_name"
+    t.string   "excerpt_image_01_content_type"
+    t.integer  "excerpt_image_01_file_size"
+    t.datetime "excerpt_image_01_updated_at"
+    t.string   "excerpt_image_02_file_name"
+    t.string   "excerpt_image_02_content_type"
+    t.integer  "excerpt_image_02_file_size"
+    t.datetime "excerpt_image_02_updated_at"
+    t.string   "excerpt_image_03_file_name"
+    t.string   "excerpt_image_03_content_type"
+    t.integer  "excerpt_image_03_file_size"
+    t.datetime "excerpt_image_03_updated_at"
   end
 
   create_table "news_updates", :force => true do |t|
