@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddExcerptImageToBanner < ActiveRecord::Migration
   def self.up
     add_column :banners, :excerpt_image_01_file_name,    :string

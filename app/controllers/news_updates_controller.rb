@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class NewsUpdatesController < ApplicationController
   # GET /news_updates
   # GET /news_updates.json

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class BannersController < ApplicationController
   # GET /banners
   # GET /banners.json

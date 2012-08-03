@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # find system imagemagick command location
 if File.exist?('/usr/local/bin/identify') && File.exist?('/usr/local/bin/convert')
   Paperclip.options[:command_path] = '/usr/local/bin'
