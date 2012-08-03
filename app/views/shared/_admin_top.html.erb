@@ -1,6 +1,6 @@
 <div id="top-out">
   <div id="top">
-    <h1 class="left"><a href="<%=root_path%>">XQ全球贏家-後台管理系統</a></h1>
+    <h1 class="left"><a href="<%=admin_news_updates_path%>">XQ全球贏家-後台管理系統</a></h1>
     <%if signed_in?%>
 	    <div class="right">你好，<%=current_user.name%>！<a href="<%=edit_user_registration_path%>">修改個人資料</a><%= link_to("登出", destroy_user_session_path, :method => :delete )%></div>\
 	<%else%>    
