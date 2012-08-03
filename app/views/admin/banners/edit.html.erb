@@ -1,6 +1,94 @@
-<h1>Editing banner</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', admin_banner_path(@banner) %> |
-<%= link_to 'Back', admin_banners_path %>
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <div id="main" class="right">
+    <div class="main-category" style="margin-bottom:10px">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="title" height="27" width="16%">四大分類</td>
+          <td class="text" width="84%"><a href="#" class="active">應用篇</a><a href="#">籌碼篇</a><a href="#">選股篇</a><a href="#">技術分析篇</a></td>
+        </tr>
+      </table>
+    </div>
+    <div class="main-banner">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="41%" rowspan="4" align="left" valign="top" class="upload-img">&nbsp;</td>
+          <th width="2%" align="left" valign="top">&nbsp;</th>
+          <th width="6%" align="left" valign="top">標題</th>
+          <td width="51%" height="20" align="left" valign="top"><input name="" type="text" /></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">內文</th>
+          <td height="20" align="left" valign="top"><textarea name="" cols="" rows="" class="autogrow"></textarea></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">連結</th>
+          <td align="left" valign="top"><input name="" type="text" /></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">上傳</th>
+          <td align="left" valign="top"><img src="images/add-img.png" width="87" height="19" /></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:20px 0;padding:20px 0;border-top:1px dashed #ddd;border-bottom:1px dashed #ddd">
+        <tr>
+          <td width="41%" rowspan="4" align="left" valign="top" class="upload-img">&nbsp;</td>
+          <th width="2%" align="left" valign="top">&nbsp;</th>
+          <th width="6%" align="left" valign="top">標題</th>
+          <td width="51%" height="20" align="left" valign="top"><input name="" type="text" /></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">內文</th>
+          <td height="20" align="left" valign="top"><textarea name="" cols="" rows="" class="autogrow"></textarea></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">連結</th>
+          <td align="left" valign="top"><input name="" type="text" /></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">上傳</th>
+          <td align="left" valign="top"><img src="images/add-img.png" width="87" height="19" /></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="41%" rowspan="4" align="left" valign="top" class="upload-img">&nbsp;</td>
+          <th width="2%" align="left" valign="top">&nbsp;</th>
+          <th width="6%" align="left" valign="top">標題</th>
+          <td width="51%" height="20" align="left" valign="top"><input name="" type="text" /></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">內文</th>
+          <td height="20" align="left" valign="top"><textarea name="" cols="" rows="" class="autogrow"></textarea></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">連結</th>
+          <td align="left" valign="top"><input name="" type="text" /></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">上傳</th>
+          <td align="left" valign="top"><img src="images/add-img.png" width="87" height="19" /></td>
+        </tr>
+      </table>
+    </div>
+    <!--main-banner-->
+    <div class="button"><a href="#"><img src="images/save.png">儲存</a></div>
+    <div class="button"><a href="#"><img src="images/cancel.png">取消</a></div>
+  </div>
+  <!--main--> 
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->

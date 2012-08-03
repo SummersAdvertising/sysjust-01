@@ -44,6 +44,11 @@ class Admin::BannersController < ApplicationController
   # GET /banners/1/edit
   def edit
     @banner = Banner.find(params[:id])
+    @banners = Banner.recent.limit(4)
+    @banner_01 = @banners[0]
+    @banner_02 = @banners[1]
+    @banner_03 = @banners[2]
+    @banner_04 = @banners[3]
   end
 
   # POST /banners

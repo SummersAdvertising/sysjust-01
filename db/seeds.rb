@@ -34,7 +34,7 @@ banner_01.hyperlink_03 = "http://www.yahoo.com.tw/news/20120716"
 banner_01.save
 
 banner_02 = Banner.new
-banner_02.category = "應用篇"
+banner_02.category = "籌碼篇"
 banner_02.title_01 = "台美公司對應"
 banner_02.content_01 = "對應相關公司，輕鬆掌握連動關係"
 banner_02.hyperlink_01 = "http://www.yahoo.com.tw/news/20120716"
@@ -47,7 +47,7 @@ banner_02.hyperlink_03 = "http://www.yahoo.com.tw/news/20120716"
 banner_02.save
 
 banner_03 = Banner.new
-banner_03.category = "應用篇"
+banner_03.category = "選股篇"
 banner_03.title_01 = "台美公司對應"
 banner_03.content_01 = "對應相關公司，輕鬆掌握連動關係"
 banner_03.hyperlink_01 = "http://www.yahoo.com.tw/news/20120716"
@@ -60,7 +60,7 @@ banner_03.hyperlink_03 = "http://www.yahoo.com.tw/news/20120716"
 banner_03.save
 
 banner_04 = Banner.new
-banner_04.category = "應用篇"
+banner_04.category = "技術分析篇"
 banner_04.title_01 = "台美公司對應"
 banner_04.content_01 = "對應相關公司，輕鬆掌握連動關係"
 banner_04.hyperlink_01 = "http://www.yahoo.com.tw/news/20120716"
