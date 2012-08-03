@@ -1,73 +1,83 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Category:</b>
-  <%= @banner.category %>
-</p>
-
-<p>
-  <b>Title 01:</b>
-  <%= @banner.title_01 %>
-</p>
-
-<p>
-  <b>Content 01:</b>
-  <%= @banner.content_01 %>
-</p>
-
-<p>
-  <b>Hyperlink 01:</b>
-  <%= @banner.hyperlink_01 %>
-</p>
-
-<% if @banner.excerpt_image_01? %>
-<p>
-  <%= image_tag(@banner.excerpt_image_01.url(:medium)) %>
-</p>
-<% end %>
-
-<p>
-  <b>Title 02:</b>
-  <%= @banner.title_02 %>
-</p>
-
-<p>
-  <b>Content 02:</b>
-  <%= @banner.content_02 %>
-</p>
-
-<p>
-  <b>Hyperlink 02:</b>
-  <%= @banner.hyperlink_02 %>
-</p>
-
-<% if @banner.excerpt_image_02? %>
-<p>
-  <%= image_tag(@banner.excerpt_image_02.url(:medium)) %>
-</p>
-<% end %>
-
-<p>
-  <b>Title 03:</b>
-  <%= @banner.title_03 %>
-</p>
-
-<p>
-  <b>Content 03:</b>
-  <%= @banner.content_03 %>
-</p>
-
-<p>
-  <b>Hyperlink 03:</b>
-  <%= @banner.hyperlink_03 %>
-</p>
-
-<% if @banner.excerpt_image_03? %>
-<p>
-  <%= image_tag(@banner.excerpt_image_03.url(:medium)) %>
-</p>
-<% end %>
-
-
-<%= link_to 'Edit', edit_admin_banner_path(@banner) %> |
-<%= link_to 'Back', admin_banners_path %>
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <div id="main" class="right">
+    <%= render :partial => "shared/admin_category" %>
+    <div class="main-banner">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="41%" rowspan="3" align="left" valign="top" class="upload-img">
+            <% if @banner.excerpt_image_01? %>            
+              <%= image_tag(@banner.excerpt_image_01.url(:medium)) %>
+            <% end %>
+          </td>
+          <th width="2%" align="left" valign="top">&nbsp;</th>
+          <th width="6%" align="left" valign="top">標題</th>
+          <td width="51%" height="20" align="left" valign="top"><%=@banner.title_01%></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">內文</th>
+          <td height="20" align="left" valign="top"><%=@banner.content_01%></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">連結</th>
+          <td align="left" valign="top"><%=@banner.hyperlink_01%></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:20px 0;padding:20px 0;border-top:1px dashed #ddd;border-bottom:1px dashed #ddd">
+        <tr>
+          <td width="41%" rowspan="3" align="left" valign="top" class="upload-img">
+            <% if @banner.excerpt_image_02? %>            
+              <%= image_tag(@banner.excerpt_image_02.url(:medium)) %>
+            <% end %>
+          </td>
+          <th width="2%" align="left" valign="top">&nbsp;</th>
+          <th width="6%" align="left" valign="top">標題</th>
+          <td width="51%" height="20" align="left" valign="top"><%=@banner.title_02%></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">內文</th>
+          <td height="20" align="left" valign="top"><%=@banner.content_02%></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">連結</th>
+          <td align="left" valign="top"><%=@banner.hyperlink_02%></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="41%" rowspan="3" align="left" valign="top" class="upload-img">
+            <% if @banner.excerpt_image_03? %>            
+              <%= image_tag(@banner.excerpt_image_03.url(:medium)) %>
+            <% end %>
+          </td>
+          <th width="2%" align="left" valign="top">&nbsp;</th>
+          <th width="6%" align="left" valign="top">標題</th>
+          <td width="51%" height="20" align="left" valign="top"><%=@banner.title_03%></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">內文</th>
+          <td height="20" align="left" valign="top"><%=@banner.content_03%></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">&nbsp;</th>
+          <th align="left" valign="top">連結</th>
+          <td align="left" valign="top"><%=@banner.hyperlink_03%></td>
+        </tr>
+      </table>
+    </div>
+    <!--main-banner-->
+    <div class="button"><a href="<%=edit_admin_banner_path(@banner)%>"><img src="<%=get_current_host_and_port%>images/edit.png">編輯</a></div>
+  </div>
+  <!--main--> 
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->

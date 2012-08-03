@@ -1,22 +1,27 @@
 <div id="side" class="left">
   <ul>
-    <li><a href="<%=admin_news_updates_path%>" id="update" 
+    <li>
       <%if params[:controller]=="admin/news_updates"%>
-        class="active"        
+        <a href="<%=admin_news_updates_path%>" id="update" class="active">最新消息</a>  
       <%end%>
-      >最新消息</a>
+        <a href="<%=admin_news_updates_path%>" id="update">最新消息</a>
     </li>
 
     <li><a href="#" id="course">XQ課程資訊</a></li>
     <li><a href="#" id="video">實機線上影片</a></li>
     <li><a href="#" id="experience">體驗XQ模組</a></li>
-    <li><a href="#" id="banner">專家秘訣模組</a></li>    
 
-    <li><a href="<%=users_path%>" id="users" 
-      <%if params[:controller]=="users" && params[:action]=="index"%>
-        class="active"        
+    <li>
+      <%if params[:controller]=="admin/banners"%>
+        <a href="<%=admin_banners_path%>" id="banner" class="active">專家秘訣模組</a>
       <%end%>
-      >使用者管理</a>
+        <a href="<%=admin_banners_path%>" id="banner">專家秘訣模組</a>
+    </li>
+    <li>
+      <%if params[:controller]=="users" && params[:action]=="index"%>
+        <a href="<%=users_path%>" id="users" class="active">使用者管理</a>
+      <%end%>
+        <a href="<%=users_path%>" id="users">使用者管理</a>
     </li>
   </ul>
 </div>

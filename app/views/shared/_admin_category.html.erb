@@ -1,0 +1,29 @@
+<div class="main-category" style="margin-bottom:10px">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="title" height="27" width="16%">四大分類</td>
+      <td class="text" width="84%">
+      	<% if @banner == @banner_01%>
+      		<a href="<%=admin_banner_path(@banner_01)%>" class="active"><%=@banner_01.category%></a>
+      	<% else %>
+      		<a href="<%=admin_banner_path(@banner_01)%>"><%=@banner_01.category%></a>
+      	<% end %>
+      	<% if @banner == @banner_02%>
+      		<a href="<%=admin_banner_path(@banner_02)%>" class="active"><%=@banner_02.category%></a>
+      	<% else %>
+      		<a href="<%=admin_banner_path(@banner_02)%>"><%=@banner_02.category%></a>
+      	<% end %>
+      	<% if @banner == @banner_03%>
+      		<a href="<%=admin_banner_path(@banner_03)%>" class="active"><%=@banner_03.category%></a>
+      	<% else %>
+      		<a href="<%=admin_banner_path(@banner_03)%>"><%=@banner_03.category%></a>
+      	<% end %>
+      	<% if @banner == @banner_04%>
+      		<a href="<%=admin_banner_path(@banner_04)%>" class="active"><%=@banner_04.category%></a>
+      	<% else %>
+      		<a href="<%=admin_banner_path(@banner_04)%>"><%=@banner_04.category%></a>
+      	<% end %>      	
+      </td>
+    </tr>
+  </table>
+</div>
