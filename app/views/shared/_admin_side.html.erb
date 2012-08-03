@@ -14,9 +14,9 @@
 
     <li>
       <%if params[:controller]=="admin/banners"%>
-        <a href="<%=admin_banner_path(Banner.recent.first)%>" id="banner" class="active">專家秘訣模組</a>
+        <a href="<%=admin_banner_path(Banner.first)%>" id="banner" class="active">專家秘訣模組</a>
       <% else %>
-        <a href="<%=admin_banner_path(Banner.recent.first)%>" id="banner">專家秘訣模組</a>
+        <a href="<%=admin_banner_path(Banner.first)%>" id="banner">專家秘訣模組</a>
       <%end%>
     </li>
     <li>
