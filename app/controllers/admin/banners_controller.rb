@@ -74,7 +74,7 @@ class Admin::BannersController < ApplicationController
 
     respond_to do |format|
       if @banner.update_attributes(params[:banner])
-        format.html { redirect_to admin_banners_url, notice: 'Banner was successfully updated.' }
+        format.html { redirect_to admin_banner_path(@banner), notice: 'Banner was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

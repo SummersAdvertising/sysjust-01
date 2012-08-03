@@ -3,8 +3,9 @@
     <li>
       <%if params[:controller]=="admin/news_updates"%>
         <a href="<%=admin_news_updates_path%>" id="update" class="active">最新消息</a>  
-      <%end%>
+      <% else %>
         <a href="<%=admin_news_updates_path%>" id="update">最新消息</a>
+      <%end%>
     </li>
 
     <li><a href="#" id="course">XQ課程資訊</a></li>
@@ -13,15 +14,17 @@
 
     <li>
       <%if params[:controller]=="admin/banners"%>
-        <a href="<%=admin_banners_path%>" id="banner" class="active">專家秘訣模組</a>
+        <a href="<%=admin_banner_path(Banner.recent.first)%>" id="banner" class="active">專家秘訣模組</a>
+      <% else %>
+        <a href="<%=admin_banner_path(Banner.recent.first)%>" id="banner">專家秘訣模組</a>
       <%end%>
-        <a href="<%=admin_banners_path%>" id="banner">專家秘訣模組</a>
     </li>
     <li>
       <%if params[:controller]=="users" && params[:action]=="index"%>
         <a href="<%=users_path%>" id="users" class="active">使用者管理</a>
-      <%end%>
+      <% else %>
         <a href="<%=users_path%>" id="users">使用者管理</a>
+      <%end%>
     </li>
   </ul>
 </div>

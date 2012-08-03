@@ -20,4 +20,4 @@
 #Ignore database.yml.production
 /config/database.yml.production
 
-/public/system/
+public/system/
