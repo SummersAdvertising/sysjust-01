@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801093317) do
+ActiveRecord::Schema.define(:version => 20120803014629) do
+
+  create_table "banners", :force => true do |t|
+    t.string   "category"
+    t.string   "title_01"
+    t.text     "content_01"
+    t.string   "hyperlink_01"
+    t.string   "title_02"
+    t.text     "content_02"
+    t.string   "hyperlink_02"
+    t.string   "title_03"
+    t.text     "content_03"
+    t.string   "hyperlink_03"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "news_updates", :force => true do |t|
     t.string   "title"

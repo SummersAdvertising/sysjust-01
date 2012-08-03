@@ -1,4 +1,6 @@
 TestDevise::Application.routes.draw do
+  resources :banners
+
   devise_for :users, :path_prefix => 'admin', :controllers => { :registrations => 'registrations'}  
   resources :users  
   resources :news_updates

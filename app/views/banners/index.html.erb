@@ -1,0 +1,41 @@
+<h1>Listing banners</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Title 01</th>
+    <th>Content 01</th>
+    <th>Hyperlink 01</th>
+    <th>Title 02</th>
+    <th>Content 02</th>
+    <th>Hyperlink 02</th>
+    <th>Title 03</th>
+    <th>Content 03</th>
+    <th>Hyperlink 03</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @banners.each do |banner| %>
+  <tr>
+    <td><%= banner.category %></td>
+    <td><%= banner.title_01 %></td>
+    <td><%= banner.content_01 %></td>
+    <td><%= banner.hyperlink_01 %></td>
+    <td><%= banner.title_02 %></td>
+    <td><%= banner.content_02 %></td>
+    <td><%= banner.hyperlink_02 %></td>
+    <td><%= banner.title_03 %></td>
+    <td><%= banner.content_03 %></td>
+    <td><%= banner.hyperlink_03 %></td>
+    <td><%= link_to 'Show', banner %></td>
+    <td><%= link_to 'Edit', edit_banner_path(banner) %></td>
+    <td><%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Banner', new_banner_path %>
