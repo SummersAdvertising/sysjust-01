@@ -103,7 +103,7 @@
     </div>
     <!--main-banner-->
     <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
-    <div class="button"><a href="#"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
+    <div class="button"><a href="<%=admin_banner_path(Banner.first)%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
   </div>
   <% end %>
   <!--main--> 
