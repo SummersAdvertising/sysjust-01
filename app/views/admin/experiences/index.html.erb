@@ -1,0 +1,42 @@
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <div id="main" class="right">
+    <div class="main-title">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top" class="title" height="22" width="98">指定 E-mail</td>
+          <td valign="middle" class="text"><input name="" type="text" /></td>
+        </tr>
+      </table>
+    </div>
+    <div class="button" style="margin-top:10px"><a href="#"><img src="<%=get_current_host_and_port%>images/check.png">變更</a></div>
+    
+    <div class="main-list">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="main-list-title">
+          <th width="17%" align="center" scope="col">日期</th>
+          <th width="62%" align="left" scope="col">公司</th>
+          <th width="7%" align="center" scope="col">人數</th>
+          <th width="7%" align="center" scope="col">編輯</th>
+          <th width="7%" align="center" scope="col">刪除</th>
+        </tr>
+        <% @experiences.each do |experience| %>
+            <tr>
+              <td align="center"><%= experience.updated_at.to_date %></td>
+              <td align="left"><a href="<%=admin_experience_path(experience)%>"><%= experience.company_name %></a></td>
+              <td align="center"><%= experience.attendant_number %></td>
+              <td align="center"><a href="<%=edit_admin_experience_path(experience)%>"><img src="<%=get_current_host_and_port%>images/edit.png"></a></td>
+              <td align="center"><a href='<%=admin_experience_path(experience)%>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%=get_current_host_and_port%>images/delete.png"></a></td>
+            </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <!--main--> 
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->
