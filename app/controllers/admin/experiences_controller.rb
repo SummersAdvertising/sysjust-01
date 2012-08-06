@@ -5,6 +5,7 @@ class Admin::ExperiencesController < ApplicationController
   # GET /experiences.json
   def index
     @experiences = Experience.all
+    @service_email = ServiceEmail.first
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,0 +1,23 @@
+<h1>Listing service_emails</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @service_emails.each do |service_email| %>
+  <tr>
+    <td><%= service_email.email %></td>
+    <td><%= link_to 'Show', service_email %></td>
+    <td><%= link_to 'Edit', edit_service_email_path(service_email) %></td>
+    <td><%= link_to 'Destroy', service_email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Service email', new_service_email_path %>

@@ -4,16 +4,17 @@
   <%= render :partial => "shared/admin_side" %>
   <!--side-->
   <div id="main" class="right">
+    <%= form_for([:admin,@service_email]) do |f| %>
     <div class="main-title">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td valign="top" class="title" height="22" width="98">指定 E-mail</td>
-          <td valign="middle" class="text"><input name="" type="text" /></td>
+          <td valign="middle" class="text"><%= f.text_field :email %></td>
         </tr>
       </table>
-    </div>
-    <div class="button" style="margin-top:10px"><a href="#"><img src="<%=get_current_host_and_port%>images/check.png">變更</a></div>
-    
+    </div>    
+    <div class="button" style="margin-top:10px"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/check.png">變更</div>
+    <% end %>
     <div class="main-list">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr class="main-list-title">

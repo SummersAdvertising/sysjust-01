@@ -1,0 +1,21 @@
+<%= form_for([:admin,@service_email]) do |f| %>
+  <% if @service_email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@service_email.errors.count, "error") %> prohibited this service_email from being saved:</h2>
+
+      <ul>
+      <% @service_email.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
