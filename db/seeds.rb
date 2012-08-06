@@ -72,6 +72,6 @@ banner_04.content_03 = "對應相關公司，輕鬆掌握連動關係"
 banner_04.hyperlink_03 = "http://www.yahoo.com.tw/news/20120716"
 banner_04.save
 
- service_email = ServiceEmail.new
- service_email.email = "rails.test.action.mailer@gmail.com"
- service_email.save
+service_email = ServiceEmail.new
+service_email.email = "rails.test.action.mailer@gmail.com"
+service_email.save
