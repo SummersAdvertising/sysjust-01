@@ -7,6 +7,7 @@ class CreateExperiences < ActiveRecord::Migration
       t.integer :attendant_number
       t.string :company_name
       t.string :professional_title
+      t.text :comment
 
       t.timestamps
     end

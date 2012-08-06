@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20120806015931) do
     t.integer  "attendant_number"
     t.string   "company_name"
     t.string   "professional_title"
+    t.text     "comment"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
