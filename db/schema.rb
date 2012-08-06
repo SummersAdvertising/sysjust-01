@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803025511) do
+ActiveRecord::Schema.define(:version => 20120806015931) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(:version => 20120803025511) do
     t.string   "excerpt_image_03_content_type"
     t.integer  "excerpt_image_03_file_size"
     t.datetime "excerpt_image_03_updated_at"
+  end
+
+  create_table "experiences", :force => true do |t|
+    t.string   "contact_person"
+    t.string   "phone_number"
+    t.string   "email"
+    t.integer  "attendant_number"
+    t.string   "company_name"
+    t.string   "professional_title"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "news_updates", :force => true do |t|
