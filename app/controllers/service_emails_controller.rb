@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ServiceEmailsController < ApplicationController
   # GET /service_emails
   # GET /service_emails.json

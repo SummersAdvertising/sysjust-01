@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ExperiencesController < ApplicationController
   # GET /experiences
   # GET /experiences.json
@@ -44,6 +45,9 @@ class ExperiencesController < ApplicationController
 
     respond_to do |format|
       if @experience.save
+        if !@experience.email.blank?
+          ExperienceMailer.notify_email(@experience).deliver
+        end
         format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
         format.json { render json: @experience, status: :created, location: @experience }
       else
