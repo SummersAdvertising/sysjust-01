@@ -5,6 +5,6 @@ class ExperienceMailer < ActionMailer::Base
   def notify_email(experience)
     @experience = experience    
     @url  = Setting.domain + new_user_session_path
-    mail(:to => experience.email, :subject => "有人報名體驗課程了")
+    mail(:to => ServiceEmail.first.email, :subject => "有人報名體驗課程了")
   end
 end
