@@ -1,15 +1,15 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
-  resources :enrollments
-
-  resources :courses
-
   devise_for :users, :path_prefix => 'admin', :controllers => { :registrations => 'registrations'}  
   resources :users  
   
   resources :news_updates
   resources :banners
   resources :experiences
+
+  resources :courses do
+    resources :enrollments
+  end
 
   namespace :admin do
     resources :news_updates

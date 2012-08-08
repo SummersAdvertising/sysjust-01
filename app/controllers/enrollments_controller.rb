@@ -40,11 +40,12 @@ class EnrollmentsController < ApplicationController
   # POST /enrollments
   # POST /enrollments.json
   def create
-    @enrollment = Enrollment.new(params[:enrollment])
+    @course = Course.find(params[:course_id])
+    @enrollment = @course.enrollments.create(params[:enrollment])
 
     respond_to do |format|
       if @enrollment.save
-        format.html { redirect_to @enrollment, notice: 'Enrollment was successfully created.' }
+        format.html { redirect_to @course, notice: 'Enrollment was successfully created.' }
         format.json { render json: @enrollment, status: :created, location: @enrollment }
       else
         format.html { render action: "new" }
@@ -72,11 +73,12 @@ class EnrollmentsController < ApplicationController
   # DELETE /enrollments/1
   # DELETE /enrollments/1.json
   def destroy
+    @course = Course.find(params[:course_id])
     @enrollment = Enrollment.find(params[:id])
     @enrollment.destroy
 
     respond_to do |format|
-      format.html { redirect_to enrollments_url }
+      format.html { redirect_to @course }
       format.json { head :no_content }
     end
   end

@@ -45,6 +45,44 @@
   <%= @course.is_display %>
 </p>
 
+Add a enrollment:
+<%= form_for([@course, @course.enrollments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :company %><br />
+    <%= f.text_field :company %>
+  </div>
+  <div class="field">
+    <%= f.label :professional_title %><br />
+    <%= f.text_field :professional_title %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+Enrollments<br />
+<%@enrollments.each do |enrollment|%>
+  <%= enrollment.name %>
+  <%= enrollment.email %>
+  <%= enrollment.phone %>
+  <%= enrollment.company %>
+  <%= enrollment.professional_title %>
+  <%= link_to 'Destroy', course_enrollment_path(@course,enrollment), confirm: 'Are you sure?', method: :delete %>
+               <br />
+<%end%>
+
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
