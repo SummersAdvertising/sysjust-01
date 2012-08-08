@@ -55,12 +55,8 @@ class Admin::CoursesController < ApplicationController
     @course = Course.new(params[:course])
 
     respond_to do |format|
-      if @course.save
-        if params[:action]=="online"
-          format.html { redirect_to online_admin_courses_path, notice: 'Course was successfully created.' }
-        else
-          format.html { redirect_to offline_admin_courses_path, notice: 'Course was successfully created.' }                  
-        end  
+      if @course.save        
+        format.html { redirect_to online_admin_courses_path, notice: 'Course was successfully created.' }        
         format.json { render json: @course, status: :created, location: @course }
       else
         format.html { render action: "new" }

@@ -35,7 +35,7 @@
                   <td align="center"> <%= course.start_time[6..9] + "-" + course.start_time[0..1] + "-" + course.start_time[3..4] %> </td>
                   <td align="left"><%= course.session %></td>
                   <td align="left"><a href="<%=admin_course_path(course)%>"><%= course.subject %></a></td>
-                  <td align="center"><span>30</span>/<%= course.registration_quota %></td>
+                  <td align="center"><span><%= course.enrollments.count %></span>/<%= course.registration_quota %></td>
                   <td align="center"><a href="<%=edit_admin_course_path(course)%>"><img src="<%=get_current_host_and_port%>images/edit.png" width="16" height="16" /></a></td>
                 </tr>
             <% end %>
