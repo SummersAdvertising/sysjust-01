@@ -1,6 +1,11 @@
 class Admin::CoursesController < ApplicationController
   layout 'admin'
   before_filter :require_sign_in  
+
+  def online
+    @courses = Course.display.recent    
+  end
+
   # GET /courses
   # GET /courses.json
   def index

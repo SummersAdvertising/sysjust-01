@@ -8,7 +8,7 @@ class CreateCourses < ActiveRecord::Migration
       t.string :lecturer
       t.string :address
       t.text :content
-      t.string :registration_quota
+      t.integer :registration_quota
       t.boolean :is_display
 
       t.timestamps

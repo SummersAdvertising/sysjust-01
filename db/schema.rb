@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20120808021709) do
     t.string   "lecturer"
     t.string   "address"
     t.text     "content"
-    t.string   "registration_quota"
+    t.integer  "registration_quota"
     t.boolean  "is_display"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false

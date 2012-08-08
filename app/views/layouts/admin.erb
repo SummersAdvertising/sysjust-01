@@ -23,5 +23,6 @@
 <body>
 <%= yield %>
 <%= render :partial => "shared/user_nav" %>
+<%= debug(params) if Rails.env.development? %>
 </body>
 </html>
