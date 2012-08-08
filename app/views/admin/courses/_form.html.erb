@@ -1,53 +1,55 @@
-<%= form_for([:admin, @course]) do |f| %>
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
-      <ul>
-      <% @course.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <%= form_for([:admin, @course]) do |f| %>
+  <div id="main" class="right">
+    <div class="main-text">
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <th width="7%" align="left" valign="top">場次</th>
+          <td width="43%" valign="top"><%= f.text_field :session %></td>
+          <th width="7%" align="left" valign="top">主題</th>
+          <td width="43%" colspan="5" valign="top"><%= f.text_field :subject %></td>
+        </tr>
+        <tr>
+          <th width="7%" align="left" valign="top">開始</th>
+          <td width="43%" valign="top"><%= f.text_field :start_time %></td>
+          <th width="7%" align="left" valign="top">結束</th>
+          <td width="43%" colspan="5" valign="top"><%= f.text_field :end_time %></td>
+        </tr>
+        <tr>
+          <th width="7%" align="left" valign="top">講師</th>
+          <td width="43%" valign="top"><%= f.text_field :lecturer %></td>
+          <th width="7%" align="left" valign="top">地址</th>
+          <td width="43%" colspan="5" valign="top"><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <th width="7%" align="left" valign="top">內文</th>
+          <td colspan="7" valign="top"><%= f.text_area :content %></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td width="32%" align="left">&nbsp;</td>
+          <th width="7%" align="center">上限</th>
+          <td width="7%" align="left"><%= f.number_field :registration_quota %></td>
+          <th width="13%" align="center">已報名人數</th>
+          <td width="7%" align="left"><%=@course.enrollments.count%></td>
+          <th width="7%" align="center">餘額</th>
+          <td width="7%" align="left"><%=@course.registration_quota - @course.enrollments.count%></td>
+          <th width="15%" align="center">顯示於前台</th>
+          <td width="5%" align="center" valign="bottom"><%= f.check_box :is_display %></td>
+        </tr>
+      </table>
     </div>
+    <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
+    <div class="button"><a href="<%=online_admin_courses_path%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
+    <!--main--> 
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :session %><br />
-    <%= f.text_field :session %>
-  </div>
-  <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
-  </div>
-  <div class="field">
-    <%= f.label :start_time %><br />
-    <%= f.text_field :start_time %>
-  </div>
-  <div class="field">
-    <%= f.label :end_time %><br />
-    <%= f.text_field :end_time %>
-  </div>
-  <div class="field">
-    <%= f.label :lecturer %><br />
-    <%= f.text_field :lecturer %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :registration_quota %><br />
-    <%= f.number_field :registration_quota %>
-  </div>
-  <div class="field">
-    <%= f.label :is_display %><br />
-    <%= f.check_box :is_display %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->

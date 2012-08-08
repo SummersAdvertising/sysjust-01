@@ -1,88 +1,107 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Session:</b>
-  <%= @course.session %>
-</p>
-
-<p>
-  <b>Subject:</b>
-  <%= @course.subject %>
-</p>
-
-<p>
-  <b>Start time:</b>
-  <%= @course.start_time %>
-</p>
-
-<p>
-  <b>End time:</b>
-  <%= @course.end_time %>
-</p>
-
-<p>
-  <b>Lecturer:</b>
-  <%= @course.lecturer %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @course.address %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @course.content %>
-</p>
-
-<p>
-  <b>Registration quota:</b>
-  <%= @course.registration_quota %>
-</p>
-
-<p>
-  <b>Is display:</b>
-  <%= @course.is_display %>
-</p>
-
-Add a enrollment:
-<%= form_for([:admin, @course, @course.enrollments.build]) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <div id="main" class="right">
+    <h2>編號：<%=@course.id%></h2>
+    <div class="main-text">
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <th width="7%" align="left" valign="top">場次</th>
+          <td width="43%" valign="top"><%=@course.session%></td>
+          <th width="7%" align="left" valign="top">主題</th>
+          <td width="43%" colspan="5" valign="top"><%=@course.subject%></td>
+        </tr>
+        <tr>
+          <th width="7%" align="left" valign="top">時間</th>
+          <td width="43%" valign="top"><%=@course.start_time%></td>
+          <th width="7%" align="left" valign="top">講師</th>
+          <td width="43%" colspan="5" valign="top"><%=@course.lecturer%></td>
+        </tr>
+        <tr>
+          <th width="7%" align="left" valign="top">地址</th>
+          <td colspan="7" valign="top"><%=@course.address%></td>
+        </tr>
+        <tr>
+          <th width="7%" align="left" valign="top">內文</th>
+          <td colspan="7" valign="top"><%= @course.content %></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td width="32%" align="left">&nbsp;</td>
+          <th width="7%" align="left">上限</th>
+          <td width="7%" align="left"><%=@course.registration_quota%></td>
+          <th width="13%" align="left">已報名人數</th>
+          <td width="7%" align="left"><%=@course.enrollments.count%></td>
+          <th width="7%" align="left">餘額</th>
+          <td width="7%" align="left"><%=@course.registration_quota - @course.enrollments.count%></td>
+          <th width="15%" align="center">顯示於前台</th>
+          <td width="5%" align="center" valign="bottom">
+            <% if @course.is_display == true %>
+              是
+            <% else %>
+              否
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="button"><a href="<%=edit_admin_course_path(@course)%>"><img src="<%=get_current_host_and_port%>images/edit.png">編輯</a></div>
+    <div class="button"><a href="<%=online_admin_courses_path%>"><img src="<%=get_current_host_and_port%>images/back.png">返回</a></div>
+    
+    <%= form_for([:admin, @course, @course.enrollments.build]) do |f| %>
+    <p id="notice"><%= notice %></p>
+    <h2 style="clear:both">報名者資料 <a href="#"><img src="<%=get_current_host_and_port%>images/print-list.png" style="position:relative;top:5px;left:5px"></a></h2>
+    <div class="main-data">
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <th width="7%" align="left">姓名</th>
+          <td width="18%" align="left"><%= f.text_field :name %></td>
+          <th width="7%" align="left">職稱</th>
+          <td width="18%" align="left"><%= f.text_field :professional_title %></td>
+          <th width="13%" align="left">公司名稱</th>
+          <td width="37%" colspan="2" align="left"><%= f.text_field :company %></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <th width="7%" align="left">電話</th>
+          <td width="18%" align="left"><%= f.text_field :phone %></td>
+          <th width="8%" align="left">Email</th>
+          <td width="67%"><%= f.text_field :email %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="button" style="clear:both"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/add.png">新增</div>
+    <%end%>
+    <%@enrollments.each do |enrollment|%>
+    <div class="main-data">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th width="7%" align="left">姓名</th>
+          <td width="18%" align="left"><%= enrollment.name %></td>
+          <th width="7%" align="left">職稱</th>
+          <td width="18%" align="left"><%= enrollment.professional_title %></td>
+          <th width="13%" align="left">公司名稱</th>
+          <td width="37%" colspan="2" align="left"><%= enrollment.company %></td>
+        </tr>
+      </table>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th width="7%" align="left">電話</th>
+          <td width="18%" align="left"><%= enrollment.phone %></td>
+          <th width="8%" align="left">Email</th>
+          <td width="63%"><%= enrollment.email %></td>
+          <td width="4%" align="left"><a href='<%=admin_course_enrollment_path(@course,enrollment)%>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%=get_current_host_and_port%>images/delete.png"></a></td>
+        </tr>
+      </table>
+    </div> 
+    <%end%>   
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :company %><br />
-    <%= f.text_field :company %>
-  </div>
-  <div class="field">
-    <%= f.label :professional_title %><br />
-    <%= f.text_field :professional_title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-Enrollments<br />
-<%@enrollments.each do |enrollment|%>
-  <%= enrollment.name %>
-  <%= enrollment.email %>
-  <%= enrollment.phone %>
-  <%= enrollment.company %>
-  <%= enrollment.professional_title %>
-  <%= link_to 'Destroy', course_enrollment_path(@course,enrollment), confirm: 'Are you sure?', method: :delete %>
-               <br />
-<%end%>
-
-
-<%= link_to 'Edit', edit_admin_course_path(@course) %> |
-<%= link_to 'Back', admin_courses_path %>
+  <!--main--> 
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->

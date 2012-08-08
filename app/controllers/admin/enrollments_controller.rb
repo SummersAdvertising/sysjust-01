@@ -47,10 +47,10 @@ class Admin::EnrollmentsController < ApplicationController
 
     respond_to do |format|
       if @enrollment.save
-        format.html { redirect_to @course, notice: 'Enrollment was successfully created.' }
+        format.html { redirect_to admin_course_path(@course), notice: 'Enrollment was successfully created.' }
         format.json { render json: @enrollment, status: :created, location: @enrollment }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to admin_course_path(@course), notice: @enrollment.errors.full_messages }
         format.json { render json: @enrollment.errors, status: :unprocessable_entity }
       end
     end
@@ -80,7 +80,7 @@ class Admin::EnrollmentsController < ApplicationController
     @enrollment.destroy
 
     respond_to do |format|
-      format.html { redirect_to @course }
+      format.html { redirect_to admin_course_path(@course) }
       format.json { head :no_content }
     end
   end

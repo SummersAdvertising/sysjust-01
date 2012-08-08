@@ -56,7 +56,7 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to admin_courses_path, notice: 'Course was successfully created.' }
+        format.html { redirect_to online_admin_courses_path, notice: 'Course was successfully created.' }
         format.json { render json: @course, status: :created, location: @course }
       else
         format.html { render action: "new" }
@@ -72,7 +72,7 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
-        format.html { redirect_to admin_courses_path, notice: 'Course was successfully updated.' }
+        format.html { redirect_to online_admin_courses_path, notice: 'Course was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -88,7 +88,7 @@ class Admin::CoursesController < ApplicationController
     @course.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_courses_path }
+      format.html { redirect_to online_admin_courses_path }
       format.json { head :no_content }
     end
   end

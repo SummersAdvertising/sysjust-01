@@ -1,0 +1,15 @@
+<div class="main-category" style="margin-bottom:10px">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>		  
+		  <td class="title" height="27" width="16%">課程狀態</td>
+		  <td class="text" width="84%">
+		  	<%if params[:controller]=="admin/courses" && params[:action]=="online"%>	
+		  		<a href="<%=online_admin_courses_path%>" class="active">進行中</a><a href="<%=offline_admin_courses_path%>">已下架</a>
+		  	<% else %>
+		  		<a href="<%=online_admin_courses_path%>">進行中</a><a href="<%=offline_admin_courses_path%>" class="active">已下架</a>
+		    <% end %>
+		  </td>
+		</tr>
+	</table>
+</div>
+<div class="button"><a href="<%=new_admin_course_path%>"><img src="<%=get_current_host_and_port%>images/add.png">新增課程</a></div>
