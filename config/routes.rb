@@ -18,6 +18,7 @@ TestDevise::Application.routes.draw do
     resources :courses do
       collection do
         get 'online'
+        get 'offline'
       end
       resources :enrollments
     end  

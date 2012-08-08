@@ -1,0 +1,54 @@
+<h1>Listing courses</h1>
+
+<table>
+  <tr>
+    <th>Session</th>
+    <th>Subject</th>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Lecturer</th>
+    <th>Address</th>
+    <th>Content</th>
+    <th>Registration quota</th>
+    <th>Is display</th>    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+    <% @courses.each do |course| 
+        @current_month = Time.now.month
+        @current_day = Time.now.day
+        @current_year = Time.now.year
+        @current_hour = Time.now.hour
+        @current_minute = Time.now.min
+        @current_time = @current_year * 365 * 24 * 60 + @current_month * 30 * 24 * 60 + @current_day * 24 * 60 + @current_hour * 60 + @current_minute   
+
+        @month = course.start_time[0..1].to_i
+        @day = course.start_time[3..4].to_i
+        @year = course.start_time[6..9].to_i
+        @hour = course.start_time[11..12].to_i
+        @minute = course.start_time[14..15].to_i
+        @time = @year * 365 * 24 * 60 + @month * 30 * 24 * 60 + @day * 24 * 60 + @hour * 60 + @minute
+
+    %>
+       <% if (@time < @current_time) || (course.is_display == false) %>           
+          <tr>
+            <td><%= course.session %></td>
+            <td><%= course.subject %></td>
+            <td><%= course.start_time %></td>
+            <td><%= course.end_time %></td>
+            <td><%= course.lecturer %></td>
+            <td><%= course.address %></td>
+            <td><%= course.content %></td>
+            <td><%= course.registration_quota %></td>
+            <td><%= course.is_display %></td>    
+            <td><%= link_to 'Show', admin_course_path(course) %></td>
+            <td><%= link_to 'Edit', edit_admin_course_path(course) %></td>
+            <td><%= link_to 'Destroy', admin_course_path(course), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+       <% end %>
+    <% end %>
+</table>
+
+<%= link_to 'New Course', new_admin_course_path %>

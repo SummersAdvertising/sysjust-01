@@ -6,6 +6,10 @@ class Admin::CoursesController < ApplicationController
     @courses = Course.display.recent    
   end
 
+  def offline
+    @courses = Course.recent    
+  end
+
   # GET /courses
   # GET /courses.json
   def index
