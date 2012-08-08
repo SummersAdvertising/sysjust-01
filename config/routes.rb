@@ -6,19 +6,21 @@ TestDevise::Application.routes.draw do
   resources :news_updates
   resources :banners
   resources :experiences
-
   resources :courses do
     resources :enrollments
   end
+
+
 
   namespace :admin do
     resources :news_updates
     resources :banners
     resources :experiences
-    resources :service_emails
-  end
-
-  
+    resources :service_emails  
+    resources :courses do
+      resources :enrollments
+    end  
+  end  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
