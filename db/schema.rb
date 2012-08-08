@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120806073732) do
+ActiveRecord::Schema.define(:version => 20120808020133) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -38,6 +38,20 @@ ActiveRecord::Schema.define(:version => 20120806073732) do
     t.string   "excerpt_image_03_content_type"
     t.integer  "excerpt_image_03_file_size"
     t.datetime "excerpt_image_03_updated_at"
+  end
+
+  create_table "courses", :force => true do |t|
+    t.string   "session"
+    t.string   "subject"
+    t.string   "start_time"
+    t.string   "end_time"
+    t.string   "lecturer"
+    t.string   "address"
+    t.text     "content"
+    t.string   "registration_quota"
+    t.boolean  "is_display"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "experiences", :force => true do |t|

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  session: MyString
+  subject: MyString
+  start_time: MyString
+  end_time: MyString
+  lecturer: MyString
+  address: MyString
+  content: MyText
+  registration_quota: MyString
+  is_display: false
+
+two:
+  session: MyString
+  subject: MyString
+  start_time: MyString
+  end_time: MyString
+  lecturer: MyString
+  address: MyString
+  content: MyText
+  registration_quota: MyString
+  is_display: false

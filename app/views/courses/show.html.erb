@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Session:</b>
+  <%= @course.session %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @course.subject %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @course.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @course.end_time %>
+</p>
+
+<p>
+  <b>Lecturer:</b>
+  <%= @course.lecturer %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @course.address %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @course.content %>
+</p>
+
+<p>
+  <b>Registration quota:</b>
+  <%= @course.registration_quota %>
+</p>
+
+<p>
+  <b>Is display:</b>
+  <%= @course.is_display %>
+</p>
+
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
