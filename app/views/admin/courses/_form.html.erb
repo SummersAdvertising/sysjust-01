@@ -36,9 +36,17 @@
           <th width="7%" align="center">上限</th>
           <td width="7%" align="left"><%= f.number_field :registration_quota %></td>
           <th width="13%" align="center">已報名人數</th>
-          <td width="7%" align="left"><%=@course.enrollments.count%></td>
+          <td width="7%" align="left">
+            <% if params[:action]=="edit" %>
+              <%=@course.enrollments.count%>
+            <% end %>
+          </td>
           <th width="7%" align="center">餘額</th>
-          <td width="7%" align="left"><%=@course.registration_quota - @course.enrollments.count%></td>
+          <td width="7%" align="left">
+            <% if params[:action]=="edit" %>
+              <%=@course.registration_quota - @course.enrollments.count%>
+            <% end %>
+          </td>
           <th width="15%" align="center">顯示於前台</th>
           <td width="5%" align="center" valign="bottom"><%= f.check_box :is_display %></td>
         </tr>
