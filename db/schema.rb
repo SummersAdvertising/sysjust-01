@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809091310) do
+ActiveRecord::Schema.define(:version => 20120809094822) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20120809091310) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "video"
+    t.string   "image"
   end
 
   add_index "videos", ["category_id"], :name => "index_videos_on_category_id"

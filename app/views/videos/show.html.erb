@@ -13,5 +13,7 @@
 <a href="<%=@video.video_url%>">watch video</a>
 </p>
 <br />
+<%= image_tag @video.image_url(:thumb) if @video.image? %>
+<br />
 <%= link_to 'Edit', edit_category_video_path(@category, @video) %> |
 <%= link_to 'Back', category_path(@category) %>
