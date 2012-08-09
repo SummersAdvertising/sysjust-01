@@ -1,12 +1,15 @@
 class EnrollmentsController < ApplicationController
+  before_filter :require_sign_in, only: :index
   # GET /enrollments
   # GET /enrollments.json
-  def index
-    @enrollments = Enrollment.all
+  def index    
+    @course = Course.find(params[:course_id])
+    @enrollments = @course.enrollments.all
 
     respond_to do |format|
+      format.xls 
       format.html # index.html.erb
-      format.json { render json: @enrollments }
+      format.json { render json: @enrollments }      
     end
   end
 
