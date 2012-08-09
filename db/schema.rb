@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809072844) do
+ActiveRecord::Schema.define(:version => 20120809091310) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(:version => 20120809072844) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "cats", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "video"
   end
 
   create_table "courses", :force => true do |t|
@@ -139,6 +132,7 @@ ActiveRecord::Schema.define(:version => 20120809072844) do
     t.integer  "category_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "video"
   end
 
   add_index "videos", ["category_id"], :name => "index_videos_on_category_id"

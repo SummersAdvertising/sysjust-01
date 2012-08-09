@@ -9,7 +9,9 @@
   <b>Content:</b>
   <%= @video.content %>
 </p>
-
-
+<p>
+<a href="<%=@video.video_url%>">watch video</a>
+</p>
+<br />
 <%= link_to 'Edit', edit_category_video_path(@category, @video) %> |
 <%= link_to 'Back', category_path(@category) %>
