@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809072202) do
+ActiveRecord::Schema.define(:version => 20120809072844) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -132,5 +132,15 @@ ActiveRecord::Schema.define(:version => 20120809072202) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "category_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "videos", ["category_id"], :name => "index_videos_on_category_id"
 
 end
