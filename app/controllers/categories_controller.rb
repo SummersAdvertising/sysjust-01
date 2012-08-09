@@ -13,7 +13,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:id])  
+    @videos = @category.videos.all
 
     respond_to do |format|
       format.html # show.html.erb

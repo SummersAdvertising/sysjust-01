@@ -40,11 +40,12 @@ class VideosController < ApplicationController
   # POST /videos
   # POST /videos.json
   def create
-    @video = Video.new(params[:video])
+    @category = Category.find(params[:category_id])
+    @video = @category.videos.create(params[:video])
 
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
+        format.html { redirect_to @category, notice: 'Video was successfully created.' }
         format.json { render json: @video, status: :created, location: @video }
       else
         format.html { render action: "new" }
@@ -72,11 +73,12 @@ class VideosController < ApplicationController
   # DELETE /videos/1
   # DELETE /videos/1.json
   def destroy
+    @category = Category.find(params[:category_id])
     @video = Video.find(params[:id])
     @video.destroy
 
     respond_to do |format|
-      format.html { redirect_to videos_url }
+      format.html { redirect_to @category }
       format.json { head :no_content }
     end
   end
