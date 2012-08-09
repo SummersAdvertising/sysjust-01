@@ -5,25 +5,12 @@
   <%= @category.name %>
 </p>
 
-Add a video:
-<%= form_for([@category, @category.videos.build]) do |f| %>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= link_to 'Add new video', new_category_video_path(@category)%><br />
 
 Videos<br />
 <%@videos.each do |video|%>
 	<%= video.title %>
-	<%= video.content %>
+	<%= link_to 'Show', category_video_path(@category,video)%>
 	<%= link_to 'Destroy', category_video_path(@category,video), confirm: 'Are you sure?', method: :delete %>
                <br />
 <%end%>

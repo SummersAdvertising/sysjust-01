@@ -13,7 +13,9 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    @video = Video.find(params[:id])
+    # @video = Video.find(params[:id])
+   @category = Category.find(params[:category_id])
+   @video = @category.videos.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,8 @@ class VideosController < ApplicationController
   # GET /videos/new
   # GET /videos/new.json
   def new
-    @video = Video.new
+    @category = Category.find(params[:category_id])
+    @video = @category.videos.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,14 +37,15 @@ class VideosController < ApplicationController
 
   # GET /videos/1/edit
   def edit
-    @video = Video.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @video = @category.videos.find(params[:id])
   end
 
   # POST /videos
   # POST /videos.json
   def create
     @category = Category.find(params[:category_id])
-    @video = @category.videos.create(params[:video])
+    @video = @category.videos.build(params[:video])
 
     respond_to do |format|
       if @video.save
@@ -57,11 +61,12 @@ class VideosController < ApplicationController
   # PUT /videos/1
   # PUT /videos/1.json
   def update
-    @video = Video.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @video = @category.videos.find(params[:id])
 
     respond_to do |format|
       if @video.update_attributes(params[:video])
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
+        format.html { redirect_to @category, notice: 'Video was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
