@@ -17,7 +17,10 @@ TestDevise::Application.routes.draw do
     resources :news_updates
     resources :banners
     resources :experiences
-    resources :service_emails  
+    resources :service_emails
+    resources :categories do
+      resources :videos
+    end  
     resources :courses do
       collection do
         get 'online'

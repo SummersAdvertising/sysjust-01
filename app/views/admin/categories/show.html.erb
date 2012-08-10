@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @category.name %>
+</p>
+
+<%= link_to 'Add new video', new_admin_category_video_path(@category)%><br />
+
+Videos<br />
+<%@videos.each do |video|%>
+	<%= video.title %>
+	<%= link_to 'Show', admin_category_video_path(@category,video)%>
+	<%= link_to 'Destroy', admin_category_video_path(@category,video), confirm: 'Are you sure?', method: :delete %>
+               <br />
+<%end%>
+
+<%= link_to 'Edit', edit_admin_category_path(@category) %> |
+<%= link_to 'Back', admin_categories_path %>
