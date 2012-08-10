@@ -5,7 +5,7 @@
   <!--side-->
   <div id="main" class="right">
     <%= render :partial => "category" %>
-    <%= form_for [:admin,@banner], :html => { :multipart => true } do |f| %>
+    <%= form_for [:admin,@banner], :validate => true,:html => { :multipart => true } do |f| %>
     <p id="notice"><%= notice %></p>
     <% if @banner.errors.any? %>
       <div id="error_explanation">
