@@ -1,5 +1,10 @@
-<%= form_for([:admin, @category, @video]) do |f| %>
-  <% if @video.errors.any? %>
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <%= form_for([:admin, @category, @video]) do |f| %>
+    <% if @video.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
 
@@ -10,22 +15,46 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div id="main" class="right">
+    <div class="main-title">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="16%" height="22" valign="top" class="title">
+            <% if params[:action]=="edit" %>
+              <%=@video.updated_at.to_date%>
+            <% else %> 
+              <%=Time.now.to_date%>
+            <% end %>
+          </td>
+          <td width="84%" valign="middle" class="text"><%= f.text_field :title %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="main-text">
+      <%= f.text_area :content, :rows => 0, :cols => 0, :class => 'autogrow' %>
+    </div>
+    
+    <div class="main-text">
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <th width="7%" align="left">影片</th>
+          <td width="17%"><img src="<%=get_current_host_and_port%>images/add-video.png"></td>
+          <td width="76%"><%= f.file_field :video %></td>
+        </tr>
+        <tr>
+          <th align="left">縮圖</th>
+          <td width="17%"><img src="<%=get_current_host_and_port%>images/add-img.png" /></td>
+          <td width="76%"><%= f.file_field :image %></td>          
+        </tr>
+      </table>
+      
+    </div>
+    <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
+    <div class="button"><a href="<%=admin_category_path(@category)%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
   </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.file_field :video %>
-  </div>
-  <div class="field">
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% end %>
+  <!--main--> 
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->

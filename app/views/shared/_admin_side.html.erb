@@ -10,19 +10,25 @@
 
     <li>
       <%if params[:controller]=="admin/courses"%>
-        <a href="<%=online_admin_courses_path%>" id="update" class="active">XQ課程資訊</a>  
+        <a href="<%=online_admin_courses_path%>" id="course" class="active">XQ課程資訊</a>  
       <% else %>
-        <a href="<%=online_admin_courses_path%>" id="update">XQ課程資訊</a>
+        <a href="<%=online_admin_courses_path%>" id="course">XQ課程資訊</a>
       <%end%>
     </li>
 
-    <li><a href="#" id="video">實機線上影片</a></li>
+    <li>
+      <%if (params[:controller]=="admin/categories") || (params[:controller]=="admin/videos") %>
+        <a href="<%=admin_category_path(Category.first)%>" id="video" class="active">實機線上影片</a>
+      <% else %>
+        <a href="<%=admin_category_path(Category.first)%>" id="video">實機線上影片</a>
+      <%end%>
+    </li>
 
     <li>
       <%if params[:controller]=="admin/experiences"%>
-        <a href="<%=admin_experiences_path%>" id="banner" class="active">體驗XQ模組</a>
+        <a href="<%=admin_experiences_path%>" id="experience" class="active">體驗XQ模組</a>
       <% else %>
-        <a href="<%=admin_experiences_path%>" id="banner">體驗XQ模組</a>
+        <a href="<%=admin_experiences_path%>" id="experience">體驗XQ模組</a>
       <%end%>
     </li>
 

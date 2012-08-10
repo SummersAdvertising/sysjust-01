@@ -18,6 +18,11 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.find(params[:id])  
     @videos = @category.videos.all
 
+    @categories = Category.limit(3)
+    @category_01 = @categories[0]
+    @category_02 = @categories[1]
+    @category_03 = @categories[2]
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @category }

@@ -1,20 +1,41 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @video.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @video.content %>
-</p>
-<p>
-<a href="<%=@video.video_url%>">watch video</a>
-</p>
-<br />
-<%= image_tag @video.image_url(:thumb) if @video.image? %>
-<br />
-
-<%= link_to 'Edit', edit_category_video_path(@category, @video) %> |
-<%= link_to 'Back', category_path(@category) %>
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <div id="main" class="right">
+    <div class="main-title">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="16%" height="22" valign="top" class="title"><%=@video.updated_at.to_date%></td>
+          <td width="84%" valign="middle" class="text"><%= @video.title %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="main-text">
+		<%= @video.content.gsub("\n", "<br />").html_safe %>
+    </div>
+    
+    <div class="main-text">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th width="7%" align="left">URL</th>
+          
+          <td width="93%"><a href="<%=@video.video_url%>">watch video</a></td>
+        </tr>
+        <tr>
+          <th align="left" valign="top">縮圖</th>
+          <td colspan="2"><%= image_tag @video.image_url(:thumb) if @video.image? %></td>
+        </tr>
+      </table>
+      
+    </div>
+    <div class="button"><a href="#"><img src="<%=get_current_host_and_port%>images/save.png">儲存</a></div>
+    <div class="button"><a href="#"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
+  </div>
+  
+  <!--main--> 
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->

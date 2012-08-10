@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
-
-<%= link_to 'Add new video', new_admin_category_video_path(@category)%><br />
-
-Videos<br />
-<%@videos.each do |video|%>
-	<%= video.title %>
-	<%= link_to 'Show', admin_category_video_path(@category,video)%>
-	<%= link_to 'Destroy', admin_category_video_path(@category,video), confirm: 'Are you sure?', method: :delete %>
-               <br />
-<%end%>
-
-<%= link_to 'Edit', edit_admin_category_path(@category) %> |
-<%= link_to 'Back', admin_categories_path %>
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <div id="main" class="right">
+  	<%= render :partial => "category" %>
+    <div class="button"><a href="<%=new_admin_category_video_path(@category)%>"><img src="<%=get_current_host_and_port%>images/add.png">新增影片</a></div>
+    <div class="main-list">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="main-list-title">
+          <th width="17%" align="center" scope="col">日期</th>
+          <th width="63%" align="left" scope="col">標題</th>
+          <th width="9%" align="center" scope="col">編輯</th>
+          <th width="9%" align="center" scope="col">刪除</th>
+        </tr>
+        <%@videos.each do |video|%>
+	        <tr>
+	          <td align="center"><%= video.updated_at.to_date %></td>
+	          <td align="left"><a href="<%=admin_category_video_path(@category,video)%>"><%= video.title %></a></td>
+	          <td align="center"><a href="<%=edit_admin_category_video_path(@category,video)%>"><img src="<%=get_current_host_and_port%>images/edit.png"></a></td>
+	          <td align="center"><a href='<%=admin_category_video_path(@category,video)%>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%=get_current_host_and_port%>images/delete.png"></a></td>
+	        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <!--main--> 
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->

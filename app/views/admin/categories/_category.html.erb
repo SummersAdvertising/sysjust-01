@@ -1,0 +1,26 @@
+<div class="main-category" style="margin-bottom:10px">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="title" height="27" width="16%">三大面向</td>
+      <td class="text" width="84%">
+      	<% if @category == @category_01%>
+      		<a href="<%=admin_category_path(@category_01)%>" class="active"><%=@category_01.name%></a>
+      	<% else %>
+      		<a href="<%=admin_category_path(@category_01)%>"><%=@category_01.name%></a>
+      	<% end %>
+
+      	<% if @category == @category_02%>
+      		<a href="<%=admin_category_path(@category_02)%>" class="active"><%=@category_02.name%></a>
+      	<% else %>
+      		<a href="<%=admin_category_path(@category_02)%>"><%=@category_02.name%></a>
+      	<% end %>
+      	
+      	<% if @category == @category_03%>
+      		<a href="<%=admin_category_path(@category_03)%>" class="active"><%=@category_03.name%></a>
+      	<% else %>
+      		<a href="<%=admin_category_path(@category_03)%>"><%=@category_03.name%></a>
+      	<% end %>      	
+      </td>
+    </tr>
+  </table>
+</div>

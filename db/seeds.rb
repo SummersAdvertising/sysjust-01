@@ -75,3 +75,15 @@ banner_04.save
 service_email = ServiceEmail.new
 service_email.email = "rails.test.action.mailer@gmail.com"
 service_email.save
+
+category_01 = Category.new
+category_01.name = "獨家操作教戰"
+category_01.save
+
+category_02 = Category.new
+category_02.name = "獨家資訊教戰"
+category_02.save
+
+category_03 = Category.new
+category_03.name = "獨家分析教戰"
+category_03.save
