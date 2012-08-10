@@ -21,6 +21,14 @@
         <tr>
           <th width="7%" align="left">URL</th>          
           <td width="93%">            
+            <video width="640" height="360" src="<%=@video.video_url%>" type="video/mp4" 
+  id="player1" poster="<%=get_current_host_and_port%>media/echo-hereweare.jpg" 
+  controls="controls" preload="none"></video>
+          </td>
+        </tr>
+        <tr>
+          <th width="7%" align="left">URL</th>          
+          <td width="93%">            
             <video width="640" height="360" id="player2" poster="<%=get_current_host_and_port%>media/echo-hereweare.jpg" controls="controls" preload="none">
               <!-- MP4 source must come first for iOS -->
               <source type="video/mp4" src="<%=@video.video_url%>" />
