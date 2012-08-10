@@ -20,7 +20,7 @@
         <tr>
           <th align="left" valign="top">&nbsp;</th>
           <th align="left" valign="top">內文</th>
-          <td height="20" align="left" valign="top"><%=@banner.content_01%></td>
+          <td height="20" align="left" valign="top"><%=@banner.content_01.gsub("\n", "<br />").html_safe%></td>
         </tr>
         <tr>
           <th align="left" valign="top">&nbsp;</th>
@@ -42,7 +42,7 @@
         <tr>
           <th align="left" valign="top">&nbsp;</th>
           <th align="left" valign="top">內文</th>
-          <td height="20" align="left" valign="top"><%=@banner.content_02%></td>
+          <td height="20" align="left" valign="top"><%=@banner.content_02.gsub("\n", "<br />").html_safe%></td>
         </tr>
         <tr>
           <th align="left" valign="top">&nbsp;</th>
@@ -64,7 +64,7 @@
         <tr>
           <th align="left" valign="top">&nbsp;</th>
           <th align="left" valign="top">內文</th>
-          <td height="20" align="left" valign="top"><%=@banner.content_03%></td>
+          <td height="20" align="left" valign="top"><%=@banner.content_03.gsub("\n", "<br />").html_safe%></td>
         </tr>
         <tr>
           <th align="left" valign="top">&nbsp;</th>
