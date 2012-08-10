@@ -22,22 +22,6 @@
         <Cell><Data ss:Type="String"><%=@course.subject%></Data></Cell>
       </Row>
       <Row>
-        <Cell><Data ss:Type="String">時間</Data></Cell>
-        <Cell><Data ss:Type="String"><%=@course.start_time%></Data></Cell>
-      </Row>
-      <Row>
-        <Cell><Data ss:Type="String">講師</Data></Cell>
-        <Cell><Data ss:Type="String"><%=@course.lecturer%></Data></Cell>
-      </Row>
-      <Row>
-        <Cell><Data ss:Type="String">地址</Data></Cell>
-        <Cell><Data ss:Type="String"><%=@course.address%></Data></Cell>
-      </Row>
-      <Row>
-        <Cell><Data ss:Type="String">內文</Data></Cell>
-        <Cell><Data ss:Type="String"><%= @course.content %></Data></Cell>
-      </Row>
-      <Row>
         <Cell><Data ss:Type="String">上限</Data></Cell>
         <Cell><Data ss:Type="String"><%=@course.registration_quota%></Data></Cell>
       </Row>
@@ -48,16 +32,6 @@
       <Row>
         <Cell><Data ss:Type="String">餘額</Data></Cell>
         <Cell><Data ss:Type="String"><%=@course.registration_quota - @course.enrollments.count%></Data></Cell>
-      </Row>
-      <Row>
-        <Cell><Data ss:Type="String">顯示於前台</Data></Cell>
-        <Cell><Data ss:Type="String">
-            <% if @course.is_display == true %>
-              是
-            <% else %>
-              否
-            <% end %>
-        </Data></Cell>
       </Row>
       <Row>
         <Cell><Data ss:Type="String"></Data></Cell>        
