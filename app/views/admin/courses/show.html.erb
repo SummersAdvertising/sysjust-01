@@ -25,7 +25,7 @@
         </tr>
         <tr>
           <th width="7%" align="left" valign="top">內文</th>
-          <td colspan="7" valign="top"><%= @course.content %></td>
+          <td colspan="7" valign="top"><%= @course.content.gsub("\n", "<br />").html_safe %></td>
         </tr>
       </table>
       <table width="100%" border="0" cellspacing="5" cellpadding="0">
