@@ -31,7 +31,7 @@
         <a href="<%=admin_experiences_path%>" id="experience">體驗XQ模組</a>
       <%end%>
     </li>
-
+    
     <li>
       <%if params[:controller]=="admin/banners"%>
         <a href="<%=admin_banner_path(Banner.first)%>" id="banner" class="active">專家秘訣模組</a>
@@ -39,13 +39,15 @@
         <a href="<%=admin_banner_path(Banner.first)%>" id="banner">專家秘訣模組</a>
       <%end%>
     </li>
-    <li>
-      <%if params[:controller]=="users" && params[:action]=="index"%>
-        <a href="<%=users_path%>" id="users" class="active">使用者管理</a>
-      <% else %>
-        <a href="<%=users_path%>" id="users">使用者管理</a>
-      <%end%>
-    </li>
+      <% if current_user.is_admin? %>
+      <li>
+        <%if params[:controller]=="users" && params[:action]=="index"%>
+          <a href="<%=users_path%>" id="users" class="active">使用者管理</a>
+        <% else %>
+          <a href="<%=users_path%>" id="users">使用者管理</a>
+        <%end%>
+      </li>
+    <% end %>    
   </ul>
 </div>
 <!--side-->
