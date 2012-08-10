@@ -77,7 +77,7 @@ class Admin::BannersController < ApplicationController
         format.html { redirect_to admin_banner_path(@banner), notice: 'Banner was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to edit_admin_banner_path(@banner), notice: @banner.errors.full_messages }
         format.json { render json: @banner.errors, status: :unprocessable_entity }
       end
     end
