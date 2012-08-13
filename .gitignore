@@ -15,7 +15,7 @@
 /tmp
 
 #Ignore production.rb
-/config/deploy/*.rb
+/config/deploy/production.rb
 
 #Ignore database.yml.production
 /config/database.yml.production
