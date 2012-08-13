@@ -21,7 +21,7 @@
         <tr>
           <th width="7%" align="left">URL</th>          
           <td width="93%">       
-            <a href="<%=category_video_path(@category, @video)%>" target="_blank">watch video</a>    
+            <a href="<%=category_video_path(@category, @video)%>" target="_blank"><%=@video.video.file.original_filename%></a>
           </td>
         </tr>
         <tr>
