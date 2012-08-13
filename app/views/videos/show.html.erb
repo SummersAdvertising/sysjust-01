@@ -1,20 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @video.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @video.content %>
-</p>
-<p>
-<a href="<%=@video.video_url%>">watch video</a>
-</p>
-<br />
-<%= image_tag @video.image_url(:thumb) if @video.image? %>
-<br />
-
-<%= link_to 'Edit', edit_category_video_path(@category, @video) %> |
-<%= link_to 'Back', category_path(@category) %>
+<video width="640" height="360" src="<%=@video.video_url%>" type="video/mp4" 
+	id="player1" poster="<%=@video.image_url(:thumb)%>" 
+	controls="controls" preload="none"></video>
+<script>
+$('audio,video').mediaelementplayer({
+	success: function(player, node) {
+		$('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+	}
+});
+</script>

@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
+  # layout 'media_element'
   def index
     @videos = Video.all
 
