@@ -4,11 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>sysjust</title>
 <%= stylesheet_link_tag    "application", :media => "all" %>
-<%= javascript_include_tag "application", "rails.validations" %>
+<%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
-<script src="<%=get_current_host_and_port%>build/jquery.js"></script>	
-<script src="<%=get_current_host_and_port%>build/mediaelement-and-player.min.js"></script>
-<link rel="stylesheet" href="<%=get_current_host_and_port%>build/mediaelementplayer.min.css" />
 </head>
 <body>
 <%= yield %>
