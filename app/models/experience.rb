@@ -9,5 +9,7 @@ class Experience < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, format: { with: VALID_EMAIL_REGEX }    
     
-    validates :phone_number, :numericality => { :only_integer => true }    
+    validates :phone_number, :numericality => { :only_integer => true }   
+    
+    default_scope :order => 'created_at DESC' 
 end
