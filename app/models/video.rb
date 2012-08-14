@@ -4,4 +4,5 @@ class Video < ActiveRecord::Base
   mount_uploader :video, VideoUploader
   mount_uploader :image, ImageUploader
   validates :content, :title, :video, :image, :presence => true
+  default_scope :order => 'created_at DESC'
 end
