@@ -26,9 +26,9 @@
         </tr>
         <tr>
           <th width="7%" align="left" valign="top">開始</th>
-          <td width="43%" valign="top"><%= f.text_field :start_time %></td>
+          <td width="43%" valign="top"><%= f.text_field :start_time,:readonly => true %></td>
           <th width="7%" align="left" valign="top">結束</th>
-          <td width="43%" colspan="5" valign="top"><%= f.text_field :end_time %></td>
+          <td width="43%" colspan="5" valign="top"><%= f.text_field :end_time,:readonly => true %></td>
         </tr>
         <tr>
           <th width="7%" align="left" valign="top">講師</th>
