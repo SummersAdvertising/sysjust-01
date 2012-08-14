@@ -4,7 +4,7 @@
   <%= render :partial => "shared/admin_side" %>
   <!--side-->
   <%= form_for [:admin, @category, @video], :validate => true do |f| %>
-    <% if @video.errors.any? %>
+<!--     <% if @video.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
 
@@ -14,7 +14,7 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> -->
   <div id="main" class="right">
     <div class="main-title">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">

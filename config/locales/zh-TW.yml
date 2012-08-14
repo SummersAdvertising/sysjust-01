@@ -98,6 +98,7 @@ zh-TW:
   errors: &errors
     format: ! '%{attribute} %{message}'
     messages:
+      extension_white_list_error: 錯誤的檔案類型
       accepted: 必須是可被接受的
       blank: 請輸入訊息
       confirmation: 不符合確認值
