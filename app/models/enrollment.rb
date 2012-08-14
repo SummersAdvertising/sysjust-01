@@ -4,7 +4,7 @@ class Enrollment < ActiveRecord::Base
   
   validates :company, :email, :name, :phone, :professional_title, :presence => true
   
-  validates :phone, :numericality => { :only_integer => true, :message => "Only number allowed" }    
+  validates :phone, :numericality => { :only_integer => true }    
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format: { with: VALID_EMAIL_REGEX } 
