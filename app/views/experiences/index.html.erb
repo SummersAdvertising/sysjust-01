@@ -8,6 +8,7 @@
     <th>Attendant number</th>
     <th>Company name</th>
     <th>Professional title</th>
+    <th>Service Email</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,6 +22,7 @@
     <td><%= experience.attendant_number %></td>
     <td><%= experience.company_name %></td>
     <td><%= experience.professional_title %></td>
+    <td><%= experience.service_email %></td>
     <td><%= link_to 'Show', experience %></td>
     <td><%= link_to 'Edit', edit_experience_path(experience) %></td>
     <td><%= link_to 'Destroy', experience, method: :delete, data: { confirm: 'Are you sure?' } %></td>

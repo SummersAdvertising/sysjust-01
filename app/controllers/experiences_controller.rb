@@ -42,12 +42,10 @@ class ExperiencesController < ApplicationController
   # POST /experiences.json
   def create
     @experience = Experience.new(params[:experience])
-
+    @experience.service_email = ServiceEmail.first.email.to_s()    
     respond_to do |format|
-      if @experience.save
-        if !@experience.email.blank?
-          ExperienceMailer.notify_email(@experience).deliver
-        end
+      if @experience.save       
+        ExperienceMailer.notify_email(@experience).deliver       
         format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
         format.json { render json: @experience, status: :created, location: @experience }
       else

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809094822) do
+ActiveRecord::Schema.define(:version => 20120814063536) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20120809094822) do
     t.text     "comment"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "service_email"
   end
 
   create_table "news_updates", :force => true do |t|
