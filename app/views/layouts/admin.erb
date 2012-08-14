@@ -15,8 +15,42 @@
   <script type="text/javascript" src="<%=get_current_host_and_port%>jquery-ui-timepicker-addon.js"></script>
   <script>
     $(document).ready(function() {  
-      $("#course_start_time").timepicker();    
-      $("#course_end_time").timepicker();  
+      $('#course_start_time').datetimepicker({
+          onClose: function(dateText, inst) {
+              var endDateTextBox = $('#course_end_time');
+              if (endDateTextBox.val() != '') {
+                  var testStartDate = new Date(dateText);
+                  var testEndDate = new Date(endDateTextBox.val());
+                  if (testStartDate > testEndDate)
+                      endDateTextBox.val(dateText);
+              }
+              else {
+                  endDateTextBox.val(dateText);
+              }
+          },
+          onSelect: function (selectedDateTime){
+              var start = $(this).datetimepicker('getDate');
+              $('#course_end_time').datetimepicker('option', 'minDate', new Date(start.getTime()));
+          }
+      });
+      $('#course_end_time').datetimepicker({
+          onClose: function(dateText, inst) {
+              var startDateTextBox = $('#course_start_time');
+              if (startDateTextBox.val() != '') {
+                  var testStartDate = new Date(startDateTextBox.val());
+                  var testEndDate = new Date(dateText);
+                  if (testStartDate > testEndDate)
+                      startDateTextBox.val(dateText);
+              }
+              else {
+                  startDateTextBox.val(dateText);
+              }
+          },
+          onSelect: function (selectedDateTime){
+              var end = $(this).datetimepicker('getDate');
+              $('#course_start_time').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
+          }
+      });
     });
   </script>
 </head>
