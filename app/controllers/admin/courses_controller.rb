@@ -1,13 +1,13 @@
 class Admin::CoursesController < ApplicationController
   layout 'admin'
-  before_filter :require_sign_in  
+  before_filter :require_sign_in
 
   def online
-    @courses = Course.display.recent    
+    @courses = Course.display
   end
 
   def offline
-    @courses = Course.recent    
+    @courses = Course.not_display
   end
 
   # GET /courses
@@ -55,8 +55,8 @@ class Admin::CoursesController < ApplicationController
     @course = Course.new(params[:course])
 
     respond_to do |format|
-      if @course.save        
-        format.html { redirect_to online_admin_courses_path, notice: 'Course was successfully created.' }        
+      if @course.save
+        format.html { redirect_to online_admin_courses_path, notice: 'Course was successfully created.' }
         format.json { render json: @course, status: :created, location: @course }
       else
         format.html { render action: "new" }
