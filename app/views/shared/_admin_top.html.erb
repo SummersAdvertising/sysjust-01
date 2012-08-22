@@ -2,7 +2,7 @@
   <div id="top">
     <h1 class="left"><a href="<%=admin_news_updates_path%>">XQ全球贏家-後台管理系統</a></h1>
     <%if signed_in?%>
-	    <div class="right">你好，<%=current_user.name%>！<a href="<%=edit_user_registration_path%>">修改個人資料</a><%= link_to("登出", destroy_user_session_path, :method => :delete )%></div>\
+	    <div class="right">你好，<%=current_user.name%>！<a href="<%=edit_user_registration_path%>">修改個人資料</a><%= link_to("登出", destroy_user_session_path, :method => :delete )%></div>
 	<%else%>    
 		<div class="right"><a href="<%=root_path%>">返回首頁</a></div>
     <%end%>

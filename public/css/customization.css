@@ -1,4 +1,6 @@
-.message {color: #FFFAF0;}
+.message {display:none}
 .field_with_errors {
-  padding: 2px;
-  background-color: red; }
+  /*padding: 1px;
+  background-color: red;*/
+border:1px solid #ff4933
+}
