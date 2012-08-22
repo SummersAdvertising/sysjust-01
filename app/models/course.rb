@@ -9,7 +9,6 @@ class Course < ActiveRecord::Base
   scope :recent, :order => 'updated_at DESC'
   scope :display, where(:is_display => true)
   scope :not_display, where(:is_display => false)
-#  default_scope :order => 'created_at DESC'
+  #default_scope :order => 'created_at DESC'
   scope :start_time, :order => 'start_time DESC'
-  # scope :expire, where((:start_time[6..9].to_i * 365 * 24 * 60 + :start_time[0..1].to_i * 30 * 24 * 60 + :start_time[3..4].to_i * 24 * 60 + :start_time[11..12].to_i * 60 + :start_time[14..15].to_i)<(Time.now.year * 365 * 24 * 60 + Time.now.month * 30 * 24 * 60 + Time.now.day * 24 * 60 + Time.now.hour * 60 + Time.now.min))
 end
