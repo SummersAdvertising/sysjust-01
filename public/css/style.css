@@ -68,7 +68,7 @@ width:646px;padding:10px;min-height:580px;}
 
 /*-------------------------------------------------------------------按鈕---*/
 
-.button{background:url(../images/list.jpg) 0 0 repeat-x;border:1px solid #ccc;margin:0 0 10px 10px;
+.button{background:url(../images/list.jpg) 0 0 repeat-x;border:1px solid #ccc;margin:0 0 10px 10px;font-weight:700!important
 border-radius:5px;height:27px;padding:3px 0 0 10px;width:100px;float:right;position:relative;z-index:1}
 .button a{color:#333;text-shadow:0 1px 0 #fff;font-weight:700}
 .button:hover a{color:#777}
@@ -85,7 +85,7 @@ color:#999;text-shadow:0 1px 0 #fff;}
 color:#999;text-shadow:0 1px 0 #fff;}
 .main-title .text{padding:5px 10px}
 .main-title input{border:0;width:100%;font:300 13px "Helvetica";color:#555;	height:18px;margin-top:0px}
-
+.main-title .category{color:#fff;background:#31343B;padding:2px 10px;border-radius:5px;}
 /*-------------------------------------------------------------------內文---*/
 
 .main-text{padding:10px;border:1px solid #ccc;border-radius:5px;margin:10px 0;clear:both;background:#F9F9F9;line-height:20px;}
