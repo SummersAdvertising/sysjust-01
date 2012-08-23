@@ -22,7 +22,7 @@
         </tr>
       </table>
     </div>
-    <div class="main-text"><%= @news_update.content.gsub("\n", "<br />").html_safe %></div>
+    <div class="main-text"><%= raw @news_update.content.gsub("\n", "<br />") %></div>
     <div class="button"><a href="<%=edit_admin_news_update_path(@news_update)%>"><img src="<%=get_current_host_and_port%>images/edit.png">編輯</a></div>
     <div class="button"><a href="<%=admin_news_updates_path%>"><img src="<%=get_current_host_and_port%>images/back.png">返回</a></div>
     </div>
