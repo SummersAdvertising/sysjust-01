@@ -6,26 +6,27 @@
     <h2><img src="<%=get_current_host_and_port%>images/man.png" width="16" height="16" /> 使用者登入</h2>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td align="left">帳號<br>
+        <td colspan="2" align="left">帳號<br>
           <%= f.email_field :email %></td>
       </tr>
       <tr>
-        <td align="left">密碼<br>
+        <td colspan="2" align="left">密碼<br>
           <%= f.password_field :password %></td>
       </tr>
       <tr>
-        <td align="left">是否記住密碼？
-          <%= f.check_box :remember_me %></td>
+        <td width="117" align="left">是否記住密碼？
+        </td>
+        <td width="283" align="left"><%= f.check_box :remember_me, :style => "width:25px" %></td>
       </tr>
     </table>
     <div class="button">
       <%= f.submit "" %>
       <img src="<%=get_current_host_and_port%>images/login.png"><a href="#">登入</a></div>
-      <div class="button"><a href="<%=new_password_path(resource_name)%>"><img src="<%=get_current_host_and_port%>images/psw.png">忘記密碼</a></div>
+    <div class="button"><a href="<%=new_password_path(resource_name)%>"><img src="<%=get_current_host_and_port%>images/psw.png">忘記密碼</a></div>
   </div>
-  <!--main--> 
+  <!--main-->
 </div>
-<!--container-->
 <% end %>
+<!--container-->
 <div id="footer"></div>
 <!--footer-->
