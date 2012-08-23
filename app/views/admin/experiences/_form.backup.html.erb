@@ -1,0 +1,29 @@
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <%= form_for([:admin,@experience]) do |f| %>
+      <!--     <% if @experience.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+
+        <ul>
+        <% @experience.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %> -->
+      <div id="main" class="right">
+        <%= render :partial => "main_data" %>
+        <div class="main-text"> <%= f.text_area :comment, :rows => 0, :cols => 0, :class => 'autogrow' %></div>
+        <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
+        <div class="button"><a href="<%=admin_experiences_path%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
+      </div>
+  <% end %>
+  <!--main-->
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->
