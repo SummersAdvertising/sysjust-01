@@ -21,33 +21,32 @@
         <tr>
           <td width="16%" height="22" valign="top" class="title">
             <% if params[:action]=="edit" %>
-              <%=@video.updated_at.to_date%>
-            <% else %> 
-              <%=Time.now.to_date%>
+                <%=@video.updated_at.to_date%>
+            <% else %>
+                <%=Time.now.to_date%>
             <% end %>
           </td>
-          <td width="84%" valign="middle" class="text"><%= f.text_field :title %></td>
+          <td width="64%" valign="middle" class="text"><%= f.text_field :title %></td>
+          <td width="20%" valign="middle" class="text"><a class="category"><%= @category.name %></a></td>
         </tr>
       </table>
     </div>
     <div class="main-text">
       <%= f.text_area :content, :rows => 0, :cols => 0, :class => 'autogrow' %>
     </div>
-    
     <div class="main-text">
-      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <table width="100%" border="0" cellspacing="10" cellpadding="0">
         <tr>
-          <th width="7%" align="left">影片</th>
-          <td width="17%"><img src="<%=get_current_host_and_port%>images/add-video.png"></td>
-          <td width="76%"><%= f.file_field :video %></td>
+          <th width="13%" align="left">新增影片</th>
+          <td width="87%" align="left"><%= f.file_field :video %></td>
+
         </tr>
         <tr>
-          <th align="left">縮圖</th>
-          <td width="17%"><img src="<%=get_current_host_and_port%>images/add-img.png" /></td>
-          <td width="76%"><%= f.file_field :image %></td>          
+          <th align="left">新增縮圖</th>
+          <td align="left"><%= f.file_field :image %></td>
         </tr>
       </table>
-      
+
     </div>
     <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
     <div class="button"><a href="<%=admin_category_path(@category)%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
