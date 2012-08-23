@@ -4,37 +4,36 @@
   <%= render :partial => "shared/admin_side" %>
   <!--side-->
   <%= form_for [:admin, @course], :validate => true do |f| %>
-    <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+      <% if @course.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
 
-      <ul>
-      <% @course.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+            <ul>
+              <% @course.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div id="main" class="right">
+    <h2>編號：345678</h2>
     <div class="main-text">
       <table width="100%" border="0" cellspacing="5" cellpadding="0">
         <tr>
           <th width="7%" align="left" valign="top">場次</th>
-          <td width="43%" valign="top"><%= f.text_field :session %></td>
+          <td width="50%" valign="top"><%= f.text_field :session %></td>
           <th width="7%" align="left" valign="top">主題</th>
-          <td width="43%" colspan="5" valign="top"><%= f.text_field :subject %></td>
+          <td width="36%" colspan="5" valign="top"><%= f.text_field :subject %></td>
         </tr>
         <tr>
-          <th width="7%" align="left" valign="top">開始</th>
-          <td width="43%" valign="top"><%= f.text_field :start_time,:readonly => true %></td>
-          <th width="7%" align="left" valign="top">結束</th>
-          <td width="43%" colspan="5" valign="top"><%= f.text_field :end_time,:readonly => true %></td>
-        </tr>
-        <tr>
+          <th width="7%" align="left" valign="top">時間</th>
+          <td width="50%" valign="top"><%= f.text_field :start_time,:readonly => true, :style => "width:133px" %><span style="padding:0 5px">~</span><%= f.text_field :end_time,:readonly => true, :style => "width:133px" %></td>
           <th width="7%" align="left" valign="top">講師</th>
-          <td width="43%" valign="top"><%= f.text_field :lecturer %></td>
+          <td width="36%" colspan="5" valign="top"><%= f.text_field :lecturer %></td>
+        </tr>
+        <tr>
           <th width="7%" align="left" valign="top">地址</th>
-          <td width="43%" colspan="5" valign="top"><%= f.text_field :address %></td>
+          <td colspan="7" valign="top"><%= f.text_area :address, :cols => "", :rows => "", :class=> "autogrow" %></td>
         </tr>
         <tr>
           <th width="7%" align="left" valign="top">內文</th>
@@ -49,13 +48,13 @@
           <th width="13%" align="center">已報名人數</th>
           <td width="7%" align="left">
             <% if params[:action]=="edit" %>
-              <%=@course.enrollments.count%>
+                <%=@course.enrollments.count%>
             <% end %>
           </td>
           <th width="7%" align="center">餘額</th>
           <td width="7%" align="left">
             <% if params[:action]=="edit" %>
-              <%=@course.registration_quota - @course.enrollments.count%>
+                <%=@course.registration_quota - @course.enrollments.count%>
             <% end %>
           </td>
           <th width="15%" align="center">顯示於前台</th>
@@ -65,7 +64,7 @@
     </div>
     <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
     <div class="button"><a href="<%=online_admin_courses_path%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
-    <!--main--> 
+    <!--main-->
   </div>
   <% end %>
 </div>

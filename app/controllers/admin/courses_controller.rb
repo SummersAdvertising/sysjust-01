@@ -88,7 +88,7 @@ class Admin::CoursesController < ApplicationController
     @course.destroy
 
     respond_to do |format|
-      format.html { redirect_to online_admin_courses_path }
+      format.html { redirect_to offline_admin_courses_path }
       format.json { head :no_content }
     end
   end
