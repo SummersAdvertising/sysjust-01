@@ -14,21 +14,36 @@
           <th width="10%" align="center" scope="col">人數/上限</th>
           <th width="7%" align="center" scope="col">編輯</th>
         </tr>
-        <% @courses.each do |course| %>
-            <%if Time.now.to_s() > course.start_time%>
+        <% @courses.each do |course|
+          @current_month = Time.now.month
+          @current_day = Time.now.day
+          @current_year = Time.now.year
+          @current_hour = Time.now.hour
+          @current_minute = Time.now.min
+          @current_time = @current_year * 365 * 24 * 60 + @current_month * 30 * 24 * 60 + @current_day * 24 * 60 + @current_hour * 60 + @current_minute
+          @month = course.start_time[0..1].to_i
+          @day = course.start_time[3..4].to_i
+          @year = course.start_time[6..9].to_i
+          @hour = course.start_time[11..12].to_i
+          @minute = course.start_time[14..15].to_i
+          @time = @year * 365 * 24 * 60 + @month * 30 * 24 * 60 + @day * 24 * 60 + @hour * 60 + @minute
+        %>
+            <% if @time > @current_time %>
                 <tr>
                   <td align="center"> <%= course.start_time[6..9] + "-" + course.start_time[0..1] + "-" + course.start_time[3..4] %> </td>
                   <td align="left"><%= course.session %></td>
-                  <td align="left"><a href="<%=admin_course_path(course)%>"><%= course.subject %></a></td>
+                  <td align="left"><a href="<%= admin_course_path(course) %>"><%= course.subject %></a></td>
                   <td align="center"><span><%= course.enrollments.count %></span>/<%= course.registration_quota %></td>
-                  <td align="center"><a href="<%=edit_admin_course_path(course)%>"><img src="<%=get_current_host_and_port%>images/edit.png" width="16" height="16" /></a></td>
+                  <td align="center">
+                    <a href="<%= edit_admin_course_path(course) %>"><img src="<%= get_current_host_and_port %>images/edit.png" width="16" height="16"/></a>
+                  </td>
                 </tr>
             <% end %>
         <% end %>
       </table>
     </div>
   </div>
-  <!--main--> 
+  <!--main-->
 </div>
 <!--container-->
 <div id="footer"></div>

@@ -7,7 +7,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def offline
-    @courses = Course.not_display.start_time
+    @courses = Course.start_time
   end
 
   # GET /courses
