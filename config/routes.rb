@@ -1,5 +1,10 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
+  get "static_pages/purchasing"
+  get "static_pages/download_contents"
+  match "/purchasing" => "static_pages#purchasing"
+  match "/download_contents" => "static_pages#download_contents"
+
   devise_for :users, :path_prefix => 'admin', :controllers => { :registrations => 'registrations'}  
   resources :users    
 

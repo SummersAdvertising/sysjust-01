@@ -9,7 +9,7 @@
     </li>
 
     <li>
-      <%if params[:controller]=="admin/courses"%>
+      <%if params[:controller]=="admin/courses" && %>
         <a href="<%=online_admin_courses_path%>" id="course" class="active">XQ課程資訊</a>  
       <% else %>
         <a href="<%=online_admin_courses_path%>" id="course">XQ課程資訊</a>
