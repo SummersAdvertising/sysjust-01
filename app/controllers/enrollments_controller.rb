@@ -27,6 +27,7 @@ class EnrollmentsController < ApplicationController
   # GET /enrollments/new
   # GET /enrollments/new.json
   def new
+    @course = Course.find(params[:course_id])
     @enrollment = Enrollment.new
 
     respond_to do |format|
@@ -48,7 +49,7 @@ class EnrollmentsController < ApplicationController
 
     respond_to do |format|
       if @enrollment.save
-        format.html { redirect_to @course, notice: 'Enrollment was successfully created.' }
+        format.html { redirect_to courses_path, notice: 'Enrollment was successfully created.' }
         format.json { render json: @enrollment, status: :created, location: @enrollment }
       else
         format.html { render action: "new" }

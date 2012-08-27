@@ -1,14 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>sysjust</title>
-<%= stylesheet_link_tag    "application", :media => "all" %>
-<%= javascript_include_tag "application" %>
-<script src="<%=get_current_host_and_port%>build/jquery.js"></script>	
-<script src="<%=get_current_host_and_port%>build/mediaelement-and-player.min.js"></script>
-<link rel="stylesheet" href="<%=get_current_host_and_port%>build/mediaelementplayer.min.css" />
-<%= csrf_meta_tags %>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>sysjust</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <script src="<%= get_current_host_and_port %>build/jquery.js"></script>
+  <script src="<%= get_current_host_and_port %>build/mediaelement-and-player.min.js"></script>
+  <link rel="stylesheet" href="<%= get_current_host_and_port %>build/mediaelementplayer.min.css"/>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+  <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+  <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
+  <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
+  <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 </head>
 <body>
 <%= yield %>

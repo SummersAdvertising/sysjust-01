@@ -1,37 +1,73 @@
+<style>
+    html {
+        background: url(<%= get_current_host_and_port %>application/images/cs-04.jpg) 0 0 repeat-x #D63B0D
+    }
+
+    body {
+        font-family: 微 軟 正 黑 體;
+        line-height: 28px;
+        width: 550px;
+        margin: 30px auto 5px auto;
+        padding: 30px 20px;
+        background: #fff;
+        color: #555
+    }
+
+    h1 {
+        font: 300 40px "微軟正黑體";
+        color: #a72c07;
+        height: 60px;
+        border-bottom: 1px solid #ddd
+    }
+
+    th {
+        padding-right: 10px
+    }
+
+    table {
+        margin: 40px 0
+    }
+
+    input {
+        width: 100%;
+        padding: 5px 0;
+        border: 1px solid #DADADA
+    }
+
+    #button {
+        text-align: center
+    }
+
+    #button img:hover {
+        opacity: .85
+    }
+</style>
+<script>
+
+</script>
 <%= form_for([@course, @course.enrollments.build]) do |f| %>
-  <% if @enrollment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
-
-      <ul>
-      <% @enrollment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <h1>課程報名表</h1>
+    <table width="550" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th width="15%" align="right">姓名</th>
+        <td width="35%"><%= f.text_field :name %></td>
+        <th width="15%" align="right">電話</th>
+        <td width="35%"><%= f.text_field :phone %></td>
+      </tr>
+      <tr>
+        <th align="right">Email</th>
+        <td colspan="3"><%= f.text_field :email %></td>
+      </tr>
+      <tr>
+        <th align="right">公司名稱</th>
+        <td colspan="3"><%= f.text_field :company %></td>
+      </tr>
+      <tr>
+        <th align="right">職稱</th>
+        <td colspan="3"><%= f.text_field :professional_title %></td>
+      </tr>
+    </table>
+    <div id="button" style="clear:both>
+      <a href="#"><%= f.submit "" %><img src="<%= get_current_host_and_port %>application/images/cs-03.jpg" width="197" height="50"/></a>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :company %><br />
-    <%= f.text_field :company %>
-  </div>
-  <div class="field">
-    <%= f.label :professional_title %><br />
-    <%= f.text_field :professional_title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

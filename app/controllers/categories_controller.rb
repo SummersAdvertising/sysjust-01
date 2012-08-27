@@ -3,6 +3,9 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    @category_01 = @categories[0]
+    @category_02 = @categories[1]
+    @category_03 = @categories[2]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +16,11 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])  
+    @category = Category.find(params[:id])
+    @categories = Category.limit(3)
+    @category_01 = @categories[0]
+    @category_02 = @categories[1]
+    @category_03 = @categories[2]
     @videos = @category.videos.all
 
     respond_to do |format|

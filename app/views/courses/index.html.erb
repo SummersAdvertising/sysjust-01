@@ -1,39 +1,249 @@
-<h1>Listing courses</h1>
+<script>
+    $(document).ready(function () {
+        $(".iframe").colorbox({iframe:true, width:"600", height:"445"});
+        $("#click").click(function () {
+            $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+            return false;
+        });
+    });
+</script>
+<style>
+    #banner {
+        background-image: url(<%=get_current_host_and_port%>application/images/banner-cs.jpg)
+    }
 
-<table>
-  <tr>
-    <th>Session</th>
-    <th>Subject</th>
-    <th>Start time</th>
-    <th>End time</th>
-    <th>Lecturer</th>
-    <th>Address</th>
-    <th>Content</th>
-    <th>Registration quota</th>
-    <th>Is display</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    hr {
+        background: url(<%=get_current_host_and_port%>application/images/cs-hr.jpg) 0 0 no-repeat;
+        width: 800px;
+        height: 14px;
+        border: 0
+    }
 
-<% @courses.each do |course| %>
-  <tr>
-    <td><%= course.session %></td>
-    <td><%= course.subject %></td>
-    <td><%= course.start_time %></td>
-    <td><%= course.end_time %></td>
-    <td><%= course.lecturer %></td>
-    <td><%= course.address %></td>
-    <td><%= course.content %></td>
-    <td><%= course.registration_quota %></td>
-    <td><%= course.is_display %></td>
-    <td><%= link_to 'Show', course %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    .box {
+        margin: 25px 0
+    }
 
-<br />
+    h4 {
+        font: 300 20px "微軟正黑體";
+        color: #a72c07;
+        height: 35px
+    }
 
-<%= link_to 'New Course', new_course_path %>
+    .visitors {
+        background: #ECECEC;
+        border-radius: 5px;
+        width: 100%;
+        height: 75px;
+        padding-top: 25px
+    }
+
+    .visitors span {
+        font-size: 22px;
+        color: #a90101
+    }
+
+    .iframe:hover {
+        opacity: .85
+    }
+
+    #cboxClose {
+    }
+</style>
+<div id="header">
+  <div id="header-inside">
+    <h1><img src="<%= get_current_host_and_port %>application/images/logo.png" title="XQ全球贏家"/></h1>
+    <ul id="nav">
+      <li><a href="index.html">回首頁</a></li>
+      <li><a href="traits.html">產品特色</a></li>
+      <li class="active"><a href="course.html">實務課程</a></li>
+      <li><a href="video.html">實機教學</a></li>
+      <li><a href="download_contents.html">下載專區</a></li>
+      <li><a href="purchasing.html">我要購買</a></li>
+      <li><a href="#">討論區</a></li>
+    </ul>
+    <!--nav-->
+  </div>
+  <!--header-inside-->
+</div>
+<!--header-->
+<div id="container">
+  <div id="main">
+    <div id="banner">
+      <h2>實務課程資訊</h2>
+    </div>
+    <!--banner-->
+    <div id="content">
+      <% @courses.each do |course| %>
+          <%
+             @current_month = Time.now.month
+             @current_day = Time.now.day
+             @current_year = Time.now.year
+             @current_hour = Time.now.hour
+             @current_minute = Time.now.min
+             @current_time = @current_year * 365 * 24 * 60 + @current_month * 30 * 24 * 60 + @current_day * 24 * 60 + @current_hour * 60 + @current_minute
+             @month = course.start_time[0..1].to_i
+             @day = course.start_time[3..4].to_i
+             @year = course.start_time[6..9].to_i
+             @hour = course.start_time[11..12].to_i
+             @minute = course.start_time[14..15].to_i
+             @time = @year * 365 * 24 * 60 + @month * 30 * 24 * 60 + @day * 24 * 60 + @hour * 60 + @minute
+          %>
+          <% if @time > @current_time %>
+              <% if course.registration_quota - course.enrollments.count==0 %>
+                  <div class="box">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="69%">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+                            <tr>
+                              <td colspan="2"><h4>XQ課程（初、進階）—台北場</h4></td>
+                            </tr>
+                            <tr>
+                              <td width="14%">課程主題：</td>
+                              <td width="86%">XQ全球贏家教育訓練（初階與進階操作）</td>
+                            </tr>
+                            <tr>
+                              <td>上課時間：</td>
+                              <td>2012/07/10(二) 下午3:00~2012/07/10(二) 下午5:00</td>
+                            </tr>
+                            <tr>
+                              <td>上課地點：</td>
+                              <td>台北市忠孝東路一段41號9樓901教室（近善導寺捷運站6號出口）</td>
+                            </tr>
+                            <tr>
+                              <td>課堂講師：</td>
+                              <td>江芥坤 (嘉實資訊)</td>
+                            </tr>
+                            <tr>
+                              <td>上課內容：</td>
+                              <td>待補</td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="31%"><img src="<%= get_current_host_and_port %>application/images/cs-01.jpg"/></td>
+                      </tr>
+                    </table>
+                  </div>
+              <% else %>
+                  <div class="box">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td width="69%">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+                            <tr>
+                              <td colspan="2"><h4><%= course.session %></h4></td>
+                            </tr>
+                            <tr>
+                              <td width="14%">課程主題：</td>
+                              <td width="86%"><%= course.subject %></td>
+                            </tr>
+                            <tr>
+                              <td>上課時間：</td>
+                              <td><%= course.start_time %>~<%= course.end_time %></td>
+                            </tr>
+                            <tr>
+                              <td>上課地點：</td>
+                              <td><%= course.address %></td>
+                            </tr>
+                            <tr>
+                              <td>課堂講師：</td>
+                              <td><%= course.lecturer %></td>
+                            </tr>
+                            <tr>
+                              <td>上課內容：</td>
+                              <td><%= course.content %></td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td width="31%">
+                          <table width="100%" border="0" cellspacing="5" cellpadding="0" class="join">
+                            <tr>
+                              <td colspan="3">
+                                <a href="#"><img src="<%= get_current_host_and_port %>application/images/cs-02.jpg" width="263" height="47" class='iframe' href="<%= new_course_enrollment_path(course) %>"/></a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="33%" align="center" valign="middle">
+                                <div class="visitors">名額上限<br>
+                                  <span><%= course.registration_quota %></span></div>
+                              </td>
+                              <td width="34%" align="center" valign="middle">
+                                <div class="visitors">報名餘額<br>
+                                  <span><%= course.registration_quota - course.enrollments.count %></span></div>
+                              </td>
+                              <td width="33%" align="center" valign="middle">
+                                <div class="visitors">已報名人數<br>
+                                  <span><%= course.enrollments.count %></span></div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+              <% end %>
+          <% end %>
+      <% end %>
+      <hr/>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <!--content-->
+  </div>
+  <!--main-->
+  <div id="footer">嘉實資訊股份有限公司©2012 XQ.com.tw / All Right Reserved.
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客戶免付費電話：0800-006-098
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服信箱：XQservice@XQ.com.tw
+  </div>
+  <!--footer-->
+  <div id="link">
+    <div class="link-box">
+      <h5 class="link-title">產品特色</h5>
+      <ul class="link-text">
+        <li><a href="#">XQ全球贏家三大特色</a></li>
+        <li><a href="#">線上體驗產品</a></li>
+        <li><a href="#">申請實機體驗</a></li>
+        <li><a href="#">DM下載</a></li>
+        <li><a href="#">常見問答</a></li>
+      </ul>
+    </div>
+    <!--link-box-->
+    <div class="link-box">
+      <h5 class="link-title">實務課程</h5>
+      <ul class="link-text">
+        <li><a href="#">XQ課程</a></li>
+        <li><a href="#">XQ實務應用</a></li>
+      </ul>
+    </div>
+    <!--link-box-->
+    <div class="link-box">
+      <h5 class="link-title">實機教學</h5>
+      <ul class="link-text">
+        <li><a href="#">獨家操作教戰</a></li>
+        <li><a href="#">獨家資訊教戰</a></li>
+        <li><a href="#">獨家分析教戰</a></li>
+      </ul>
+    </div>
+    <!--link-box-->
+    <div class="link-box">
+      <h5 class="link-title">下載專區</h5>
+      <ul class="link-text">
+        <li><a href="#">XQ主程式</a></li>
+        <li><a href="#">XQ自設畫面檔案</a></li>
+        <li><a href="#">使用手冊</a></li>
+      </ul>
+    </div>
+    <!--link-box-->
+    <div class="link-box">
+      <h5 class="link-title">我要購買</h5>
+      <ul class="link-text">
+        <li><a href="#">方案及軟體</a></li>
+        <li><a href="#">產品訂購單下載</a></li>
+        <li><a href="#">傳真刷卡單下載</a></li>
+      </ul>
+    </div>
+    <!--link-box-->
+  </div>
+  <!--link-->
+</div>
+<!--container-->

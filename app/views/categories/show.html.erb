@@ -1,19 +1,103 @@
-<p id="notice"><%= notice %></p>
+<script type="text/javascript">
+    function save(){
+        str = document.forms[0].input.value;
+        mydoc = window.open();
+        mydoc.document.write(str);
+        mydoc.document.execCommand("saveAs",true,".html");
+        mydoc.close();
+        return false;
+    }
+</script>
+<style>
+    #main {
+        background: url(<%= get_current_host_and_port %>application/images/banner-vd.jpg) top right no-repeat #fff;
+        overflow: hidden
+    }
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
+    #side {
+        width: 156px;
+        text-align: right;
+        padding-top: 50px
+    }
 
-<%= link_to 'Add new video', new_category_video_path(@category)%><br />
+    #side li {
+        padding-right: 20px;
+        margin: 15px 0
+    }
 
-Videos<br />
-<%@videos.each do |video|%>
-	<%= video.title %>
-	<%= link_to 'Show', category_video_path(@category,video)%>
-	<%= link_to 'Destroy', category_video_path(@category,video), confirm: 'Are you sure?', method: :delete %>
-               <br />
-<%end%>
+    #side a {
+        color: #000;
+        font-size: 15px
+    }
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+    #side .active a {
+        color: #820000
+    }
+
+    #side .active {
+        background: url(<%= get_current_host_and_port %>application/images/vd-01.jpg) right center no-repeat;
+    }
+
+    #content {
+        margin: 0 0 0 0;
+        padding: 200px 90px 0 90px;
+        width: 664px
+    }
+
+    h4 {
+        color: #a72c07;
+        font-size: 18px;
+        height: 30px
+    }
+
+    hr {
+        width: 800px;
+        height: 25px;
+        border: 0;
+        border-top: 1px dashed #aaa;
+        margin-top: 25px
+    }
+</style>
+<%= render :partial => "shared/application_top" %>
+<!--header-->
+<div id="container">
+  <div id="main">
+    <div id="side" class="left">
+      <ul class="tabs">
+        <li><a href="<%= category_path(@category_01) %>"><%= @category_01.name %></a></li>
+        <li><a href="<%= category_path(@category_02) %>"><%= @category_02.name %></a></li>
+        <li><a href="<%= category_path(@category_03) %>"><%= @category_03.name %></a></li>
+      </ul>
+    </div>
+    <!--side-->
+    <div id="content" class="right">
+      <div id="tab1" class="tab_content">
+        <% @videos.each do |video| %>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="52%" rowspan="2" align="left" valign="top">
+                  <img src="<%=video.image_url(:thumb)%>" width="233" height="164"/>
+                </td>
+                <td height="122" colspan="2" align="left" valign="top"><h4><%= video.title %></h4>
+                  <%= video.content %>
+                </td>
+              </tr>
+              <tr>
+                <td width="26%">
+                  <a href="<%=category_video_path(@category, video)%>" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a></td>
+                <td width="22%">
+                  <a href="<%=category_video_path(@category, video)%>" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41"/></a></td>
+              </tr>
+            </table>
+            <hr/>
+        <% end %>
+      </div>
+      <!--tab1-->
+    </div>
+    <!--content-->
+  </div>
+  <!--main-->
+  <%= render :partial => "shared/application_footer" %>
+  <!--link-->
+</div>
+<!--container-->
