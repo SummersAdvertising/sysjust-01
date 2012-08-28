@@ -1,25 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @news_update.title %>
-</p>
-
-<p>
-  <b>Source:</b>
-  <%= @news_update.source %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @news_update.category %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @news_update.content %>
-</p>
-
-
-<%= link_to 'Edit', edit_news_update_path(@news_update) %> |
-<%= link_to 'Back', news_updates_path %>
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<style>
+    body{font-family:微軟正黑體;line-height:28px;width:820px;margin:50px auto 25px auto}
+    a{text-decoration:none}
+    #title{font-size:20px;border-bottom:1px solid #a6a6a6;padding:5px 0}
+    #publish{font-size:14px;color:#7d7d7d}
+    #publish td{padding:5px 0}
+    #paper{width:790px;border:15px solid #F7F7F7;margin-top:50px}
+    #paper img{max-width:100%; height:100%}
+</style>
+<table width="820" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="3" id="title"><%= @news_update.title %></td>
+  </tr>
+  <tr id="publish">
+    <td width="144">媒體：<%= @news_update.source %></th>
+    <td width="557">內容：<%= @news_update.category %></td>
+    <td width="119">日期：<%= @news_update.created_at.to_date() %> </td>
+  </tr>
+</table>
+<div id="paper">
+  <%= raw @news_update.content.gsub("\n", "<br />") %>
+</div>

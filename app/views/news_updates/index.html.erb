@@ -1,29 +1,65 @@
-<h1>Listing news_updates</h1>
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".iframe").colorbox({iframe:true, width:"910", height:"80%"});
+        $("#click").click(function () {
+            $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+            return false;
+        });
+    });
+</script>
+<style>
+    #banner {
+        background-image: url(<%= get_current_host_and_port %>application/images/banner-nud.jpg)
+    }
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Source</th>
-    <th>Category</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    #content .list-box {
+        border-bottom: 1px dashed #d3d3d3;
+        padding: 5px 0
+    }
 
-<% @news_updates.each do |news_update| %>
-  <tr>
-    <td><%= news_update.title %></td>
-    <td><%= news_update.source %></td>
-    <td><%= news_update.category %></td>
-    <td><%= news_update.content %></td>
-    <td><%= link_to 'Show', news_update %></td>
-    <td><%= link_to 'Edit', edit_news_update_path(news_update) %></td>
-    <td><%= link_to 'Destroy', news_update, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    #content .list-title a {
+        font-size: 16px;
+        color: #363636
+    }
 
-<br />
+    #content .list-title a:hover {
+        color: #a72c07
+    }
 
-<%= link_to 'New News update', new_news_update_path %>
+    #content .list-desc {
+        font-size: 14px;
+        color: #7d7d7d;
+        padding-left: 84px
+    }
+</style>
+<%= render :partial => "shared/application_top" %>
+<!--header-->
+<div id="container">
+  <div id="main">
+    <div id="banner">
+      <h2>最新消息</h2>
+    </div>
+    <!--banner-->
+    <div id="content">
+      <% @news_updates.each do |news_update| %>
+          <div class="list-box">
+            <div class="list-title"><%= news_update.updated_at.to_date %> /
+              <a class='iframe' href="<%= news_update_url(news_update) %>"><%= news_update.title %></a>
+            </div>
+            <div class="list-desc"><%= news_update.source %></div>
+          </div>
+      <% end %>
+    </div>
+    <!--content-->
+
+  </div>
+  <!--main-->
+  <%= render :partial => "shared/application_footer" %>
+  <!--link-->
+</div>
+<!--container-->
