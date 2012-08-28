@@ -5,7 +5,12 @@
       <li><a href="index.html">回首頁</a></li>
       <li><a href="traits.html">產品特色</a></li>
       <li><a href="course.html">實務課程</a></li>
-      <li><a href="video.html">實機教學</a></li>
+
+      <% if params[:controller]=="categories" %>
+          <li class="active"><a href="<%= category_path(Category.first) %>">實機教學</a></li>
+      <% else %>
+          <li><a href="<%= category_path(Category.first) %>">實機教學</a></li>
+      <% end %>
 
       <% if params[:controller]=="static_pages" && params[:action]=="download_contents" %>
           <li class="active"><a href="<%= download_contents_path %>">下載專區</a></li>
