@@ -1,2 +1,56 @@
-<h1>StaticPages#download_contents</h1>
-<p>Find me in app/views/static_pages/download_contents.html.erb</p>
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+<style>
+    #banner{background-image:url(<%= get_current_host_and_port %>application/images/banner-dl.jpg)}
+    h4{font-size:24px;color:#a72c07;padding:0 0 10px 0;border-bottom:1px dashed #D3D3D3}
+    #content{margin-top:50px}
+    #content img:hover{opacity:.8;filter:alpha(opacity=80)}
+    #content p{font-size:13px}
+</style>
+<%= render :partial => "shared/application_top" %><!--header-->
+<!--header-->
+<div id="container">
+  <div id="main">
+    <div id="banner">
+      <h2>下載專區</h2>
+      <h3>XQ主程式 / 自設畫面檔案 / 使用手冊</h3>
+    </div>
+    <!--banner-->
+    <div id="content">
+      <h4>XQ主程式</h4>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:25px 0">
+        <tr>
+          <td width="15%">&nbsp;</td>
+          <td width="40%"><a href="#"><img src="<%= get_current_host_and_port %>application/images/dl-01.jpg" width="319" height="108" /></a></td>
+          <td width="40%"><a href="#"><img src="<%= get_current_host_and_port %>application/images/dl-02.jpg" width="319" height="108" /></a></td>
+          <td width="5%">&nbsp;</td>
+        </tr>
+      </table>
+      <h4>XQ使用手冊</h4>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td colspan="2">XQ內建豐富系統看盤及分析頁面，多樣又實用的設計，滿足使用者即時或非即時的資訊使用，除此之外更提供最彈性、最強大的個人化看盤介面，由使用者自行規劃符合自己所需的頁面。詳細的內容讓您輕鬆學會如何使用XQ。</td>
+        </tr>
+        <tr>
+          <td width="17%" align="left"><a href="#"></a></td>
+          <td width="83%" align="left" style="padding:25px 0"><a href="#"><img src="<%= get_current_host_and_port %>application/images/dl-03.jpg" width="308" height="76" /></a></td>
+        </tr>
+      </table>
+      <br>
+      <h4>XQ自設畫面檔案</h4>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" height="200">
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <p>如有任何使用上的問題，歡迎於上班時間來電0800-006-098免費客服專線，將有專人為您解說，或email至客服信箱：XQservice@XQ.com.tw <br>
+        我們也將在最短時間內回覆給您，謝謝。</p>
+    </div>
+    <!--content-->
+  </div>
+  <!--main-->
+  <%= render :partial => "shared/application_footer" %>
+  <!--link-->
+</div>
+<!--container-->

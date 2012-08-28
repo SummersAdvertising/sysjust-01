@@ -6,12 +6,19 @@
       <li><a href="traits.html">產品特色</a></li>
       <li><a href="course.html">實務課程</a></li>
       <li><a href="video.html">實機教學</a></li>
-      <li><a href="download_contents.html">下載專區</a></li>
+
+      <% if params[:controller]=="static_pages" && params[:action]=="download_contents" %>
+          <li class="active"><a href="<%= download_contents_path %>">下載專區</a></li>
+      <% else %>
+          <li><a href="<%= download_contents_path %>">下載專區</a></li>
+      <% end %>
+
       <% if params[:controller]=="static_pages" && params[:action]=="purchasing" %>
           <li class="active"><a href="<%= purchasing_path %>">我要購買</a></li>
       <% else %>
           <li><a href="<%= purchasing_path %>">我要購買</a></li>
       <% end %>
+
       <li><a href="#">討論區</a></li>
     </ul>
     <!--nav-->
