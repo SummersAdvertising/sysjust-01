@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   get "static_pages/purchasing"
   get "static_pages/download_contents"
   match "/purchasing" => "static_pages#purchasing"
