@@ -2,9 +2,14 @@
   <div id="header-inside">
     <h1><img src="<%= get_current_host_and_port %>application/images/logo.png" title="XQ全球贏家"/></h1>
     <ul id="nav">
-      <li><a href="index.html">回首頁</a></li>
+      <li><a href="<%= root_url %>">回首頁</a></li>
       <li><a href="traits.html">產品特色</a></li>
-      <li><a href="course.html">實務課程</a></li>
+
+      <% if params[:controller]=="courses" %>
+          <li class="active"><a href="<%= courses_url %>">實務課程</a></li>
+      <% else %>
+          <li><a href="<%= courses_url %>">實務課程</a></li>
+      <% end %>
 
       <% if params[:controller]=="categories" %>
           <li class="active"><a href="<%= category_url(Category.first) %>">實機教學</a></li>

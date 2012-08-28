@@ -54,22 +54,7 @@
     #cboxClose {
     }
 </style>
-<div id="header">
-  <div id="header-inside">
-    <h1><img src="<%= get_current_host_and_port %>application/images/logo.png" title="XQ全球贏家"/></h1>
-    <ul id="nav">
-      <li><a href="index.html">回首頁</a></li>
-      <li><a href="traits.html">產品特色</a></li>
-      <li class="active"><a href="course.html">實務課程</a></li>
-      <li><a href="video.html">實機教學</a></li>
-      <li><a href="download_contents.html">下載專區</a></li>
-      <li><a href="purchasing.html">我要購買</a></li>
-      <li><a href="#">討論區</a></li>
-    </ul>
-    <!--nav-->
-  </div>
-  <!--header-inside-->
-</div>
+<%= render :partial => "shared/application_top" %>
 <!--header-->
 <div id="container">
   <div id="main">
@@ -101,27 +86,27 @@
                         <td width="69%">
                           <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
                             <tr>
-                              <td colspan="2"><h4>XQ課程（初、進階）—台北場</h4></td>
+                              <td colspan="2"><h4><%= course.session %></h4></td>
                             </tr>
                             <tr>
                               <td width="14%">課程主題：</td>
-                              <td width="86%">XQ全球贏家教育訓練（初階與進階操作）</td>
+                              <td width="86%"><%= course.subject %></td>
                             </tr>
                             <tr>
                               <td>上課時間：</td>
-                              <td>2012/07/10(二) 下午3:00~2012/07/10(二) 下午5:00</td>
+                              <td><%= course.start_time %>~<%= course.end_time %></td>
                             </tr>
                             <tr>
                               <td>上課地點：</td>
-                              <td>台北市忠孝東路一段41號9樓901教室（近善導寺捷運站6號出口）</td>
+                              <td><%= course.address %></td>
                             </tr>
                             <tr>
                               <td>課堂講師：</td>
-                              <td>江芥坤 (嘉實資訊)</td>
+                              <td><%= course.lecturer %></td>
                             </tr>
                             <tr>
                               <td>上課內容：</td>
-                              <td>待補</td>
+                              <td><%= course.content %></td>
                             </tr>
                           </table>
                         </td>
@@ -196,59 +181,7 @@
     <!--content-->
   </div>
   <!--main-->
-  <div id="footer">嘉實資訊股份有限公司©2012 XQ.com.tw / All Right Reserved.
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客戶免付費電話：0800-006-098
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服信箱：XQservice@XQ.com.tw
-  </div>
-  <!--footer-->
-  <div id="link">
-    <div class="link-box">
-      <h5 class="link-title">產品特色</h5>
-      <ul class="link-text">
-        <li><a href="#">XQ全球贏家三大特色</a></li>
-        <li><a href="#">線上體驗產品</a></li>
-        <li><a href="#">申請實機體驗</a></li>
-        <li><a href="#">DM下載</a></li>
-        <li><a href="#">常見問答</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-    <div class="link-box">
-      <h5 class="link-title">實務課程</h5>
-      <ul class="link-text">
-        <li><a href="#">XQ課程</a></li>
-        <li><a href="#">XQ實務應用</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-    <div class="link-box">
-      <h5 class="link-title">實機教學</h5>
-      <ul class="link-text">
-        <li><a href="#">獨家操作教戰</a></li>
-        <li><a href="#">獨家資訊教戰</a></li>
-        <li><a href="#">獨家分析教戰</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-    <div class="link-box">
-      <h5 class="link-title">下載專區</h5>
-      <ul class="link-text">
-        <li><a href="#">XQ主程式</a></li>
-        <li><a href="#">XQ自設畫面檔案</a></li>
-        <li><a href="#">使用手冊</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-    <div class="link-box">
-      <h5 class="link-title">我要購買</h5>
-      <ul class="link-text">
-        <li><a href="#">方案及軟體</a></li>
-        <li><a href="#">產品訂購單下載</a></li>
-        <li><a href="#">傳真刷卡單下載</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-  </div>
+  <%= render :partial => "shared/application_footer" %>
   <!--link-->
 </div>
 <!--container-->
