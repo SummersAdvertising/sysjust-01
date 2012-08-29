@@ -3,11 +3,11 @@ class Admin::CoursesController < ApplicationController
   before_filter :require_sign_in
 
   def online
-    @courses = Course.display.start_time
+    @courses = Course.display.start_time.recent
   end
 
   def offline
-    @courses = Course.start_time
+    @courses = Course.not_display.start_time.recent
   end
 
   # GET /courses

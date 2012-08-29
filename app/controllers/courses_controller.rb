@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.display.start_time
+    @courses = Course.display.start_time.recent
 
     respond_to do |format|
       format.html # index.html.erb
