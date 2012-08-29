@@ -13,4 +13,7 @@ class StaticPagesController < ApplicationController
 
   def online_demonstrations
   end
+
+  def download_dms
+  end
 end
