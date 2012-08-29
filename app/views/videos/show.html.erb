@@ -1,4 +1,7 @@
-<video width="640" height="360" src="<%=@video.video_url%>" type="video/mp4" 
+<script src="<%= get_current_host_and_port %>build/jquery.js"></script>
+<script src="<%= get_current_host_and_port %>build/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="<%= get_current_host_and_port %>build/mediaelementplayer.min.css"/>
+<video width="640" height="360" src="<%=@video.video_url%>" type="video/mp4"
 	id="player1" poster="<%=@video.image_url(:thumb)%>" 
 	controls="controls" preload="none"></video>
 <script>
