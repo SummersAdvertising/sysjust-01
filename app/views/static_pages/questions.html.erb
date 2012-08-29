@@ -1,0 +1,331 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".list-title").css({cursor:"pointer"}).click(function () {
+            $(this).next().toggle("normal");
+
+            var closeFlag = $(this).children('span');
+
+            if (closeFlag.html() == '[-收合]') {
+                closeFlag.html('[+展開]');
+            } else {
+                closeFlag.html('[-收合]');
+            }
+
+        });
+    });
+
+</script>
+<style>
+    #banner {
+        background-image: url(<%= get_current_host_and_port %>application/images/banner-qut.jpg)
+    }
+
+    #content .list-box {
+        border-bottom: 1px dashed #d3d3d3
+    }
+
+    #content .list-title {
+        margin: 10px 0;
+        background: url(<%= get_current_host_and_port %>application/images/q.jpg) left center no-repeat;
+        padding: 3px 0 0 35px
+    }
+
+    #content .list-title a {
+        font-size: 16px;
+        color: #a72c07
+    }
+
+    #content .list-title span {
+        color: #8e8e8e;
+    }
+
+    #content .list-text {
+        margin: 0 0 10px 0;
+        background: #f3f3f3;
+        padding: 10px;
+        display: none;
+    }
+
+    #content th {
+        color: #a72c07;
+        font: 700 16px "微軟正黑體";
+        text-shadow: 0 1px 0 #fff;
+        border-bottom: 3px double #DEDEDE;
+        height: 40px
+    }
+
+    #content td {
+        font-family: "verdana"
+    }
+</style>
+<%= render :partial => "shared/application_top" %><!--header-->
+<div id="container">
+<div id="main">
+<div id="banner">
+  <h2>常見問題</h2>
+</div>
+<!--banner-->
+<div id="content">
+<div class="list-box">
+  <div class="list-title"><a>使用XQ系統的最低需求配備是什麼？</a> <span>[+展開]</span></div>
+  <div class="list-text">建議配備(單純只跑XQ系統狀態)<br/>
+    CPU P4--HT<br/>
+    RAM 512MB DDR RAM<br/>
+    以上為單螢幕及作業系統為XP時使用XQ之需求，雙螢幕RAM建議加至1G；若為Vista或Win7作業系統，RAM建議增加至2G以上
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>有支援雙螢幕嗎？</a> <span>[+展開]</span></div>
+  <div class="list-text">有的。<br/>
+    您於開啟XQ程式後，系統會自動偵測您的電腦是否有支援2個獨立顯式的螢幕模式，若您的電腦符合這個模式的話，主控台會自動開啟2個XQ看盤程式，您可以分別於2個視窗中作不同的設定。
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>如何更新到最新的版本？</a> <span>[+展開]</span></div>
+  <div class="list-text">方法一：每日第一次登入時，系統會自動檢測電腦中的版本是否為最新的版本，若非最新的版本即會在右下角<br/>
+    顯示提示訊息，您只需按下提示畫面內的下載更新即可立即更新。<br/>
+    方法二：開啟XQ主程式後，於〔說明(H) →版本更新→3版本更新〕項目內按[下載更新]即可立即更新。<br/>
+    方法三：點右下角的XQ主控台程式，選則〔系統狀態→使用者詳情→3版本更新〕項目內按[下載更新]即可立<br/>
+    即更新。
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>盤後資料更新時間約在什麼時侯？</a> <span>[+展開]</span></div>
+  <div class="list-text">
+    <table width="100%" border="0" cellspacing="3" cellpadding="0">
+      <tr>
+        <th width="36%" align="right">時間</th>
+        <th width="2%">&nbsp;</th>
+        <th width="62%" align="left">更新內容</th>
+      </tr>
+      <tr>
+        <td align="right">15:10-15:40</td>
+        <td>&nbsp;</td>
+        <td align="left">TSE 個股/大盤行情/資金流向/買賣力分析/支撐壓力區/大盤分時線/基本資料</td>
+      </tr>
+      <tr>
+        <td align="right">15:30-16:00</td>
+        <td>&nbsp;</td>
+        <td align="left">OTC 個股/大盤行情/資金流向/買賣力分析/支撐壓力區/大盤分時線/基本資料</td>
+      </tr>
+      <tr>
+        <td align="right">16:30-17:00</td>
+        <td>&nbsp;</td>
+        <td align="left">TSE 主力進出/自營商持股</td>
+      </tr>
+      <tr>
+        <td align="right">16:10-16:40</td>
+        <td>&nbsp;</td>
+        <td align="left">OTC 主力進出</td>
+      </tr>
+      <tr>
+        <td align="right">17:10-17:40</td>
+        <td>&nbsp;</td>
+        <td align="left">TSE 法人動向</td>
+      </tr>
+      <tr>
+        <td align="right">15:10-15:40</td>
+        <td>&nbsp;</td>
+        <td align="left">OTC 法人動向/法人彙總/自營商持股/投信買賣超/外資買賣超</td>
+      </tr>
+      <tr>
+        <td align="right">17:20-17:50 / 21:00-21:30</td>
+        <td>&nbsp;</td>
+        <td align="left">TSE 外資買賣超/外資持股</td>
+      </tr>
+      <tr>
+        <td align="right">17:50-18:20</td>
+        <td>&nbsp;</td>
+        <td align="left">OTC外資持股</td>
+      </tr>
+      <tr>
+        <td align="right">17:50-18:20</td>
+        <td>&nbsp;</td>
+        <td align="left">TSE 信用交易(融資融券)</td>
+      </tr>
+      <tr>
+        <td align="right">20:50-21:20</td>
+        <td>&nbsp;</td>
+        <td align="left">OTC 信用交易(融資融券)</td>
+      </tr>
+      <tr>
+        <td align="right">&nbsp;</td>
+        <td>&nbsp;</td>
+        <td align="left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="right">8:40~9:00</td>
+        <td>&nbsp;</td>
+        <td align="left">申報轉讓</td>
+      </tr>
+      <tr>
+        <td align="right">10:00 / 11:00 / 12:00 / 17:00</td>
+        <td>&nbsp;</td>
+        <td align="left">理財行事曆</td>
+      </tr>
+      <tr>
+        <td align="right">6:00 / 13:00 / 19:00</td>
+        <td>&nbsp;</td>
+        <td align="left">除權除息/新股上市/承銷公告/股東會/土地資產/重大行事曆</td>
+      </tr>
+      <tr>
+        <td align="right">11:30</td>
+        <td>&nbsp;</td>
+        <td align="left">財務/股本形成/股利政策/經營績效/獲利能力/轉投資/董監持股</td>
+      </tr>
+      <tr>
+        <td align="right">9:30 / 10:30 / 17:00</td>
+        <td>&nbsp;</td>
+        <td align="left">營收盈餘</td>
+      </tr>
+      <tr>
+        <td align="right">16:35</td>
+        <td>&nbsp;</td>
+        <td align="left">技術指標選股</td>
+      </tr>
+      <tr>
+        <td align="right">6:00-10:00</td>
+        <td>&nbsp;</td>
+        <td align="left">美股/世界重要指數</td>
+      </tr>
+      <tr>
+        <td align="right">13:30</td>
+        <td>&nbsp;</td>
+        <td align="left">原物料</td>
+      </tr>
+      <tr>
+        <td align="right">16:30-17:00</td>
+        <td>&nbsp;</td>
+        <td align="left">TSE投信買賣超</td>
+      </tr>
+      <tr>
+        <td align="right">17:20-17:50</td>
+        <td>&nbsp;</td>
+        <td align="left">TSE自營商買賣超</td>
+      </tr>
+      <tr>
+        <td align="right">16:30-17:00</td>
+        <td>&nbsp;</td>
+        <td align="left">TSE分價表</td>
+      </tr>
+      <tr>
+        <td align="right">15:50-16:20</td>
+        <td>&nbsp;</td>
+        <td align="left">OTC分價表</td>
+      </tr>
+      <tr>
+        <td align="right">16:00 / 0:10 / 8:00 / 8:20 / 8:35 / 8:45</td>
+        <td>&nbsp;</td>
+        <td align="left">期貨期貨換月</td>
+      </tr>
+      <tr>
+        <td align="right">13:35</td>
+        <td>&nbsp;</td>
+        <td align="left">台股台股收盤</td>
+      </tr>
+      <tr>
+        <td align="right">8:00 / 8:20 / 8:35 / 8:50 / 18:00</td>
+        <td>&nbsp;</td>
+        <td align="left">興櫃興櫃股票List</td>
+      </tr>
+      <tr>
+        <td align="right">15:10~15:40 / 18:10~18:40</td>
+        <td>&nbsp;</td>
+        <td align="left">興興興櫃個股/大盤行情/資金流向/買賣力分析/分時線/基本資料</td>
+      </tr>
+      <tr>
+        <td align="right">8:00~19:00</td>
+        <td>&nbsp;</td>
+        <td align="left">未上未上市行情</td>
+      </tr>
+      <tr>
+        <td align="right">15:40~16:10</td>
+        <td>&nbsp;</td>
+        <td align="left">上海上海股市盤後</td>
+      </tr>
+      <tr>
+        <td align="right">15:45~16:15</td>
+        <td>&nbsp;</td>
+        <td align="left">深圳深圳股市盤後</td>
+      </tr>
+      <tr>
+        <td align="right">16:55~17:25</td>
+        <td>&nbsp;</td>
+        <td align="left">香港香港股市盤後</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>如何改密碼？</a> <span>[+展開]</span></div>
+  <div class="list-text"> 點右下角的XQ主控台程式，選擇〔功能→更改密碼〕項目內即可更新您的密碼。</div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>使用公司網路時，畫面停留在“連線即時資訊伺服器”訊息時應如何處理？</a> <span>[+展開]</span></div>
+  <div class="list-text">可能是因為公司防火牆或是proxy server而導致無法正常連線到即時資料server<br/>
+    若有這種狀況的話，需請貴公司之網管人員協助設定以下項目允許連線：<br/>
+    －從您的電腦以TCP連線到 rtp.xq.com.tw , port443<br/>
+    －從您的電腦以TCP連線到 rtp2.xq.com.tw , port443
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>如何在重新安裝時備份自選股及報價欄位或技術分析等設定？</a> <span>[+展開]</span></div>
+  <div class="list-text">
+    <p>您所有個人畫面的設定都儲存在C:\sysjust\XQ2005\User這個資料匣之內，這個資料夾內儲存的就是該台電腦中相關的個人化設定，包括自選股、存檔頁面、我的最愛等..若您的作業系統要重灌時或您想要備份您的個人設定時，您只需將User這個資料匣備份起來，待重灌後再將此資料匣放回相同的位置即可。</p>
+    <br>
+
+    <p>步驟說明<br/>
+      步驟一：點選畫面左下角的〔開始→程式集(p) →開啟（檔案總案）〕。<br/>
+      步驟二：至C:\sysjust\XQ2005\　將user資料匣複製至您備份的其他資料匣或磁片裏面<br/>
+      步驟三：重灌後再將user資料匣放回C:\sysjust\XQ2005\底下再重新啟動XQ系統即可</p>
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>連線中斷後，再重新啟動時無法出現畫面，且停留在關閉視窗的畫面應如何處理？ </a> <span>[+展開]</span></div>
+  <div class="list-text">步驟一：同時按下鍵盤上「Ctrl+Alt+Del」三個鍵。<br/>
+    步驟二：出現「工作管理員」視窗時，點選「處理程序」內將「daq.exe」結束處理程序後，<br/>
+    　　　　當出現「程式未回應….」時，再次按「結束工作」<br/>
+    步驟三：稍等兩分鐘後，重新啟動XQ程式即可正常啟動　
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>忘了帳號密碼要如何處理？</a> <span>[+展開]</span></div>
+  <div class="list-text"> 為維護您個人資料的安全，若您忘了您的密碼欲查詢您的密碼等資料，請將您的身份證影本及您的帳號傳真至02-8914-7222，並註明更動事項，我們將由專人直接和您原留電話聯繫。　</div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>開啟XQ系統後，畫面僅出現〔每個螢幕最多只能執行一個XQ程式〕而沒有開出看盤視窗應如何處理？</a> <span>[+展開]</span></div>
+  <div class="list-text">步驟一：同時按下鍵盤上「Ctrl+Alt+Del」三個鍵。<br/>
+    步驟二：出現「工作管理員」視窗時，點選「處理程序」內將「daq.exe」結束處理程序後，<br/>
+    　　　　當出現「程式未回應….」時,再次按「結束工作」<br/>
+    步驟三：稍等兩分鐘後，重新啟動XQ程式即可正常啟動　　
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>可以試用嗎？</a> <span>[+展開]</span></div>
+  <div class="list-text">請來電客服中心0800-006-098洽詢，客服人員將為您安排專人解說。<br/>
+    或於實機體驗項目留下您的聯絡資料，將有專人和您聯繫。　　
+  </div>
+</div>
+<!--list-box-->
+</div>
+<!--content-->
+
+</div>
+<!--main-->
+<%= render :partial => "shared/application_footer" %>
+<!--link-->
+</div>
+<!--container-->

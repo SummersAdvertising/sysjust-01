@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
 
   def traits
   end
+
+  def questions
+  end
 end
