@@ -42,7 +42,7 @@
         opacity: .85
     }
 </style>
-<%= form_for([@course, @course.enrollments.build], remote: true) do |f| %>
+<%= form_for([@course, @course.enrollments.build], remote: true, :validate => true) do |f| %>
     <h1>課程報名表</h1>
     <table width="550" border="0" cellspacing="0" cellpadding="0">
       <tr>

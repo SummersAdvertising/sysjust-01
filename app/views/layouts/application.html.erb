@@ -3,7 +3,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>sysjust</title>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application", "rails.validations" %>
+  <link rel="stylesheet" href="<%=get_current_host_and_port%>css/customization.css">
   <script src="<%= get_current_host_and_port %>build/jquery.js"></script>
   <script src="<%= get_current_host_and_port %>build/mediaelement-and-player.min.js"></script>
   <link rel="stylesheet" href="<%= get_current_host_and_port %>build/mediaelementplayer.min.css"/>
