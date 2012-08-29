@@ -1,0 +1,316 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/index.css">
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
+<script>
+    $(function () {
+        // 預設顯示第一個 Tab
+        var _showTab = 0;
+        var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
+        $($defaultLi.find('a').attr('href')).siblings().hide();
+
+        // 當 li 頁籤被點擊時...
+        // 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
+        $('ul.tabs li').click(function () {
+            // 找出 li 中的超連結 href(#id)
+            var $this = $(this),
+                    _clickTab = $this.find('a').attr('href');
+            // 把目前點擊到的 li 頁籤加上 .active
+            // 並把兄弟元素中有 .active 的都移除 class
+            $this.addClass('active').siblings('.active').removeClass('active');
+            // 淡入相對應的內容並隱藏兄弟元素
+            $(_clickTab).stop(false, true).fadeIn().siblings().hide();
+
+            return false;
+        }).find('a').focus(function () {
+                    this.blur();
+                });
+    });
+</script>
+<div id="header">
+  <h1><img src="<%= get_current_host_and_port %>application/images/logo.png" title="XQ全球贏家"/></h1>
+  <ul id="nav">
+    <li class="active"><a href="<%= traits_url %>">產品特色</a></li>
+    <li><a href="<%= courses_url %>">實務課程</a></li>
+    <li><a href="<%= category_url(Category.first) %>">實機教學</a></li>
+    <li><a href="<%= download_contents_url %>">下載專區</a></li>
+    <li><a href="<%= purchasing_url %>">我要購買</a></li>
+    <li><a href="#">討論區</a></li>
+  </ul>
+  <div id="banner">
+    <ul class="tabs">
+      <li><a href="#tab1">應　用　篇</a></li>
+      <li><a href="#tab2">籌　碼　篇</a></li>
+      <li><a href="#tab3">選　股　篇</a></li>
+      <li><a href="#tab4">技術分析篇</a></li>
+    </ul>
+    <!--tabs-->
+    <div class="content">
+      <div id="tab1" class="tab_content">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="33%" align="center"><a href="<%= @banner_01.hyperlink_01 %>">
+              <div class="tab_text1 text">
+                <h4><%= @banner_01.title_01 %></h4>
+
+                <p><%= raw @banner_01.content_01.gsub("\n", "<br />").html_safe %></p>
+              </div>
+              <div class="tab_img">
+                <% if @banner_01.excerpt_image_01? %>
+                    <img src="<%= @banner_01.excerpt_image_01.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+            </a></td>
+            <td width="34%" align="center"><a href="<%= @banner_01.hyperlink_02 %>">
+              <div class="tab_img">
+                <% if @banner_01.excerpt_image_02? %>
+                    <img src="<%= @banner_01.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+              <div class="tab_text2 text">
+                <h4><%= @banner_01.title_02 %></h4>
+
+                <p><%= raw @banner_01.content_02.gsub("\n", "<br />").html_safe %></p>
+              </div>
+            </a></td>
+            <td width="33%" align="center"><a href="<%= @banner_01.hyperlink_03 %>">
+              <div class="tab_text1 text">
+                <h4><%= @banner_01.title_03 %></h4>
+
+                <p><%= raw @banner_01.content_03.gsub("\n", "<br />").html_safe %></p>
+              </div>
+              <div class="tab_img">
+                <% if @banner_01.excerpt_image_03? %>
+                    <img src="<%= @banner_01.excerpt_image_03.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+            </a></td>
+          </tr>
+        </table>
+      </div>
+      <!--tab1-->
+      <div id="tab2" class="tab_content">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="33%" align="center"><a href="<%= @banner_02.hyperlink_01 %>">
+              <div class="tab_text1 text">
+                <h4><%= @banner_02.title_01 %></h4>
+
+                <p><%= raw @banner_02.content_01.gsub("\n", "<br />").html_safe %></p>
+              </div>
+              <div class="tab_img">
+                <% if @banner_02.excerpt_image_01? %>
+                    <img src="<%= @banner_02.excerpt_image_01.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+            </a></td>
+            <td width="34%" align="center"><a href="<%= @banner_02.hyperlink_02 %>">
+              <div class="tab_text1 text">
+                <h4><%= @banner_02.title_02 %></h4>
+
+                <p><%= raw @banner_02.content_02.gsub("\n", "<br />").html_safe %></p>
+              </div>
+              <div class="tab_img">
+                <% if @banner_02.excerpt_image_02? %>
+                    <img src="<%= @banner_02.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+            </a></td>
+            <td width="33%" align="center"><a href="<%= @banner_02.hyperlink_03 %>">
+              <div class="tab_text1 text">
+                <h4><%= @banner_02.title_03 %></h4>
+
+                <p><%= raw @banner_02.content_03.gsub("\n", "<br />").html_safe %></p>
+              </div>
+              <div class="tab_img">
+                <% if @banner_02.excerpt_image_03? %>
+                    <img src="<%= @banner_02.excerpt_image_03.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+            </a></td>
+          </tr>
+        </table>
+      </div>
+      <!--tab2-->
+      <div id="tab3" class="tab_content">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="33%" align="center"><a href="<%= @banner_03.hyperlink_01 %>">
+              <div class="tab_text1 text">
+                <h4><%= @banner_03.title_01 %></h4>
+
+                <p><%= raw @banner_03.content_01.gsub("\n", "<br />").html_safe %></p>
+              </div>
+              <div class="tab_img">
+                <% if @banner_03.excerpt_image_01? %>
+                    <img src="<%= @banner_03.excerpt_image_01.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+            </a></td>
+            <td width="34%" align="center"><a href="<%= @banner_03.hyperlink_02 %>">
+              <div class="tab_img">
+                <% if @banner_03.excerpt_image_02? %>
+                    <img src="<%= @banner_03.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+              <div class="tab_text2 text">
+                <h4><%= @banner_03.title_02 %></h4>
+
+                <p><%= raw @banner_03.content_02.gsub("\n", "<br />").html_safe %></p>
+              </div>
+            </a></td>
+            <td width="33%" align="center"><a href="<%= @banner_03.hyperlink_03 %>">
+              <div class="tab_text1 text">
+                <h4><%= @banner_03.title_03 %></h4>
+
+                <p><%= raw @banner_03.content_03.gsub("\n", "<br />").html_safe %></p>
+              </div>
+              <div class="tab_img">
+                <% if @banner_03.excerpt_image_03? %>
+                    <img src="<%= @banner_03.excerpt_image_03.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+            </a></td>
+          </tr>
+        </table>
+      </div>
+      <!--tab3-->
+      <div id="tab4" class="tab_content">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="33%" align="center"><a href="<%= @banner_04.hyperlink_01 %>">
+              <div class="tab_text1 text">
+                <h4><%= @banner_04.title_01 %></h4>
+
+                <p><%= raw @banner_04.content_01.gsub("\n", "<br />").html_safe %></p>
+              </div>
+              <div class="tab_img">
+                <% if @banner_04.excerpt_image_01? %>
+                    <img src="<%= @banner_04.excerpt_image_01.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+            </a></td>
+            <td width="34%" align="center"><a href="<%= @banner_04.hyperlink_02 %>">
+              <div class="tab_img">
+                <% if @banner_04.excerpt_image_02? %>
+                    <img src="<%= @banner_04.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+              <div class="tab_text2 text">
+                <h4><%= @banner_04.title_02 %></h4>
+
+                <p><%= raw @banner_04.content_02.gsub("\n", "<br />").html_safe %></p>
+              </div>
+            </a></td>
+            <td width="33%" align="center"><a href="<%= @banner_04.hyperlink_03 %>">
+              <div class="tab_text1 text">
+                <h4><%= @banner_04.title_03 %></h4>
+
+                <p><%= raw @banner_04.content_03.gsub("\n", "<br />").html_safe %></p>
+              </div>
+              <div class="tab_img">
+                <% if @banner_04.excerpt_image_03? %>
+                    <img src="<%= @banner_04.excerpt_image_03.url(:medium) %>" width="247" height="154"/>
+                <% end %>
+              </div>
+            </a></td>
+          </tr>
+        </table>
+      </div>
+      <!--tab4-->
+    </div>
+    <!--content-->
+  </div>
+  <!--banner-->
+</div>
+<!--header-->
+<div id="main">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding:20px 0">
+    <tr>
+      <td width="18%" align="left" valign="top">
+        <a href="#"><img src="<%= get_current_host_and_port %>application/images/index-01.png" width="178" height="138"/></a>
+      </td>
+      <td width="40%" align="left" valign="top">
+        <div id="news">
+          <ul>
+            <li>2005.6.20 / 《贏家策略》MoneyDJ理財網看盤好夥伴</li>
+            <li>2005.5.10 / 全球股市資訊、優質看盤環境、產業分析最</li>
+            <li>2005.4.25 / 布局大中華概念成形，外資不再獨厚台股</li>
+          </ul>
+        </div>
+
+        <!--news--></td>
+      <td width="42%" align="left" valign="top">
+        <div id="course"><a href="course.html">
+          <ul>
+            <li>XQ課程（應用班）—台北場/2012.7.18（已額滿）</li>
+            <li>XQ課程（初、進階）—台北場/2012.7.10</li>
+            <li>XQ實務應用課程—高雄場/2012.6.26 （已額滿）</li>
+          </ul>
+        </a></div>
+
+        <!--course--></td>
+    </tr>
+  </table>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="72%" rowspan="2" align="left" valign="top">
+        <div id="traits">
+          <h3>全球財經資訊的專家</h3>
+          <ul>
+            <li>一、 中港台三地股市同步揭示，兩岸經濟清楚鋪陳</li>
+            <li>二、 67 種細產業指數，充分掌握類股輪動韻律</li>
+            <li>三、 394 個細產業，中、港、台同產業個股同台比競爭力、比行情</li>
+            <li>四、 日、韓股市一併掌握，亞洲重要情勢全在彈指之間</li>
+            <li>五、 歐、美等重要市場股票報價不遺露，全球景氣波動不缺席</li>
+            <li>六、 全球重要商品行情全到位，拉高視野才能出奇致勝</li>
+            <li>七、 財經消息即時掌握，歷史新聞全方位搜尋</li>
+            <li>八、 美、中、台、英、德、法經濟指標追蹤公佈，景氣趨勢全面鎖定</li>
+            <li>九、 圖解產業結構，相關互動一目瞭然</li>
+            <li>十、 透視營運結構，掌握獲利風向球</li>
+          </ul>
+        </div>
+
+        <!--traits--></td>
+      <td width="28%" height="217" align="left" valign="top">
+        <div id="forums">
+          <ul>
+            <li><a href="#" target="_blank">美國牛對股市的影響</a></li>
+            <li><a href="#" target="_blank">雪隧車禍造成投資人恐慌，真的嗎？</a></li>
+            <li><a href="#" target="_blank">蘑菇產量大增，我該買哪一支股票？</a></li>
+            <li><a href="#">15號New iPad台灣開賣，鴻海還有空間嗎？</a></li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">
+        <div id="fans"></div>
+
+        <!--forums--></td>
+    </tr>
+  </table>
+  <div id="announcement">
+    <h3>【系統公告】</h3>
+    <a href="announcement.html">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="7%">2012.5.08 /</td>
+          <td width="43%">盡收全球股市資訊、優質看盤環境、產業分析最透徹、全球財經資訊最完整</td>
+          <td width="7%">2012.4.25 /</td>
+          <td width="43%">布局大中華概念成形，外資不再獨厚台股</td>
+        </tr>
+        <tr>
+          <td>2012.3.20 /</td>
+          <td>《贏家策略》MoneyDJ理財網看盤好夥伴</td>
+          <td>2012.5.10 /</td>
+          <td>盡收全球股市資訊、優質看盤環境、產業分析最透徹、全球財經資訊最完整</td>
+        </tr>
+      </table>
+
+    </a></div>
+  <!--announcement-->
+</div>
+<!--main-->
+<%= render :partial => "shared/application_footer" %>
+<!--link-->
+<!--link-->

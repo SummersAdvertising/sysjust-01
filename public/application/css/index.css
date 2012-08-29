@@ -1,0 +1,49 @@
+html{background:url(../images/index-bg.jpg) 0 0 repeat-x #F3F3F3}
+body{width:1024px;margin:0 auto;font-family:微軟正黑體}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+h1{float:left;margin-top:30px;height:93px}
+#nav{width:588px;margin-top:50px;height:73px;float:right;}
+#nav li{width:98px;height:32px;float:left;text-align:center;}
+#nav li a{display:block;width:100%;height:100%;padding-top:12px;font:700 16px "微軟正黑體";color:#fff}
+#nav li a:hover{color:#FBCABF}
+#banner{clear:both;background:url(../images/index-banner.png) 0 0 no-repeat;height:305px;width:100%}
+#banner .tabs{float:left;width:21%;padding:115px 0 0 0}
+#banner .tabs li{width:100%;height:30px;padding:10px 0 0 50px}
+#banner .tabs li a{color:#c7c7c7;font:700 18px "微軟正黑體";text-shadow:0 -1px 0 #000}
+#banner .tabs .active{background:url(../images/index-active.png) 10px 0 no-repeat}
+#banner .tabs .active a{color:#fbdf5d;}
+#banner .content{float:right;width:77%;height:100%;padding:17px 20px 0 0}
+.tab_content .text{color:#fff;padding:16px 15px 0 15px;text-align:left;width:194px;height:94px}
+.tab_content .text h4{font:700 20px "微軟正黑體"}
+.tab_content .text p{line-height:20px}
+.tab_content .tab_text1{background:url(../images/index-text1.png) 0 0 no-repeat}
+.tab_content .tab_text2{background:url(../images/index-text2.png) 0 0 no-repeat;padding-top:27px;height:83px}
+.tab_content .tab_text3{background:url(../images/index-text3.png) 0 0 no-repeat}
+.tab_content .tab_img img{box-shadow:0 3px 10px #555}
+#news{background:url(../images/index-02.png) 0 0 no-repeat;width:380px;height:91px;padding:50px 0 0 20px}
+#course{background:url(../images/index-03.png) 0 0 no-repeat;width:406px;height:91px;padding:50px 0 0 20px}
+#main table,#main table a{font-size:13px;color:#636363;line-height:25px}
+#main table a img{opacity:.9}
+#main table a:hover img{opacity:1}
+#traits{width:674px;height:386px;background:url(../images/index-04.png) 0 0 no-repeat;padding:130px 0 0 30px;font-size:14px;color:#000}
+#traits li{margin:5px 0}
+#traits h3{font-size:22px;color:#a72c07;height:30px;border-bottom:1px dashed #D2C5A2;margin:0 0 20px 0;width:450px}
+#forums{width:266px;height:143px;background:url(../images/index-05.jpg) 0 0 no-repeat;padding:45px 20px 0 20px}
+#forums li{border-bottom:1px dashed #D0D0D0;margin:3px 0}
+#fans{width:305px;height:298px;background:url(../images/index-06.jpg) 0 0 no-repeat}
+#announcement{margin:20px 0}
+#announcement h3{height:35px;font-size:17px}
+#announcement td{color:#000;font:300 13px "微軟正黑體";padding:5px 0}
+#announcement:hover{opacity:.7}
+
+#footer{color:#545454;font:300 13px "微軟正黑體";text-align:center;height:30px;padding-top:35px;text-shadow:0 1px 0 #fff;clear:both}
+
+#link{height:161px;background:url(../images/link.jpg) 0 0 repeat-x;
+overflow:hidden;*overflow:none;padding:30px 62.5px 0 62.5px}
+.link-box{width:175px;float:left;}
+
+.link-title{color:#4E1303;font:300 16px "微軟正黑體";height:30px;}
+.link-text li{height:25px;}
+.link-text a{color:#231815;font:300 14px "微軟正黑體"}
+.link-text a:hover{text-decoration:underline}
