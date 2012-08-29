@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
 
   def download_contents
   end
+
+  def traits
+  end
 end

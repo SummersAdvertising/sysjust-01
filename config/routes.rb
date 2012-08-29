@@ -2,10 +2,11 @@
 TestDevise::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  get "static_pages/purchasing"
-  get "static_pages/download_contents"
+  #get "static_pages/purchasing"
+  #get "static_pages/download_contents"
   match "/purchasing" => "static_pages#purchasing"
   match "/download_contents" => "static_pages#download_contents"
+  match "/traits" => "static_pages#traits"
 
   devise_for :users, :path_prefix => 'admin', :controllers => { :registrations => 'registrations'}  
   resources :users    
