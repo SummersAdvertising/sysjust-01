@@ -6,11 +6,13 @@
 
 
       <% if params[:controller]=="static_pages" %>
-          <% if params[:action]=="traits" || params[:action]=="questions" %>
+          <% if params[:action]=="traits" || params[:action]=="questions" || params[:action]=="online_demonstrations" %>
               <li class="active"><a href="<%= traits_url %>">產品特色</a></li>
           <% else %>
               <li><a href="<%= traits_url %>">產品特色</a></li>
           <% end %>
+      <% else %>
+          <li><a href="<%= traits_url %>">產品特色</a></li>
       <% end %>
 
       <% if params[:controller]=="courses" %>
@@ -41,7 +43,7 @@
     </ul>
     <!--nav-->
     <% if params[:controller]=="static_pages" %>
-        <% if params[:action]=="traits" || params[:action]=="questions" %>
+        <% if params[:action]=="traits" || params[:action]=="questions" || params[:action]=="online_demonstrations" %>
             <ul id="nav-child">
               <% if params[:action]=="traits" %>
                   <li class="active"><a href="<%= traits_url %>">產品特色</a></li>
@@ -55,7 +57,11 @@
                   <li><a href="<%= questions_url %>">常見問題</a></li>
               <% end %>
 
-              <li><a href="online-demonstrations.html">線上體驗</a></li>
+              <% if params[:action]=="online_demonstrations" %>
+                  <li class="active"><a href="<%= online_demonstrations_url %>">線上體驗</a></li>
+              <% else %>
+                  <li><a href="<%= online_demonstrations_url %>">線上體驗</a></li>
+              <% end %>
               <li><a href="download-dms.html">ＤＭ下載</a></li>
               <li><a href="apply-for-experiences.html">申請實機體驗</a></li>
             </ul>

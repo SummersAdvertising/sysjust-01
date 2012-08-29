@@ -10,4 +10,7 @@ class StaticPagesController < ApplicationController
 
   def questions
   end
+
+  def online_demonstrations
+  end
 end
