@@ -1,42 +1,80 @@
-<%= form_for(@experience, :validate => true) do |f| %>
-  <% if @experience.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<style>
+    #banner {
+        background-image: url(<%= get_current_host_and_port %>application/images/banner-afe.jpg)
+    }
 
-      <ul>
-      <% @experience.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    #content {
+        padding: 50px
+    }
+
+    #content input {
+        width: 100%;
+        padding: 5px 0;
+        border: 1px solid #DADADA
+    }
+
+    #content p {
+        color: #a72c07;
+        margin: 0 0 20px 0;
+        padding: 0 0 0 10px
+    }
+
+    hr {
+        background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg) 0 0 no-repeat;
+        width: 800px;
+        height: 14px;
+        border: 0
+    }
+</style>
+<%= render :partial => "shared/application_top" %><!--header-->
+<div id="container">
+  <div id="main">
+    <div id="banner">
+      <h2>申請實機體驗</h2>
     </div>
-  <% end %>
+    <!--banner-->
+    <%= form_for(@experience, :validate => true) do |f| %>
+        <div id="content">
+          <p>心動嗎？線上體驗XQ全球贏家還不夠？快來實際感受一下XQ全球贏家獨特的魅力，滿足您投資決策的所有需求</p>
+          <table width="550" border="0" cellspacing="10" cellpadding="0">
+            <tr>
+              <td width="15%">聯絡人姓名</td>
+              <td width="36%"><%= f.text_field :contact_person %>
+              </td>
+              <td width="13%" align="center" valign="middle">聯絡電話</td>
+              <td width="36%"><%= f.text_field :phone_number %></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td colspan="3"><%= f.text_field :email %></td>
+            </tr>
+            <tr>
+              <td>公司名稱</td>
+              <td colspan="3"><%= f.text_field :company_name %></td>
+            </tr>
+            <tr>
+              <td>職稱</td>
+              <td><%= f.text_field :professional_title %></td>
+              <td align="center" valign="middle">參加人數</td>
+              <td><%= f.number_field :attendant_number %></td>
+            </tr>
+          </table>
+          <hr>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td align="right">
+                <%= f.submit "" %><img src="<%= get_current_host_and_port %>application/images/afe-01.jpg" width="195" height="47"/></td>
+            </tr>
+          </table>
 
-  <div class="field">
-    <%= f.label :contact_person %><br />
-    <%= f.text_field :contact_person %>
+        </div>
+        <!--content-->
+    <% end %>
+
   </div>
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :attendant_number %><br />
-    <%= f.number_field :attendant_number %>
-  </div>
-  <div class="field">
-    <%= f.label :company_name %><br />
-    <%= f.text_field :company_name %>
-  </div>
-  <div class="field">
-    <%= f.label :professional_title %><br />
-    <%= f.text_field :professional_title %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <%= submit_tag("Start Over", { :name => 'reset', :id => 'reset_button', :type => "reset" }) %>
-<% end %>
+  <!--main-->
+  <%= render :partial => "shared/application_footer" %>
+</div>
+<!--container-->
