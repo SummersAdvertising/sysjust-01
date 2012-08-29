@@ -42,10 +42,7 @@
         opacity: .85
     }
 </style>
-<script>
-
-</script>
-<%= form_for([@course, @course.enrollments.build]) do |f| %>
+<%= form_for([@course, @course.enrollments.build], remote: true) do |f| %>
     <h1>課程報名表</h1>
     <table width="550" border="0" cellspacing="0" cellpadding="0">
       <tr>
@@ -67,7 +64,7 @@
         <td colspan="3"><%= f.text_field :professional_title %></td>
       </tr>
     </table>
-    <div id="button" style="clear:both>
+    <div id="button">
       <a href="#"><%= f.submit "" %><img src="<%= get_current_host_and_port %>application/images/cs-03.jpg" width="197" height="50"/></a>
     </div>
 <% end %>
