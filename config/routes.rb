@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+  mount RedactorRails::Engine => '/redactor_rails'
+
+
 
   match "/purchasing" => "static_pages#purchasing"
   match "/download_contents" => "static_pages#download_contents"

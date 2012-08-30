@@ -19,6 +19,7 @@ gem 'client_side_validations'
 gem 'pry', :group => :development
 gem "ckeditor", "3.7.1"
 gem 'mini_magick'
+gem 'redactor-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
