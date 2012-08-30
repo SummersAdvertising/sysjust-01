@@ -3,6 +3,39 @@
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".iframe").colorbox({iframe:true, width:"780", height:"600"});
+        $("#click").click(function(){
+            $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+            return false;
+        });
+    });
+
+    $(function(){
+        // 預設顯示第一個 Tab
+        var _showTab = 0;
+        var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
+        $($defaultLi.find('a').attr('href')).siblings().hide();
+
+        // 當 li 頁籤被點擊時...
+        // 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
+        $('ul.tabs li').click(function() {
+            // 找出 li 中的超連結 href(#id)
+            var $this = $(this),
+                    _clickTab = $this.find('a').attr('href');
+            // 把目前點擊到的 li 頁籤加上 .active
+            // 並把兄弟元素中有 .active 的都移除 class
+            $this.addClass('active').siblings('.active').removeClass('active');
+            // 淡入相對應的內容並隱藏兄弟元素
+            $(_clickTab).stop(false, true).fadeIn().siblings().hide();
+
+            return false;
+        }).find('a').focus(function(){
+                    this.blur();
+                });
+    });
+</script>
 <script type="text/javascript">
     function save() {
         str = document.forms[0].input.value;
@@ -101,10 +134,10 @@
               </tr>
               <tr>
                 <td width="26%">
-                  <a href="<%= category_video_path(@category, video) %>" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
+                  <a href="<%= category_video_path(@category, video) %>" class='iframe'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
                 </td>
                 <td width="22%">
-                  <a href="<%= category_video_path(@category, video) %>" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41"/></a>
+                  <a href="<%= category_video_path(@category, video) %>" ><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41"/></a>
                 </td>
               </tr>
             </table>
