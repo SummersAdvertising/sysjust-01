@@ -10,6 +10,8 @@
             $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
             return false;
         });
+//        news_id = gup("news_id").toString()
+        $("#<%= params[:news_id] %>").trigger('click')
     });
 </script>
 <style>
@@ -49,7 +51,7 @@
       <% @news_updates.each do |news_update| %>
           <div class="list-box">
             <div class="list-title"><%= news_update.updated_at.to_date %> /
-              <a class='iframe' href="<%= news_update_url(news_update) %>"><%= news_update.title %></a>
+              <a class='iframe' href="<%= news_update_url(news_update) %>" id="<%= news_update.id %>"><%= news_update.title %></a>
             </div>
             <div class="list-desc"><%= news_update.source %></div>
           </div>

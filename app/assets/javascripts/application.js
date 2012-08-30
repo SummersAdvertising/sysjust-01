@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require redactor-rails
+//= require redactor-rails/redactor.min
+//= require redactor_config/redactor_config.js
 //= require_tree .
