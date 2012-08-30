@@ -24,9 +24,15 @@
   <div class="link-box">
     <h5 class="link-title">實機教學</h5>
     <ul class="link-text">
-      <li><a href="<%= category_url(Category.first) %>#tab1">獨家操作教戰</a></li>
-      <li><a href="<%= category_url(Category.first) %>#tab2">獨家資訊教戰</a></li>
-      <li><a href="<%= category_url(Category.first) %>#tab3">獨家分析教戰</a></li>
+      <%
+         @categories = Category.limit(3)
+         @category_01 = @categories[0]
+         @category_02 = @categories[1]
+         @category_03 = @categories[2]
+      %>
+      <li><a href="<%= category_url(@category_01) %>"><%= @category_01.name %></a></li>
+      <li><a href="<%= category_url(@category_02) %>"><%= @category_02.name %></a></li>
+      <li><a href="<%= category_url(@category_03) %>"><%= @category_03.name %></a></li>
     </ul>
   </div>
   <!--link-box-->
