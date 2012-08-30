@@ -1,4 +1,2 @@
 .message {position:absolute;top:0;left:0;background:yellow;color:#000}
-.field_with_errors {
-                    position: relative;
-}
+.field_with_errors {position: relative}
