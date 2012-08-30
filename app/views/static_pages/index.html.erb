@@ -232,9 +232,9 @@
       <td width="40%" align="left" valign="top">
         <div id="news">
           <ul>
-            <li><%= @newsupdate_01.updated_at.to_date %> / <a href="#"><%= @newsupdate_01.title %></a></li>
-            <li><%= @newsupdate_02.updated_at.to_date %> / <a href="#"><%= @newsupdate_02.title %></a></li>
-            <li><%= @newsupdate_03.updated_at.to_date %> / <a href="#"><%= @newsupdate_03.title %></a></li>
+            <li><%= @newsupdate_01.updated_at.to_date %> / <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_01.id%>" ><%= @newsupdate_01.title %></a></li>
+            <li><%= @newsupdate_02.updated_at.to_date %> / <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_02.id%>"><%= @newsupdate_02.title %></a></li>
+            <li><%= @newsupdate_03.updated_at.to_date %> / <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_03.id%>"><%= @newsupdate_03.title %></a></li>
           </ul>
         </div>
 
