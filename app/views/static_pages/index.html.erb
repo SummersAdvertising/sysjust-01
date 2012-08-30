@@ -104,15 +104,15 @@
               </div>
             </a></td>
             <td width="34%" align="center"><a href="<%= @banner_02.hyperlink_02 %>">
-              <div class="tab_text1 text">
-                <h4><%= @banner_02.title_02 %></h4>
-
-                <p><%= raw @banner_02.content_02.gsub("\n", "<br />").html_safe %></p>
-              </div>
               <div class="tab_img">
                 <% if @banner_02.excerpt_image_02? %>
                     <img src="<%= @banner_02.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
                 <% end %>
+              </div>
+			  <div class="tab_text1 text">
+                <h4><%= @banner_02.title_02 %></h4>
+
+                <p><%= raw @banner_02.content_02.gsub("\n", "<br />").html_safe %></p>
               </div>
             </a></td>
             <td width="33%" align="center"><a href="<%= @banner_02.hyperlink_03 %>">
@@ -230,13 +230,13 @@
         <a href="<%= new_experience_url %>"><img src="<%= get_current_host_and_port %>application/images/index-01.png" width="178" height="138"/></a>
       </td>
       <td width="40%" align="left" valign="top">
-        <div id="news"><a href="<%= news_updates_url %>">
+        <div id="news">
           <ul>
-            <li>2005.5.10 / 全球股市資訊、優質看盤環境、產業分析最</li>
-            <li>2005.5.10 / 全球股市資訊、優質看盤環境、產業分析最</li>
-            <li>2005.4.25 / 布局大中華概念成形，外資不再獨厚台股</li>
+            <li>2005.5.10 / <a href="#">全球股市資訊、優質看盤環境、產業分析最</a></li>
+            <li>2005.5.10 / <a href="#">全球股市資訊、優質看盤環境、產業分析最</a></li>
+            <li>2005.4.25 / <a href="#">布局大中華概念成形，外資不再獨厚台股</a></li>
           </ul>
-        </a></div>
+        </div>
 
         <!--news--></td>
       <td width="42%" align="left" valign="top">
