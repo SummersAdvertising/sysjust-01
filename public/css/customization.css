@@ -1,2 +1,2 @@
-.message {position:absolute;top:0;left:0;background:yellow;color:#000}
+.message {position:absolute;top:0;left:0;background:#A12D2D;color:#fff;display:block;padding:3px 5px;border-radius:8px;}
 .field_with_errors {position: relative}
