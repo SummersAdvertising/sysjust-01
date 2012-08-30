@@ -17,7 +17,7 @@ gem 'carrierwave'
 gem "rmagick"
 gem 'client_side_validations'
 gem 'pry', :group => :development
-#gem "ckeditor", "3.7.1"
+gem "ckeditor", "3.7.1"
 gem 'mini_magick'
 gem 'redactor-rails'
 
