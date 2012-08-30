@@ -1,3 +1,4 @@
+# encoding: UTF-8
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
@@ -13,21 +14,21 @@
     });
 
     $(function(){
-        // ¹w³]Åã¥Ü²Ä¤@­Ó Tab
+        // ï¿½wï¿½]ï¿½ï¿½Ü²Ä¤@ï¿½ï¿½ Tab
         var _showTab = 0;
         var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
         $($defaultLi.find('a').attr('href')).siblings().hide();
 
-        // ·í li ­¶ÅÒ³QÂIÀ»®É...
-        // ­Y­n§ï¦¨·Æ¹«²¾¨ì li ­¶ÅÒ´N¤Á´«®É, §â click §ï¦¨ mouseover
+        // ï¿½ï¿½ li ï¿½ï¿½ï¿½Ò³Qï¿½Iï¿½ï¿½ï¿½ï¿½...
+        // ï¿½Yï¿½nï¿½ï¦¨ï¿½Æ¹ï¿½ï¿½ï¿½ï¿½ï¿½ li ï¿½ï¿½ï¿½Ò´Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ click ï¿½ï¦¨ mouseover
         $('ul.tabs li').click(function() {
-            // §ä¥X li ¤¤ªº¶W³sµ² href(#id)
+            // ï¿½ï¿½X li ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½sï¿½ï¿½ href(#id)
             var $this = $(this),
                     _clickTab = $this.find('a').attr('href');
-            // §â¥Ø«eÂIÀ»¨ìªº li ­¶ÅÒ¥[¤W .active
-            // ¨Ã§â¥S§Ì¤¸¯À¤¤¦³ .active ªº³£²¾°£ class
+            // ï¿½ï¿½Ø«eï¿½Iï¿½ï¿½ï¿½ìªº li ï¿½ï¿½ï¿½Ò¥[ï¿½W .active
+            // ï¿½Ã§ï¿½Sï¿½Ì¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ .active ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ class
             $this.addClass('active').siblings('.active').removeClass('active');
-            // ²H¤J¬Û¹ïÀ³ªº¤º®e¨ÃÁôÂÃ¥S§Ì¤¸¯À
+            // ï¿½Hï¿½Jï¿½Û¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½Ã¥Sï¿½Ì¤ï¿½ï¿½ï¿½
             $(_clickTab).stop(false, true).fadeIn().siblings().hide();
 
             return false;
