@@ -31,6 +31,15 @@
                 });
     });
 </script>
+
+<script>
+$(document).ready(function(){
+	if (window.location.hash.substr(1).indexOf("tab") >= 0) {		
+		$('a[href=' + window.location.hash + ']').click();
+	}
+});
+</script>
+
 <style>
     #main{background:url(<%= get_current_host_and_port %>application/images/banner-vd.jpg) top right no-repeat #fff;overflow:hidden}
     #side{width:156px;text-align:right;padding-top:50px}

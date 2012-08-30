@@ -6,44 +6,43 @@
   <div class="link-box">
     <h5 class="link-title">產品特色</h5>
     <ul class="link-text">
-      <li><a href="#">XQ全球贏家三大特色</a></li>
-      <li><a href="#">線上體驗產品</a></li>
-      <li><a href="#">申請實機體驗</a></li>
-      <li><a href="#">DM下載</a></li>
-      <li><a href="#">常見問答</a></li>
+      <li><a href="<%= traits_url %>">XQ全球贏家三大特色</a></li>
+      <li><a href="<%= online_demonstrations_url %>">線上體驗產品</a></li>
+      <li><a href="<%= new_experience_url %>">申請實機體驗</a></li>
+      <li><a href="<%= download_dms_url %>">DM下載</a></li>
+      <li><a href="<%= questions_url %>">常見問題</a></li>
     </ul>
   </div>
   <!--link-box-->
   <div class="link-box">
     <h5 class="link-title">實務課程</h5>
     <ul class="link-text">
-      <li><a href="#">XQ課程</a></li>
-      <li><a href="#">XQ實務應用</a></li>
+      <li><a href="<%= courses_url %>">XQ課程</a></li>
     </ul>
   </div>
   <!--link-box-->
   <div class="link-box">
     <h5 class="link-title">實機教學</h5>
     <ul class="link-text">
-      <li><a href="#">獨家操作教戰</a></li>
-      <li><a href="#">獨家資訊教戰</a></li>
-      <li><a href="#">獨家分析教戰</a></li>
+      <li><a href="<%= category_url(Category.first) %>#tab1">獨家操作教戰</a></li>
+      <li><a href="<%= category_url(Category.first) %>#tab2">獨家資訊教戰</a></li>
+      <li><a href="<%= category_url(Category.first) %>#tab3">獨家分析教戰</a></li>
     </ul>
   </div>
   <!--link-box-->
   <div class="link-box">
     <h5 class="link-title">下載專區</h5>
     <ul class="link-text">
-      <li><a href="#">XQ主程式</a></li>
-      <li><a href="#">XQ自設畫面檔案</a></li>
-      <li><a href="#">使用手冊</a></li>
+      <li><a href="http://login.xq.com.tw/dassvr/installer/setup.exe">XQ主程式</a></li>
+      <li><a href="http://login.xq.com.tw/dassvr/installer/update.exe">XQ自設畫面檔案</a></li>
+      <li><a href="http://www.xq.com.tw/aphelp/DAQ/default.htm">使用手冊</a></li>
     </ul>
   </div>
   <!--link-box-->
   <div class="link-box">
     <h5 class="link-title">我要購買</h5>
     <ul class="link-text">
-      <li><a href="#">方案及軟體</a></li>
+      <li><a href="<%= purchasing_url %>">方案及軟體</a></li>
       <li><a href="#">產品訂購單下載</a></li>
       <li><a href="#">傳真刷卡單下載</a></li>
     </ul>
