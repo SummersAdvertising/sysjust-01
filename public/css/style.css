@@ -1,4 +1,4 @@
-/*-------------------------------------------------------------------全域---*/
+﻿/*-------------------------------------------------------------------全域---*/
 
 html{font:300 13px "Helvetica";background:url(../images/background.jpg) 0 0 repeat}
 body{background:none!important}
@@ -68,7 +68,7 @@ width:646px;padding:10px;min-height:580px;}
 
 /*-------------------------------------------------------------------按鈕---*/
 
-.button{background:url(../images/list.jpg) 0 0 repeat-x;border:1px solid #ccc;margin:0 0 10px 10px;font-weight:700!important
+.button{background:url(../images/list.jpg) 0 0 repeat-x;border:1px solid #ccc;margin:0 0 10px 10px;font-weight:700!important;
 border-radius:5px;height:27px;padding:3px 0 0 10px;width:100px;float:right;position:relative;z-index:1}
 .button a{color:#333;text-shadow:0 1px 0 #fff;font-weight:700}
 .button:hover a{color:#777}
