@@ -42,9 +42,6 @@ GEM
     carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
-    ckeditor (3.7.1)
-      mime-types
-      orm_adapter
     client_side_validations (3.1.4)
     cocaine (0.2.1)
     coderay (1.0.7)
@@ -162,7 +159,6 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   carrierwave
-  ckeditor (= 3.7.1)
   client_side_validations
   coffee-rails (~> 3.2.1)
   devise
