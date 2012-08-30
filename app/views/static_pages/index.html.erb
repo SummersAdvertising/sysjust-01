@@ -104,15 +104,15 @@
               </div>
             </a></td>
             <td width="34%" align="center"><a href="<%= @banner_02.hyperlink_02 %>">
-              <div class="tab_text1 text">
-                <h4><%= @banner_02.title_02 %></h4>
-
-                <p><%= raw @banner_02.content_02.gsub("\n", "<br />").html_safe %></p>
-              </div>
               <div class="tab_img">
                 <% if @banner_02.excerpt_image_02? %>
                     <img src="<%= @banner_02.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
                 <% end %>
+              </div>
+			  <div class="tab_text1 text">
+                <h4><%= @banner_02.title_02 %></h4>
+
+                <p><%= raw @banner_02.content_02.gsub("\n", "<br />").html_safe %></p>
               </div>
             </a></td>
             <td width="33%" align="center"><a href="<%= @banner_02.hyperlink_03 %>">
