@@ -109,7 +109,7 @@
                     <img src="<%= @banner_02.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
                 <% end %>
               </div>
-			  <div class="tab_text1 text">
+              <div class="tab_text1 text">
                 <h4><%= @banner_02.title_02 %></h4>
 
                 <p><%= raw @banner_02.content_02.gsub("\n", "<br />").html_safe %></p>
@@ -232,9 +232,9 @@
       <td width="40%" align="left" valign="top">
         <div id="news">
           <ul>
-            <li>2005.5.10 / <a href="#">全球股市資訊、優質看盤環境、產業分析最</a></li>
-            <li>2005.5.10 / <a href="#">全球股市資訊、優質看盤環境、產業分析最</a></li>
-            <li>2005.4.25 / <a href="#">布局大中華概念成形，外資不再獨厚台股</a></li>
+            <li><%= @newsupdate_01.updated_at.to_date %> / <a href="#"><%= @newsupdate_01.title %></a></li>
+            <li><%= @newsupdate_02.updated_at.to_date %> / <a href="#"><%= @newsupdate_02.title %></a></li>
+            <li><%= @newsupdate_03.updated_at.to_date %> / <a href="#"><%= @newsupdate_03.title %></a></li>
           </ul>
         </div>
 
@@ -242,9 +242,21 @@
       <td width="42%" align="left" valign="top">
         <div id="course"><a href="<%= courses_url %>">
           <ul>
-            <li>XQ課程（應用班）—台北場/2012.7.18（已額滿）</li>
-            <li>XQ課程（初、進階）—台北場/2012.7.10</li>
-            <li>XQ實務應用課程—高雄場/2012.6.26 （已額滿）</li>
+            <li><%= @display_courses[0].subject %>—<%= @display_courses[0].session %>/<%= @display_courses[0].start_time %>
+              <% if @display_courses[0].registration_quota - @display_courses[0].enrollments.count==0 %>
+                  （已額滿）
+              <% end %>
+            </li>
+            <li><%= @display_courses[1].subject %>—<%= @display_courses[1].session %>/<%= @display_courses[1].start_time %>
+              <% if @display_courses[1].registration_quota - @display_courses[1].enrollments.count==0 %>
+                  （已額滿）
+              <% end %>
+            </li>
+            <li><%= @display_courses[2].subject %>—<%= @display_courses[2].session %>/<%= @display_courses[2].start_time %>
+              <% if @display_courses[2].registration_quota - @display_courses[2].enrollments.count==0 %>
+                  （已額滿）
+              <% end %>
+            </li>
           </ul>
         </a></div>
 
