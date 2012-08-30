@@ -1,6 +1,4 @@
-.message {display:none}
+.message {position:absolute;top:0;left:0;background:yellow;color:#000}
 .field_with_errors {
-  /*padding: 1px;
-  background-color: red;*/
-border:1px solid #ff4933
+                    position: relative;
 }

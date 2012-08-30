@@ -16,4 +16,12 @@ class StaticPagesController < ApplicationController
 
   def download_dms
   end
+
+  def index
+    @banners = Banner.limit(4)
+    @banner_01 = @banners[0]
+    @banner_02 = @banners[1]
+    @banner_03 = @banners[2]
+    @banner_04 = @banners[3]
+  end
 end
