@@ -2,7 +2,7 @@
 TestDevise::Application.routes.draw do
   mount RedactorRails::Engine => '/redactor_rails'
 
-
+  mount Ckeditor::Engine => '/ckeditor'
 
   match "/purchasing" => "static_pages#purchasing"
   match "/download_contents" => "static_pages#download_contents"
