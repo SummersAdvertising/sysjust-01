@@ -43,9 +43,9 @@ class StaticPagesController < ApplicationController
       date_time = course.start_time.split(' ')
       date = date_time[0]
       date_split = date.split('/')
-      month = Integer(date_split[0].gsub("0", ""))
-      day = Integer(date_split[1].gsub("0", ""))
-      year = Integer(date_split[2])
+      month = date_split[0].to_i()
+      day = date_split[1].to_i()
+      year = date_split[2].to_i()
       temp_start_time = year * 365 + month * 30  + day
       if temp_start_time > current_time
         @display_courses[i] = course
