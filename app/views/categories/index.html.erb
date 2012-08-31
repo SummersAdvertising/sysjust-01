@@ -1,209 +1,23 @@
-<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css" />
-<script>
-    $(document).ready(function(){
-        $(".iframe").colorbox({iframe:true, width:"780", height:"600"});
-        $("#click").click(function(){
-            $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-            return false;
-        });
-    });
+<h1>Listing categories</h1>
 
-    $(function(){
-        // 預設顯示第一個 Tab
-        var _showTab = 0;
-        var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
-        $($defaultLi.find('a').attr('href')).siblings().hide();
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-        // 當 li 頁籤被點擊時...
-        // 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
-        $('ul.tabs li').click(function() {
-            // 找出 li 中的超連結 href(#id)
-            var $this = $(this),
-                    _clickTab = $this.find('a').attr('href');
-            // 把目前點擊到的 li 頁籤加上 .active
-            // 並把兄弟元素中有 .active 的都移除 class
-            $this.addClass('active').siblings('.active').removeClass('active');
-            // 淡入相對應的內容並隱藏兄弟元素
-            $(_clickTab).stop(false, true).fadeIn().siblings().hide();
+  <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
 
-            return false;
-        }).find('a').focus(function(){
-                    this.blur();
-                });
-    });
-</script>
+<br />
 
-<script>
-$(document).ready(function(){
-	if (window.location.hash.substr(1).indexOf("tab") >= 0) {		
-		$('a[href=' + window.location.hash + ']').click();
-	}
-});
-</script>
-
-<style>
-    #main{background:url(<%= get_current_host_and_port %>application/images/banner-vd.jpg) top right no-repeat #fff;overflow:hidden}
-    #side{width:156px;text-align:right;padding-top:50px}
-    #side li{padding-right:20px;margin:15px 0}
-    #side a{color:#000;font-size:15px}
-    #side .active a{color:#820000}
-    #side .active{background:url(<%= get_current_host_and_port %>application/images/vd-01.jpg) right center no-repeat;}
-    #content{margin:0 0 0 0;padding:200px 90px 0 90px;width:664px}
-    h4{color:#a72c07;font-size:18px;height:30px}
-    hr {width: 800px;height: 25px;border: 0;border-top:1px dashed #aaa;margin-top:25px}
-</style>
-<%= render :partial => "shared/application_top" %>
-<!--header-->
-<div id="container">
-  <div id="main">
-    <div id="side" class="left">
-      <ul class="tabs">
-        <li><a href="<%=category_path(@category_01)%>">獨家操作教戰</a></li>
-        <li><a href="#tab2">獨家資訊教戰</a></li>
-        <li><a href="#tab3">獨家分析教戰</a></li>
-      </ul>
-    </div>
-    <!--side-->
-    <div id="content" class="right">
-      <div id="tab1" class="tab_content">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="52%" rowspan="2" align="left" valign="top"><img src="<%= get_current_host_and_port %>application/images/example2.jpg" width="233" height="164" /></td>
-            <td height="122" colspan="2" align="left" valign="top"><h4>自設看盤畫面（上）</h4>
-              XQ可自由分割頁面欄框，調整欄框寬度，設定欄框內容、頁面配色、字體大小，還可設定報價欄位。</td>
-          </tr>
-          <tr>
-            <td width="26%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
-            <td width="22%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
-          </tr>
-        </table>
-        <hr />
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="52%" rowspan="2" align="left" valign="top"><img src="<%= get_current_host_and_port %>application/images/example2.jpg" width="233" height="164" /></td>
-            <td height="122" colspan="2" align="left" valign="top"><h4>自設看盤畫面（上）</h4>
-              XQ可自由分割頁面欄框，調整欄框寬度，設定欄框內容、頁面配色、字體大小，還可設定報價欄位。</td>
-          </tr>
-          <tr>
-            <td width="26%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
-            <td width="22%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
-          </tr>
-        </table>
-        <hr />
-      </div>
-      <!--tab1-->
-      <div id="tab2" class="tab_content">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="52%" rowspan="2" align="left" valign="top"><img src="<%= get_current_host_and_port %>application/images/example2.jpg" width="233" height="164" /></td>
-            <td height="122" colspan="2" align="left" valign="top"><h4>自設看盤畫面（上）</h4>
-              XQ可自由分割頁面欄框，調整欄框寬度，設定欄框內容、頁面配色、字體大小，還可設定報價欄位。</td>
-          </tr>
-          <tr>
-            <td width="26%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
-            <td width="22%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
-          </tr>
-        </table>
-        <hr />
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="52%" rowspan="2" align="left" valign="top"><img src="images/example2.jpg" width="233" height="164" /></td>
-            <td height="122" colspan="2" align="left" valign="top"><h4>自設看盤畫面（上）</h4>
-              XQ可自由分割頁面欄框，調整欄框寬度，設定欄框內容、頁面配色、字體大小，還可設定報價欄位。</td>
-          </tr>
-          <tr>
-            <td width="26%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
-            <td width="22%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
-          </tr>
-        </table>
-        <hr />
-      </div>
-      <!--tab2-->
-      <div id="tab3" class="tab_content">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="52%" rowspan="2" align="left" valign="top"><img src="<%= get_current_host_and_port %>application/images/example2.jpg" width="233" height="164" /></td>
-            <td height="122" colspan="2" align="left" valign="top"><h4>自設看盤畫面（上）</h4>
-              XQ可自由分割頁面欄框，調整欄框寬度，設定欄框內容、頁面配色、字體大小，還可設定報價欄位。</td>
-          </tr>
-          <tr>
-            <td width="26%"><img src="images/vd-02.jpg" width="147" height="41" /></td>
-            <td width="22%"><img src="images/vd-03.jpg" width="147" height="41" /></td>
-          </tr>
-        </table>
-        <hr />
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td width="52%" rowspan="2" align="left" valign="top"><img src="<%= get_current_host_and_port %>application/images/example2.jpg" width="233" height="164" /></td>
-            <td height="122" colspan="2" align="left" valign="top"><h4>自設看盤畫面（上）</h4>
-              XQ可自由分割頁面欄框，調整欄框寬度，設定欄框內容、頁面配色、字體大小，還可設定報價欄位。</td>
-          </tr>
-          <tr>
-            <td width="26%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
-            <td width="22%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
-          </tr>
-        </table>
-        <hr />
-      </div>
-      <!--tab3-->
-    </div>
-    <!--content-->
-
-  </div>
-  <!--main-->
-  <div id="footer">嘉實資訊股份有限公司©2012 XQ.com.tw / All Right Reserved.
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客戶免付費電話：0800-006-098
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服信箱：XQservice@XQ.com.tw </div>
-  <!--footer-->
-  <div id="link">
-    <div class="link-box">
-      <h5 class="link-title">產品特色</h5>
-      <ul class="link-text">
-        <li><a href="#">XQ全球贏家三大特色</a></li>
-        <li><a href="#">線上體驗產品</a></li>
-        <li><a href="#">申請實機體驗</a></li>
-        <li><a href="#">DM下載</a></li>
-        <li><a href="#">常見問答</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-    <div class="link-box">
-      <h5 class="link-title">實務課程</h5>
-      <ul class="link-text">
-        <li><a href="#">XQ課程</a></li>
-        <li><a href="#">XQ實務應用</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-    <div class="link-box">
-      <h5 class="link-title">實機教學</h5>
-      <ul class="link-text">
-        <li><a href="#">獨家操作教戰</a></li>
-        <li><a href="#">獨家資訊教戰</a></li>
-        <li><a href="#">獨家分析教戰</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-    <div class="link-box">
-      <h5 class="link-title">下載專區</h5>
-      <ul class="link-text">
-        <li><a href="#">XQ主程式</a></li>
-        <li><a href="#">XQ自設畫面檔案</a></li>
-        <li><a href="#">使用手冊</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-    <div class="link-box">
-      <h5 class="link-title">我要購買</h5>
-      <ul class="link-text">
-        <li><a href="#">方案及軟體</a></li>
-        <li><a href="#">產品訂購單下載</a></li>
-        <li><a href="#">傳真刷卡單下載</a></li>
-      </ul>
-    </div>
-    <!--link-box-->
-  </div>
-  <!--link-->
-</div>
-<!--container-->
+<%= link_to 'New Category', new_category_path %>
