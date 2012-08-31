@@ -28,6 +28,9 @@
         border: 0
     }
 </style>
+<script>
+
+</script>
 <%= render :partial => "shared/application_top" %><!--header-->
 <div id="container">
   <div id="main">
@@ -35,7 +38,7 @@
       <h2>申請實機體驗</h2>
     </div>
     <!--banner-->
-    <%= form_for(@experience) do |f| %>
+    <%= form_for(@experience, :validate => true) do |f| %>
         <div id="content">
           <p>心動嗎？線上體驗XQ全球贏家還不夠？快來實際感受一下XQ全球贏家獨特的魅力，滿足您投資決策的所有需求</p>
           <table width="550" border="0" cellspacing="10" cellpadding="0">
@@ -67,9 +70,8 @@
               <td align="right"></td>
             </tr>
             <%= f.submit "", {:id => 'reset_button'} %>
-            <%= submit_tag("Start Over", { :name => 'reset', :id => 'reset_button', :type => "reset" }) %>
           </table>
-
+          <a href="<%= new_experience_url %>">清除重填</a>
         </div>
         <!--content-->
     <% end %>
