@@ -14,8 +14,17 @@
           <th width="10%" align="center" scope="col">人數/上限</th>
           <th width="7%" align="center" scope="col">編輯</th>
         </tr>
-        <% @courses.each do |course| %>
-            <% if course.start_time > Time.now.to_s() %>
+        <% @courses.each do |course|
+          date_time = course.start_time.split(' ')
+          date = date_time[0]
+          date_split = date.split('/')
+          month = Integer(date_split[0].gsub("0", ""))
+          day = Integer(date_split[1].gsub("0", ""))
+          year = Integer(date_split[2])
+          temp_start_time = year * 365 + month * 30  + day
+          current_time = Time.now.year * 365 + Time.now.month * 30 + Time.now.day
+        %>
+            <% if temp_start_time > current_time %>
                 <tr>
                   <td align="center"> <%= course.start_time %> </td>
                   <td align="left"><%= course.session %></td>
