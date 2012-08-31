@@ -13,29 +13,7 @@
         });
     });
 
-    $(function(){
-        // �w�]��ܲĤ@�� Tab
-        var _showTab = 0;
-        var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
-        $($defaultLi.find('a').attr('href')).siblings().hide();
 
-        // �� li ���ҳQ�I����...
-        // �Y�n�令�ƹ����� li ���ҴN������, �� click �令 mouseover
-        $('ul.tabs li').click(function() {
-            // ��X li �����W�s�� href(#id)
-            var $this = $(this),
-                    _clickTab = $this.find('a').attr('href');
-            // ��ثe�I���쪺 li ���ҥ[�W .active
-            // �ç�S�̤������� .active �������� class
-            $this.addClass('active').siblings('.active').removeClass('active');
-            // �H�J�۹��������e�����åS�̤���
-            $(_clickTab).stop(false, true).fadeIn().siblings().hide();
-
-            return false;
-        }).find('a').focus(function(){
-                    this.blur();
-                });
-    });
 </script>
 <script type="text/javascript">
     function save() {
