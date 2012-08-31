@@ -1,4 +1,10 @@
 class VideosController < ApplicationController
+  def download
+    @category = Category.find(params[:category_id])
+    @video = @category.videos.find(params[:id])
+    send_file Rails.root.to_s()+"/public"+@video.video_url
+  end
+
   # GET /videos
   # GET /videos.json
   # layout 'media_element'

@@ -24,7 +24,11 @@ TestDevise::Application.routes.draw do
     resources :enrollments
   end
   resources :categories do
-    resources :videos
+    resources :videos do
+      member do
+        get 'download'
+      end
+    end
   end
 
   namespace :admin do
