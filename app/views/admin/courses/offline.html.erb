@@ -27,7 +27,7 @@
         %>
             <% if (temp_start_time < current_time) || (course.is_display == false) %>
                 <tr>
-                  <td align="center"> <%= course.start_time[6..9] + "-" + course.start_time[0..1] + "-" + course.start_time[3..4] %> </td>
+                  <td align="center"><%= date_split[2]+"-"+date_split[0]+"-"+date_split[1] %></td>
                   <td align="left"><%= course.session %></td>
                   <td align="left"><a href="<%= admin_course_path(course) %>"><%= course.subject %></a></td>
                   <td align="center"><span><%= course.enrollments.count %></span>/<%= course.registration_quota %></td>
