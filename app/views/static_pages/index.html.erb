@@ -67,11 +67,11 @@ $(function(){
       <div id="tab1" class="tab_content">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="33%" align="center"><a href="<%= @banner_01.hyperlink_01 %>">
+            <td width="33%" align="center"><a href="<%= @banner_01.hyperlink_01 if !@banner_01.nil? %>">
               <div class="tab_text1 text">
-                <h4><%= @banner_01.title_01 %></h4>
+                <h4><%= @banner_01.title_01 if !@banner_01.nil? %></h4>
 
-                <p><%= raw @banner_01.content_01.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_01.content_01.gsub("\n", "<br />").html_safe if !@banner_01.nil? %></p>
               </div>
               <div class="tab_img">
                 <% if @banner_01.excerpt_image_01? %>
@@ -79,23 +79,23 @@ $(function(){
                 <% end %>
               </div>
             </a></td>
-            <td width="34%" align="center"><a href="<%= @banner_01.hyperlink_02 %>">
+            <td width="34%" align="center"><a href="<%= @banner_01.hyperlink_02  if !@banner_01.nil?%>">
               <div class="tab_img">
                 <% if @banner_01.excerpt_image_02? %>
                     <img src="<%= @banner_01.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
                 <% end %>
               </div>
               <div class="tab_text2 text">
-                <h4><%= @banner_01.title_02 %></h4>
+                <h4><%= @banner_01.title_02 if !@banner_01.nil?%></h4>
 
-                <p><%= raw @banner_01.content_02.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_01.content_02.gsub("\n", "<br />").html_safe if !@banner_01.nil?%></p>
               </div>
             </a></td>
-            <td width="33%" align="center"><a href="<%= @banner_01.hyperlink_03 %>">
+            <td width="33%" align="center"><a href="<%= @banner_01.hyperlink_03 if !@banner_01.nil?%>">
               <div class="tab_text3 text">
-                <h4><%= @banner_01.title_03 %></h4>
+                <h4><%= @banner_01.title_03 if !@banner_01.nil?%></h4>
 
-                <p><%= raw @banner_01.content_03.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_01.content_03.gsub("\n", "<br />").html_safe if !@banner_01.nil?%></p>
               </div>
               <div class="tab_img">
                 <% if @banner_01.excerpt_image_03? %>
@@ -112,9 +112,9 @@ $(function(){
           <tr>
             <td width="33%" align="center"><a href="<%= @banner_02.hyperlink_01 %>">
               <div class="tab_text1 text">
-                <h4><%= @banner_02.title_01 %></h4>
+                <h4><%= @banner_02.title_01 if !@banner_02.nil?%></h4>
 
-                <p><%= raw @banner_02.content_01.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_02.content_01.gsub("\n", "<br />").html_safe if !@banner_02.nil?%></p>
               </div>
               <div class="tab_img">
                 <% if @banner_02.excerpt_image_01? %>
@@ -122,23 +122,23 @@ $(function(){
                 <% end %>
               </div>
             </a></td>
-            <td width="34%" align="center"><a href="<%= @banner_02.hyperlink_02 %>">
+            <td width="34%" align="center"><a href="<%= @banner_02.hyperlink_02 if !@banner_02.nil?%>">
               <div class="tab_img">
                 <% if @banner_02.excerpt_image_02? %>
                     <img src="<%= @banner_02.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
                 <% end %>
               </div>
               <div class="tab_text2 text">
-                <h4><%= @banner_02.title_02 %></h4>
+                <h4><%= @banner_02.title_02 if !@banner_02.nil?%></h4>
 
-                <p><%= raw @banner_02.content_02.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_02.content_02.gsub("\n", "<br />").html_safe if !@banner_02.nil?%></p>
               </div>
             </a></td>
-            <td width="33%" align="center"><a href="<%= @banner_02.hyperlink_03 %>">
+            <td width="33%" align="center"><a href="<%= @banner_02.hyperlink_03 if !@banner_02.nil?%>">
               <div class="tab_text3 text">
-                <h4><%= @banner_02.title_03 %></h4>
+                <h4><%= @banner_02.title_03 if !@banner_02.nil?%></h4>
 
-                <p><%= raw @banner_02.content_03.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_02.content_03.gsub("\n", "<br />").html_safe if !@banner_02.nil?%></p>
               </div>
               <div class="tab_img">
                 <% if @banner_02.excerpt_image_03? %>
@@ -153,11 +153,11 @@ $(function(){
       <div id="tab3" class="tab_content">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="33%" align="center"><a href="<%= @banner_03.hyperlink_01 %>">
+            <td width="33%" align="center"><a href="<%= @banner_03.hyperlink_01 if !@banner_03.nil?%>">
               <div class="tab_text1 text">
-                <h4><%= @banner_03.title_01 %></h4>
+                <h4><%= @banner_03.title_01 if !@banner_03.nil?%></h4>
 
-                <p><%= raw @banner_03.content_01.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_03.content_01.gsub("\n", "<br />").html_safe if !@banner_03.nil?%></p>
               </div>
               <div class="tab_img">
                 <% if @banner_03.excerpt_image_01? %>
@@ -165,23 +165,23 @@ $(function(){
                 <% end %>
               </div>
             </a></td>
-            <td width="34%" align="center"><a href="<%= @banner_03.hyperlink_02 %>">
+            <td width="34%" align="center"><a href="<%= @banner_03.hyperlink_02 if !@banner_03.nil?%>">
               <div class="tab_img">
                 <% if @banner_03.excerpt_image_02? %>
                     <img src="<%= @banner_03.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
                 <% end %>
               </div>
               <div class="tab_text2 text">
-                <h4><%= @banner_03.title_02 %></h4>
+                <h4><%= @banner_03.title_02 if !@banner_03.nil?%></h4>
 
-                <p><%= raw @banner_03.content_02.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_03.content_02.gsub("\n", "<br />").html_safe if !@banner_03.nil?%></p>
               </div>
             </a></td>
-            <td width="33%" align="center"><a href="<%= @banner_03.hyperlink_03 %>">
+            <td width="33%" align="center"><a href="<%= @banner_03.hyperlink_03 if !@banner_03.nil?%>">
               <div class="tab_text3 text">
-                <h4><%= @banner_03.title_03 %></h4>
+                <h4><%= @banner_03.title_03 if !@banner_03.nil?%></h4>
 
-                <p><%= raw @banner_03.content_03.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_03.content_03.gsub("\n", "<br />").html_safe if !@banner_03.nil?%></p>
               </div>
               <div class="tab_img">
                 <% if @banner_03.excerpt_image_03? %>
@@ -196,11 +196,11 @@ $(function(){
       <div id="tab4" class="tab_content">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="33%" align="center"><a href="<%= @banner_04.hyperlink_01 %>">
+            <td width="33%" align="center"><a href="<%= @banner_04.hyperlink_01 if !@banner_04.nil?%>">
               <div class="tab_text1 text">
-                <h4><%= @banner_04.title_01 %></h4>
+                <h4><%= @banner_04.title_01 if !@banner_04.nil?%></h4>
 
-                <p><%= raw @banner_04.content_01.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_04.content_01.gsub("\n", "<br />").html_safe if !@banner_04.nil?%></p>
               </div>
               <div class="tab_img">
                 <% if @banner_04.excerpt_image_01? %>
@@ -208,23 +208,23 @@ $(function(){
                 <% end %>
               </div>
             </a></td>
-            <td width="34%" align="center"><a href="<%= @banner_04.hyperlink_02 %>">
+            <td width="34%" align="center"><a href="<%= @banner_04.hyperlink_02 if !@banner_04.nil?%>">
               <div class="tab_img">
                 <% if @banner_04.excerpt_image_02? %>
                     <img src="<%= @banner_04.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
                 <% end %>
               </div>
               <div class="tab_text2 text">
-                <h4><%= @banner_04.title_02 %></h4>
+                <h4><%= @banner_04.title_02 if !@banner_04.nil?%></h4>
 
-                <p><%= raw @banner_04.content_02.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_04.content_02.gsub("\n", "<br />").html_safe if !@banner_04.nil?%></p>
               </div>
             </a></td>
-            <td width="33%" align="center"><a href="<%= @banner_04.hyperlink_03 %>">
+            <td width="33%" align="center"><a href="<%= @banner_04.hyperlink_03 if !@banner_04.nil?%>">
               <div class="tab_text3 text">
-                <h4><%= @banner_04.title_03 %></h4>
+                <h4><%= @banner_04.title_03 if !@banner_04.nil?%></h4>
 
-                <p><%= raw @banner_04.content_03.gsub("\n", "<br />").html_safe %></p>
+                <p><%= raw @banner_04.content_03.gsub("\n", "<br />").html_safe if !@banner_04.nil?%></p>
               </div>
               <div class="tab_img">
                 <% if @banner_04.excerpt_image_03? %>
@@ -251,9 +251,9 @@ $(function(){
       <td width="40%" align="left" valign="top">
         <div id="news">
           <ul>
-            <li><%= @newsupdate_01.updated_at.to_date %> / <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_01.id%>" ><%= @newsupdate_01.title %></a></li>
-            <li><%= @newsupdate_02.updated_at.to_date %> / <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_02.id%>"><%= @newsupdate_02.title %></a></li>
-            <li><%= @newsupdate_03.updated_at.to_date %> / <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_03.id%>"><%= @newsupdate_03.title %></a></li>
+            <li><%= @newsupdate_01.updated_at.to_date if !@newsupdate_01.nil?%> / <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_01.id if !@newsupdate_01.nil?%>"><%= @newsupdate_01.title if !@newsupdate_01.nil?%></a></li>
+            <li><%= @newsupdate_02.updated_at.to_date if !@newsupdate_02.nil?%> / <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_02.id if !@newsupdate_02.nil?%>"><%= @newsupdate_02.title if !@newsupdate_02.nil?%></a></li>
+            <li><%= @newsupdate_03.updated_at.to_date if !@newsupdate_03.nil?%> / <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_03.id if !@newsupdate_03.nil?%>"><%= @newsupdate_03.title if !@newsupdate_03.nil?%></a></li>
           </ul>
         </div>
 
@@ -261,17 +261,17 @@ $(function(){
       <td width="42%" align="left" valign="top">
         <div id="course"><a href="<%= courses_url %>">
           <ul>
-            <li><%= @display_courses[0].subject %>—<%= @display_courses[0].session %>/<%= @display_courses[0].start_time %>
+            <li><%= @display_courses[0].subject if !@display_courses[0].nil?%>—<%= @display_courses[0].session if !@display_courses[0].nil?%>/<%= @display_courses[0].start_time if !@display_courses[0].nil?%>
               <% if @display_courses[0].registration_quota - @display_courses[0].enrollments.count==0 %>
                   （已額滿）
               <% end %>
             </li>
-            <li><%= @display_courses[1].subject %>—<%= @display_courses[1].session %>/<%= @display_courses[1].start_time %>
+            <li><%= @display_courses[1].subject if !@display_courses[1].nil?%>—<%= @display_courses[1].session if !@display_courses[1].nil?%>/<%= @display_courses[1].start_time if !@display_courses[1].nil?%>
               <% if @display_courses[1].registration_quota - @display_courses[1].enrollments.count==0 %>
                   （已額滿）
               <% end %>
             </li>
-            <li><%= @display_courses[2].subject %>—<%= @display_courses[2].session %>/<%= @display_courses[2].start_time %>
+            <li><%= @display_courses[2].subject if !@display_courses[2].nil?%>—<%= @display_courses[2].session if !@display_courses[2].nil?%>/<%= @display_courses[2].start_time if !@display_courses[2].nil?%>
               <% if @display_courses[2].registration_quota - @display_courses[2].enrollments.count==0 %>
                   （已額滿）
               <% end %>
