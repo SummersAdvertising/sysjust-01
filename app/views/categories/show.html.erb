@@ -109,7 +109,7 @@
                   <img src="<%= video.image_url(:thumb) %>" width="233" height="164"/>
                 </td>
                 <td height="122" colspan="2" align="left" valign="top"><h4><%= video.title %></h4>
-                  <%= video.content %>
+                  <%= raw video.content.gsub("\n", "<br />") %>
                 </td>
               </tr>
               <tr>
