@@ -30,9 +30,9 @@
          @category_02 = @categories[1]
          @category_03 = @categories[2]
       %>
-      <li><a href="<%= category_url(@category_01) %>"><%= @category_01.name %></a></li>
-      <li><a href="<%= category_url(@category_02) %>"><%= @category_02.name %></a></li>
-      <li><a href="<%= category_url(@category_03) %>"><%= @category_03.name %></a></li>
+      <li><a href="<%= category_url(@category_01) if !@category_01.nil?%>"><%= @category_01.name if !@category_01.nil?%></a></li>
+      <li><a href="<%= category_url(@category_02) if !@category_02.nil?%>"><%= @category_02.name if !@category_02.nil?%></a></li>
+      <li><a href="<%= category_url(@category_03) if !@category_03.nil?%>"><%= @category_03.name if !@category_03.nil?%></a></li>
     </ul>
   </div>
   <!--link-box-->
