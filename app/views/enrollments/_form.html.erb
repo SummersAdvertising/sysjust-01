@@ -44,7 +44,7 @@
 </style>
 <%= form_for([@course, @course.enrollments.build], remote: true, :validate => true) do |f| %>
     <h1>課程報名表</h1>
-    <table width="550" border="0" cellspacing="0" cellpadding="0">
+    <table width="550" border="0" cellspacing="10" cellpadding="0">
       <tr>
         <th width="15%" align="right">姓名</th>
         <td width="35%"><%= f.text_field :name %></td>
@@ -64,8 +64,11 @@
         <td colspan="3"><%= f.text_field :professional_title %></td>
       </tr>
     </table>
-    <div id="button">
-      <a href="#"><%= f.submit "" %><img src="<%= get_current_host_and_port %>application/images/cs-03.jpg" width="197" height="50"/></a>
-    </div>
-    <a href="<%= new_course_enrollment_path(@course) %>" id="reset_button">清除重填</a>
+    
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td><a href="<%= new_experience_url %>" id="reset_button">清除重填</a></td>
+			<td align="right"><%= f.submit "", {:id => 'send_button'} %></td>
+		</tr>            
+    </table>
 <% end %>

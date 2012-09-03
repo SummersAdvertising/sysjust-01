@@ -67,11 +67,10 @@
           <hr>
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-              <td align="right"></td>
-            </tr>
-            <%= f.submit "", {:id => 'reset_button'} %>
-          </table>
-          <a href="<%= new_experience_url %>" id="reset_button">清除重填</a>
+              <td><a href="<%= new_experience_url %>" id="reset_button">清除重填</a></td>
+			  <td align="right"><%= f.submit "", {:id => 'send_button'} %></td>
+			</tr>            
+          </table>          
         </div>
         <!--content-->
     <% end %>
