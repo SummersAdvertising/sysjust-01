@@ -29,8 +29,8 @@ h1{float:left;margin-top:30px;height:93px}
 #banner .tab_content .tab_img img{box-shadow:0 3px 10px #555}
 
 #forums a:hover,#course a:hover,#news a:hover{text-decoration:underline}
-#news{background:url(../images/index-02.png) 0 0 no-repeat;width:380px;height:91px;padding:50px 0 0 20px}
-#course{background:url(../images/index-03.png) 0 0 no-repeat;width:406px;height:91px;padding:50px 0 0 20px}
+#news{background:url(../images/index-02.png) 0 0 no-repeat;width:380px;height:81px;padding:50px 0 10px 20px;overflow:hidden}
+#course{background:url(../images/index-03.png) 0 0 no-repeat;width:406px;height:81px;padding:50px 0 10px 20px;overflow:hidden}
 
 #main table,#main table a{font-size:13px;color:#636363;line-height:25px}
 #main table a img{opacity:.9}
