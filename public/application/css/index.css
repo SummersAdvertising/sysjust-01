@@ -38,15 +38,18 @@ h1{float:left;margin-top:30px;height:93px}
 
 #traits{width:674px;height:441px;background:url(../images/index-04.png) 0 0 no-repeat;padding:75px 0 0 30px;font-size:14px;color:#000}
 #traits .tabs{overflow:hidden;height:50px}
-#traits .tabs li{float:left;margin:0 5px 0 0;color:#773f11;text-shadow:0 1px 0 #F3DEB2;font:300 17px "微軟正黑體"}
-#traits .tabs li a{color:#773f11;text-shadow:0 1px 0 #F3DEB2;font:300 17px "微軟正黑體"}
-#traits .tabs .active a{color:#7D0E0E}
+#traits .tabs li{float:left;margin:0 5px 0 0;color:#773f11;text-shadow:0 1px 0 #F3DEB2;font:300 17px "å¾®è»æ­£é»é«"}
+#traits .tabs li a{color:#773f11;text-shadow:0 1px 0 #F3DEB2;font:300 17px "å¾®è»æ­£é»é«"}
+#traits .tabs li a:hover{text-decoration:underline}
+#traits .tabs .active a{color:#7D0E0E;font-weight:700}
+#traits .tabs .active a:hover{text-decoration:none}
 #traits .tab_content{height:350px}
 #traits .tab_content li{margin:5px 0}
 #traits h3{font-size:22px;color:#a72c07;height:30px;border-bottom:1px dashed #D2C5A2;margin:0 0 20px 0;width:450px}
 #traits #tab5{background:url(../images/index-07.jpg) 480px top no-repeat}
 #traits #tab6{background:url(../images/index-08.jpg) 480px top no-repeat}
 #traits #tab7{background:url(../images/index-09.jpg) 480px top no-repeat}
+
 
 #forums{width:266px;height:143px;background:url(../images/index-05.jpg) 0 0 no-repeat;padding:45px 20px 0 20px}
 #forums li{border-bottom:1px dashed #D0D0D0;margin:3px 0}
