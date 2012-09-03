@@ -1,4 +1,4 @@
-body{background:url(../images/bg.jpg) 0 0 repeat;font-family:微軟正黑體}
+﻿body{background:url(../images/bg.jpg) 0 0 repeat;font-family:微軟正黑體}
 a{text-decoration:none}
 
 #header{height:179px;background:url(../images/header.jpg) 0 0 repeat-x}
@@ -28,7 +28,7 @@ h3{color:#4b4b4b;font-size:15px;position:relative;bottom:0px;left:63px}
 
 #content{margin:0 80px;padding:20px 0}
 
-#footer{color:#545454;font:300 13px "微軟正黑體";text-align:center;height:30px;padding-top:35px;text-shadow:0 1px 0 #fff;clear:both}
+#footer,#footer a{color:#545454;font:300 13px "微軟正黑體";text-align:center;height:30px;padding-top:35px;text-shadow:0 1px 0 #fff;clear:both}
 
 #link{height:161px;background:url(../images/link.jpg) 0 0 repeat-x;
 overflow:hidden;*overflow:none;padding:30px 62.5px 0 62.5px}

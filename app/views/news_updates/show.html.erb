@@ -1,23 +1,29 @@
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
 <style>
-    body{font-family:微軟正黑體;line-height:28px;width:820px;margin:50px auto 25px auto}
+body{font-family:微軟正黑體;line-height:28px;width:820px;margin:50px auto 25px auto}
     a{text-decoration:none}
-    #title{font-size:20px;border-bottom:1px solid #a6a6a6;padding:5px 0}
-    #publish{font-size:14px;color:#7d7d7d}
-    #publish td{padding:5px 0}
-    #paper{width:790px;border:15px solid #F7F7F7;margin-top:50px}
-    #paper img{max-width:100%; height:100%}
+    h1{font-size:20px;border-bottom:1px solid #a6a6a6;padding:5px 0}
+    
+	#publish li{font-size:14px;color:#7d7d7d;}
+	#publish .left{float:left;width:660px}
+	#publish .left li{float:left;margin-right:20px}
+    #publish .right{float:right;width:160px}
+	
+    #paper{width:770px;border:15px solid #F7F7F7;margin-top:25px;overflow:hidden;padding:10px}
+    #paper img{border:1px solid #aaa;max-width:770px;height:auto}
+
 </style>
-<table width="820" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td colspan="3" id="title"><%= @news_update.title %></td>
-  </tr>
-  <tr id="publish">
-    <td width="144">媒體：<%= @news_update.source %></th>
-    <td width="557">內容：<%= @news_update.category %></td>
-    <td width="119">日期：<%= @news_update.created_at.to_date() %> </td>
-  </tr>
-</table>
+<h1><%= @news_update.title %></h1>
+<div id="publish ">
+  <ul class="left">
+    <li>媒體：<%= @news_update.source %></li>
+    <li>內容：<%= @news_update.category %></li>
+  </ul>
+  <ul class="right">
+    <li>日期：<%= @news_update.created_at.to_date() %></li>
+  </ul>
+</div>
+
 <div id="paper">
   <%= raw @news_update.content.gsub("\n", "<br />") %>
 </div>
