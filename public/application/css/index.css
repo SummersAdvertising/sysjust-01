@@ -59,7 +59,7 @@ h1{float:left;margin-top:30px;height:93px}
 #announcement td{color:#000;font:300 13px "微軟正黑體";padding:5px 0}
 #announcement:hover{opacity:.7}
 
-#footer{color:#545454;font:300 13px "微軟正黑體";text-align:center;height:30px;padding-top:35px;text-shadow:0 1px 0 #fff;clear:both}
+#footer,#footer a{color:#545454;font:300 13px "微軟正黑體";text-align:center;height:30px;padding-top:35px;text-shadow:0 1px 0 #fff;clear:both}
 
 #link{height:161px;background:url(../images/link.jpg) 0 0 repeat-x;
 overflow:hidden;*overflow:none;padding:30px 62.5px 0 62.5px}
