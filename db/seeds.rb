@@ -88,66 +88,66 @@ category_03 = Category.new
 category_03.name = "獨家分析教戰"
 category_03.save
 
-#news_update_01 = NewsUpdate.new
-#news_update_01.title= "title 01"
-#news_update_01.source= "source 01"
-#news_update_01.category= "category 01"
-#news_update_01.content= "content 01"
-#news_update_01.save
-#
-#news_update_02 = NewsUpdate.new
-#news_update_02.title= "title 02"
-#news_update_02.source= "source 02"
-#news_update_02.category= "category 02"
-#news_update_02.content= "content 02"
-#news_update_02.save
-#
-#news_update_03 = NewsUpdate.new
-#news_update_03.title= "title 03"
-#news_update_03.source= "source 03"
-#news_update_03.category= "category 03"
-#news_update_03.content= "content 03"
-#news_update_03.save
-#
-#two_days_latter = Time.now + 2.days
-#three_days_latter = Time.now + 3.days
-#four_days_latter = Time.now + 4.days
-#five_days_latter = Time.now + 5.days
-#six_days_latter = Time.now + 6.days
-#seven_days_latter = Time.now + 7.days
-#
-#course_01 = Course.new
-#course_01.session = "session 01"
-#course_01.subject = "subject 01"
-#course_01.start_time = two_days_latter.month.to_s()+"/"+two_days_latter.day.to_s()+"/"+two_days_latter.year.to_s()+" "+two_days_latter.hour.to_s()+":"+two_days_latter.min.to_s()
-#course_01.end_time = three_days_latter.month.to_s()+"/"+three_days_latter.day.to_s()+"/"+three_days_latter.year.to_s()+" "+three_days_latter.hour.to_s()+":"+three_days_latter.min.to_s()
-#course_01.lecturer = "lecturer 01"
-#course_01.address = "address 01"
-#course_01.content = "content 01"
-#course_01.registration_quota = 3
-#course_01.is_display = true
-#course_01.save
-#
-#course_02 = Course.new
-#course_02.session = "session 02"
-#course_02.subject = "subject 02"
-#course_02.start_time = four_days_latter.month.to_s()+"/"+four_days_latter.day.to_s()+"/"+four_days_latter.year.to_s()+" "+four_days_latter.hour.to_s()+":"+four_days_latter.min.to_s()
-#course_02.end_time = five_days_latter.month.to_s()+"/"+five_days_latter.day.to_s()+"/"+five_days_latter.year.to_s()+" "+five_days_latter.hour.to_s()+":"+five_days_latter.min.to_s()
-#course_02.lecturer = "lecturer 02"
-#course_02.address = "address 02"
-#course_02.content = "content 02"
-#course_02.registration_quota = 3
-#course_02.is_display = true
-#course_02.save
-#
-#course_03 = Course.new
-#course_03.session = "session 03"
-#course_03.subject = "subject 03"
-#course_03.start_time = six_days_latter.month.to_s()+"/"+six_days_latter.day.to_s()+"/"+six_days_latter.year.to_s()+" "+six_days_latter.hour.to_s()+":"+six_days_latter.min.to_s()
-#course_03.end_time = seven_days_latter.month.to_s()+"/"+seven_days_latter.day.to_s()+"/"+seven_days_latter.year.to_s()+" "+seven_days_latter.hour.to_s()+":"+seven_days_latter.min.to_s()
-#course_03.lecturer = "lecturer 03"
-#course_03.address = "address 03"
-#course_03.content = "content 03"
-#course_03.registration_quota = 3
-#course_03.is_display = true
-#course_03.save
+news_update_01 = NewsUpdate.new
+news_update_01.title= "title 01"
+news_update_01.source= "source 01"
+news_update_01.category= "category 01"
+news_update_01.content= "content 01"
+news_update_01.save
+
+news_update_02 = NewsUpdate.new
+news_update_02.title= "title 02"
+news_update_02.source= "source 02"
+news_update_02.category= "category 02"
+news_update_02.content= "content 02"
+news_update_02.save
+
+news_update_03 = NewsUpdate.new
+news_update_03.title= "title 03"
+news_update_03.source= "source 03"
+news_update_03.category= "category 03"
+news_update_03.content= "content 03"
+news_update_03.save
+
+two_days_latter = Time.now + 2.days
+three_days_latter = Time.now + 3.days
+four_days_latter = Time.now + 4.days
+five_days_latter = Time.now + 5.days
+six_days_latter = Time.now + 6.days
+seven_days_latter = Time.now + 7.days
+
+course_01 = Course.new
+course_01.session = "session 01"
+course_01.subject = "subject 01"
+course_01.start_time = two_days_latter.month.to_s()+"/"+two_days_latter.day.to_s()+"/"+two_days_latter.year.to_s()+" "+two_days_latter.hour.to_s()+":"+two_days_latter.min.to_s()
+course_01.end_time = three_days_latter.month.to_s()+"/"+three_days_latter.day.to_s()+"/"+three_days_latter.year.to_s()+" "+three_days_latter.hour.to_s()+":"+three_days_latter.min.to_s()
+course_01.lecturer = "lecturer 01"
+course_01.address = "address 01"
+course_01.content = "content 01"
+course_01.registration_quota = 3
+course_01.is_display = true
+course_01.save
+
+course_02 = Course.new
+course_02.session = "session 02"
+course_02.subject = "subject 02"
+course_02.start_time = four_days_latter.month.to_s()+"/"+four_days_latter.day.to_s()+"/"+four_days_latter.year.to_s()+" "+four_days_latter.hour.to_s()+":"+four_days_latter.min.to_s()
+course_02.end_time = five_days_latter.month.to_s()+"/"+five_days_latter.day.to_s()+"/"+five_days_latter.year.to_s()+" "+five_days_latter.hour.to_s()+":"+five_days_latter.min.to_s()
+course_02.lecturer = "lecturer 02"
+course_02.address = "address 02"
+course_02.content = "content 02"
+course_02.registration_quota = 3
+course_02.is_display = true
+course_02.save
+
+course_03 = Course.new
+course_03.session = "session 03"
+course_03.subject = "subject 03"
+course_03.start_time = six_days_latter.month.to_s()+"/"+six_days_latter.day.to_s()+"/"+six_days_latter.year.to_s()+" "+six_days_latter.hour.to_s()+":"+six_days_latter.min.to_s()
+course_03.end_time = seven_days_latter.month.to_s()+"/"+seven_days_latter.day.to_s()+"/"+seven_days_latter.year.to_s()+" "+seven_days_latter.hour.to_s()+":"+seven_days_latter.min.to_s()
+course_03.lecturer = "lecturer 03"
+course_03.address = "address 03"
+course_03.content = "content 03"
+course_03.registration_quota = 3
+course_03.is_display = true
+course_03.save
