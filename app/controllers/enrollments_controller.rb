@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class EnrollmentsController < ApplicationController
   before_filter :require_sign_in, only: :index
   # GET /enrollments

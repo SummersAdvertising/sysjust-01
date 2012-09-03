@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::VideosController < ApplicationController
   layout 'admin'
   before_filter :require_sign_in  
