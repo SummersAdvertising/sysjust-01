@@ -6,11 +6,16 @@ TestDevise::Application.routes.draw do
 
   match "/purchasing" => "static_pages#purchasing"
   match "/download_contents" => "static_pages#download_contents"
+  match "/download_contents/file_01" => "static_pages#file_01"
+  match "/download_contents/file_02" => "static_pages#file_02"
+  match "/download_contents/file_03" => "static_pages#file_03"
   match "/traits" => "static_pages#traits"
   match "/questions" => "static_pages#questions"
   match "/online_demonstrations" => "static_pages#online_demonstrations"
   match "/download_dms" => "static_pages#download_dms"
   match "/index" => "static_pages#index"
+
+
 
   devise_for :users, :path_prefix => 'admin', :controllers => { :registrations => 'registrations'}  
   resources :users    

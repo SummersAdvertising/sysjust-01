@@ -1,9 +1,23 @@
+# -*- encoding : utf-8 -*-
 class StaticPagesController < ApplicationController
   def purchasing
   end
 
   def download_contents
   end
+
+  def file_01
+    send_file Rails.root.to_s()+"/public/download_contents/外匯整合畫面.dap"
+  end
+
+  def file_02
+    send_file Rails.root.to_s()+"/public/download_contents/美股重要個股(對照台股相關).dap"
+  end
+
+  def file_03
+    send_file Rails.root.to_s()+"/public/download_contents/中港台產業比較.dap"
+  end
+
 
   def traits
   end

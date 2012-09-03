@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class VideosController < ApplicationController
   def download
     @category = Category.find(params[:category_id])
