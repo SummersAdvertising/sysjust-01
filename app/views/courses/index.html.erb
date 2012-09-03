@@ -93,7 +93,7 @@
                             </tr>
                             <tr>
                               <td>上課地點：</td>
-                              <td><%= course.address %></td>
+                              <td><%= raw course.address.gsub("\n", "<br />") %></td>
                             </tr>
                             <tr>
                               <td>課堂講師：</td>
@@ -101,7 +101,7 @@
                             </tr>
                             <tr>
                               <td valign="top">上課內容：</td>
-                              <td><%= course.content %></td>
+                              <td><%= raw course.content.gsub("\n", "<br />") %></td>
                             </tr>
                           </table>
                         </td>
@@ -128,7 +128,7 @@
                             </tr>
                             <tr>
                               <td>上課地點：</td>
-                              <td><%= course.address %></td>
+                              <td><%= raw course.address.gsub("\n", "<br />") %></td>
                             </tr>
                             <tr>
                               <td>課堂講師：</td>
@@ -136,7 +136,7 @@
                             </tr>
                             <tr>
                               <td valign="top">上課內容：</td>
-                              <td><%= course.content %></td>
+                              <td><%= raw course.content.gsub("\n", "<br />") %></td>
                             </tr>
                           </table>
                         </td>
