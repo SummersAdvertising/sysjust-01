@@ -1,20 +1,16 @@
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
 <style>
 body{font-family:微軟正黑體;line-height:28px;width:820px;margin:50px auto 25px auto}
-    a{text-decoration:none}
-    h1{font-size:20px;border-bottom:1px solid #a6a6a6;padding:5px 0}
-    
-	#publish li{font-size:14px;color:#7d7d7d;}
-	#publish .left{float:left;width:660px}
-	#publish .left li{float:left;margin-right:20px}
-    #publish .right{float:right;width:160px}
-	
-    #paper{width:770px;border:15px solid #F7F7F7;margin-top:25px;overflow:hidden;padding:10px}
-    #paper img{border:1px solid #aaa;max-width:770px;height:auto}
-
+a{text-decoration:none}
+h1{font-size:20px;border-bottom:1px solid #a6a6a6;padding:5px 0;margin-bottom:5px}
+.right{float:right;width:160px;color:#888}
+.left{float:left;width:660px;color:#888;overflow:hidden}
+.left li{float:left;margin-right:20px}
+#paper{width:770px;border:15px solid #F7F7F7;margin-top:40px;overflow:hidden;padding:10px}
+#paper img{border:1px solid #aaa;max-width:770px;height:auto}
 </style>
 <h1><%= @news_update.title %></h1>
-<div id="publish ">
+<div id="publish">
   <ul class="left">
     <li>媒體：<%= @news_update.source %></li>
     <li>內容：<%= @news_update.category %></li>
