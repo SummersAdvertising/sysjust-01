@@ -1,7 +1,6 @@
 ﻿html{background:url(../images/index-bg.jpg) 0 0 repeat-x #F3F3F3}
 body{width:1024px;margin:0 auto;font-family:微軟正黑體}
 a{text-decoration:none}
-a:hover{text-decoration:underline}
 
 h1{float:left;margin-top:30px;height:93px}
 #nav{width:588px;margin-top:60px;height:32px;float:right;position:relative}
@@ -29,8 +28,8 @@ h1{float:left;margin-top:30px;height:93px}
 #banner .tab_content .tab_text3{background:url(../images/index-text3.png) 0 0 no-repeat}
 #banner .tab_content .tab_img img{box-shadow:0 3px 10px #555}
 
+#forums a:hover,#course a:hover,#news a:hover{text-decoration:underline}
 #news{background:url(../images/index-02.png) 0 0 no-repeat;width:380px;height:91px;padding:50px 0 0 20px}
-
 #course{background:url(../images/index-03.png) 0 0 no-repeat;width:406px;height:91px;padding:50px 0 0 20px}
 
 #main table,#main table a{font-size:13px;color:#636363;line-height:25px}
@@ -57,7 +56,7 @@ h1{float:left;margin-top:30px;height:93px}
 #announcement{margin:20px 0}
 #announcement h3{height:35px;font-size:17px}
 #announcement td{color:#000;font:300 13px "微軟正黑體";padding:5px 0}
-#announcement:hover{opacity:.7}
+#announcement:hover{opacity:.7;text-decoration:none!important}
 
 #footer,#footer a{color:#545454;font:300 13px "微軟正黑體";text-align:center;height:30px;padding-top:35px;text-shadow:0 1px 0 #fff;clear:both}
 
