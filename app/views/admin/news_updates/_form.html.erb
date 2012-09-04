@@ -4,7 +4,7 @@
 <div id="container">
   <%= render :partial => "shared/admin_side" %>
   <!--side-->
-  <%= form_for([:admin,@news_update]) do |f| %>
+  <%= form_for([:admin,@news_update], :validate => true) do |f| %>
     <% if @news_update.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@news_update.errors.count, "error") %> prohibited this news_update from being saved:</h2>
