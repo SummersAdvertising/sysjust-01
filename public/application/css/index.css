@@ -39,8 +39,8 @@ h1{float:left;margin-top:30px;height:93px}
 
 #traits{width:674px;height:441px;background:url(../images/index-04.png) 0 0 no-repeat;padding:75px 0 0 30px;font-size:14px;color:#000}
 #traits .tabs{overflow:hidden;height:50px}
-#traits .tabs li{float:left;margin:0 5px 0 0;color:#773f11;text-shadow:0 1px 0 #F3DEB2;font:300 17px "å¾®è»æ­£é»é«"}
-#traits .tabs li a{color:#773f11;text-shadow:0 1px 0 #F3DEB2;font:300 17px "å¾®è»æ­£é»é«"}
+#traits .tabs li{float:left;margin:0 5px 0 0;color:#773f11;text-shadow:0 1px 0 #F3DEB2;font:300 17px "微軟正黑體"}
+#traits .tabs li a{color:#773f11;text-shadow:0 1px 0 #F3DEB2;font:300 17px "微軟正黑體"}
 #traits .tabs li a:hover{text-decoration:underline}
 #traits .tabs .active a{color:#7D0E0E;font-weight:700}
 #traits .tabs .active a:hover{text-decoration:none}
