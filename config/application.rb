@@ -61,5 +61,6 @@ module TestDevise
     config.assets.version = '1.0'
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.assets.precompile += ["redactor-rails/*"]
   end
 end
