@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def after_sign_in_path_for(resource)
+    admin_news_updates_path
+  end
 end
