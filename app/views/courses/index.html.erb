@@ -20,6 +20,7 @@
         <% if cookies[:display] == "true" %>
         if (jQuery.browser.mozilla) {
             $('#thanks').trigger('click')
+            $.cookie("display", null);
         }
         <% end %>
 

@@ -56,7 +56,8 @@ class EnrollmentsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @enrollment.errors, status: :unprocessable_entity }
       end
-      cookies[:display] = "true"
+      #cookies[:display] = "true"
+      cookies[:display] = { :value => "true", :expires => 1.seconds.from_now }
       format.js
     end
   end
