@@ -50,12 +50,13 @@ class EnrollmentsController < ApplicationController
 
     respond_to do |format|
       if @enrollment.save
-        format.html { redirect_to courses_path, notice: 'Enrollment was successfully created.' }
+        format.html { redirect_to courses_url, notice: 'ya' }
         format.json { render json: @enrollment, status: :created, location: @enrollment }
       else
         format.html { render action: "new" }
         format.json { render json: @enrollment.errors, status: :unprocessable_entity }
       end
+      cookies[:display] = "true"
       format.js
     end
   end
