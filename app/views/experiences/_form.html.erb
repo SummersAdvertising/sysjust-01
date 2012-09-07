@@ -1,27 +1,85 @@
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css" />
-<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-<script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
-$(document).ready(function(){
-	$(".inline").colorbox({inline:true, width:"590", height:"300"});
-});
+    $(document).ready(function () {
+        $(".inline").colorbox({inline:true, width:"590", height:"150"});
+    });
 </script>
 <style>
-#banner {background-image: url(<%= get_current_host_and_port %>application/images/banner-afe.jpg)}
-#content {padding: 50px}
-#content input {width: 100%;padding: 5px 0;border: 1px solid #DADADA}
-#content p{color: #a72c07;margin: 0 0 20px 0;padding: 0 0 0 10px}
-hr {background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg) 0 0 no-repeat;width: 800px;height: 14px;border: 0}
-#send_button{background: url(http://sysjust.summers.com.tw/application/images/afe-01.jpg) 0 0 repeat-x #D63B0D;width:195px;height:47px;border:0!important;cursor:pointer}
-#send_button:hover{opacity: .85}
-hr {background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg) 0 0 no-repeat;width: 800px;height: 14px;border: 0}
-#reset_button{color:#222}
-#msg{text-align:center;width:550px;font:300 14px "微軟正黑體";padding:20px}
-#msg table{border:1px solid #777}
-#msg p{font:300 24px "微軟正黑體";color:#a72c07;margin:20px 0}
-#msg th{font-weight:700;color:#555}
+    #banner {
+        background-image: url(<%= get_current_host_and_port %>application/images/banner-afe.jpg)
+    }
+
+    #content {
+        padding: 50px
+    }
+
+    #content input {
+        width: 100%;
+        padding: 5px 0;
+        border: 1px solid #DADADA
+    }
+
+    #content p {
+        color: #a72c07;
+        margin: 0 0 20px 0;
+        padding: 0 0 0 10px
+    }
+
+    hr {
+        background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg) 0 0 no-repeat;
+        width: 800px;
+        height: 14px;
+        border: 0
+    }
+
+    #send_button {
+        background: url(http://sysjust.summers.com.tw/application/images/afe-01.jpg) 0 0 repeat-x #D63B0D;
+        width: 195px;
+        height: 47px;
+        border: 0 !important;
+        cursor: pointer
+    }
+
+    #send_button:hover {
+        opacity: .85
+    }
+
+    hr {
+        background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg) 0 0 no-repeat;
+        width: 800px;
+        height: 14px;
+        border: 0
+    }
+
+    #reset_button {
+        color: #222
+    }
+
+    #msg {
+        text-align: center;
+        width: 550px;
+        font: 300 14px "微軟正黑體";
+        padding: 20px
+    }
+
+    #msg table {
+        border: 1px solid #777
+    }
+
+    #msg p {
+        font: 300 24px "微軟正黑體";
+        color: #a72c07;
+        margin: 20px 0
+    }
+
+    #msg th {
+        font-weight: 700;
+        color: #555
+    }
 </style>
 <script>
 
@@ -59,44 +117,23 @@ hr {background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg
               <td><%= f.number_field :attendant_number %></td>
             </tr>
           </table>
-		  <div style="display:none">
-    <div id="msg">
-    
-    <table width="550" border="0" align="center" cellpadding="0" cellspacing="10">
-  <tr>
-    <th width="15%" align="left">聯絡人姓名</th>
-    <td width="36%" align="left">麋鹿人</td>
-    <th width="13%" align="left" valign="middle">聯絡電話</th>
-    <td width="36%" align="left">0987654321</td>
-  </tr>
-  <tr>
-    <th align="left">Email</th>
-    <td colspan="3" align="left">test@email.com</td>
-    </tr>
-  <tr>
-    <th align="left">公司名稱</th>
-    <td colspan="3" align="left">夏天廣告</td>
-    </tr>
-  <tr>
-    <th align="left">職稱</th>
-    <td align="left">UI</td>
-    <th align="left" valign="middle">參加人數</th>
-    <td align="left">100</td>
-  </tr>
-</table>
-<p>感謝您，我們將由專員盡速與您連絡</p>
-</div><!--msg-->
-</div>
+          <div style="display:none">
+            <div id="msg">
+              <p>感謝您，我們將由專員盡速與您連絡</p>
+            </div>
+            <!--msg-->
+          </div>
           <hr>
           <table width="100%" border="0" cellspacing="10" cellpadding="0">
             <tr>
               <td align="right"><a href="<%= new_experience_url %>" id="reset_button">清除重填</a></td>
-			  <td align="right" width="195"><a href="#msg" class='inline'><%= f.submit "", {:id => 'send_button'} %></a></td>
-		    </tr>            
-          </table>          
+              <td align="right" width="195"><a href="#msg" class='inline' id="thanks"></a><%= f.submit "", {:id => 'send_button'} %>
+              </td>
+            </tr>
+          </table>
         </div>
         <!--content-->
-		
+
     <% end %>
 
   </div>
