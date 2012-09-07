@@ -401,23 +401,21 @@
   </table>
   <div id="announcement">
     <h3>【系統公告】</h3>
-    <a href="<%= announcement_url %>">
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="7%">2012.5.08 /</td>
-          <td width="43%">盡收全球股市資訊、優質看盤環境、產業分析最透徹、全球財經資訊最完整</td>
-          <td width="7%">2012.4.25 /</td>
-          <td width="43%">布局大中華概念成形，外資不再獨厚台股</td>
-        </tr>
-        <tr>
-          <td>2012.3.20 /</td>
-          <td>《贏家策略》MoneyDJ理財網看盤好夥伴</td>
-          <td>2012.5.10 /</td>
-          <td>盡收全球股市資訊、優質看盤環境、產業分析最透徹、全球財經資訊最完整</td>
-        </tr>
-      </table>
-
-    </a></div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="10%"><a href="<%= announcement_url %>?announcement_id=0"><%= @record_00[0] %></a></td>
+        <td width="40%"><a href="<%= announcement_url %>?announcement_id=0"><%= @record_00[2] %></a></td>
+        <td width="10%"><a href="<%= announcement_url %>?announcement_id=1"><%= @record_01[0] %></a></td>
+        <td width="40%"><a href="<%= announcement_url %>?announcement_id=1"><%= @record_01[2] %></a></td>
+      </tr>
+      <tr>
+        <td><a href="<%= announcement_url %>?announcement_id=2"><%= @record_02[0] %></a></td>
+        <td><a href="<%= announcement_url %>?announcement_id=2"><%= @record_02[2] %></a></td>
+        <td><a href="<%= announcement_url %>?announcement_id=3"><%= @record_03[0] %></a></td>
+        <td><a href="<%= announcement_url %>?announcement_id=3"><%= @record_03[2] %></a></td>
+      </tr>
+    </table>
+  </div>
   <!--announcement-->
 </div>
 <!--main-->

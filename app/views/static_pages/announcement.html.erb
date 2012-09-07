@@ -16,8 +16,8 @@
             } else {
                 closeFlag.html('[-收合]');
             }
-
         });
+        $("#<%= params[:announcement_id] %>").trigger('click')
     });
 
 </script>
@@ -59,13 +59,15 @@
     </div>
     <!--banner-->
     <div id="content">
+      <% i=0 %>
       <% @data.each do |data| %>
           <div class="list-box">
-            <div class="list-title"><%= data[0] %> / <a><%= data[2] %></a> <span>[+展開]</span></div>
+            <div class="list-title" id="<%= i %>"><%= data[0] %> / <a><%= data[2] %></a> <span>[+展開]</span></div>
             <div class="list-text">
               <%= raw data[3] %>
             </div>
           </div>
+          <% i=i+1 %>
       <% end %>
       <!--list-box-->
     </div>
