@@ -1,3 +1,10 @@
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".inline").colorbox({inline:true, width:"590", height:"150"});
+    });
+</script>
 <style>
 html {background: url(http://sysjust.summers.com.tw/application/images/cs-04.jpg) 0 0 repeat-x #D63B0D}
 body {font-family: 微軟正黑體;line-height: 28px;width: 550px;margin: 30px auto 5px auto;padding: 30px 20px;background: #fff;color: #555}

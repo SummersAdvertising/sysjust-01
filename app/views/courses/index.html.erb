@@ -10,6 +10,7 @@
             $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
             return false;
         });
+        $('#thanks').trigger('click')
     });
 </script>
 <style>
@@ -54,6 +55,13 @@
     #cboxClose {
     }
 </style>
+<a href="#msg" class='inline' id="thanks"></a>
+<div style="display:none">
+  <div id="msg">
+    <p>感謝您，我們將由專員盡速與您連絡</p>
+  </div>
+  <!--msg-->
+</div>
 <%= render :partial => "shared/application_top" %>
 <!--header-->
 <div id="container">
