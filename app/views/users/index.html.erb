@@ -13,15 +13,15 @@
           <th width="8%" align="center" scope="col">刪除</th>
         </tr>
         <% @users.each do |user| %>
-            <% if user.is_admin==false %>
-                <tr>
-                  <td align="center"><%= user.name %></td>
-                  <td align="left"><%= user.email %></td>
+            <tr>
+              <td align="center"><%= user.name %></td>
+              <td align="left"><%= user.email %></td>
+              <% if user.is_admin==false %>
                   <td align="center">
                     <a href='<%= user_path(user) %>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%= get_current_host_and_port %>images/delete.png"></a>
                   </td>
-                </tr>
-            <% end %>
+              <% end %>
+            </tr>
         <% end %>
       </table>
     </div>
