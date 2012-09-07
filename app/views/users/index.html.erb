@@ -16,11 +16,11 @@
             <tr>
               <td align="center"><%= user.name %></td>
               <td align="left"><%= user.email %></td>
-              <% if user.is_admin==false %>
-                  <td align="center">
+              <td align="center">
+                <% if user.is_admin==false %>
                     <a href='<%= user_path(user) %>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%= get_current_host_and_port %>images/delete.png"></a>
-                  </td>
-              <% end %>
+                <% end %>
+              </td>
             </tr>
         <% end %>
       </table>
