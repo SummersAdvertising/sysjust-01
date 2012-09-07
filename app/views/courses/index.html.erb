@@ -10,7 +10,12 @@
             $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
             return false;
         });
-        $('#thanks').trigger('click')
+        $(".inline").colorbox({inline:true, width:"590", height:"150"});
+        var last_page =  document.referrer;
+        var current_page = jQuery(location).attr('href')
+        if(last_page == current_page){
+            $('#thanks').trigger('click')
+        }
     });
 </script>
 <style>
