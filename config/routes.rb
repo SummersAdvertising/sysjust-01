@@ -14,8 +14,7 @@ TestDevise::Application.routes.draw do
   match "/online_demonstrations" => "static_pages#online_demonstrations"
   match "/download_dms" => "static_pages#download_dms"
   match "/index" => "static_pages#index"
-
-
+  match "/announcement" => "static_pages#announcement"
 
   devise_for :users, :path_prefix => 'admin', :controllers => { :registrations => 'registrations'}  
   resources :users    

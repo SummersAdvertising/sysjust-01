@@ -1,0 +1,78 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/application/css/reset.css">
+<link rel="stylesheet" href="application/css/style.css">
+<script type="text/javascript" src="application/js/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+
+
+    jQuery(document).ready(function ($) {
+        $(".list-title").css({cursor:"pointer"}).click(function () {
+            $(this).next().toggle("normal");
+
+            var closeFlag = $(this).children('span');
+
+            if (closeFlag.html() == '[-收合]') {
+                closeFlag.html('[+展開]');
+            } else {
+                closeFlag.html('[-收合]');
+            }
+
+        });
+    });
+
+</script>
+<style>
+    #banner {
+        background-image: url(application/images/banner-ann.jpg)
+    }
+
+    #content .list-box {
+        border-bottom: 1px dashed #d3d3d3
+    }
+
+    #content .list-title {
+        margin: 10px 0
+    }
+
+    #content .list-title a {
+        font-size: 16px;
+        color: #a72c07
+    }
+
+    #content .list-title span {
+        color: #8e8e8e;
+    }
+
+    #content .list-text {
+        margin: 0 0 10px 90px;
+        background: #f3f3f3;
+        padding: 10px;
+        display: none;
+    }
+</style>
+
+<%= render :partial => "shared/application_top" %><!--header-->
+<div id="container">
+  <div id="main">
+    <div id="banner">
+      <h2>系統公告</h2>
+    </div>
+    <!--banner-->
+    <div id="content">
+      <% @data.each do |data| %>
+          <div class="list-box">
+            <div class="list-title"><%= data[0] %> / <a><%= data[2] %></a> <span>[+展開]</span></div>
+            <div class="list-text">
+              <%= raw data[3] %>
+            </div>
+          </div>
+      <% end %>
+      <!--list-box-->
+    </div>
+    <!--content-->
+  </div>
+  <!--main-->
+  <%= render :partial => "shared/application_footer" %>
+  <!--link-->
+</div>
+<!--container-->
