@@ -21,7 +21,7 @@ hr {background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg
       <h2>申請實機體驗</h2>
     </div>
     <!--banner-->
-    <%= form_for(@experience, :validate => true) do |f| %>
+    <%= form_for(@experience, :validate => true, remote: true) do |f| %>
         <div id="content">
           <p>心動嗎？線上體驗XQ全球贏家還不夠？快來實際感受一下XQ全球贏家獨特的魅力，滿足您投資決策的所有需求</p>
           <table width="550" border="0" cellspacing="10" cellpadding="0">

@@ -46,12 +46,13 @@ class ExperiencesController < ApplicationController
     respond_to do |format|
       if @experience.save       
         ExperienceMailer.notify_email(@experience).deliver       
-        format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
+        format.html { redirect_to new_experience_url, notice: 'Experience was successfully created.' }
         format.json { render json: @experience, status: :created, location: @experience }
       else
         format.html { render action: "new" }
         format.json { render json: @experience.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
