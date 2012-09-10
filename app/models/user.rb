@@ -23,4 +23,6 @@ class User < ActiveRecord::Base
   def is_admin?
   	is_admin
   end
+
+  default_scope :order => 'is_admin DESC'
 end

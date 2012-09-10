@@ -124,7 +124,7 @@ course_01.end_time = three_days_latter.month.to_s()+"/"+three_days_latter.day.to
 course_01.lecturer = "lecturer 01"
 course_01.address = "address 01"
 course_01.content = "content 01"
-course_01.registration_quota = 3
+course_01.registration_quota = 99
 course_01.is_display = true
 course_01.save
 
@@ -136,7 +136,7 @@ course_02.end_time = five_days_latter.month.to_s()+"/"+five_days_latter.day.to_s
 course_02.lecturer = "lecturer 02"
 course_02.address = "address 02"
 course_02.content = "content 02"
-course_02.registration_quota = 3
+course_02.registration_quota = 99
 course_02.is_display = true
 course_02.save
 
@@ -148,6 +148,6 @@ course_03.end_time = seven_days_latter.month.to_s()+"/"+seven_days_latter.day.to
 course_03.lecturer = "lecturer 03"
 course_03.address = "address 03"
 course_03.content = "content 03"
-course_03.registration_quota = 3
+course_03.registration_quota = 99
 course_03.is_display = true
 course_03.save

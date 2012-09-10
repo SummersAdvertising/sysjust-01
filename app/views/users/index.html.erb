@@ -4,8 +4,8 @@
   <%= render :partial => "shared/admin_side" %>
   <!--side-->
   <div id="main" class="right">
-  	<%= render :partial => "new_user" %>
-  	<div class="main-list">
+    <%= render :partial => "new_user" %>
+    <div class="main-list">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr class="main-list-title">
           <th width="17%" align="center" scope="col">姓名</th>
@@ -13,17 +13,21 @@
           <th width="8%" align="center" scope="col">刪除</th>
         </tr>
         <% @users.each do |user| %>
-	        <tr>
-	          <td align="center"><%=user.name%></td>
-	          <td align="left"><%=user.email%></td>
-	          <td align="center"><a href='<%=user_path(user)%>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%=get_current_host_and_port%>images/delete.png"></a></td>
-	        </tr>
+            <tr>
+              <td align="center"><%= user.name %></td>
+              <td align="left"><%= user.email %></td>
+              <td align="center">
+                <% if user.is_admin==false %>
+                    <a href='<%= user_path(user) %>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%= get_current_host_and_port %>images/delete.png"></a>
+                <% end %>
+              </td>
+            </tr>
         <% end %>
       </table>
     </div>
   </div>
-  </div>
-  <!--main--> 
+</div>
+<!--main-->
 </div>
 <!--container-->
 <div id="footer"></div>

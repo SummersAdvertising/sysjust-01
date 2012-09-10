@@ -27,6 +27,20 @@
             $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
             return false;
         });
+        $(".inline").colorbox({inline:true, width:"590", height:"150"});
+        var last_page = document.referrer;
+        var current_page = jQuery(location).attr('href')
+        if (last_page == current_page) {
+            $('#thanks').trigger('click')
+        }
+
+        <% if cookies[:display] == "true" %>
+        if (jQuery.browser.mozilla) {
+            $('#thanks').trigger('click')
+            $.cookie("display", null);
+        }
+        <% end %>
+
     });
 </script>
 <style>
@@ -71,6 +85,14 @@
     #cboxClose {
     }
 </style>
+<a id="data" style="display:none"></a>
+<a href="#msg" class='inline' id="thanks"></a>
+<div style="display:none">
+  <div id="msg">
+    <p>感謝您，我們將由專員盡速與您連絡</p>
+  </div>
+  <!--msg-->
+</div>
 <%= render :partial => "shared/application_top" %>
 <!--header-->
 <div id="container">
@@ -87,7 +109,7 @@
         month = date_split[0].to_i()
         day = date_split[1].to_i()
         year = date_split[2].to_i()
-        temp_start_time = year * 365 + month * 30  + day
+        temp_start_time = year * 365 + month * 30 + day
         current_time = Time.now.year * 365 + Time.now.month * 30 + Time.now.day
       %>
           <% if temp_start_time > current_time %>
@@ -122,7 +144,8 @@
                             </tr>
                           </table>
                         </td>
-                        <td width="31%" valign="top"><img src="<%= get_current_host_and_port %>application/images/cs-01.jpg"/></td>
+                        <td width="31%" valign="top">
+                          <img src="<%= get_current_host_and_port %>application/images/cs-01.jpg"/></td>
                       </tr>
                     </table>
                   </div>
