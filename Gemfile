@@ -14,7 +14,7 @@ gem "paperclip"
 gem 'magic_encoding'
 gem "settingslogic"
 gem 'carrierwave'
-gem "rmagick"
+#gem "rmagick"
 gem 'client_side_validations'
 gem 'pry', :group => :development
 gem "ckeditor", "3.7.1"
