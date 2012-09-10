@@ -5,6 +5,8 @@ require 'bundler/capistrano' #Using bundler with Capistrano
 set :stages, %w(staging production)
 set :default_stage, "production"
 
+ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "privatekey.pem")]
+
 # -*- encoding : utf-8 -*-
 
 set :assets_dependencies, %w(app/assets lib/assets vendor/assets Gemfile.lock config/routes.rb)
