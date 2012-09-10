@@ -11,17 +11,8 @@
             return false;
         });
         $(".inline").colorbox({inline:true, width:"590", height:"150"});
-//        var last_page = document.referrer;
-//        var current_page = jQuery(location).attr('href')
-//        if (last_page == current_page) {
-//            $('#thanks').trigger('click')
-//        }
-
         <% if cookies[:display] == "true" %>
-//        if (jQuery.browser.mozilla) {
             $('#thanks').trigger('click')
-            $.cookie("display", null);
-//        }
         <% end %>
 
     });
