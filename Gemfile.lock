@@ -141,7 +141,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
     subexec (0.2.2)
     therubyracer (0.10.2)
       libv8 (~> 3.3.10)
@@ -179,6 +178,5 @@ DEPENDENCIES
   redactor-rails
   sass-rails (~> 3.2.3)
   settingslogic
-  sqlite3
   therubyracer
   uglifier (>= 1.0.3)
