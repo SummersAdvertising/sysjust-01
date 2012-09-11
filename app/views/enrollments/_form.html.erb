@@ -12,7 +12,7 @@ h1 {font: 300 40px "微軟正黑體";color: #a72c07;height: 60px;border-bottom: 
 input {width: 100%;padding: 5px 0;border: 1px solid #DADADA}
 #send_button{background: url(http://sysjust.summers.com.tw/application/images/afe-01.jpg) 0 0 repeat-x #D63B0D;width:195px;height:47px;border:0;cursor:pointer}
 #send_button:hover{opacity: .85}
-hr {background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg) 0 0 no-repeat;width: 550px;height: 14px;border: 0}
+hr {background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg) 0 0 no-repeat;width: 550px;height: 14px;*height:1px;border: 0}
 #reset_button{color:#222}
 </style>
 <%= form_for([@course, @course.enrollments.build], remote: true, :validate => true) do |f| %>
