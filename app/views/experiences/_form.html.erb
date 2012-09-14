@@ -86,21 +86,28 @@ function checkForm() {
 	var is_error = false;
 	
 	var errorMessage = "";
-	
-	$('label.message').each(function() {
+			
+	$('input[name^=experience]').each( function() {	
 		is_error = true;
 	
 		var parent = $(this).parents('td');
 		var pIndex = parent.index();
 		var label = parent.siblings().eq(pIndex-1).html();
-				
-		if ( label != undefined ) {
-			errorMessage += "\n" + label + " 錯誤：" + $(this).html();
-		}
-	});
+		
+		var labeledMessage = $('input[name^=experience]').siblings('label.message');
+		
+		if ( labeledMessage.length > 0 && label != undefined ) {	
+			errorMessage += "\n" + label + " 錯誤：" + $(this).html();			
+		} else if ( $(this).val().length <= 0 ) {
+			is_error = true;
+			errorMessage += "\n" + label + " 錯誤：欄位不得空白";
+		} 
+		
+		
+	} );	
 	
 	if (is_error) {
-		alert("請重新檢查以下欄位：\n\n" + errorMessage);
+		alert("請重新檢查以下欄位：\n" + errorMessage);
 		return false;
 	}
 	
