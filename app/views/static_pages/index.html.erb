@@ -297,7 +297,7 @@
       <td width="42%" align="left" valign="top">
         <div id="course">
           <ul>
-            <li><a href="<%= courses_url %>"><%= @display_courses[0].subject if !@display_courses[0].nil? %>
+            <li><a href="<%= courses_url %>#<%=@display_courses[0].id%>"><%= @display_courses[0].subject if !@display_courses[0].nil? %>
               —<%= @display_courses[0].session if !@display_courses[0].nil? %>
               /<%= @display_courses[0].start_time if !@display_courses[0].nil? %>
               <% if !@display_courses[0].nil? %>
@@ -306,7 +306,7 @@
                   <% end %>
               <% end %>
             </a></li>
-            <li><a href="<%= courses_url %>"><%= @display_courses[1].subject if !@display_courses[1].nil? %>
+            <li><a href="<%= courses_url %>#<%=@display_courses[1].id%>"><%= @display_courses[1].subject if !@display_courses[1].nil? %>
               —<%= @display_courses[1].session if !@display_courses[1].nil? %>
               /<%= @display_courses[1].start_time if !@display_courses[1].nil? %>
               <% if !@display_courses[1].nil? %>
@@ -315,7 +315,7 @@
                   <% end %>
               <% end %>
             </a></li>
-            <li><a href="<%= courses_url %>"><%= @display_courses[2].subject if !@display_courses[2].nil? %>
+            <li><a href="<%= courses_url %>#<%=@display_courses[2].id%>"><%= @display_courses[2].subject if !@display_courses[2].nil? %>
               —<%= @display_courses[2].session if !@display_courses[2].nil? %>
               /<%= @display_courses[2].start_time if !@display_courses[2].nil? %>
               <% if !@display_courses[2].nil? %>
@@ -324,7 +324,6 @@
                   <% end %>
               <% end %>
             </a></li>
-
           </ul>
         </div>
 
@@ -357,8 +356,10 @@
                 <li>九、 圖解產業結構，相關互動一目瞭然</li>
                 <li>十、 透視營運結構，掌握獲利風向球</li>
               </ul>
-			  <div class="more"><a href="<%= traits_url %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png"></a></div>
-			</div>
+              <div class="more">
+                <a href="<%= traits_url %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png"></a>
+              </div>
+            </div>
             <div id="tab6" class="tab_content">
               <h3>個人化介面完美演出</h3>
               <ul>
@@ -369,7 +370,9 @@
                 <li>五、警示設定靈活設，警示紀錄急通報</li>
                 <li>六、 史上功能最強個人化系統</li>
               </ul>
-			  <div class="more"><a href="<%= traits_url %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png"></a></div>
+              <div class="more">
+                <a href="<%= traits_url %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png"></a>
+              </div>
             </div>
             <div id="tab7" class="tab_content">
               <h3>強大的資料分析中心</h3>
@@ -384,7 +387,9 @@
                 <li>八、 台股精選報價，特別報價，,強力選股雷達</li>
                 <li>九、 高手秘技齊分享，投資典範永相隨</li>
               </ul>
-			  <div class="more"><a href="<%= traits_url %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png"></a></div>
+              <div class="more">
+                <a href="<%= traits_url %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png"></a>
+              </div>
             </div>
           </div>
           <!--content-->
