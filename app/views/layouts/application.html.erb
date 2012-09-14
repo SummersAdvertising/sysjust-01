@@ -2,8 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <%= javascript_include_tag "application", "rails.validations" %>
-  <link rel="stylesheet" href="<%= get_current_host_and_port %>css/customization.css">
+  <% if params[:controller]=="uploads" && params[:action]=="index" %>
+      <%= stylesheet_link_tag "application", :media => "all" %>
+      <%= javascript_include_tag "application" %>
+  <% else %>
+      <%= javascript_include_tag "application", "rails.validations" %>
+      <link rel="stylesheet" href="<%= get_current_host_and_port %>css/customization.css">
+  <% end %>
+
   <%= csrf_meta_tags %>
   <% if params[:controller]=="static_pages" && params[:action]=="index" %>
       <title>XQ 嘉實全球贏家</title>
@@ -50,7 +56,7 @@
   <link rel="SHORTCUT ICON" href="http://sysjust.summers.com.tw/application/images/favicon.ico">
   <meta http-equiv="content-language" content="zh-TW"/>
   <meta name="keywords" content="台股,港股,陸股,美股,日股,韓股,指數,期貨,產業,個股,全球,即時金融行情,大中華 "/>
-  <meta name="description" content="整合全球股市 – 台、港、中、日、韓、美，隨時監控兩岸三地即時金融行情，全球化觀點分析市場，透過即時財經資料庫與強大的資訊分析能力，搭配彈性的個人化介面，精確提供專業投資人投資決策最佳方案！" />
+  <meta name="description" content="整合全球股市 – 台、港、中、日、韓、美，隨時監控兩岸三地即時金融行情，全球化觀點分析市場，透過即時財經資料庫與強大的資訊分析能力，搭配彈性的個人化介面，精確提供專業投資人投資決策最佳方案！"/>
   <meta property="og:description" content="整合全球股市 – 台、港、中、日、韓、美，隨時監控兩岸三地即時金融行情，全球化觀點分析市場，透過即時財經資料庫與強大的資訊分析能力，搭配彈性的個人化介面，精確提供專業投資人投資決策最佳方案！"/>
   <meta name="abstract" content="投資看 XQ，即時掌握全球市場資訊。 "/>
   <meta property="og:type" content="company"/>
