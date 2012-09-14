@@ -2,15 +2,19 @@
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
 <script>
-    $(function(){
+    $(function () {
         // 預設顯示第一個 Tab
-        var _showTab = 0;
+        <% if params[:traits_id].nil?%>
+            var _showTab = 0;
+        <% else %>
+        var _showTab = <%= params[:traits_id] %>;
+        <% end %>
         var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
         $($defaultLi.find('a').attr('href')).siblings().hide();
 
         // 當 li 頁籤被點擊時...
         // 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
-        $('ul.tabs li').click(function() {
+        $('ul.tabs li').click(function () {
             // 找出 li 中的超連結 href(#id)
             var $this = $(this),
                     _clickTab = $this.find('a').attr('href');
@@ -21,48 +25,89 @@
             $(_clickTab).stop(false, true).fadeIn().siblings().hide();
 
             return false;
-        }).find('a').focus(function(){
+        }).find('a').focus(function () {
                     this.blur();
                 });
     });
-
-    $(document).ready(function(){
-        $(".iframe").colorbox({iframe:true, width:"910", height:"80%"});
-        $("#click").click(function(){
-            $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-            return false;
-        });
-
-        if (window.location.hash.substr(1).indexOf("tab") >= 0) {
-            console.log($('a[href=' + window.location.hash + ']'));
-            $('a[href=' + window.location.hash + ']').click();
-        }
-    });
 </script>
 <style>
-    #main{overflow:hidden}
-    #side{width:182px;text-align:right;padding-top:50px;background:url(<%= get_current_host_and_port %>application/images/left.jpg) right top no-repeat;min-height:381px}
-    #side li{padding-right:15px;margin:15px 0}
-    #side a{color:#000;font-size:15px}
-    #side .active a{color:#820000}
-    #side .active{background:url(<%= get_current_host_and_port %>application/images/vd-01.jpg) right center no-repeat;}
-    #content{margin:0;width:818px;padding:0}
-    #content img{box-shadow:2px 2px 10px #777;margin:45px 0 0 0}
-    #content table{margin-bottom:50px}
-    .tab_content{padding:200px 40px 0 40px;}
-    #tab1{background:url(<%= get_current_host_and_port %>application/images/banner-trt-1.jpg) top left no-repeat}
-    #tab2{background:url(<%= get_current_host_and_port %>application/images/banner-trt-2.jpg) top left no-repeat}
-    #tab3{background:url(<%= get_current_host_and_port %>application/images/banner-trt-3.jpg) top left no-repeat}
-    h4{color:#a72c07;font-size:17px;height:30px;margin-bottom:10px;border-bottom:1px dashed #d3d3d3}
+    #main {
+        overflow: hidden
+    }
+
+    #side {
+        width: 182px;
+        text-align: right;
+        padding-top: 50px;
+        background: url(<%= get_current_host_and_port %>application/images/left.jpg) right top no-repeat;
+        min-height: 381px
+    }
+
+    #side li {
+        padding-right: 15px;
+        margin: 15px 0
+    }
+
+    #side a {
+        color: #000;
+        font-size: 15px
+    }
+
+    #side .active a {
+        color: #820000
+    }
+
+    #side .active {
+        background: url(<%= get_current_host_and_port %>application/images/vd-01.jpg) right center no-repeat;
+    }
+
+    #content {
+        margin: 0;
+        width: 818px;
+        padding: 0
+    }
+
+    #content img {
+        box-shadow: 2px 2px 10px #777;
+        margin: 45px 0 0 0
+    }
+
+    #content table {
+        margin-bottom: 50px
+    }
+
+    .tab_content {
+        padding: 200px 40px 0 40px;
+    }
+
+    #tab1 {
+        background: url(<%= get_current_host_and_port %>application/images/banner-trt-1.jpg) top left no-repeat
+    }
+
+    #tab2 {
+        background: url(<%= get_current_host_and_port %>application/images/banner-trt-2.jpg) top left no-repeat
+    }
+
+    #tab3 {
+        background: url(<%= get_current_host_and_port %>application/images/banner-trt-3.jpg) top left no-repeat
+    }
+
+    h4 {
+        color: #a72c07;
+        font-size: 17px;
+        height: 30px;
+        margin-bottom: 10px;
+        border-bottom: 1px dashed #d3d3d3
+    }
 </style>
 <%= render :partial => "shared/application_top" %><!--header-->
 <div id="container">
 <div id="main">
 <div id="side" class="left">
   <ul class="tabs">
-    <li><a href="#tab1">全球財經資訊的專家</a></li>
-    <li><a href="#tab2">強大的資料分析中心</a></li>
-    <li><a href="#tab3">個人化界面的完美演出</a></li>
+    <li><a href="#tab1" id="ctab1">全球財經資訊的專家</a></li>
+    <li><a href="#tab2" id="ctab2">強大的資料分析中心</a></li>
+    <li><a href="#tab3" id="ctab3">個人化界面的完美演出</a></li>
   </ul>
 </div>
 <!--side-->
@@ -71,136 +116,165 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>一、中港台三地股市同步揭示，兩岸經濟清楚鋪陳</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-01.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-01.jpg"></td>
     </tr>
     <tr>
-      <td><p>每日全面透析兩岸三地的股市最動向，除個股即時報價、歷史走勢， XQ 全球贏家更精心策劃包括台商在香港掛牌股票即時報價、大陸知名企業股價，更有依大陸各省份、產業別分類的精釆呈現，協助您掌握大中華區股匯市行情，作出最佳投資決策。</p>
+      <td><p>每日全面透析兩岸三地的股市最動向，除個股即時報價、歷史走勢， XQ
+        全球贏家更精心策劃包括台商在香港掛牌股票即時報價、大陸知名企業股價，更有依大陸各省份、產業別分類的精釆呈現，協助您掌握大中華區股匯市行情，作出最佳投資決策。</p>
         <br>
-        <p>- 台灣上市，上櫃，興櫃股票<br />
-          - 台灣期交所<br />
-          - 香港、上海、深圳証券交易所各種商品<br />
-          - 新加坡期貨交易所<br />
+
+        <p>- 台灣上市，上櫃，興櫃股票<br/>
+          - 台灣期交所<br/>
+          - 香港、上海、深圳証券交易所各種商品<br/>
+          - 新加坡期貨交易所<br/>
           - 台北外匯發展中心台幣對美元即期、遠期、 NDF ，及 SWAP 交易報價</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>二、67 種細產業指數，充分掌握類股輪動韻律</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-02.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-02.jpg"></td>
     </tr>
     <tr>
-      <td><p>以台股上市櫃電子股為例，合計超過 600 檔，佔台股成交比重達 6~7 成，僅以<br />
-        目前 8 類、19 類的“ 機電類 ”、“ 電子類 ”來代表所有上市櫃電子股行情，<br />
-        已經不足作為有效參考依據， XQ全球贏家特別為您歸類出細產業指數，僅電子<br />
+      <td><p>以台股上市櫃電子股為例，合計超過 600 檔，佔台股成交比重達 6~7 成，僅以<br/>
+        目前 8 類、19 類的“ 機電類 ”、“ 電子類 ”來代表所有上市櫃電子股行情，<br/>
+        已經不足作為有效參考依據， XQ全球贏家特別為您歸類出細產業指數，僅電子<br/>
         類股就分為“ 面板業指數 ”、“ IC 設計指數 ”、“ LED 指數 ” … 等十餘類，讓您盤中、盤後觀看時，更能即時地快速掌握主流股及類股輪動的變化。</p><br>
-        <p>- 67 種細產業指數報價、即時走勢、技術分析<br />
+
+        <p>- 67 種細產業指數報價、即時走勢、技術分析<br/>
           - 細產業成份個股互相對照</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>三、394 個細產業，中、港、台同產業個股同台比競爭力、比行情</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-03.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-03.jpg"></td>
     </tr>
     <tr>
-      <td><p>若再將上述 67 種細產業指數細分出各子產業，並將中港個股一併納入檢示，一個個產品群組的競爭態勢將一覽無遺；XQ 全球贏家提供您這樣方便的管道針對同產業的各相關公司進行營運績效、獲利能力等比較，中、港、台同產業個股同台較量勝負在您彈指之間高下立見。</p><br>
-        <p>- 394 個細產業<br />
-          - 中、港、台個股共同比較<br />
-          - 獲利能力分析、經營績效分析、經營能力分析、資本結構分析、股價表現、<br />
+      <td><p>若再將上述 67 種細產業指數細分出各子產業，並將中港個股一併納入檢示，一個個產品群組的競爭態勢將一覽無遺；XQ
+        全球贏家提供您這樣方便的管道針對同產業的各相關公司進行營運績效、獲利能力等比較，中、港、台同產業個股同台較量勝負在您彈指之間高下立見。</p><br>
+
+        <p>- 394 個細產業<br/>
+          - 中、港、台個股共同比較<br/>
+          - 獲利能力分析、經營績效分析、經營能力分析、資本結構分析、股價表現、<br/>
           產能分析、市佔率分析</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>四、日、韓股市一併掌握，亞洲重要情勢全在彈指之間</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-04.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-04.jpg"></td>
     </tr>
     <tr>
       <td><p>若以亞洲為一區域經濟市場的觀點來進行投資，日、韓為不可或缺的重要角色，XQ 全球贏家提供日、韓指數、個股分時報價、及歷史線圖，讓您在投資台股時，更能精確掌握亞洲動態，作出更精準的投資決策。</p><br>
-        <p>- 日、韓上百家重要企業股票報價（延遲20分鐘）<br />
-          - 亞洲主要股市指數即時報價<br />
+
+        <p>- 日、韓上百家重要企業股票報價（延遲20分鐘）<br/>
+          - 亞洲主要股市指數即時報價<br/>
           - 日、韓知名企業依產業即時報價</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>五、歐、美等重要市場股票報價不遺露，全球景氣波動不缺席</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-05.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-05.jpg"></td>
     </tr>
     <tr>
-      <td><p>全球股市，特別是美股，影響台股甚劇，除整體景氣強弱帶動台股上下波動， 產業鏈上中下游連動更是投資操作的重要參考依據，XQ全球贏家除重要市場指數報價外，另提供歐美知名企業報價、歷史線圖，您可自由與相關個股作連動性或各項比較，發現別人看不到的全球趨勢。</p><br>
-        <p>- 全球主要外匯商品即期報價<br />
-          - 國際重要指數報價、走勢圖<br />
-          - 歐美知名企業股票報價、歷史線圖、技術分析<br />
-          - DR 股票報價<br />
+      <td><p>全球股市，特別是美股，影響台股甚劇，除整體景氣強弱帶動台股上下波動，
+        產業鏈上中下游連動更是投資操作的重要參考依據，XQ全球贏家除重要市場指數報價外，另提供歐美知名企業報價、歷史線圖，您可自由與相關個股作連動性或各項比較，發現別人看不到的全球趨勢。</p><br>
+
+        <p>- 全球主要外匯商品即期報價<br/>
+          - 國際重要指數報價、走勢圖<br/>
+          - 歐美知名企業股票報價、歷史線圖、技術分析<br/>
+          - DR 股票報價<br/>
           - 全球重要企業依類股別報價</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>六、全球重要商品行情全到位，拉高視野才能出奇致勝</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-06.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-06.jpg"></td>
     </tr>
     <tr>
-      <td><p>原物料等重要商品行情常是影響股價波動的關鍵因素，且品項繁多、資料取得不易，XQ 全球贏家深知您的需求，提供多項全球商品即時及盤後報價，無論是原物料即期價格、歷史走勢或最交易價格，都讓您資訊永遠比人快一步。</p><br>
-        <p>- 上百種產品原物料行情及歷史走勢圖<br />
-          - 全球性商品如能源、金屬、航運等之行情<br />
-          - 貴金屬即時報價<br />
+      <td><p>原物料等重要商品行情常是影響股價波動的關鍵因素，且品項繁多、資料取得不易，XQ 全球贏家深知您的需求，提供多項全球商品即時及盤後報價，無論是原物料即期價格、歷史走勢或最交易價格，都讓您資訊永遠比人快一步。</p>
+        <br>
+
+        <p>- 上百種產品原物料行情及歷史走勢圖<br/>
+          - 全球性商品如能源、金屬、航運等之行情<br/>
+          - 貴金屬即時報價<br/>
           - 獨家原物料關鍵報告</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>七、財經消息即時掌握，歷史新聞全方位搜尋</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-07.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-07.jpg"></td>
     </tr>
     <tr>
-      <td><p>提供內容涵蓋台灣精實財經新聞、中央社、香港經濟日報、上海上証電子報等兩岸三地之重要即時財經新聞，掌握最市場資訊，深入洞察股價漲跌的消息面因素。強大的新聞檢索功能更可依時間、關鍵字立即搜尋個股六年期間詳盡歷史新聞資料，與歷史走勢作對照。</p><br>
-        <p>- 台灣 精實財經新聞 中央社<br />
-          - 香港 經濟日報<br />
-          - 上海 上証電子報<br />
-          - 個股長達六年歷史新聞資料<br />
-          - 歷史新聞 11 項分類<br />
-          - 依時間、關鍵字進行新聞檢索<br />
+      <td>
+        <p>提供內容涵蓋台灣精實財經新聞、中央社、香港經濟日報、上海上証電子報等兩岸三地之重要即時財經新聞，掌握最市場資訊，深入洞察股價漲跌的消息面因素。強大的新聞檢索功能更可依時間、關鍵字立即搜尋個股六年期間詳盡歷史新聞資料，與歷史走勢作對照。</p>
+        <br>
+
+        <p>- 台灣 精實財經新聞 中央社<br/>
+          - 香港 經濟日報<br/>
+          - 上海 上証電子報<br/>
+          - 個股長達六年歷史新聞資料<br/>
+          - 歷史新聞 11 項分類<br/>
+          - 依時間、關鍵字進行新聞檢索<br/>
           - 全球股市行事曆</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>八、美、中、台、英、德、法經濟指標追蹤公佈，景氣趨勢全面鎖定</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-08.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-08.jpg"></td>
     </tr>
     <tr>
-      <td><p>每日全面透析兩岸三地的股市最動向，除個股即時報價、歷史走勢， XQ 全球贏家更精心策劃包括台商在香港掛牌股票即時報價、大陸知名企業股價，更有依大陸各省份、產業別分類的精釆呈現，協助您掌握大中華區股匯市行情，作出最佳投資決策。</p>
+      <td><p>每日全面透析兩岸三地的股市最動向，除個股即時報價、歷史走勢， XQ
+        全球贏家更精心策劃包括台商在香港掛牌股票即時報價、大陸知名企業股價，更有依大陸各省份、產業別分類的精釆呈現，協助您掌握大中華區股匯市行情，作出最佳投資決策。</p>
         <br>
-        <p>- 台灣上市，上櫃，興櫃股票<br />
-          - 台灣期交所<br />
-          - 香港、上海、深圳証券交易所各種商品<br />
-          - 新加坡期貨交易所<br />
+
+        <p>- 台灣上市，上櫃，興櫃股票<br/>
+          - 台灣期交所<br/>
+          - 香港、上海、深圳証券交易所各種商品<br/>
+          - 新加坡期貨交易所<br/>
           - 台北外匯發展中心台幣對美元即期、遠期、 NDF ，及 SWAP 交易報價</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>九、圖解產業結構，相關互動一目瞭然</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-09.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-09.jpg"></td>
     </tr>
     <tr>
-      <td><p>XQ全球贏家以簡易清楚的關連圖，解說各個產業整體結構，所需相關零組件一覽無遺，一眼透析產業間的互動關係及成本結構數字，輕鬆了解產業競合、互補的態勢，納入中、港個股來討論，亦可另將相關公司選取後，加入自選股。</p><br>
-        <p>- 共 23 大項，襄括近 400 個子產業的產業結構圖<br />
-          - 中、港、台相關產業個股<br />
+      <td><p>XQ全球贏家以簡易清楚的關連圖，解說各個產業整體結構，所需相關零組件一覽無遺，一眼透析產業間的互動關係及成本結構數字，輕鬆了解產業競合、互補的態勢，納入中、港個股來討論，亦可另將相關公司選取後，加入自選股。</p>
+        <br>
+
+        <p>- 共 23 大項，襄括近 400 個子產業的產業結構圖<br/>
+          - 中、港、台相關產業個股<br/>
           - 重要產業成本結構分析</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>十、透視營運結構，掌握獲利風向球</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-10.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-10.jpg"></td>
     </tr>
     <tr>
-      <td><p>投資股市關鍵之一就是個股與個股間上下游互動關係，XQ 全球贏家統整各產業供需架構與市場競爭訊息，針對每檔個股作出上下游供應鍊資訊，包含各個零組件的上游供應商及下游客戶，同時顯示所有國內外重要競爭者，提供更準確深入的投資思維。</p><br>
-        <p>- 圖示、表列產業供需架構<br />
-          - 同產業之競爭者 ( 國內前 5 大、國際知名廠商 )<br />
+      <td><p>投資股市關鍵之一就是個股與個股間上下游互動關係，XQ
+        全球贏家統整各產業供需架構與市場競爭訊息，針對每檔個股作出上下游供應鍊資訊，包含各個零組件的上游供應商及下游客戶，同時顯示所有國內外重要競爭者，提供更準確深入的投資思維。</p><br>
+
+        <p>- 圖示、表列產業供需架構<br/>
+          - 同產業之競爭者 ( 國內前 5 大、國際知名廠商 )<br/>
           - 客戶訂單比例 ( 取得自公開資訊 )</p></td>
     </tr>
   </table>
@@ -210,67 +284,76 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>一、參考商品完整呈現，股價連動不遺漏</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-11.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-11.jpg"></td>
     </tr>
     <tr>
       <td><p>提供個股參考互動公司之股價訊息，讓使用者能夠比較參考商品與個股關係，觀察市場的價格連動來進行投資分析。</p><br>
-        <p>- 指數構成<br />
-          - 競爭者<br />
-          - 供應商<br />
-          - 策略聯盟<br />
+
+        <p>- 指數構成<br/>
+          - 競爭者<br/>
+          - 供應商<br/>
+          - 策略聯盟<br/>
           - 國內外主要客戶</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>二、針對資深投資人量身打造 XQ2005獨家指標</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-12.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-12.jpg"></td>
     </tr>
     <tr>
       <td><p>提供資深投資者最需要的專業投資分析架構，從多項領先指標體察市場多空氣勢的變化。而支撐壓力區可提供短線操作的價差準則。</p><br>
-        <p>- 散戶買進賣出指標　　　　- 強弱指標<br />
-          - 實質買賣盤比　　　　　　- 內外盤比<br />
-          - 有效五檔委買賣比　　　　- 權值股五檔委買賣比<br />
-          - 台股五檔委買金額　　　　- 台股五檔委賣金額<br />
+
+        <p>- 散戶買進賣出指標　　　　- 強弱指標<br/>
+          - 實質買賣盤比　　　　　　- 內外盤比<br/>
+          - 有效五檔委買賣比　　　　- 權值股五檔委買賣比<br/>
+          - 台股五檔委買金額　　　　- 台股五檔委賣金額<br/>
           - 支撐壓力區</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>三、個股分析圖表並重，基本籌碼財務面面俱到</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-13.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-13.jpg"></td>
     </tr>
     <tr>
-      <td><p>眾多圖形化分析介面，配合詳細數據，深入了解個股背景與潛力。基本分析、<br />
+      <td><p>眾多圖形化分析介面，配合詳細數據，深入了解個股背景與潛力。基本分析、<br/>
         籌碼分析、與財務分析均有多種圖表可供檢視。</p><br>
-        <p>- 基本分析：經營績效、毛利率分析、股價/淨值比分析、本益比分析、市值報<br />
-          酬率…<br />
-          - 籌碼分析：籌碼分布、董監持股、董監質設、法人持股、主力進出、融資融券…<br />
+
+        <p>- 基本分析：經營績效、毛利率分析、股價/淨值比分析、本益比分析、市值報<br/>
+          酬率…<br/>
+          - 籌碼分析：籌碼分布、董監持股、董監質設、法人持股、主力進出、融資融券…<br/>
           - 財務分析：資產負債表、損益表、財務比率表、現金流量表（簡、季、年表）…</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>四、齊備的技術分析功能</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-14.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-14.jpg"></td>
     </tr>
     <tr>
-      <td><p>可加入不同商品的時間序列比較，多種圖形可以靈活設定顯示，各種資料頻率、<br />
-        主圖類型、主圖指標、技術指標、量能指標、商品指標，分析介面一應俱全，還<br />
+      <td><p>可加入不同商品的時間序列比較，多種圖形可以靈活設定顯示，各種資料頻率、<br/>
+        主圖類型、主圖指標、技術指標、量能指標、商品指標，分析介面一應俱全，還<br/>
         有豐富的繪圖功能。</p><br>
-        <p>- 資料頻率：Tick圖、一分鐘、五分鐘、日、週、月線…<br />
-          - 主圖：K線、收盤價連線、OX圖、美國線圖…<br />
-          - 主圖參考線：各天數移動平均線、MA軌道線、BBand軌道線、鱷魚線、SAR…<br />
-          - 技術指標：RSI、KD、MASD、乖離率、心理線、MTM、寶塔線…<br />
-          - 量能指標：成交量、OBV、VR、VA-osc、TAPI…<br />
-          - 商品指標：主力、內外盤量、開盤委買委賣、當日沖銷…<br />
+
+        <p>- 資料頻率：Tick圖、一分鐘、五分鐘、日、週、月線…<br/>
+          - 主圖：K線、收盤價連線、OX圖、美國線圖…<br/>
+          - 主圖參考線：各天數移動平均線、MA軌道線、BBand軌道線、鱷魚線、SAR…<br/>
+          - 技術指標：RSI、KD、MASD、乖離率、心理線、MTM、寶塔線…<br/>
+          - 量能指標：成交量、OBV、VR、VA-osc、TAPI…<br/>
+          - 商品指標：主力、內外盤量、開盤委買委賣、當日沖銷…<br/>
           - 繪圖功能：趨勢線、黃金率、甘氏角、垂直線、水平線、平行線</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>五、全部商品歷史價位都可相互比較，知歷史可以探未來</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-15.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-15.jpg"></td>
     </tr>
     <tr>
       <td valign="top"><p>XQ擁有個股長期歷史價位資料，資訊完整，您可將商品互相比較對照歷史趨勢，不論個股與大盤之比或多檔個股一起比皆可清楚呈現，歷史價格經分析後更具投資參考價值。</p></td>
@@ -279,47 +362,57 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>六、多樣化分析選項，讓您選股得心應手不遺漏</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-16.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-16.jpg"></td>
     </tr>
     <tr>
       <td><p>提供多樣的排行榜資訊，以及豐富的選股條件，有效挑選投資標的。並從自設選股條件中篩選股票</p><br>
-        <p>- 還可存成我的選股法，加入每日選股清單，迅速一覽焦點個股。<br />
-          - 量增、值增、量縮幅、週轉率、券資比、融資增加、資量比減、券量比增…等<br />
-          台股排行<br />
-          - 選股專家—條件設定<br />
-          - 新增我的選股法<br />
+
+        <p>- 還可存成我的選股法，加入每日選股清單，迅速一覽焦點個股。<br/>
+          - 量增、值增、量縮幅、週轉率、券資比、融資增加、資量比減、券量比增…等<br/>
+          台股排行<br/>
+          - 選股專家—條件設定<br/>
+          - 新增我的選股法<br/>
           - 每日選股清單</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>七、相關商品一覽無遺，套利，價差操作兩相宜</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-17.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-17.jpg"></td>
     </tr>
     <tr>
       <td><p>XQ可讓使用者同時檢視個股相關商品報價訊息，讓您能夠掌握獲利先機不錯失！</p><br>
-        <p>- 權證<br />
-          - 可轉換公司債<br />
-          - ADR<br />
+
+        <p>- 權證<br/>
+          - 可轉換公司債<br/>
+          - ADR<br/>
           - 特別股</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>八、台股精選報價，強力選股雷達</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-18.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-18.jpg"></td>
     </tr>
     <tr>
-      <td valign="top"><p>XQ內建包括量大股、量萎縮股、開盤強勢股、漲停股、弱勢股、長黑股、警示股等50種台股特別報價，選股基礎更加穩健，猶如選股雷達。另外還有加權指數權值股報價、摩台權值股報價、集團股報價、概念股報價、焦點股報價等多種報價類型可供參考。</p></td>
+      <td valign="top">
+        <p>XQ內建包括量大股、量萎縮股、開盤強勢股、漲停股、弱勢股、長黑股、警示股等50種台股特別報價，選股基礎更加穩健，猶如選股雷達。另外還有加權指數權值股報價、摩台權值股報價、集團股報價、概念股報價、焦點股報價等多種報價類型可供參考。</p>
+      </td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>九、高手秘技齊分享，投資典範永相隨</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-19.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-19.jpg"></td>
     </tr>
     <tr>
-      <td valign="top"><p>XQ的高手秘技區，讓使用者能公開自己的獨門選股法，與所有XQ使用者分享切磋。而系統也能每天根據彼得林區、吉姆羅吉斯、華倫巴菲特、麥克墨菲、班哲明格拉罕…等投資大師的選股邏輯，為您列出符合該邏輯的上市及上櫃股票。</p></td>
+      <td valign="top">
+        <p>XQ的高手秘技區，讓使用者能公開自己的獨門選股法，與所有XQ使用者分享切磋。而系統也能每天根據彼得林區、吉姆羅吉斯、華倫巴菲特、麥克墨菲、班哲明格拉罕…等投資大師的選股邏輯，為您列出符合該邏輯的上市及上櫃股票。</p>
+      </td>
     </tr>
   </table>
 </div>
@@ -328,68 +421,86 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>一、各種金融商品呈現於同一報價組合，聰明掌握世界脈動</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-20.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-20.jpg"></td>
     </tr>
     <tr>
-      <td valign="top"><p>畫面設定彈性大，多樣化的報價組合格式，可提供多種商品共同排列呈現。並可以依股本、盈餘、營收、產業地位、公司動態等特殊欄位排序，部份欄位可以輪播，且可自訂輪播速度。系統內訂多種報價組合，如集團股，概念股，大師選股，中小型成長股，產業龍頭股，價值型投資股等，讓您從單一畫面就能掌握市場多項現況。</p></td>
+      <td valign="top">
+        <p>畫面設定彈性大，多樣化的報價組合格式，可提供多種商品共同排列呈現。並可以依股本、盈餘、營收、產業地位、公司動態等特殊欄位排序，部份欄位可以輪播，且可自訂輪播速度。系統內訂多種報價組合，如集團股，概念股，大師選股，中小型成長股，產業龍頭股，價值型投資股等，讓您從單一畫面就能掌握市場多項現況。</p>
+      </td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>二、自設看盤畫面，節省更多寶貴時間與心力</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-21.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-21.jpg"></td>
     </tr>
     <tr>
-      <td><p>可自由設定看盤畫面，將最想關注的資訊都放在一起，也可自訂報價欄位及個股，只看自己想看的！本系統更可支援雙螢幕。也可以更改背景配色，畫面可以隨意切割欄位，各欄框內容還可設定為同步，如此當更改某一欄框商品時，其同步欄框也會隨之連動為商品。所有設定皆可存取供日後使用。</p><br>
-        <p>- 黑、藍、白三種色系<br />
-          - 水平、垂直等分或三分自訂欄框<br />
+      <td>
+        <p>可自由設定看盤畫面，將最想關注的資訊都放在一起，也可自訂報價欄位及個股，只看自己想看的！本系統更可支援雙螢幕。也可以更改背景配色，畫面可以隨意切割欄位，各欄框內容還可設定為同步，如此當更改某一欄框商品時，其同步欄框也會隨之連動為商品。所有設定皆可存取供日後使用。</p>
+        <br>
+
+        <p>- 黑、藍、白三種色系<br/>
+          - 水平、垂直等分或三分自訂欄框<br/>
           - 設定同步欄框</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>三、報價欄位隨您訂，排序輪播任您設</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-22.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-22.jpg"></td>
     </tr>
     <tr>
-      <td valign="top"><p>讓使用者可以在報價組合模式下，看到自己想要的報價欄位資訊。可依股本排序、五檔委買賣報價、產業地位、公司動態、多欄報價等多種條件設定排列，以符合各種不同商品的需求。商品數量眾多時，更可啟動輪播功能，自動輪替各項商品報價。同一報價欄位也可使用輪換欄位，交替播報不同資訊如收盤價、漲跌幅等。</p></td>
+      <td valign="top">
+        <p>讓使用者可以在報價組合模式下，看到自己想要的報價欄位資訊。可依股本排序、五檔委買賣報價、產業地位、公司動態、多欄報價等多種條件設定排列，以符合各種不同商品的需求。商品數量眾多時，更可啟動輪播功能，自動輪替各項商品報價。同一報價欄位也可使用輪換欄位，交替播報不同資訊如收盤價、漲跌幅等。</p>
+      </td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>四、我的最愛隨時加，快捷頁碼直接引用</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-23.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-23.jpg"></td>
     </tr>
     <tr>
-      <td><p>使用者可以將最常用到的頁面，加進我的最愛，以方便使用。任何頁面皆可「加入我的最愛」，也可為頁面及資料夾命名，再透過「組織我的最愛」功能，把偏好頁面變成私人Menu。而XQ目前內建近百頁快捷功能頁，可方便使用者輸入號碼快速叫出頁面，也可以維護快捷頁碼，修改或設定新的快捷頁。</p><br>
-        <p>- 內建100頁快捷頁面<br />
+      <td>
+        <p>使用者可以將最常用到的頁面，加進我的最愛，以方便使用。任何頁面皆可「加入我的最愛」，也可為頁面及資料夾命名，再透過「組織我的最愛」功能，把偏好頁面變成私人Menu。而XQ目前內建近百頁快捷功能頁，可方便使用者輸入號碼快速叫出頁面，也可以維護快捷頁碼，修改或設定新的快捷頁。</p>
+        <br>
+
+        <p>- 內建100頁快捷頁面<br/>
           - 可新增500頁快捷頁面</p></td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>五、警示設定靈活設，警示紀錄急通報</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-24.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-24.jpg"></td>
     </tr>
     <tr>
-      <td valign="top"><p>警示設定讓使用者能在商品價、量達到設定標準時，啟動警示訊息，提醒使用者，以避免遺漏重要訊息，確實掌握買賣點。XQ的警示條件設定非常多元，可依照不同的欄位設定條件。當有警示的事件發生時，系統會自動帶出「警示紀錄」</p></td>
+      <td valign="top">
+        <p>警示設定讓使用者能在商品價、量達到設定標準時，啟動警示訊息，提醒使用者，以避免遺漏重要訊息，確實掌握買賣點。XQ的警示條件設定非常多元，可依照不同的欄位設定條件。當有警示的事件發生時，系統會自動帶出「警示紀錄」</p>
+      </td>
     </tr>
   </table>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%"><h4>六、史上功能最強個人化系統</h4></td>
-      <td width="30%" rowspan="2" align="right" valign="top"><img src="<%= get_current_host_and_port %>application/images/trt-25.jpg"></td>
+      <td width="30%" rowspan="2" align="right" valign="top">
+        <img src="<%= get_current_host_and_port %>application/images/trt-25.jpg"></td>
     </tr>
     <tr>
-      <td><p>- 自訂頁面<br />
-        - 自訂頁面分割區塊<br />
-        - 我的最愛<br />
-        - 自選股<br />
-        - 自訂快捷頁<br />
-        - 自訂工具列<br />
-        - 自訂選股清單<br />
-        - 自訂警示個股<br />
-        - 自訂字型大小<br />
+      <td><p>- 自訂頁面<br/>
+        - 自訂頁面分割區塊<br/>
+        - 我的最愛<br/>
+        - 自選股<br/>
+        - 自訂快捷頁<br/>
+        - 自訂工具列<br/>
+        - 自訂選股清單<br/>
+        - 自訂警示個股<br/>
+        - 自訂字型大小<br/>
         - 自訂顏色</p></td>
     </tr>
   </table>
