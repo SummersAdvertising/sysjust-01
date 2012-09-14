@@ -1,3 +1,14 @@
+<script type="text/javascript">
+$(function(){
+	var $win = $(window).scroll(function(){
+		if($win.scrollTop() >= 400){$('#back').fadeIn(500)} else {$('#back').fadeOut(500);}
+	});
+});
+</script>
+<style>
+#back{display:none;position:fixed;bottom:5px;left:5px}
+</style>
+<a id="back" href="#"><img src="<%= get_current_host_and_port %>application/images/back-to-top.png"></a>
 <div id="footer">嘉實資訊股份有限公司©2012 XQ.com.tw / All Right Reserved.
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客戶免付費電話：0800-006-098
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服信箱：<a href="mailto:XQservice@XQ.com.tw?Subject=Hello%20XQ">XQservice@XQ.com.tw</a></div>
