@@ -19,6 +19,7 @@
 
 #Ignore database.yml.production
 /config/database.yml.production
+/config/database.yml
 
 /public/system/banners
 /public/uploads
