@@ -94,13 +94,13 @@ function checkForm() {
 		var pIndex = parent.index();
 		var label = parent.siblings().eq(pIndex-1).html();
 		
-		var labeledMessage = $('input[name^=experience]').siblings('label.message');
+		var labeledMessage = $(this).siblings('label.message');
 		
 		if ( labeledMessage.length > 0 && label != undefined ) {	
-			errorMessage += "\n" + label + " 錯誤：" + $(this).html();			
+			errorMessage += "\n" + label + " 錯誤：" + labeledMessage.html();			
 		} else if ( $(this).val().length <= 0 ) {
 			is_error = true;
-			errorMessage += "\n" + label + " 錯誤：欄位不得空白";
+			errorMessage += "\n" + label + " 錯誤：請輸入訊息";
 		} 
 		
 		
