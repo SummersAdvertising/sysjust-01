@@ -5,7 +5,7 @@
     $(function () {
         // 預設顯示第一個 Tab
         <% if params[:traits_id].nil?%>
-            var _showTab = 0;
+        var _showTab = 0;
         <% else %>
         var _showTab = <%= params[:traits_id] %>;
         <% end %>
@@ -29,6 +29,7 @@
                     this.blur();
                 });
     });
+</script>
 <style>
     #main {
         overflow: hidden
