@@ -88,7 +88,6 @@ function checkForm() {
 	var errorMessage = "";
 			
 	$('input[name^=experience]').each( function() {	
-		is_error = true;
 	
 		var parent = $(this).parents('td');
 		var pIndex = parent.index();
@@ -97,6 +96,7 @@ function checkForm() {
 		var labeledMessage = $(this).siblings('label.message');
 		
 		if ( labeledMessage.length > 0 && label != undefined ) {	
+			is_error = true;
 			errorMessage += "\n" + label + " 錯誤：" + labeledMessage.html();			
 		} else if ( $(this).val().length <= 0 ) {
 			is_error = true;
