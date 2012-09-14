@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
+  resources :uploads
+
   mount RedactorRails::Engine => '/redactor_rails'
 
   mount Ckeditor::Engine => '/ckeditor'
