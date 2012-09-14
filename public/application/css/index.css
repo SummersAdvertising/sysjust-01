@@ -72,3 +72,5 @@ overflow:hidden;*overflow:none;padding:30px 62.5px 0 62.5px}
 .link-text li{height:25px;}
 .link-text a{color:#231815;font:300 14px "微軟正黑體"}
 .link-text a:hover{text-decoration:underline}
+
+.more{text-align:right;padding-right:220px}

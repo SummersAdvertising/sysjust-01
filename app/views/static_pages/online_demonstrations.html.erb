@@ -5,7 +5,7 @@
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
     $(document).ready(function(){
-        $(".iframe").colorbox({iframe:true, width:"780", height:"600"});
+        $(".iframe").colorbox({iframe:true, width:"780", height:"650"});
         $("#click").click(function(){
             $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
             return false;
@@ -52,6 +52,7 @@
     #tab3{background:url(<%= get_current_host_and_port %>application/images/banner-ods-3.jpg) top left no-repeat}
     h4{color:#a72c07;font:300 18px "微軟正黑體"}
 	#content table a:hover img{opacity:.85}
+	#cboxLoadedContent{padding-top:50px}
 </style>
 <%= render :partial => "shared/application_top" %><!--header-->
 <div id="container">
