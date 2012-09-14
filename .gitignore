@@ -21,6 +21,7 @@
 /config/database.yml.production
 
 /public/system/banners
+/public/system
 /public/uploads
 
 /.idea
