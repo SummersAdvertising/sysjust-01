@@ -275,15 +275,21 @@
       <td width="40%" align="left" valign="top">
         <div id="news">
           <ul>
-            <li><%= @newsupdate_01.updated_at.to_date if !@newsupdate_01.nil? %> /
-              <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_01.id if !@newsupdate_01.nil? %>"><%= @newsupdate_01.title if !@newsupdate_01.nil? %></a>
-            </li>
-            <li><%= @newsupdate_02.updated_at.to_date if !@newsupdate_02.nil? %> /
-              <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_02.id if !@newsupdate_02.nil? %>"><%= @newsupdate_02.title if !@newsupdate_02.nil? %></a>
-            </li>
-            <li><%= @newsupdate_03.updated_at.to_date if !@newsupdate_03.nil? %> /
-              <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_03.id if !@newsupdate_03.nil? %>"><%= @newsupdate_03.title if !@newsupdate_03.nil? %></a>
-            </li>
+            <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_01.id if !@newsupdate_01.nil? %>">
+              <li><%= @newsupdate_01.updated_at.to_date if !@newsupdate_01.nil? %> /
+                <%= @newsupdate_01.title if !@newsupdate_01.nil? %>
+              </li>
+            </a>
+            <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_02.id if !@newsupdate_02.nil? %>">
+              <li><%= @newsupdate_02.updated_at.to_date if !@newsupdate_02.nil? %> /
+                <%= @newsupdate_02.title if !@newsupdate_02.nil? %>
+              </li>
+            </a>
+            <a href="<%= news_updates_url %>?news_id=<%= @newsupdate_03.id if !@newsupdate_03.nil? %>">
+              <li><%= @newsupdate_03.updated_at.to_date if !@newsupdate_03.nil? %> /
+                <%= @newsupdate_03.title if !@newsupdate_03.nil? %>
+              </li>
+            </a>
           </ul>
         </div>
 
@@ -291,6 +297,7 @@
       <td width="42%" align="left" valign="top">
         <div id="course">
           <ul>
+<<<<<<< HEAD
             <li><a href="<%= courses_url %>"><%= @display_courses[0].subject if !@display_courses[0].nil? %>
               —<%= @display_courses[0].session if !@display_courses[0].nil? %>
               /<%= @display_courses[0].start_time if !@display_courses[0].nil? %>
@@ -318,6 +325,41 @@
                   <% end %>
               <% end %>
             </a></li>
+=======
+            <a href="<%= courses_url %>?#<%= @display_courses[0].id %>">
+              <li><%= @display_courses[0].subject if !@display_courses[0].nil? %>
+                —<%= @display_courses[0].session if !@display_courses[0].nil? %>
+                /<%= @display_courses[0].start_time if !@display_courses[0].nil? %>
+                <% if !@display_courses[0].nil? %>
+                    <% if @display_courses[0].registration_quota - @display_courses[0].enrollments.count==0 %>
+                        （已額滿）
+                    <% end %>
+                <% end %>
+              </li>
+            </a>
+            <a href="<%= courses_url %>?#<%= @display_courses[1].id %>">
+              <li><%= @display_courses[1].subject if !@display_courses[1].nil? %>
+                —<%= @display_courses[1].session if !@display_courses[1].nil? %>
+                /<%= @display_courses[1].start_time if !@display_courses[1].nil? %>
+                <% if !@display_courses[1].nil? %>
+                    <% if @display_courses[1].registration_quota - @display_courses[1].enrollments.count==0 %>
+                        （已額滿）
+                    <% end %>
+                <% end %>
+              </li>
+            </a>
+            <a href="<%= courses_url %>?#<%= @display_courses[2].id %>">
+              <li><%= @display_courses[2].subject if !@display_courses[2].nil? %>
+                —<%= @display_courses[2].session if !@display_courses[2].nil? %>
+                /<%= @display_courses[2].start_time if !@display_courses[2].nil? %>
+                <% if !@display_courses[2].nil? %>
+                    <% if @display_courses[2].registration_quota - @display_courses[2].enrollments.count==0 %>
+                        （已額滿）
+                    <% end %>
+                <% end %>
+              </li>
+            </a>
+>>>>>>> f1604596eb76f063343610a3190de26142c82cda
           </ul>
         </div>
 

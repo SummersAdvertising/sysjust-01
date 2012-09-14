@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
-<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
     $(document).ready(function () {
@@ -81,7 +80,38 @@
         color: #555
     }
 </style>
-<script>
+<script type="text/javascript">
+
+function checkForm() {
+	var is_error = false;
+	
+	var errorMessage = "";
+			
+	$('input[name^=experience]').each( function() {	
+		is_error = true;
+	
+		var parent = $(this).parents('td');
+		var pIndex = parent.index();
+		var label = parent.siblings().eq(pIndex-1).html();
+		
+		var labeledMessage = $('input[name^=experience]').siblings('label.message');
+		
+		if ( labeledMessage.length > 0 && label != undefined ) {	
+			errorMessage += "\n" + label + " 錯誤：" + $(this).html();			
+		} else if ( $(this).val().length <= 0 ) {
+			is_error = true;
+			errorMessage += "\n" + label + " 錯誤：欄位不得空白";
+		} 
+		
+		
+	} );	
+	
+	if (is_error) {
+		alert("請重新檢查以下欄位：\n" + errorMessage);
+		return false;
+	}
+	
+}
 
 </script>
 <%= render :partial => "shared/application_top" %><!--header-->
@@ -127,7 +157,7 @@
           <table width="100%" border="0" cellspacing="10" cellpadding="0">
             <tr>
               <td align="right"><a href="<%= new_experience_url %>" id="reset_button">清除重填</a></td>
-              <td align="right" width="195"><a href="#msg" class='inline' id="thanks"></a><%= f.submit "", {:id => 'send_button'} %>
+              <td align="right" width="195"><a href="#msg" class='inline' id="thanks"></a><%= f.submit "", {:id => 'send_button', :onClick => "return checkForm();"}  %>
               </td>
             </tr>
           </table>

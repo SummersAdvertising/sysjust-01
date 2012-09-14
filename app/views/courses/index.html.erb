@@ -105,7 +105,7 @@
       %>
           <% if temp_start_time > current_time %>
               <% if course.registration_quota - course.enrollments.count==0 %>
-                  <div class="box">
+                  <div class="box" id="<%= course.id %>">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td width="69%">
@@ -141,7 +141,7 @@
                     </table>
                   </div>
               <% else %>
-                  <div class="box">
+                  <div class="box" id="<%= course.id %>">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>
                         <td width="69%">
