@@ -9,7 +9,7 @@ development:
   reconnect: false
   database: sysjust
   pool: 5
-  username: root
+  username: development
   password: 
 
 # Warning: The database defined as "test" will be erased and

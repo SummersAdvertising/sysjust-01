@@ -80,7 +80,31 @@
         color: #555
     }
 </style>
-<script>
+<script type="text/javascript">
+
+function checkForm() {
+	var is_error = false;
+	
+	var errorMessage = "";
+	
+	$('label.message').each(function() {
+		is_error = true;
+	
+		var parent = $(this).parents('td');
+		var pIndex = parent.index();
+		var label = parent.siblings().eq(pIndex-1).html();
+				
+		if ( label != undefined ) {
+			errorMessage += "\n" + label + " 錯誤：" + $(this).html();
+		}
+	});
+	
+	if (is_error) {
+		alert("請重新檢查以下欄位：\n\n" + errorMessage);
+		return false;
+	}
+	
+}
 
 </script>
 <%= render :partial => "shared/application_top" %><!--header-->
@@ -126,7 +150,7 @@
           <table width="100%" border="0" cellspacing="10" cellpadding="0">
             <tr>
               <td align="right"><a href="<%= new_experience_url %>" id="reset_button">清除重填</a></td>
-              <td align="right" width="195"><a href="#msg" class='inline' id="thanks"></a><%= f.submit "", {:id => 'send_button'} %>
+              <td align="right" width="195"><a href="#msg" class='inline' id="thanks"></a><%= f.submit "", {:id => 'send_button', :onClick => "return checkForm();"}  %>
               </td>
             </tr>
           </table>
