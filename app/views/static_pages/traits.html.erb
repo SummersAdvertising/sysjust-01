@@ -27,14 +27,8 @@
     });
 
     $(document).ready(function(){
-        $(".iframe").colorbox({iframe:true, width:"910", height:"80%"});
-        $("#click").click(function(){
-            $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-            return false;
-        });
 
         if (window.location.hash.substr(1).indexOf("tab") >= 0) {
-            console.log($('a[href=' + window.location.hash + ']'));
             $('a[href=' + window.location.hash + ']').click();
         }
     });
