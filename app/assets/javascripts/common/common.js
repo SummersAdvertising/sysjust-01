@@ -8,7 +8,9 @@ function checkForm() {
 	
 		var parent = $(this).parents('td');
 		var pIndex = parent.index();
-		var label = parent.siblings().eq(pIndex-1).html();
+		var label = parent.siblings().eq(pIndex-1).attr('title') != undefined ? parent.siblings().eq(pIndex-1).attr('title') : parent.siblings().eq(pIndex-1).html();
+		
+		
 		
 		var labeledMessage = $(this).siblings('label.message');
 		

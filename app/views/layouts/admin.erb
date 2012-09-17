@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>後台管理系統</title>
-  <%= javascript_include_tag "admin", "rails.validations" %>
+  <%= javascript_include_tag "admin", "rails.validations", "application" %>
   <%= csrf_meta_tags %>
 
   <script type="text/javascript" src="<%=get_current_host_and_port%>js/jquery-textarea-autogrow.js"></script>
@@ -14,8 +14,13 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
   <script type="text/javascript" src="<%=get_current_host_and_port%>jquery-ui-timepicker-addon.js"></script>
-  <script>
+  <script type="text/javascript" >
     $(document).ready(function() {  
+    
+    	$('form[data-validate=true]').submit(function() {
+	    	return checkForm();
+    	});
+    
       $('#course_start_time').datetimepicker({
           onClose: function(dateText, inst) {
               var endDateTextBox = $('#course_end_time');
