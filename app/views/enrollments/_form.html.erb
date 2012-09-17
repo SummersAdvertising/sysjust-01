@@ -41,7 +41,7 @@ hr {background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg
     <table width="100%" border="0" cellspacing="10" cellpadding="0">
         <tr>
             <td align="right"><a href="<%= new_course_enrollment_url %>" id="reset_button">清除重填</a></td>
-			<td align="right" width="195"><%= f.submit "", {:id => 'send_button'} %></td>
+			<td align="right" width="195"><%= f.submit "", {:id => 'send_button', :onClick => 'checkForm();'} %></td>
 		</tr>            
     </table>
 <% end %>

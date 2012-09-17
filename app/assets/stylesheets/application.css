@@ -11,5 +11,5 @@
  *= require_self
  *= require redactor-rails
  *= require jquery.fileupload-ui
- *= require_tree .
+ *= require_tree ./common
  */
