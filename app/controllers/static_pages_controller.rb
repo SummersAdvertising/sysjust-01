@@ -362,15 +362,15 @@ class StaticPagesController < ApplicationController
   end
 
   def file_01
-    send_file Rails.root.to_s()+"/public/download_contents/外匯整合畫面.dap"
+    send_file Rails.root.to_s()+"/public/download_contents/Foreign_Exchange.dap"
   end
 
   def file_02
-    send_file Rails.root.to_s()+"/public/download_contents/美股重要個股(對照台股相關).dap"
+    send_file Rails.root.to_s()+"/public/download_contents/Main_American_Stocks.dap"
   end
 
   def file_03
-    send_file Rails.root.to_s()+"/public/download_contents/中港台產業比較.dap"
+    send_file Rails.root.to_s()+"/public/download_contents/Comparison_with_CN_HK_TW.dap"
   end
 
 
