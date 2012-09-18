@@ -53,5 +53,5 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 
-gem 'jquery-fileupload-rails', :git => "git://github.com/richkuo/jquery-fileupload-rails"
+gem 'jquery-fileupload-rails', :git => "git@github.com:vincentopensourcetaiwan/jquery-fileupload-rails.git"
 gem 'twitter-bootstrap-rails'

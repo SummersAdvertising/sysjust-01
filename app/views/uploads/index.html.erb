@@ -1,5 +1,5 @@
-<%= javascript_include_tag "application" %>
 <%= stylesheet_link_tag    "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
 <div class="container">
   <h2>Upload file</h2>
   <%= form_for Upload.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>

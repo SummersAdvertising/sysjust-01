@@ -2,14 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <% if params[:controller]=="uploads" && params[:action]=="index" %>
-      <%= stylesheet_link_tag "application", :media => "all" %>
-      <%= javascript_include_tag "application" %>
-  <% else %>
-      <%= javascript_include_tag "application", "rails.validations" %>
-      <link rel="stylesheet" href="<%= get_current_host_and_port %>css/customization.css">
-  <% end %>
-
+  <%= javascript_include_tag "application", "rails.validations" %>
+  <link rel="stylesheet" href="<%= get_current_host_and_port %>css/customization.css">
   <%= csrf_meta_tags %>
   <% if params[:controller]=="static_pages" && params[:action]=="index" %>
       <title>XQ 嘉實全球贏家</title>
