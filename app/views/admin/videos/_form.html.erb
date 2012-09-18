@@ -38,12 +38,12 @@
       <table width="100%" border="0" cellspacing="10" cellpadding="0">
         <tr>
           <th width="13%" align="left">新增影片</th>
-          <td width="87%" align="left"><%= f.file_field :video %></td>
+          <td width="87%" align="left"><%= f.file_field :video, id: "upload_video" %></td>
 
         </tr>
         <tr>
           <th align="left">新增縮圖</th>
-          <td align="left"><%= f.file_field :image %></td>
+          <td align="left"><%= f.file_field :image, id: "upload_image" %></td>
         </tr>
       </table>
 
