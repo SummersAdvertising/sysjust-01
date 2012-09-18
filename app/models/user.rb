@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name
   # attr_accessible :title, :body
 
+  validates :name, :presence => true
+
   # no need to input current password to update user's information
   def update_with_password(params={})
     if params[:password].blank?

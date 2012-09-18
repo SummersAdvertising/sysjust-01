@@ -5,14 +5,14 @@
         <th width="10%" title="姓名">姓名</th>
         <td width="20%"><%= f.text_field :name %></td>
         <th width="10%" title="帳號">帳號</th>
-        <td width="60%" title="Email"><%= f.text_field :email %></td>
+        <td width="60%"><%= f.text_field :email %></td>
       </tr>
     </table>
     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px">
       <tr>
         <th width="10%" title="密碼">密碼</th>
         <td width="37%"><%= f.password_field :password %></td>
-        <th width="15%">確認密碼</th>
+        <th width="15%" title="確認密碼">確認密碼</th>
         <td width="38%"><%= f.password_field :password_confirmation %></td>
       </tr>
     </table>
