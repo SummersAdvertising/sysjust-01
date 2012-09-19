@@ -55,7 +55,9 @@ h1{float:left;margin-top:30px;height:93px}
 #forums{width:266px;height:143px;background:url(../images/index-05.jpg) 0 0 no-repeat;padding:45px 20px 0 20px}
 #forums li{border-bottom:1px dashed #D0D0D0;margin:3px 0}
 
-#fans{width:305px;height:298px;background:url(../images/index-06.jpg) 0 0 no-repeat}
+/*#fans{width:305px;height:298px;background:url(../images/index-06.jpg) 0 0 no-repeat}*/
+#fans{width:295px;background:#F8F8F8;height:515px;border-radius:5px;margin:0 5px 0 0;position:relative}
+#fans h3{position:absolute;left:-8px;top:10px}
 
 #announcement{margin:20px 0}
 #announcement h3{height:35px;font-size:17px}
