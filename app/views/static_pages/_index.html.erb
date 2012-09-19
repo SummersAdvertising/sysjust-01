@@ -297,7 +297,7 @@
       <td width="42%" align="left" valign="top">
         <div id="course">
           <ul>
-            <li><a href="<%= courses_url %>#<%=@display_courses[0].id%>"><%= @display_courses[0].subject if !@display_courses[0].nil? %>
+            <li><a href="<%= courses_url %>#<%=@display_courses[0].id if !@display_courses[0].nil? %>"><%= @display_courses[0].subject if !@display_courses[0].nil? %>
               —<%= @display_courses[0].session if !@display_courses[0].nil? %>
               /<%= @display_courses[0].start_time if !@display_courses[0].nil? %>
               <% if !@display_courses[0].nil? %>
