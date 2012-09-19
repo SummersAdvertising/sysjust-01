@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
-  resources :uploads
+  #resources :uploads
 
   mount RedactorRails::Engine => '/redactor_rails'
 
@@ -43,15 +43,18 @@ TestDevise::Application.routes.draw do
     resources :experiences
     resources :service_emails
     resources :categories do
-      resources :videos
-    end  
+      resources :videos do
+        resources :uploads
+      end
+    end
     resources :courses do
       collection do
         get 'online'
         get 'offline'
       end
       resources :enrollments
-    end  
+    end
+    resources :uploads
   end  
 
   # The priority is based upon order of creation:
