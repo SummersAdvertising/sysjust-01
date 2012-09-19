@@ -1,4 +1,6 @@
 class UploadsController < ApplicationController
+  layout 'admin'
+  before_filter :require_sign_in
   # GET /uploads
   # GET /uploads.json
   def index

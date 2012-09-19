@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
-  #resources :uploads
+  resources :uploads
 
   mount RedactorRails::Engine => '/redactor_rails'
 
