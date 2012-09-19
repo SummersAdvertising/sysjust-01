@@ -46,6 +46,7 @@ class Admin::UploadsController < ApplicationController
 
     respond_to do |format|
       if @upload.save
+        #binding.pry
         format.html {
           render :json => [@upload.to_jq_upload].to_json,
                  :content_type => 'text/html',
