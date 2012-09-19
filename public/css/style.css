@@ -124,3 +124,7 @@ h2{font:italic 300 18px "細明體";padding:5px 0 0 10px}
 .main-banner textarea{border:1px solid #ddd;width:99%;font:300 13px "Helvetica";color:#333;line-height:20px;overflow:hidden;min-height:50px}
 .main-banner .upload-img{border:3px double #ccc;background:url(../images/upload-image.jpg) center center no-repeat}
 .main-banner .video-link{overflow:hidden!important;word-break: break-all;}
+
+
+
+.tips{font:300 11px "微軟正黑體";color:#C33214}
