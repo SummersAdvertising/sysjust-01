@@ -59,9 +59,17 @@
           <th width="13%" align="left">新增影片</th>
           <td width="87%" align="left"><%= f.file_field :video, id: "upload_video" %></td>
         </tr>
+		<tr>
+          <th width="13%" align="left"></th>
+          <td width="87%" align="left" class="tips">上傳格式 mp4 m4v</td>
+        </tr>
         <tr>
-          <th align="left">新增縮圖</th>
-          <td align="left"><%= f.file_field :image, id: "upload_image" %></td>
+          <th width="13%" align="left">新增縮圖</th>
+          <td width="87%" align="left"><%= f.file_field :image, id: "upload_image" %></td>
+        </tr>
+		<tr>
+          <th width="13%" align="left"></th>
+          <td width="87%" align="left" class="tips">上傳格式 jpg jpeg gif png</td>
         </tr>
       </table>
 
