@@ -18,8 +18,8 @@ TestDevise::Application.routes.draw do
   match "/index" => "static_pages#index"
   match "/announcement" => "static_pages#announcement"
 
-  devise_for :users, :path_prefix => 'admin', :controllers => { :registrations => 'registrations'}  
-  resources :users    
+  devise_for :users, :path_prefix => 'admin', :controllers => {:registrations => 'registrations'}
+  resources :users
 
   #resources :posts
 
@@ -40,7 +40,11 @@ TestDevise::Application.routes.draw do
   namespace :admin do
     resources :news_updates
     resources :banners
-    resources :experiences
+    resources :experiences do
+      collection do
+        get 'remove'
+      end
+    end
     resources :service_emails
     resources :categories do
       resources :videos do
@@ -55,7 +59,7 @@ TestDevise::Application.routes.draw do
       resources :enrollments
     end
     resources :uploads
-  end  
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
