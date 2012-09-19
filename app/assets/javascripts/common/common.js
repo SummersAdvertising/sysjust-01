@@ -29,5 +29,7 @@ function checkForm() {
 		alert("請重新檢查以下欄位：\n" + errorMessage);
 		return false;
 	}
-	
+    else{
+        $('#wait').trigger('click')
+    }
 }
