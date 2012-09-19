@@ -57,6 +57,7 @@
               $('#course_start_time').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
           }
       });
+	  $('input[name=commit]').siblings('a').click(function() { $(this).siblings('input[name=commit]').click() });
     });
   </script>
 </head>
