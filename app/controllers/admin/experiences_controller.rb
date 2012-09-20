@@ -18,7 +18,7 @@ class Admin::ExperiencesController < ApplicationController
   # GET /experiences
   # GET /experiences.json
   def index
-    @experiences = Experience.page(params[:page]).per(30)
+    @experiences = Experience.page(params[:page]).per(15)
     @service_email = ServiceEmail.first
 
     respond_to do |format|
