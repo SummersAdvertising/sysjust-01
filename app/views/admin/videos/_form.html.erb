@@ -7,6 +7,9 @@
         var current_page = jQuery(location).attr('href')
         <% if cookies[:display] == "true" %>
         $('#wait').trigger('click')
+        $('.inline').colorbox({onLoad: function() {
+            $('#cboxClose').remove();
+        }});
         <% end %>
     });
 </script>
