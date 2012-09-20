@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
-  #resources :uploads
+  resources :uploads
 
   mount RedactorRails::Engine => '/redactor_rails'
 
@@ -58,7 +58,7 @@ TestDevise::Application.routes.draw do
       end
       resources :enrollments
     end
-    #resources :uploads
+    resources :uploads
   end
 
   # The priority is based upon order of creation:
