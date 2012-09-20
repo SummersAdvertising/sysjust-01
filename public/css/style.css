@@ -84,6 +84,7 @@ color:#999;text-shadow:0 1px 0 #fff;}
 .main-title .text{padding:5px 10px}
 .main-title input{border:0;width:100%;font:300 13px "Helvetica";color:#555;	height:18px;margin-top:0px}
 .main-title .category{color:#fff;background:#31343B;padding:2px 10px;border-radius:5px;}
+
 /*-------------------------------------------------------------------內文---*/
 
 .main-text{padding:10px;border:1px solid #ccc;border-radius:5px;margin:10px 0;clear:both;background:#F9F9F9;line-height:20px;}
@@ -106,6 +107,8 @@ h2{font:italic 300 18px "細明體";padding:5px 0 0 10px}
 .main-form input{width:53%;background:#fff;border:1px solid #ccc!important;border-radius:5px;padding:8px 5px}
 .main-form{padding-left:35px}
 
+.tips{font:300 11px "微軟正黑體";color:#C33214}
+
 /*-------------------------------------------------------------------分類---*/
 
 .main-category{width:100%;border:1px solid #ccc;border-radius:5px;overflow:hidden;font-family:Verdana;line-height:20px;}
@@ -125,6 +128,20 @@ h2{font:italic 300 18px "細明體";padding:5px 0 0 10px}
 .main-banner .upload-img{border:3px double #ccc;background:url(../images/upload-image.jpg) center center no-repeat}
 .main-banner .video-link{overflow:hidden!important;word-break: break-all;}
 
+/*-------------------------------------------------------------------頁碼---*/
 
-
-.tips{font:300 11px "微軟正黑體";color:#C33214}
+.pagination{width:520px;float:left;height:25px;margin:15px 0 0 0;}
+.pagination span{margin:0 5px;font:300 12px "verdana";color:#222}
+.pagination span a{font:300 12px "verdana";color:#222}
+.pagination .page a:hover{color:#E26B16}
+.pagination .current{border-bottom:5px solid #E26B16;padding-left:3px;color:#E26B16}
+.pagination .next a,
+.pagination .last a,
+.pagination .prev a,
+.pagination .first a
+{color:#ccc}
+.pagination .next a:hover,
+.pagination .last a:hover,
+.pagination .prev a:hover,
+.pagination .first a:hover
+{color:#777}
