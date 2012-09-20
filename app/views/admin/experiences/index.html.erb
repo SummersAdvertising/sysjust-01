@@ -54,6 +54,7 @@
         <% end %>
       </table>
     </div>
+    <%= paginate @experiences %>
     <div class="button" style="margin:10px 0 0 0">
       <a href="<%= remove_admin_experiences_path %>" onclick="remove_experiences()"><img src="<%= get_current_host_and_port %>images/delete.png">刪除多筆</a>
     </div>
