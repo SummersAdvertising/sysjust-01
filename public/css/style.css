@@ -1,7 +1,7 @@
 ﻿/*-------------------------------------------------------------------全域---*/
 
 html{font:300 13px "Helvetica";background:url(../images/background.jpg) 0 0 repeat}
-body{background:none!important}
+body{background:none!important;-webkit-text-size-adjust: none;}
 a{text-decoration:none;font:300 13px "Helvetica"}
 .left{float:left}
 .right{float:right}
