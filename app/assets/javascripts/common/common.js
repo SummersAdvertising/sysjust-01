@@ -31,5 +31,6 @@ function checkForm() {
 	}
     else{
         $('#wait').trigger('click')
+        $("#cboxClose").css("display", "none")
     }
 }
