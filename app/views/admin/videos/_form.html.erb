@@ -2,17 +2,18 @@
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
     $(document).ready(function () {
-        $(".inline").colorbox({inline:true, width:"590", height:"150", overlayClose: false, escKey: false});
+        $(".inline").colorbox({inline:true, width:"590", height:"250", overlayClose: false, escKey: false});
     });
 </script>
 <style>
-#msg{width:590px;height:80px;padding:50px 0 0 0;text-align:center}
+#msg{width:590px;height:180px;padding:50px 0 0 0;text-align:center}
 #msg p{font:300 22px "微軟正黑體";color:red}
 </style>
 <a href="#msg" class='inline' id="wait" style="display:none">jjjjjj</a>
 <div style="display:none">
   <div id="msg">
     <p>影片上傳中，請勿關閉此視窗。</p>
+    <img src="<%= get_current_host_and_port %>application/images/circle.gif">
   </div>
   <!--msg-->
 </div>
