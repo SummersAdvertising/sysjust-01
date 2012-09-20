@@ -6,7 +6,7 @@ class Admin::ExperiencesController < ApplicationController
   def remove
     delete_experiences = cookies[:delete_experiences]
     remove_experiences = delete_experiences.split(',')
-    #binding.pry
+
     remove_experiences.each do |i|
       @experience = Experience.find(i)
       @experience.destroy
@@ -18,7 +18,7 @@ class Admin::ExperiencesController < ApplicationController
   # GET /experiences
   # GET /experiences.json
   def index
-    @experiences = Experience.all
+    @experiences = Experience.page(params[:page]).per(30)
     @service_email = ServiceEmail.first
 
     respond_to do |format|
