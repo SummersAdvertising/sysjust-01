@@ -59,6 +59,7 @@ class Admin::VideosController < ApplicationController
         format.json { render json: @video.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /videos/1

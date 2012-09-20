@@ -5,8 +5,6 @@
 <script>
     $(document).ready(function () {
         $(".inline").colorbox({inline:true, width:"590", height:"150"});
-        var last_page =  document.referrer;
-        var current_page = jQuery(location).attr('href')
         <% if cookies[:display] == "true" %>
             $('#thanks').trigger('click')
         <% end %>

@@ -2,13 +2,7 @@
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
     $(document).ready(function () {
-        $(".inline").colorbox({inline:true, width:"590", height:"150"});
-        var last_page =  document.referrer;
-        var current_page = jQuery(location).attr('href')
-        <% if cookies[:display] == "true" %>
-        $('#wait').trigger('click')
-        $(".inline").colorbox.remove()
-        <% end %>
+        $(".inline").colorbox({inline:true, width:"590", height:"150", overlayClose: false, escKey: false});
     });
 </script>
 <a href="#msg" class='inline' id="wait" style="display:none">jjjjjj</a>
@@ -24,7 +18,8 @@
   <%= render :partial => "shared/admin_side" %>
   <!--side-->
   <%= form_for [:admin, @category, @video], :validate => true do |f| %>
-<!--     <% if @video.errors.any? %>
+      <!--
+      <% if @video.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
 
@@ -35,51 +30,54 @@
       </ul>
     </div>
   <% end %> -->
-  <div id="main" class="right">
-    <div class="main-title">
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="16%" height="22" valign="top" class="title" title="標題">
-            <% if params[:action]=="edit" %>
-                <%=@video.updated_at.to_date%>
-            <% else %>
-                <%=Time.now.to_date%>
-            <% end %>
-          </td>
-          <td width="64%" valign="middle" class="text"><%= f.text_field :title %></td>
-          <td width="20%" valign="middle" class="text"><a class="category"><%= @category.name %></a></td>
-        </tr>
-      </table>
-    </div>
-    <div class="main-text">
-      <%= f.text_area :content, :rows => 0, :cols => 0, :class => 'autogrow' %>
-    </div>
-    <div class="main-text">
-      <table width="100%" border="0" cellspacing="10" cellpadding="0">
-        <tr>
-          <th width="13%" align="left">新增影片</th>
-          <td width="87%" align="left"><%= f.file_field :video, id: "upload_video" %></td>
-        </tr>
-		<tr>
-          <th width="13%" align="left"></th>
-          <td width="87%" align="left" class="tips">〈上傳格式：mp4、m4v〉</td>
-        </tr>
-        <tr>
-          <th width="13%" align="left">新增縮圖</th>
-          <td width="87%" align="left"><%= f.file_field :image, id: "upload_image" %></td>
-        </tr>
-		<tr>
-          <th width="13%" align="left"></th>
-          <td width="87%" align="left" class="tips">〈上傳格式：jpg、jpeg、gif、png〉</td>
-        </tr>
-      </table>
+      <div id="main" class="right">
+        <div class="main-title">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="16%" height="22" valign="top" class="title" title="標題">
+                <% if params[:action]=="edit" %>
+                    <%= @video.updated_at.to_date %>
+                <% else %>
+                    <%= Time.now.to_date %>
+                <% end %>
+              </td>
+              <td width="64%" valign="middle" class="text"><%= f.text_field :title %></td>
+              <td width="20%" valign="middle" class="text"><a class="category"><%= @category.name %></a></td>
+            </tr>
+          </table>
+        </div>
+        <div class="main-text">
+          <%= f.text_area :content, :rows => 0, :cols => 0, :class => 'autogrow' %>
+        </div>
+        <div class="main-text">
+          <table width="100%" border="0" cellspacing="10" cellpadding="0">
+            <tr>
+              <th width="13%" align="left">新增影片</th>
+              <td width="87%" align="left"><%= f.file_field :video, id: "upload_video" %></td>
+            </tr>
+            <tr>
+              <th width="13%" align="left"></th>
+              <td width="87%" align="left" class="tips">〈上傳格式：mp4、m4v〉</td>
+            </tr>
+            <tr>
+              <th width="13%" align="left">新增縮圖</th>
+              <td width="87%" align="left"><%= f.file_field :image, id: "upload_image" %></td>
+            </tr>
+            <tr>
+              <th width="13%" align="left"></th>
+              <td width="87%" align="left" class="tips">〈上傳格式：jpg、jpeg、gif、png〉</td>
+            </tr>
+          </table>
 
-    </div>
-    <div class="button"><%= f.submit "" %><a><img src="<%=get_current_host_and_port%>images/save.png">儲存</a></div>
-    <div class="button"><a href="<%=admin_category_path(@category)%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
-  </div>
+        </div>
+        <div class="button"><%= f.submit "" %>
+          <a><img src="<%= get_current_host_and_port %>images/save.png">儲存</a></div>
+        <div class="button">
+          <a href="<%= admin_category_path(@category) %>"><img src="<%= get_current_host_and_port %>images/cancel.png">取消</a>
+        </div>
+      </div>
   <% end %>
-  <!--main--> 
+  <!--main-->
 </div>
 <!--container-->
 <div id="footer"></div>
