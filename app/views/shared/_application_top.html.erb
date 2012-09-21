@@ -22,9 +22,9 @@
       <% end %>
 
       <% if params[:controller]=="categories" %>
-          <li class="active"><a href="<%= category_url(Category.first) %>">實機教學</a></li>
+          <li class="active"><a href="<%= category_url(Category.first) if Category.first%>">實機教學</a></li>
       <% else %>
-          <li><a href="<%= category_url(Category.first) if !Category.first.nil?%>">實機教學</a></li>
+          <li><a href="<%= category_url(Category.first) if Category.first%>">實機教學</a></li>
       <% end %>
 
       <% if params[:controller]=="static_pages" && params[:action]=="download_contents" %>
