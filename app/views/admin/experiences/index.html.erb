@@ -1,12 +1,18 @@
 <script>
     function remove_experiences() {
-        var delete_experiences = new Array();
-    <% @experiences.each do |experience| %>
-        if($('#<%=experience.id%>').is(':checked')){
-            delete_experiences.push("<%=experience.id%>");
+        var is_confirm = confirm("你確定嗎？");
+        if(is_confirm){
+            var delete_experiences = new Array();
+        <% @experiences.each do |experience| %>
+            if($('#<%=experience.id%>').is(':checked')){
+                delete_experiences.push("<%=experience.id%>");
+            }
+        <% end %>
+            setCookie("delete_experiences", delete_experiences, 1);
         }
-    <% end %>
-        setCookie("delete_experiences", delete_experiences, 1);
+        else{
+            return false;
+        }
     }
     function setCookie(c_name, value, exdays) {
         var exdate = new Date();
@@ -56,7 +62,7 @@
     </div>
     <%= paginate @experiences %>
     <div class="button" style="margin:10px 0 0 0">
-      <a href="<%= remove_admin_experiences_path %>" onclick="remove_experiences()"><img src="<%= get_current_host_and_port %>images/delete.png">刪除多筆</a>
+      <a href="<%= remove_admin_experiences_path %>" onclick="return remove_experiences()"><img src="<%= get_current_host_and_port %>images/delete.png">刪除多筆</a>
     </div>
   </div>
   <!--main--> 
