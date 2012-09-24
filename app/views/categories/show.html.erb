@@ -5,7 +5,7 @@
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
     $(document).ready(function(){
-        $(".iframe").colorbox({iframe:true, width:"780", height:"650"});
+        $(".inline").colorbox({inline:true});
         $("#click").click(function(){
             $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
             return false;
@@ -114,7 +114,7 @@
               </tr>
               <tr>
                 <td width="26%">
-                  <a href="<%= category_video_path(@category, video) %>" class='iframe'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
+                  <a href="<%= category_video_path(@category, video) %>" class='inline'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
                 </td>
                 <td width="22%">
                   <a href="<%= download_category_video_path(@category, video) %>" ><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41"/></a>
@@ -127,6 +127,9 @@
       <!--tab1-->
     </div>
     <!--content-->
+	<div id="video_frame">
+	
+	</div>
   </div>
   <!--main-->
   <%= render :partial => "shared/application_footer" %>
