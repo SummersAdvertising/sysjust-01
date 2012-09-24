@@ -2,17 +2,22 @@
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
+
+<script src="<%= get_current_host_and_port %>build/jquery.js"></script>
+<script src="<%= get_current_host_and_port %>build/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="<%= get_current_host_and_port %>build/mediaelementplayer.min.css"/>
+<script>
+    $('audio,video').mediaelementplayer({
+        success:function (player, node) {
+            $('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+        }
+    });
+</script>
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $(".inline").colorbox({inline:true});
-        $("#click").click(function(){
-            $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-            return false;
-        });
     });
-
-
 </script>
 <script type="text/javascript">
     function save() {
@@ -68,13 +73,20 @@
 
     hr {
         width: 800px;
-        height: 25px;*height:1px;
+        height: 25px;
+        *height: 1px;
         border: 0;
         border-top: 1px dashed #aaa;
         margin-top: 25px
     }
-	#content table a:hover img{opacity:.85}
-	#cboxLoadedContent{padding-top:50px}
+
+    #content table a:hover img {
+        opacity: .85
+    }
+
+    #cboxLoadedContent {
+        padding-top: 50px
+    }
 </style>
 <%= render :partial => "shared/application_top" %>
 <!--header-->
@@ -114,22 +126,27 @@
               </tr>
               <tr>
                 <td width="26%">
-                  <a href="<%= category_video_path(@category, video) %>" class='inline'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
+                  <a href="#video_frame" class='inline'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
                 </td>
                 <td width="22%">
-                  <a href="<%= download_category_video_path(@category, video) %>" ><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41"/></a>
+                  <a href="<%= download_category_video_path(@category, video) %>"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41"/></a>
                 </td>
               </tr>
             </table>
             <hr/>
+            <div style="display: none">
+              <div id="video_frame">
+                <video width="640" height="360" src="<%= video.video_url %>" type="video/mp4"
+                       id="player1" poster="<%= video.image_url(:thumb) %>"
+                       controls="controls" preload="none"></video>
+              </div>
+            </div>
         <% end %>
       </div>
       <!--tab1-->
     </div>
     <!--content-->
-	<div id="video_frame">
-	
-	</div>
+
   </div>
   <!--main-->
   <%= render :partial => "shared/application_footer" %>
