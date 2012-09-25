@@ -6,13 +6,6 @@
 <script src="<%= get_current_host_and_port %>build/jquery.js"></script>
 <script src="<%= get_current_host_and_port %>build/mediaelement-and-player.min.js"></script>
 <link rel="stylesheet" href="<%= get_current_host_and_port %>build/mediaelementplayer.min.css"/>
-<script>
-    $('audio,video').mediaelementplayer({
-        success:function (player, node) {
-            $('#' + node.id + '-mode').html('mode: ' + player.pluginType);
-        }
-    });
-</script>
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
     $(document).ready(function () {
@@ -153,3 +146,10 @@
   <!--link-->
 </div>
 <!--container-->
+<script>
+    $('audio,video').mediaelementplayer({
+        success:function (player, node) {
+            $('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+        }
+    });
+</script>
