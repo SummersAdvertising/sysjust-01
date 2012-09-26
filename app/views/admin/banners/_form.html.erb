@@ -111,7 +111,7 @@
           <img src="<%= get_current_host_and_port %>images/save.png">儲存</a>
         </div>
         <div class="button">
-          <a href="<%= admin_banner_path(@banner) %>"><img src="<%= get_current_host_and_port %>images/cancel.png">取消</a>
+          <a href="<%= admin_banner_path(@banner) if @banner%>"><img src="<%= get_current_host_and_port %>images/cancel.png">取消</a>
         </div>
         </div>
     <% end %>

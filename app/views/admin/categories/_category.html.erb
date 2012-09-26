@@ -4,21 +4,21 @@
       <td class="title" height="27" width="16%">三大面向</td>
       <td class="text" width="84%">
       	<% if @category == @category_01%>
-      		<a href="<%=admin_category_path(@category_01)%>" class="active"><%=@category_01.name%></a>
+      		<a href="<%=admin_category_path(@category_01) if @category_01%>" class="active"><%=@category_01.name if @category_01%></a>
       	<% else %>
-      		<a href="<%=admin_category_path(@category_01)%>"><%=@category_01.name%></a>
+      		<a href="<%=admin_category_path(@category_01) if @category_01%>"><%=@category_01.name if @category_01%></a>
       	<% end %>
 
       	<% if @category == @category_02%>
-      		<a href="<%=admin_category_path(@category_02)%>" class="active"><%=@category_02.name%></a>
+      		<a href="<%=admin_category_path(@category_02) if @category_02%>" class="active"><%=@category_02.name if @category_02%></a>
       	<% else %>
-      		<a href="<%=admin_category_path(@category_02)%>"><%=@category_02.name%></a>
+      		<a href="<%=admin_category_path(@category_02) if @category_02%>"><%=@category_02.name if @category_02%></a>
       	<% end %>
       	
       	<% if @category == @category_03%>
-      		<a href="<%=admin_category_path(@category_03)%>" class="active"><%=@category_03.name%></a>
+      		<a href="<%=admin_category_path(@category_03) if @category_03%>" class="active"><%=@category_03.name if @category_03%></a>
       	<% else %>
-      		<a href="<%=admin_category_path(@category_03)%>"><%=@category_03.name%></a>
+      		<a href="<%=admin_category_path(@category_03) if @category_03%>"><%=@category_03.name if @category_03%></a>
       	<% end %>      	
       </td>
     </tr>
