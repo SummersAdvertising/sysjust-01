@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
-  resources :uploads
+  #resources :uploads
 
   mount RedactorRails::Engine => '/redactor_rails'
 
@@ -23,14 +23,14 @@ TestDevise::Application.routes.draw do
 
   #resources :posts
 
-  resources :news_updates
-  resources :banners
-  resources :experiences
-  resources :courses do
-    resources :enrollments
+  resources :news_updates, :only => [:index, :show]
+  #resources :banners
+  resources :experiences, :only => [:new, :create]
+  resources :courses, :only => [:index] do
+    resources :enrollments, :only => [:index, :new, :create]
   end
-  resources :categories do
-    resources :videos do
+  resources :categories, :only => [:show] do
+    resources :videos, :only => [:show, :download] do
       member do
         get 'download'
       end
@@ -47,9 +47,7 @@ TestDevise::Application.routes.draw do
     end
     resources :service_emails
     resources :categories do
-      resources :videos do
-        resources :uploads
-      end
+      resources :videos
     end
     resources :courses do
       collection do
@@ -58,7 +56,7 @@ TestDevise::Application.routes.draw do
       end
       resources :enrollments
     end
-    resources :uploads
+    #resources :uploads
   end
 
   # The priority is based upon order of creation:
