@@ -56,3 +56,4 @@ gem 'therubyracer', :platforms => :ruby
 gem 'jquery-fileupload-rails', :git => "git@github.com:vincentopensourcetaiwan/jquery-fileupload-rails.git"
 gem 'twitter-bootstrap-rails'
 gem 'kaminari'
+gem 'newrelic_rpm'
