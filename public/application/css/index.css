@@ -61,7 +61,7 @@ h1{float:left;margin-top:30px;height:93px}
 
 #announcement{margin:20px 0}
 #announcement h3{height:35px;font-size:17px}
-#announcement td{color:#000;font:300 13px "微軟正黑體";padding:5px 0}
+#announcement td{color:#000;font:300 13px "微軟正黑體";padding:5px 10px 5px 0}
 #announcement a:hover{text-decoration:underline}
 
 #footer,#footer a{color:#545454;font:300 13px "微軟正黑體";text-align:center;height:30px;padding-top:35px;text-shadow:0 1px 0 #fff;clear:both}
