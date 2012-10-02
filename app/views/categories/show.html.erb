@@ -46,9 +46,26 @@
             <hr/>
             <div style="display: none">
               <div id="video_frame">
-                <video width="640" height="360" src="<%= video.video_url %>" type="video/mp4"
-                       id="player1" poster="<%= video.image_url(:thumb) %>"
-                       controls="controls" preload="none"></video>
+                <% unless browser.ie7? && browser.ie8? %>
+                    <video width="640" height="360" src="<%= video.video_url %>" type="video/mp4"
+                           id="player1" poster="<%= video.image_url(:thumb) %>"
+                           controls="controls" preload="none"></video>
+                <% end %>
+                <% if browser.ie7? || browser.ie8? %>
+                    <OBJECT CLASSID="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B"
+
+                            CODEBASE="http://www.apple.com/qtactivex/qtplugin.cab" WIDTH="160" HEIGHT="136">
+
+                      <PARAM NAME="src" VALUE="http://sysjust.summers.com.tw//uploads/video/video/23/300-contributing-to-open-source.m4v">
+
+                      <PARAM NAME="autoplay" VALUE="false">
+
+                      <EMBED SRC="http://sysjust.summers.com.tw//uploads/video/video/23/300-contributing-to-open-source.m4v" TYPE="image/x-macpaint"
+
+                             PLUGINSPAGE="http://www.apple.com/quicktime/download" WIDTH="160" HEIGHT="136" AUTOPLAY="false"></EMBED>
+
+                    </OBJECT>
+                <% end %>
               </div>
             </div>
         <% end %>

@@ -57,3 +57,4 @@ gem 'jquery-fileupload-rails', :git => "git@github.com:vincentopensourcetaiwan/j
 gem 'twitter-bootstrap-rails'
 gem 'kaminari'
 gem 'newrelic_rpm'
+gem "browser"
