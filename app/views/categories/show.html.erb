@@ -45,15 +45,13 @@
             </table>
             <hr/>
             <div style="display: none">
-              <div id="video_frame">
-
+              <% unless browser.ie7? || browser.ie8? %>
+                  <div id="video_frame">
                     <video width="640" height="360" src="<%= video.video_url %>" type="video/mp4"
                            id="player1" poster="<%= video.image_url(:thumb) %>"
                            controls="controls" preload="none"></video>
-
-                <% if browser.ie7? || browser.ie8? %>
-                <% end %>
-              </div>
+                  </div>
+              <% end %>
             </div>
         <% end %>
       </div>
