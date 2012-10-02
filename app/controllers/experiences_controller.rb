@@ -52,7 +52,7 @@ class ExperiencesController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @experience.errors, status: :unprocessable_entity }
       end
-      cookies[:display] = { :value => "true", :expires => 1.seconds.from_now }
+      cookies[:thanks] = { :value => "true", :expires => 1.seconds.from_now }
       format.js
     end
   end
