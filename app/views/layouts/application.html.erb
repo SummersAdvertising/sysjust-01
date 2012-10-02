@@ -47,12 +47,10 @@
       <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
       <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
       <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
-      <script src="<%= get_current_host_and_port %>build/mediaelement-and-player.min.js"></script>
-      <link rel="stylesheet" href="<%= get_current_host_and_port %>build/mediaelementplayer.min.css"/>
       <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
       <script>
           $(document).ready(function () {
-              $(".inline").colorbox({inline:true});
+              $(".iframe").colorbox({iframe:true, width:"780", height:"650"});
           });
       </script>
       <script type="text/javascript">
@@ -64,27 +62,6 @@
               mydoc.close();
               return false;
           }
-      </script>
-      <script type="text/javascript">
-          (function ($) {
-              Drupal.behaviors.initColorboxDefaultStyle = {
-                  attach:function (context, settings) {
-                      $(document).bind('cbox_complete', function () {
-                          // Enables MediaElement player inside Colorbox popup.
-                          // Required because video element is added dynamically and original MediaElement JS only scans the page during page load.
-                          $('video,audio', context).once('mediaelement', function () {
-                              var player_container = $(this);
-                              player_container.mediaelementplayer();
-                              // fix for IE so whole video screen shows up even if video fails to load
-                              $.colorbox.resize({
-                                  innerWidth:player_container.attr('width'),
-                                  innerHeight:player_container.attr('height')
-                              });
-                          });
-                      });
-                  }
-              };
-          })(jQuery);
       </script>
       <style>
           #main {
