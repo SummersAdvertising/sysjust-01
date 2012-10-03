@@ -51,7 +51,11 @@
       <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
       <script>
           $(document).ready(function () {
-              $(".iframe").colorbox({iframe:true, width:"670", height:"470"});
+              <% if browser.ie7? || browser.ie8? %>
+                $(".iframe").colorbox({iframe:true, width:"670", height:"470"});
+              <% else %>
+                $(".inline").colorbox({inline:true});
+              <% end %>
           });
       </script>
       <script type="text/javascript">

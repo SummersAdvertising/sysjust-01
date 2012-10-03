@@ -36,7 +36,11 @@
               </tr>
               <tr>
                 <td width="26%">
-                  <a href="<%= category_video_path(@category, video) %>" class='iframe'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
+                  <% if browser.ie7? || browser.ie8? %>
+                      <a href="<%= category_video_path(@category, video) %>" class='iframe'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
+                  <% else %>
+                      <a href="#video_frame" class='inline'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
+                  <% end %>
                 </td>
                 <td width="22%">
                   <a href="<%= download_category_video_path(@category, video) %>"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41"/></a>
@@ -45,12 +49,11 @@
             </table>
             <hr/>
             <div style="display: none">
-
-                  <div id="video_frame">
-                    <video width="640" height="360" src="<%= video.video_url %>" type="video/mp4"
-                           id="player1" poster="<%= video.image_url(:thumb) %>"
-                           controls="controls" preload="none"></video>
-                  </div>
+              <div id="video_frame">
+                <video width="640" height="360" src="<%= video.video_url %>" type="video/mp4"
+                       id="player1" poster="<%= video.image_url(:thumb) %>"
+                       controls="controls" preload="none"></video>
+              </div>
 
             </div>
         <% end %>
