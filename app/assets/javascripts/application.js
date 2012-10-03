@@ -14,4 +14,3 @@
 //= require jquery_ujs
 //= require jquery-fileupload
 //= require_tree ./common
-//= require_tree .
