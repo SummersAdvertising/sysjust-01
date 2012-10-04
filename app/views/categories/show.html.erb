@@ -39,7 +39,7 @@
                   <% if browser.ie7? || browser.ie8? %>
                       <a href="<%= category_video_path(@category, video) %>" class='iframe'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
                   <% else %>
-                      <a href="#video_frame" class='inline' id="<%= video.id %>"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
+                      <a href="#<%=video.id%>" class='inline' id="play-<%= video.id %>"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
                   <% end %>
                 </td>
                 <td width="22%">
@@ -49,7 +49,7 @@
             </table>
             <hr/>
             <div style="display: none">
-              <div id="video_frame">
+              <div id="<%=video.id%>">
                 <video width="640" height="480" src="<%= video.video_url %>" type="video/mp4"
                        id="player1" poster="<%= video.image_url(:thumb) %>"
                        controls="controls" preload="none"></video>

@@ -60,7 +60,7 @@
               <% else %>
 //              $(".inline").colorbox({inline:true});
                 <% @videos.each do |video| %>
-              $("#<%= video.id%>").colorbox({inline:true});
+              $("#play-<%= video.id%>").colorbox({inline:true});
                 <% end %>
               <% end %>
           });
