@@ -55,7 +55,7 @@
 
       <script>
           $(document).ready(function () {
-              <% if browser.ie7? || browser.ie8? %>
+              <% if browser.ie7? || browser.ie8? || browser.safari?%>
               $(".iframe").colorbox({iframe:true, width:"660", height:"590"});
               <% else %>
 //              $(".inline").colorbox({inline:true});

@@ -36,7 +36,7 @@
               </tr>
               <tr>
                 <td width="26%">
-                  <% if browser.ie7? || browser.ie8? %>
+                  <% if browser.ie7? || browser.ie8? || browser.safari? %>
                       <a href="<%= category_video_path(@category, video) %>" class='iframe'><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
                   <% else %>
                       <a href="#<%=video.id%>" class='inline' id="play-<%= video.id %>"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41"/></a>
