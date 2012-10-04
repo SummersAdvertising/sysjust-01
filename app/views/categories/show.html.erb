@@ -9,7 +9,7 @@
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
     $(document).ready(function () {
-        $(".inline").colorbox({inline:true});
+        $(".inline").colorbox({inline:true,width:"650",height:"490"});
     });
 </script>
 <script type="text/javascript">
@@ -130,7 +130,7 @@
             <hr/>
             <div style="display: none">
               <div id="video_frame">
-                <video width="640" height="360" src="<%= video.video_url %>" type="video/mp4"
+                <video width="640" height="480" src="<%= video.video_url %>" type="video/mp4"
                        id="player1" poster="<%= video.image_url(:thumb) %>"
                        controls="controls" preload="none"></video>
               </div>
