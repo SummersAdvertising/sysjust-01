@@ -14,7 +14,9 @@ function checkForm() {
 		
 		var labeledMessage = $(this).siblings('label.message');
 		
-		if ( labeledMessage.length > 0 && label != undefined ) {	
+		if ( $(this).attr('type') == 'file' && $(this).val().length > 0) {
+			
+		} else if ( labeledMessage.length > 0 && label != undefined ) {	
 			is_error = true;
 			errorMessage += "\n" + label + " 錯誤：" + labeledMessage.html();			
 		} else if ( $(this).val().length <= 0 ) {
