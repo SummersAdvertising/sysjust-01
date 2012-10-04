@@ -60,3 +60,4 @@ gem 'newrelic_rpm'
 gem "browser"
 gem 'quiet_assets', group: :development
 gem 'thin', group: :development
+gem "awesome_print", group: :development
