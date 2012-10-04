@@ -58,7 +58,10 @@
               <% if browser.ie7? || browser.ie8? %>
               $(".iframe").colorbox({iframe:true, width:"660", height:"490"});
               <% else %>
-              $(".inline").colorbox({inline:true});
+//              $(".inline").colorbox({inline:true});
+                <% @videos.each do |video| %>
+              $("#<%= video.id%>").colorbox({inline:true});
+                <% end %>
               <% end %>
           });
       </script>
