@@ -58,3 +58,5 @@ gem 'twitter-bootstrap-rails'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem "browser"
+gem 'quiet_assets', group: :development
+gem 'thin', group: :development
