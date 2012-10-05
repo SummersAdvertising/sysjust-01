@@ -87,4 +87,13 @@ TestDevise::Application.configure do
       :password => "3edc&UJM",
       :enable_starttls_auto => true
    }
+   
+   ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => "rails.test.action.mailer@example.com",
+    :password             => '3edc&UJM',
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
 end
