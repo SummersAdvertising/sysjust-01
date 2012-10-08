@@ -5,12 +5,12 @@
 <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
 <script>
     $(document).ready(function () {
-        $(".iframe").colorbox({iframe:true, width:"630", height:"540"});
+        $(".iframe").colorbox({iframe:true, width:"630", height:"540", onClosed: function() { parent.document.location.reload(); }});
         $("#click").click(function () {
             $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
             return false;
         });
-        $(".inline").colorbox({inline:true, width:"590", height:"150"});
+       $(".inline").colorbox({inline:true, width:"590", height:"150"});
         <% if cookies[:display] == "true" %>
             $('#thanks').trigger('click')
         <% end %>
@@ -103,7 +103,7 @@
         current_time = Time.now.year * 365 + Time.now.month * 30 + Time.now.day
       %>
           <% if temp_start_time > current_time %>
-              <% if course.registration_quota - course.enrollments.count==0 %>
+              <% if course.registration_quota - course.enrollments.count <= 0 %>
                   <div class="box" id="<%= course.id %>">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                       <tr>

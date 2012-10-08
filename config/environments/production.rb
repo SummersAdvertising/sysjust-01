@@ -1,3 +1,13 @@
+def compile_asset?(path)
+  if File.basename(path) =~ /^[^_].*\.\w+$/
+    puts "Compiling: #{path}"
+    true
+  else
+    puts "Ignoring: #{path}"
+    false
+  end
+end
+
 # -*- encoding : utf-8 -*-
 TestDevise::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
@@ -47,10 +57,12 @@ TestDevise::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  config.assets.precompile = [ method(:compile_asset?).to_proc ]
   config.assets.precompile += %w( rails.validations.js )
   config.assets.precompile += %w( admin.js )
   config.assets.precompile += %w( redactor.js )
   #config.assets.precompile += %w( ckeditor/* )
+
 
 
   # Disable delivery errors, bad email addresses will be ignored

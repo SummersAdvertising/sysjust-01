@@ -14,7 +14,7 @@ input {width: 100%;padding: 5px 0;border: 1px solid #DADADA}
 hr {background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg) 0 0 no-repeat;width: 550px;height: 14px;*height:1px;border: 0}
 #reset_button{color:#222}
 </style>
-<%= form_for([@course, @course.enrollments.build], remote: true, :validate => true) do |f| %>
+<%= form_for([@course, @course.enrollments.build], :validate => true) do |f| %>
     <h1>課程報名表</h1>
     <table width="550" border="0" cellspacing="10" cellpadding="0">
       <tr>
