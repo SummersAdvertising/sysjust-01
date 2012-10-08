@@ -72,7 +72,7 @@ TestDevise::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = { :host => 'sysjust.summers.com.tw' }
+  config.action_mailer.default_url_options = { :host => 'ec2-23-20-130-22.compute-1.amazonaws.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
@@ -81,21 +81,12 @@ TestDevise::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => "587",
-      :domain => "gmail.com",
+      :address => "gmail.com",
+      :port => "25",
       :authentication => "plain",
-      :user_name => "rails.test.action.mailer@gmail.com",
-      :password => "3edc&UJM",
+      :user_name => "AKIAIXXBY4V5DXQUCSPQ",
+      :password => "Ar663G7JX6TtYjcKIxwp3x0gm4FGZc7h8eDlSSPYe79u",
       :enable_starttls_auto => true
    }
    
-   ActionMailer::Base.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :user_name            => "rails.test.action.mailer@example.com",
-    :password             => '3edc&UJM',
-    :authentication       => "plain",
-    :enable_starttls_auto => true
-  }
 end

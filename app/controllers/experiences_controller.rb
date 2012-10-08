@@ -45,7 +45,7 @@ class ExperiencesController < ApplicationController
     @experience.service_email = ServiceEmail.first.email.to_s() if ServiceEmail.first
     respond_to do |format|
       if @experience.save       
-        ExperienceMailer.notify_email(@experience).deliver if ServiceEmail.first
+        #ExperienceMailer.notify_email(@experience).deliver if ServiceEmail.first
         format.html { redirect_to new_experience_url, notice: 'Experience was successfully created.' }
         format.json { render json: @experience, status: :created, location: @experience }
       else
