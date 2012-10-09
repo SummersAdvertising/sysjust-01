@@ -8,7 +8,7 @@ class Admin::CoursesController < ApplicationController
   end
 
   def offline
-    @courses = Course.start_time.recent
+    @courses = Course.order( "created_at DESC" )
   end
 
   # GET /courses
