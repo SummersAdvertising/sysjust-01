@@ -44,7 +44,7 @@
         </tr>
       </table>
     </div>
-    <div class="main-text"><%= f.text_area :content, :class => "redactor" %></div>
+    <div class="main-text"><%= f.text_area :content, :class => "redactor", :title => '新聞內容' %></div>
     <div class="button"><%= f.submit "" %><a><img src="<%=get_current_host_and_port%>images/save.png">儲存</a></div>
     <div class="button"><a href="<%=admin_news_updates_path%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
     <!--main-->     
