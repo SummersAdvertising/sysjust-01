@@ -25,16 +25,17 @@
   <%= form_for [:admin, @category, @video], :validate => true do |f| %>
       <!--
       <% if @video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
-
-      <ul>
-      <% @video.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %> -->
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+	
+	      <ul>
+	      <% @video.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %> 
+  	-->
       <div id="main" class="right">
         <div class="main-title">
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -52,13 +53,13 @@
           </table>
         </div>
         <div class="main-text">
-          <%= f.text_area :content, :rows => 0, :cols => 0, :class => 'autogrow' %>
+          <%= f.text_area :content, :rows => 0, :cols => 0, :class => 'autogrow', :title => '影片說明' %>
         </div>
         <div class="main-text">
           <table width="100%" border="0" cellspacing="10" cellpadding="0">
             <tr>
               <th width="13%" align="left">新增影片</th>
-              <td width="87%" align="left"><%= f.file_field :video, id: "upload_video" %></td>
+              <td width="87%" align="left"><%= f.file_field :video, id: "upload_video", :class => ("skipCheck" if params[ :action ] != 'new' || params[ :action ] != 'create' ) %></td>
             </tr>
             <tr>
               <th width="13%" align="left"></th>
@@ -66,7 +67,7 @@
             </tr>
             <tr>
               <th width="13%" align="left">新增縮圖</th>
-              <td width="87%" align="left"><%= f.file_field :image, id: "upload_image" %></td>
+              <td width="87%" align="left"><%= f.file_field :image, id: "upload_image", :class => ("skipCheck" if params[ :action ] != 'new' || params[ :action ] != 'create' ) %></td>
             </tr>
             <tr>
               <th width="13%" align="left"></th>

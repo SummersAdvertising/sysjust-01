@@ -4,15 +4,18 @@ function checkForm() {
 	
 	var errorMessage = "";
 			
-	$('input[data-validate=true]').each( function() {	
+	$('input[data-validate=true]:not(.skipCheck),textarea[data-validate=true]:not(.skipCheck)').each( function() {	
 	
 		var parent = $(this).parents('td');
 		var pIndex = parent.index();
 		var label = parent.siblings().eq(pIndex-1).attr('title') != undefined ? parent.siblings().eq(pIndex-1).attr('title') : parent.siblings().eq(pIndex-1).html();
 		
+		if (label == undefined) {
+			label = $(this).attr( 'title' );
+		}
 		
-		
-		var labeledMessage = $(this).siblings('label.message');
+		var labeledMessage = $('label.message[for="' + $(this).attr('id') + '"]');
+		console.log(labeledMessage);
 		
 		if ( $(this).attr('type') == 'file' && $(this).val().length > 0) {
 			

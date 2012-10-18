@@ -4,8 +4,10 @@ class Video < ActiveRecord::Base
   attr_accessible :content, :title, :video, :image
   mount_uploader :video, VideoUploader
   mount_uploader :image, ImageUploader
-  validates :content, :title, :video, :image, :presence => true, :on => :create
-  validates :content, :title, :presence => true, :on => :update
+  validates :content, :title, :presence => true, :on => :create
+  validates :content, :title, :presence => true, :on => :update  
+  
+  validates :video, :image, :presence => true, :on => :create #, :message => '請選擇檔案'
 
   validates :content, :length => { :maximum => 76 }
   validates :title, :length => { :maximum => 17 }
