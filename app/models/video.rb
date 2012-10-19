@@ -9,7 +9,7 @@ class Video < ActiveRecord::Base
   
   validates :video, :image, :presence => true, :on => :create #, :message => '請選擇檔案'
 
-  validates :content, :length => { :maximum => 77 }
+  #validates :content, :length => { :maximum => 77 }
   validates :title, :length => { :maximum => 17 }
   default_scope :order => 'created_at DESC'
 end
