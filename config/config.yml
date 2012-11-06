@@ -1,6 +1,6 @@
 defaults: &defaults
   app_name: "sysjust"
-  domain: "http://sysjust.summers.com.tw"    
+  domain: "http://54.243.52.208"    
   admin_emails: 
     - "admin@sysjust.com.tw"
   google_analytics_key: ""

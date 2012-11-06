@@ -81,11 +81,11 @@ TestDevise::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-      :address => "gmail.com",
+      :address => "email-smtp.us-east-1.amazonaws.com",
       :port => "25",
-      :authentication => "plain",
-      :user_name => "AKIAIXXBY4V5DXQUCSPQ",
-      :password => "Ar663G7JX6TtYjcKIxwp3x0gm4FGZc7h8eDlSSPYe79u",
+      :authentication => :login,
+      :user_name => "AKIAJLCN7SPJLWZP3WTA",
+      :password => "Amjdrcy2Ayg2NmtN20eGCZJ351hm9f6ZtI3MaD6YfnR0",
       :enable_starttls_auto => true
    }
    
