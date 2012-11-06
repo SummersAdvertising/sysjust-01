@@ -72,7 +72,7 @@ TestDevise::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = { :host => 'ec2-23-20-130-22.compute-1.amazonaws.com' }
+  config.action_mailer.default_url_options = { :host => '54.243.52.208' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
