@@ -5,7 +5,7 @@
 <script>
     $(document).ready(function () {
         $(".inline").colorbox({inline:true, width:"590", height:"150"});
-        <% if cookies[:thanks] == "true" %>
+        <% if @finished %>
             $('#thanks').trigger('click')
         <% end %>
     });

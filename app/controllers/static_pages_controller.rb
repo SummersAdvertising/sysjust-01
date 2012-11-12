@@ -409,7 +409,6 @@ class StaticPagesController < ApplicationController
     	@display_courses.push( @courses[i] ) if @courses[i].is_display
     	i=i+1
     end
-    
     require 'open-uri'
     require 'json'
 
