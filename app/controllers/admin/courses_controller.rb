@@ -70,7 +70,7 @@ class Admin::CoursesController < ApplicationController
   # PUT /courses/1.json
   def update
     @course = Course.find(params[:id])
-
+    
     respond_to do |format|
       if @course.update_attributes(params[:course])
         format.html { redirect_to online_admin_courses_path, notice: 'Course was successfully updated.' }

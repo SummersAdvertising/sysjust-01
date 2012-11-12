@@ -399,32 +399,17 @@ class StaticPagesController < ApplicationController
     @newsupdate_03 = @newsupdates[2]
     @newsupdate_04 = @newsupdates[3]
 
-    current_month = Time.now.month
-    current_day = Time.now.day
-    current_year = Time.now.year
-    current_time = current_year * 365 + current_month * 30 + current_day
+    current_time = Time.now
 
     @courses = Course.display.start_time.recent
-    @display_courses = [@courses[0], @courses[1], @courses[2]]
-    i = 0
-
-    @courses.each do |course|
-      date_time = course.start_time.split(' ')
-      date = date_time[0]
-      date_split = date.split('/')
-      month = date_split[0].to_i()
-      day = date_split[1].to_i()
-      year = date_split[2].to_i()
-      temp_start_time = year * 365 + month * 30 + day
-      if temp_start_time > current_time
-        @display_courses[i] = course
-        i=i+1
-      end
-      if i >= 2
-        break
-      end
+    @display_courses = []
+    
+    i = 0    
+    until i > @courses.length || i >= 3 do
+    	@display_courses.push( @courses[i] ) if @courses[i].is_display
+    	i=i+1
     end
-
+    
     require 'open-uri'
     require 'json'
 

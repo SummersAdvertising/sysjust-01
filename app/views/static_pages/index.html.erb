@@ -297,34 +297,16 @@
       <td width="42%" align="left" valign="top">
         <div id="course">
           <ul>
-            <li><a href="<%= courses_url %>#<%=@display_courses[0].id if @display_courses[0]%>"><%= @display_courses[0].subject if @display_courses[0] %>
-              —<%= @display_courses[0].session if @display_courses[0] %>
-              /<%= @display_courses[0].start_time if @display_courses[0] %>
-              <% if @display_courses[0] %>
-                  <% if @display_courses[0].registration_quota - @display_courses[0].enrollments.count==0 %>
+          <% @display_courses.each do | course |  %>          	
+	          	<li><a href="<%= courses_url %>#<%=course.id %>"><%= course.subject %>
+	              —<%= course.session %>
+	              /<%= course.start_time.to_s( :date ) %>
+                  <% if course.registration_quota - course.enrollments.count==0 %>
                       （已額滿）
                   <% end %>
-              <% end %>
-            </a></li>
-            <li><a href="<%= courses_url %>#<%=@display_courses[1].id if @display_courses[1]%>"><%= @display_courses[1].subject if @display_courses[1] %>
-              —<%= @display_courses[1].session if @display_courses[1] %>
-              /<%= @display_courses[1].start_time if @display_courses[1] %>
-              <% if @display_courses[1] %>
-                  <% if @display_courses[1].registration_quota - @display_courses[1].enrollments.count==0 %>
-                      （已額滿）
-                  <% end %>
-              <% end %>
-            </a></li>
-            <li><a href="<%= courses_url %>#<%=@display_courses[2].id if @display_courses[2]%>"><%= @display_courses[2].subject if @display_courses[2] %>
-              —<%= @display_courses[2].session if @display_courses[2] %>
-              /<%= @display_courses[2].start_time if @display_courses[2] %>
-              <% if @display_courses[2] %>
-                  <% if @display_courses[2].registration_quota - @display_courses[2].enrollments.count==0 %>
-                      （已額滿）
-                  <% end %>
-              <% end %>
-            </a></li>
-          </ul>
+	            </a></li>          	
+          <% end %>
+                      </ul>
         </div>
 
         <!--course--></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914093944) do
+ActiveRecord::Schema.define(:version => 20121112030041) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20120914093944) do
   create_table "courses", :force => true do |t|
     t.string   "session"
     t.string   "subject"
-    t.string   "start_time"
-    t.string   "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string   "lecturer"
     t.string   "address"
     t.text     "content"

@@ -93,16 +93,9 @@
     <!--banner-->
     <div id="content">
       <% @courses.each do |course|
-        date_time = course.start_time.split(' ')
-        date = date_time[0]
-        date_split = date.split('/')
-        month = date_split[0].to_i()
-        day = date_split[1].to_i()
-        year = date_split[2].to_i()
-        temp_start_time = year * 365 + month * 30 + day
-        current_time = Time.now.year * 365 + Time.now.month * 30 + Time.now.day
+        current_time = Time.now
       %>
-          <% if temp_start_time > current_time %>
+          <% if !course.start_time.nil? && course.start_time > current_time %>
               <% if course.registration_quota - course.enrollments.count <= 0 %>
                   <div class="box" id="<%= course.id %>">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
