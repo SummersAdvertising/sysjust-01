@@ -24,7 +24,6 @@
 
           $('#course_start_time').datetimepicker({
           	  dateFormat: 'yy-mm-dd',
-          	  timeFormat: '',
               onClose:function (dateText, inst) {
                   var endDateTextBox = $('#course_end_time');
                   if (endDateTextBox.val() != '') {
@@ -44,7 +43,6 @@
           });
           $('#course_end_time').datetimepicker({
           	  dateFormat: 'yy-mm-dd',
-          	  timeFormat: '',
               onClose:function (dateText, inst) {
                   var startDateTextBox = $('#course_start_time');
                   if (startDateTextBox.val() != '') {
