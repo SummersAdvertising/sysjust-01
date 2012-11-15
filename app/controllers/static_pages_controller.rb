@@ -405,7 +405,8 @@ class StaticPagesController < ApplicationController
     @display_courses = []
     
     i = 0    
-    until i > @courses.length || i >= 3 do
+    
+    until i >= @courses.length || i >= 3 do
     	@display_courses.push( @courses[i] ) if @courses[i].is_display
     	i=i+1
     end
