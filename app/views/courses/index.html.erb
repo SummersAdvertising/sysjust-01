@@ -111,7 +111,7 @@
                             </tr>
                             <tr>
                               <td valign="top">上課時間：</td>
-                              <td><%= course.start_time if !course.start_time.nil? %>~<%= course.end_time if !course.end_time.nil? %></td>
+                              <td><%= course.start_time.to_s( :time ) if !course.start_time.nil? %>~<%= course.end_time.to_s( :time ) if !course.end_time.nil? %></td>
                             </tr>
                             <tr>
                               <td valign="top">上課地點：</td>
@@ -147,7 +147,7 @@
                             </tr>
                             <tr>
                               <td valign="top">上課時間：</td>
-                              <td><%= course.start_time %>~<%= course.end_time %></td>
+                              <td><%= course.start_time.to_s( :time ) %>~<%= course.end_time.to_s( :time ) %></td>
                             </tr>
                             <tr>
                               <td valign="top">上課地點：</td>
