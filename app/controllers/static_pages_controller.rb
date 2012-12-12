@@ -412,81 +412,86 @@ class StaticPagesController < ApplicationController
     end
     require 'open-uri'
     require 'json'
-
-    original_data = open("http://203.67.19.12/daqSite/js/NewSysNotice4.aspx?A=20").read
-    encode_data = original_data.encode('UTF-8')
-    remove_oNoties = encode_data.gsub("var oNoties=", "")
-    remove_colon = remove_oNoties.gsub(";", "")
-    remove_array = remove_colon.split(',array:')
-    remove_array= remove_array[0]
-    records = remove_array.split(',i')
-
-    records_00 = records[0].split(':{')
-    records_00 = records_00[1]
-    records_00 = records_00.gsub("}", "")
-    records_00_split = records_00.split(',')
-    records_00_T1 = records_00_split[0]
-    records_00_T1 = records_00_T1.gsub("T1:", "")
-    records_00_T1 = records_00_T1.gsub("'", "")
-    records_00_T2 = records_00_split[1]
-    records_00_Title = records_00_split[2]
-    records_00_Title = records_00_Title.gsub("Title:", "")
-    records_00_Title = records_00_Title.gsub("'", "")
-    records_00_Detail = records_00_split[3]
-    records_00_Detail = records_00_Detail.gsub("Detail:", "")
-    records_00_Detail = records_00_Detail.gsub("'", "")
-    records_00_Detail = records_00_Detail.gsub("\n", "<br />")
-    @record_00 = Array[records_00_T1, records_00_T2, records_00_Title, records_00_Detail]
-
-    records_01 = records[1].split(':{')
-    records_01 = records_01[1]
-    records_01 = records_01.gsub("}", "")
-    records_01_split = records_01.split(',')
-    records_01_T1 = records_01_split[0]
-    records_01_T1 = records_01_T1.gsub("T1:", "")
-    records_01_T1 = records_01_T1.gsub("'", "")
-    records_01_T2 = records_01_split[1]
-    records_01_Title = records_01_split[2]
-    records_01_Title = records_01_Title.gsub("Title:", "")
-    records_01_Title = records_01_Title.gsub("'", "")
-    records_01_Detail = records_01_split[3]
-    records_01_Detail = records_01_Detail.gsub("Detail:", "")
-    records_01_Detail = records_01_Detail.gsub("'", "")
-    records_01_Detail = records_01_Detail.gsub("\n", "<br />")
-    @record_01 = Array[records_01_T1, records_01_T2, records_01_Title, records_01_Detail]
-
-    records_02 = records[2].split(':{')
-    records_02 = records_02[1]
-    records_02 = records_02.gsub("}", "")
-    records_02_split = records_02.split(',')
-    records_02_T1 = records_02_split[0]
-    records_02_T1 = records_02_T1.gsub("T1:", "")
-    records_02_T1 = records_02_T1.gsub("'", "")
-    records_02_T2 = records_02_split[1]
-    records_02_Title = records_02_split[2]
-    records_02_Title = records_02_Title.gsub("Title:", "")
-    records_02_Title = records_02_Title.gsub("'", "")
-    records_02_Detail = records_02_split[3]
-    records_02_Detail = records_02_Detail.gsub("Detail:", "")
-    records_02_Detail = records_02_Detail.gsub("'", "")
-    records_02_Detail = records_02_Detail.gsub("\n", "<br />")
-    @record_02 = Array[records_02_T1, records_02_T2, records_02_Title, records_02_Detail]
-
-    records_03 = records[3].split(':{')
-    records_03 = records_03[1]
-    records_03 = records_03.gsub("}", "")
-    records_03_split = records_03.split(',')
-    records_03_T1 = records_03_split[0]
-    records_03_T1 = records_03_T1.gsub("T1:", "")
-    records_03_T1 = records_03_T1.gsub("'", "")
-    records_03_T2 = records_03_split[1]
-    records_03_Title = records_03_split[2]
-    records_03_Title = records_03_Title.gsub("Title:", "")
-    records_03_Title = records_03_Title.gsub("'", "")
-    records_03_Detail = records_03_split[3]
-    records_03_Detail = records_03_Detail.gsub("Detail:", "")
-    records_03_Detail = records_03_Detail.gsub("'", "")
-    records_03_Detail = records_03_Detail.gsub("\n", "<br />")
-    @record_03 = Array[records_03_T1, records_03_T2, records_03_Title, records_03_Detail]
+    
+    begin
+    	original_data = open("http://203.67.19.12/daqSite/js/NewSysNotice4.aspx?A=20").read
+    rescue
+    	#do nothing
+    else
+	    encode_data = original_data.encode('UTF-8')
+	    remove_oNoties = encode_data.gsub("var oNoties=", "")
+	    remove_colon = remove_oNoties.gsub(";", "")
+	    remove_array = remove_colon.split(',array:')
+	    remove_array= remove_array[0]
+	    records = remove_array.split(',i')
+	
+	    records_00 = records[0].split(':{')
+	    records_00 = records_00[1]
+	    records_00 = records_00.gsub("}", "")
+	    records_00_split = records_00.split(',')
+	    records_00_T1 = records_00_split[0]
+	    records_00_T1 = records_00_T1.gsub("T1:", "")
+	    records_00_T1 = records_00_T1.gsub("'", "")
+	    records_00_T2 = records_00_split[1]
+	    records_00_Title = records_00_split[2]
+	    records_00_Title = records_00_Title.gsub("Title:", "")
+	    records_00_Title = records_00_Title.gsub("'", "")
+	    records_00_Detail = records_00_split[3]
+	    records_00_Detail = records_00_Detail.gsub("Detail:", "")
+	    records_00_Detail = records_00_Detail.gsub("'", "")
+	    records_00_Detail = records_00_Detail.gsub("\n", "<br />")
+	    @record_00 = Array[records_00_T1, records_00_T2, records_00_Title, records_00_Detail]
+	
+	    records_01 = records[1].split(':{')
+	    records_01 = records_01[1]
+	    records_01 = records_01.gsub("}", "")
+	    records_01_split = records_01.split(',')
+	    records_01_T1 = records_01_split[0]
+	    records_01_T1 = records_01_T1.gsub("T1:", "")
+	    records_01_T1 = records_01_T1.gsub("'", "")
+	    records_01_T2 = records_01_split[1]
+	    records_01_Title = records_01_split[2]
+	    records_01_Title = records_01_Title.gsub("Title:", "")
+	    records_01_Title = records_01_Title.gsub("'", "")
+	    records_01_Detail = records_01_split[3]
+	    records_01_Detail = records_01_Detail.gsub("Detail:", "")
+	    records_01_Detail = records_01_Detail.gsub("'", "")
+	    records_01_Detail = records_01_Detail.gsub("\n", "<br />")
+	    @record_01 = Array[records_01_T1, records_01_T2, records_01_Title, records_01_Detail]
+	
+	    records_02 = records[2].split(':{')
+	    records_02 = records_02[1]
+	    records_02 = records_02.gsub("}", "")
+	    records_02_split = records_02.split(',')
+	    records_02_T1 = records_02_split[0]
+	    records_02_T1 = records_02_T1.gsub("T1:", "")
+	    records_02_T1 = records_02_T1.gsub("'", "")
+	    records_02_T2 = records_02_split[1]
+	    records_02_Title = records_02_split[2]
+	    records_02_Title = records_02_Title.gsub("Title:", "")
+	    records_02_Title = records_02_Title.gsub("'", "")
+	    records_02_Detail = records_02_split[3]
+	    records_02_Detail = records_02_Detail.gsub("Detail:", "")
+	    records_02_Detail = records_02_Detail.gsub("'", "")
+	    records_02_Detail = records_02_Detail.gsub("\n", "<br />")
+	    @record_02 = Array[records_02_T1, records_02_T2, records_02_Title, records_02_Detail]
+	
+	    records_03 = records[3].split(':{')
+	    records_03 = records_03[1]
+	    records_03 = records_03.gsub("}", "")
+	    records_03_split = records_03.split(',')
+	    records_03_T1 = records_03_split[0]
+	    records_03_T1 = records_03_T1.gsub("T1:", "")
+	    records_03_T1 = records_03_T1.gsub("'", "")
+	    records_03_T2 = records_03_split[1]
+	    records_03_Title = records_03_split[2]
+	    records_03_Title = records_03_Title.gsub("Title:", "")
+	    records_03_Title = records_03_Title.gsub("'", "")
+	    records_03_Detail = records_03_split[3]
+	    records_03_Detail = records_03_Detail.gsub("Detail:", "")
+	    records_03_Detail = records_03_Detail.gsub("'", "")
+	    records_03_Detail = records_03_Detail.gsub("\n", "<br />")
+	    @record_03 = Array[records_03_T1, records_03_T2, records_03_Title, records_03_Detail]
+	    end
   end
 end

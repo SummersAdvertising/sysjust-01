@@ -390,6 +390,11 @@
     <td width="69%" align="left" valign="top">
     <div id="announcement">
     <h3>【系統公告】</h3>
+    <% if @record_00.nil?
+    		%>
+    			<h3>系統公告暫時無法取得，請稍後重試。</h3>
+    		<%
+    else %>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <th width="12%" align="left" valign="top"><%= @record_00[0][0..-6] %></th>
@@ -406,6 +411,7 @@
         <td align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=3#3"><%= @record_03[2] %></a></td>
       </tr>
     </table>
+    <% end %>
   </div>
   <!--announcement-->
 <td width="31%" align="left" valign="top">&nbsp;</td>
