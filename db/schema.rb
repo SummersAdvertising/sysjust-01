@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120830103828) do
+ActiveRecord::Schema.define(:version => 20121112030041) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20120830103828) do
   create_table "courses", :force => true do |t|
     t.string   "session"
     t.string   "subject"
-    t.string   "start_time"
-    t.string   "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string   "lecturer"
     t.string   "address"
     t.text     "content"
@@ -137,6 +137,15 @@ ActiveRecord::Schema.define(:version => 20120830103828) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.string   "upload_file_name"
+    t.string   "upload_content_type"
+    t.integer  "upload_file_size"
+    t.datetime "upload_updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "users", :force => true do |t|

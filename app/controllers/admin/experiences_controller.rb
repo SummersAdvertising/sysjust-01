@@ -1,11 +1,24 @@
 # -*- encoding : utf-8 -*-
 class Admin::ExperiencesController < ApplicationController
   layout 'admin'
-  before_filter :require_sign_in  
+  before_filter :require_sign_in
+
+  def remove
+    delete_experiences = cookies[:delete_experiences]
+    remove_experiences = delete_experiences.split(',')
+
+    remove_experiences.each do |i|
+      @experience = Experience.find(i)
+      @experience.destroy
+    end
+    cookies.delete :delete_experiences
+    redirect_to admin_experiences_path
+  end
+
   # GET /experiences
   # GET /experiences.json
   def index
-    @experiences = Experience.all
+    @experiences = Experience.page(params[:page]).per(15)
     @service_email = ServiceEmail.first
 
     respond_to do |format|

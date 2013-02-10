@@ -1,0 +1,748 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+
+<script>
+    $(function () {
+        // 預設顯示第一個 Tab
+        <% if params[:traits_id].nil?%>
+        var _showTab = 0;
+        <% else %>
+        var _showTab = <%= params[:traits_id] %>;
+        <% end %>
+        var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
+        $($defaultLi.find('a').attr('href')).siblings().hide();
+
+        // 當 li 頁籤被點擊時...
+        // 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
+        $('ul.tabs li').click(function () {
+            // 找出 li 中的超連結 href(#id)
+            var $this = $(this),
+                    _clickTab = $this.find('a').attr('href');
+            // 把目前點擊到的 li 頁籤加上 .active
+            // 並把兄弟元素中有 .active 的都移除 class
+            $this.addClass('active').siblings('.active').removeClass('active');
+            // 淡入相對應的內容並隱藏兄弟元素
+            $(_clickTab).stop(false, true).fadeIn().siblings().hide();
+
+            return false;
+        }).find('a').focus(function () {
+                    this.blur();
+                });
+    });
+</script>
+<style>
+    #main {
+        overflow: hidden
+    }
+
+    #side {
+        width: 182px;
+        text-align: left;
+        padding-top: 50px;
+        background: url(<%= get_current_host_and_port %>application/images/left.jpg) right top no-repeat;
+        min-height: 381px
+    }
+
+    #side li {
+        padding-left: 30px;
+        margin: 5px 0
+    }
+
+    #side a {
+        color: #000;
+        font-size: 15px
+    }
+
+    #side .active a {
+        color: #820000
+    }
+
+    #side .active {
+        background: url(<%= get_current_host_and_port %>application/images/vd-01.jpg) right center no-repeat;
+    }
+
+    #content {
+        margin: 0;
+        width: 818px;
+        padding: 0
+    }
+
+    #content img {
+        box-shadow: 2px 2px 10px #777;
+        margin: 15px 45px 0 0
+    }
+
+    #content table {
+        margin-bottom: 50px
+    }
+
+    #content li {
+        list-style-type: decimal;      
+        margin: 0px 0;
+
+    }
+
+    .tab_content {
+        padding: 10px 40px 0 40px;
+    }
+
+/*    #tab1 {
+        background: url(<%= get_current_host_and_port %>application/images/xqtrade_manual.jpg) top right no-repeat
+    }
+
+    #tab2 {
+        background: url(<%= get_current_host_and_port %>application/images/xqtrade_manual.jpg) top right no-repeat
+    }
+
+    #tab3 {
+        background: url(<%= get_current_host_and_port %>application/images/xqtrade_manual.jpg) top right no-repeat
+    }
+*/
+    #banner{background-image:url(<%= get_current_host_and_port %>application/images/xqtrade_manual2.jpg)}
+
+    h4 {
+        color: #a72c07;
+        font-size: 17px;
+        height: 30px;
+        margin-bottom: 10px;
+        border-bottom: 1px dashed #d3d3d3      
+    }
+    h5 {
+        color: #a72c07;
+        font-size: 19px;
+        height: 30px;
+        margin-top: 8px;
+        padding-left: 15px;        
+        border-top: 1px dashed #d3d3d3      
+    }
+
+</style>
+<%= render :partial => "shared/application_top" %><!--header-->
+<div id="container">
+<div id="main">
+<div id="side" class="left">
+  <ul class="tabs">
+    <h5>功能設定</h5>
+    <li><a href="#tab1" id="ctab1">下單中心</a></li>
+    <li><a href="#tab2" id="ctab2">下單設定</a></li>
+    <h5>下單頁面</h5>
+    <li><a href="#tab3" id="ctab3">下單列</a></li>
+    <li><a href="#tab4" id="ctab4">下單匣</a></li>
+    <li><a href="#tab5" id="ctab5">迷你下單</a></li>
+    <li><a href="#tab6" id="ctab6">行情帶下單</a></li>
+    <h5>查詢頁面</h5>
+    <li><a href="#tab7" id="ctab7">證券委託查詢</a></li>
+    <li><a href="#tab8" id="ctab8">證券成交查詢</a></li>
+    <li><a href="#tab9" id="ctab9">證券即時庫存</a></li>
+    <li><a href="#tab10" id="ctab10">期權委託查詢</a></li>
+    <li><a href="#tab11" id="ctab11">期權成交查詢</a></li>
+    <li><a href="#tab12" id="ctab12">期權即時庫存</a></li>    
+</div>
+<!--side-->
+<div id="content" class="right">
+<div id="tab1" class="tab_content">
+    <div id="banner">
+      <h2>下單中心</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>     
+        <tr> 
+          <td>使用者可以透過下單中心來設定交易模組、帳號、並控管下單權限。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何進入】</h4></td></tr>    
+                <tr><td>
+                    <ol>
+                      <li>點選主功能列中「交易」，再點選「下單中心」功能項。</li>  <br>          
+            <li>點選主功能列中「系統」，再點選「下單中心」功能項。</li>            
+                    </ol>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面與使用說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/setup01.png"></div>
+            <br> 
+            <ul>
+                <li>下單中心分三個頁籤：模組設定、帳號設定、下單控管。</li><br>
+        <li>模組設定可以讓使用者將每個券商的交易模組設定成一個委託中心。</li><br>
+        <li>每個委託中心依券商不同有個別的細部設定，一般為身分證字號、帳號、密碼。</li><br>                   
+        <li>設定後登入成功會顯示於狀態欄，登入失敗會顯示連線資訊，說明失敗原因。</li><br>     
+        <li>使用者可以刪除委託中心。</li>
+             </ul>
+       <div align="center"><img src="/application/images/xqtrade/setup02.png"></div>
+       <br> 
+          <ul>               
+        <li>帳號設定列出委託中心內部所有可用帳號。</li><br>
+        <li>使用者可以用別名替代帳號，未來在程式內只會顯示別名不再顯示帳號。</li><br>
+        <li>使用者若要刪除別名，將別名改成空白即可。</li>
+             </ul>
+        <div align="center"><img src="/application/images/xqtrade/setup03.png"></div>
+        <br> 
+          <ul>                
+        <li>下單控管列出每個交易模組，委託中心與所有可用帳號，用樹狀的方法顯示。</li><br>
+        <li>每個選項前面有一個核取框，勾選的項目才能使用，沒有勾選的則沒有下單的權限。</li>        
+             </ul>
+          </td>          
+        </tr>
+      
+    </table>
+
+</div>
+<!--tab1-->
+<div id="tab2" class="tab_content">
+    <div id="banner">
+      <h2>下單設定</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+          <td>使用者可以透過下單設定來設定下單時的預設值與下單保險，以避免下出非預期的單子。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何進入】</h4></td></tr>    
+                <tr><td>
+                    <ol>
+                      <li>點選主功能列中「交易」，再點選「下單設定」功能項。</li>  <br>          
+            <li>點選主功能列中「系統」，再點選「下單設定」功能項。</li>            
+                    </ol>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面與操作說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/setup21.png"></div>
+            <br>
+            <ul>
+                <li>下單中心分四個頁籤：證券下單設定、證券保險設定、期權下單設定、期權保險設定。</li><br>
+        <li>證券下單設定可以設定預設下單金額，系統會自動計算每筆單子符合下單金額的張數。</li><br>
+        <li>可以設定買進或賣出現股與資券等各種情境下的預設價位。</li>                  <br>
+        <li>例如：使用者可以買進現股預設掛賣出價加2檔，下單選定商品與買賣別後就會自動將空白價位欄填入指定價位。</li>                  
+             </ul>
+       <div align="center"><img src="/application/images/xqtrade/setup22.png"></div>
+       <br>
+          <ul>                
+        <li>證券保險設定列出所有對標的、價量、資券、張數、與金額的限制項。</li><br>
+        <li>使用者可以依照需求勾選，並填入要設定的項目。</li>       
+             </ul>
+        <div align="center"><img src="/application/images/xqtrade/setup23.png"></div>
+        <br>
+          <ul>                
+        <li>期權下單設定下單可以設定預設下單口數，與下單方式。</li><br>
+        <li>可以設定買進或賣出情境下的預設價位。</li>   <br>               
+        <li>例如：使用者可以買進掛成交價加2檔，下單選定商品與買賣別後就會自動將空白價位欄填入指定價位。</li>
+             </ul>
+         <div align="center"><img src="/application/images/xqtrade/setup24.png"></div>
+         <br>
+          <ul>                
+        <li>期權保險設定列出期貨、股票期貨、選擇權的口數上限設定。</li><br>
+        <li>使用者也可以對市價單委託做設定。</li>
+             </ul>
+          </td>          
+        </tr>
+      
+      </table>
+
+</div>
+<!--tab2-->
+<div id="tab3" class="tab_content">
+    <div id="banner">
+      <h2>下單列</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+          <td>您可以透過下單列來切換帳號、輸入商品、調整買賣別、張數、價格來下單。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何進入】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>點選主功能列中「交易」，再點選「下單列」功能項。</li><br>
+            <li>點選最下方「下單列」按鈕。</li>                      
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/order1.png"></div>
+            <br>
+            <ul>
+                <li>功能項分兩區。</li><br>
+        <li>上方主要功能項，由左而右依序為：商品類別、帳號、買賣別、商品訊息、存至下單匣。</li><br>
+        <li>下方主要功能項，由左而右依序為：盤別、現資券、商品選擇、張數、價格設定、動作按鈕。</li>                      
+             </ul>
+          </td>          
+        </tr>
+        <tr><td class=tt1><h4>【操作說明】</h4></td></tr>
+        <tr><td>以「換商品」為範例：<br>
+        <div align="center"><img src="/application/images/xqtrade/symbol1.png" ></div>
+        <br>
+            <ol>
+              <li>點選「代碼」按鈕後跳出上市上櫃代碼查詢視窗</li><br>
+              <li>由左邊分類中找到各種分類組合，直接點選該商品名稱即可切換商品。</li>
+              
+              
+            </ol>
+          </td></tr>
+      <tr><td class=tt1><h4>【下單模式】</h4></td></tr>
+        <tr><td>直接下單，跳出確認視窗：
+        <div align="center"><img src="/application/images/xqtrade/order2.png" ></div>
+        <br>
+            <ol>
+              <li>填入所有下單條件後，按下立即下單會跳出下單確認視窗</li> <br>
+              <li>使用者再次確認後送出。</li>              
+              
+            </ol>
+          </td></tr>  
+      <tr><td class=tt1><h4>【下單匣】</h4></td></tr>
+        <tr><td>先將單子送到下單匣：
+      <ul>
+              <li>填入所有下單條件後，按下存至下單匣會將單子存到下單匣中</li>              
+        </ul>
+        <div align="CENTER"><img src="/application/images/xqtrade/order3.png" ></div>
+        <br>
+      <br></br>
+      <div align=""><img src="/application/images/xqtrade/order4.png"></div>
+      <br>
+            
+          </td></tr>        
+      </table>
+
+</div>
+<!--tab3-->
+
+<div id="tab4" class="tab_content">
+    <div id="banner">
+      <h2>下單匣</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+          <td>使用者可以將由下單列來的單子存放在下單匣之後一次送出。使用者也能做分別送出、刪除或是修改的動作。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何進入】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>點選主功能列中「交易」，再點選「下單匣」功能項。</li><br>
+            <li>點選最下方「下單匣」按鈕。</li>                      
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/order4.png" ></div>
+            <br>
+            <ul>
+                <li>下單暫存匣分證券與期權兩種。</li><br>
+        <li>證券與期權皆有三個預設暫存匣，使用者可以新增、刪除、更名、排序暫存匣。</li>
+                              
+             </ul>
+          </td>           
+        </tr>
+        <tr><td class=tt1><h4>【操作說明】</h4></td></tr>
+        <tr><td>單子處理動作：
+        <div align="center"><img src="/application/images/xqtrade/order5.png" ></div>
+        <br>
+            <ol>
+              <li>使用者透過全部市價按鈕可以將買進的單子改成掛漲停價買進，賣出的單子掛跌停價賣出。</li><br>
+        <li>按下確認送出後可將暫存匣的單子一次送出，並可設定是否將送出的委託單保留於暫存匣內。</li><br>
+              <li>委託單細部設定。</li> <br>                                  
+        <li>委託單個別送出。</li>                                   
+            </ol>
+          </td></tr>
+  
+    </table>
+
+</div>
+<!--tab4-->
+
+<div id="tab5" class="tab_content">
+    <div id="banner">
+      <h2>迷你下單</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+        <td>自設頁面提供迷你下單的選項。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何設定】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>點選主功能列中「檔案」→「開啟新頁」，跳出「開啟新頁」的對話窗後點選「XQ交易」。</li><br>
+            <div align="center"><img src="/application/images/xqtrade/order7.png" ></div><br>
+            <br>
+            <li>點選後跳出「欄框設定精靈」，再點選「XQ交易下單」裡的類別就是「迷你下單」。</li> <br>                     
+            <div align="center"><img src="/application/images/xqtrade/order8.png" ></div><br>
+            <br>
+            <li>按下完成後就會在自設頁面中出現「迷你下單」。</li>                      
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/order6.png" ></div>
+            <br>
+            <ul>
+                <li>迷你下單分五個頁籤證券、期貨、期複(期貨複式單)、選擇權、選複(選擇權複式單)。</li><br>
+        <li>細部設定與下單列類似，有帳號、商品代碼、盤別、現資券、張數、價格。</li>
+                              
+             </ul>
+          </td>           
+        </tr>
+        <tr><td class=tt1><h4>【操作說明】</h4></td></tr>
+        <tr><td>直接下單，跳出確認視窗：<br>
+        <div align="center"><img src="/application/images/xqtrade/order2.png" ></div>
+        <br>
+            <ul>
+              <li>使用者按下下單按鈕會跳出確認視窗。</li><br>        
+              <li>使用者再次確認後送出。</li>                                    
+                          
+            </ul>
+          </td></tr>
+  
+    </table>
+
+</div>
+<!--tab5-->
+
+<div id="tab6" class="tab_content">
+    <div id="banner">
+      <h2>行情帶下單</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+          <td>使用者可已在有報價行情的地方點擊價位，當滑鼠移動到報價上時，圖示會變成下單。<br> 
+      <br>
+      <div align="center"><img src="/application/images/xqtrade/order9.png" ></div>
+      <br>
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何進入】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>即時行情帶有目前價位或是五檔價位，最高最低的地方，只要有出現下單的圖示都可以點擊，將價格資訊帶入下單列</li>
+                                 
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面與操作說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/orderA.png" ></div>
+            <br>
+            <ul>
+                <li>游標移動到行情報價會出現下單的圖示，使用者滑鼠雙擊後會將資料帶入下單列。</li><br>       
+        <li>如果原本下單列隱藏會自動彈出來，使用者直接送出就可以下單。</li>                              
+             </ul>
+          </td>           
+        </tr>
+        
+  
+    </table>
+
+</div>
+<!--tab6-->
+
+<div id="tab7" class="tab_content">
+    <div id="banner">
+      <h2>證券委託查詢</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr>  
+          <td>自設頁面提供證券委託查詢的選項，讓使用者查看已送出的委託單。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何設定】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>點選主功能列中「檔案」→「開啟新頁」，跳出「開啟新頁」的對話窗後點選「XQ交易」。</li><br>
+            <div align="center"><img src="/application/images/xqtrade/order7.png" ></div><br>
+            <li>點選後跳出「欄框設定精靈」，再點選「XQ交易」，市場選「證券」，類別選「委託查詢」。</li><br>                      
+            <div align="center"><img src="/application/images/xqtrade/query01.png" ></div><br>
+            <li>按下完成後就會在自設頁面中出現「證券委託查詢」</li>                      
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/query11.png" ></div>
+            <br>
+            <ul>
+                <li>查詢頁面分三個下拉選單</li><br>
+        <li>第一個下拉選單可以依照各券商或各單一帳號查詢</li><br>
+        <li>第二個選單可以查詢各種交易別</li><br>
+        <li>第三個選單可以看成功與失敗的委託</li><br>
+        <li>文字框可填入股票代碼，表示僅查詢該檔股票的回報</li><br>
+        <li>按下「一般」按鈕可以切換顯示模式，「一般」模式展示較多欄位，「簡易」模式展示較少欄位。</li><br>
+        <li>按下「刪除選取委託」按鈕可以刪除已經選取的未成交委託單</li><br>
+        <li>藍色閃燈用來警示有新來但未顯示於查詢結果的委託單</li><br>
+        <li>按下「選取」按鈕可以選擇買賣單與資券選項</li>
+                              
+             </ul>                      
+             
+       <div><img src="/application/images/xqtrade/query14.png" ></div>
+       <br>
+      
+        
+          </td>           
+        </tr>
+     
+    </table>
+
+</div>
+<!--tab7-->
+
+<div id="tab8" class="tab_content">
+    <div id="banner">
+      <h2>證券成交查詢</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+          <td>自設頁面提供證券成交查詢的選項，讓使用者查看已成交的委託單。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何設定】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>點選主功能列中「檔案」→「開啟新頁」，跳出「開啟新頁」的對話窗後點選「XQ交易」。</li><br>
+            <div align="center"><img src="/application/images/xqtrade/order7.png" ></div><br>
+            <li>點選後跳出「欄框設定精靈」，再點選「XQ交易」，市場選「證券」，類別選「成交查詢」。</li> <br>                     
+            <div align="center"><img src="/application/images/xqtrade/query16.png" ></div><br>
+            <li>按下完成後就會在自設頁面中出現「證券成交查詢」。</li>                      
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/query17.png" ></div>
+            <br>
+            <ul>
+                <li>查詢頁面分三個下拉選單。</li><br>
+        <li>第一個下拉選單可以依照各券商或各單一帳號查詢</li><br>
+        <li>第二個選單可以查詢各種交易別</li><br>
+        <li>第三個選單切換彙總或是明細的方式來看，明細是逐筆交易明細，彙總則是以股票為單位彙整。</li><br>
+        <li>文字框可填入股票代碼，表示僅查詢該檔股票的回報。</li><br>
+        <li>藍色閃燈用來警示有新來但未顯示於查詢結果的成交單。</li>
+                              
+             </ul>
+       
+          </td>           
+        </tr>
+        
+    </table>
+
+</div>
+<!--tab8-->
+
+<div id="tab9" class="tab_content">
+    <div id="banner">
+      <h2>證券即時庫存</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+          <td>自設頁面提供證券即時庫存的選項，讓使用者查看目前有的庫存。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何設定】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>點選主功能列中「檔案」→「開啟新頁」，跳出「開啟新頁」的對話窗後點選「XQ交易」。</li><br>
+            <div align="center"><img src="/application/images/xqtrade/order7.png" ></div><br>
+            <li>點選後跳出「欄框設定精靈」，再點選「XQ交易」，市場選「證券」，類別選「即時庫存」。</li><br>                      
+            <div align="center"><img src="/application/images/xqtrade/query03.png" ></div><br>
+            <li>按下完成後就會在自設頁面中出現「證券即時庫存」。</li>                      
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/query18.png" ></div><br>
+            <ul>
+                <li>查詢頁面的下拉選單可以依照各帳號查詢。</li><br>              
+        <li>欄位可看到集保庫存，零股，融資餘額，融券餘額。</li>        
+                              
+             </ul>
+       
+          </td>           
+        </tr>
+        
+    </table>
+
+</div>
+<!--tab9-->
+
+<div id="tab10" class="tab_content">
+    <div id="banner">
+      <h2>期權委託查詢</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+          <td>自設頁面提供期權委託查詢的選項，讓使用者查看已送出的委託單。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何設定】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>點選主功能列中「檔案」→「開啟新頁」，跳出「開啟新頁」的對話窗後點選「XQ交易」。</li><br>
+            <div align="center"><img src="/application/images/xqtrade/order7.png" ></div><br>
+            <li>點選後跳出「欄框設定精靈」，再點選「XQ交易」，市場選「期權」，類別選「委託查詢」。</li> <br>                     
+            <div align="center"><img src="/application/images/xqtrade/query04.png" ></div><br>
+            <li>按下完成後就會在自設頁面中出現「期權委託查詢」。</li>                      
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/query21.png" ></div><br>
+                  <ul>
+                <li>查詢頁面分三個下拉選單。</li><br>
+        <li>第一個下拉選單可以依照各券商或各單一帳號查詢</li><br>
+        <li>第二個選單可以查詢各種交易別</li><br>
+        <li>第三個選單可以看成功與失敗的委託。</li><br>
+        <li>文字框可填入股票代碼，表示僅查詢該檔股票的回報。</li><br>
+        <li>按下「一般」按鈕可以切換顯示模式，「一般」模式可看較多欄位，「簡易」模式較少欄位。</li><br>
+        <li>按下「刪除選取委託」按鈕可以刪除已經選取的未成交委託單。</li><br>
+        <li>藍色閃燈用來警示有新來但未顯示於查詢結果的委託單。</li><br>
+        <li>按下「選取」按鈕可以選擇買賣單。</li>                     
+             </ul>
+       <div><img src="/application/images/xqtrade/query26.png" ></div><br>
+       
+          </td>           
+        </tr>
+     
+    </table>
+
+</div>
+<!--tab10-->
+
+<div id="tab11" class="tab_content">
+    <div id="banner">
+      <h2>期權成交查詢</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+          <td>自設頁面提供期權成交查詢的選項，讓使用者查看已成交的委託單。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何設定】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>點選主功能列中「檔案」→「開啟新頁」，跳出「開啟新頁」的對話窗後點選「XQ交易」。</li><br>
+            <div align="center"><img src="/application/images/xqtrade/order7.png" ></div><br>
+            <li>點選後跳出「欄框設定精靈」，再點選「XQ交易」，市場選「期權」，類別選「成交查詢」。</li><br>                      
+            <div align="center"><img src="/application/images/xqtrade/query05.png" ></div><br>
+            <li>按下完成後就會在自設頁面中出現「期權成交查詢」。</li>                      
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/query23.png" ></div><br>
+            <ul>
+                <li>查詢頁面分三個下拉選單。</li><br>
+        <li>第一個下拉選單可以依照各期貨商或單一帳號查詢</li><br>
+        <li>第二個選單可以查詢各種交易別</li><br>
+        <li>第三個選單切換彙總或是明細的方式來看，明細是逐筆交易明細，彙總則是以商品為單位彙整。</li><br>       
+        <li>藍色閃燈用來警示有新來但未顯示於查詢結果的成交單。</li>
+                              
+             </ul>
+       
+          </td>           
+        </tr>
+        
+    </table>
+
+</div>
+<!--tab11-->
+
+<div id="tab12" class="tab_content">
+    <div id="banner">
+      <h2>期權即時庫存</h2>
+    </div>
+    <br>
+      <table align=center class=txt1 width=96% cellpadding=5>
+        <tr> 
+          <td>自設頁面提供期權即時庫存的選項，讓使用者查看目前有的期貨選擇權的未平倉部位。 
+          </td>
+        </tr>
+        <tr><td class=tt1><h4>【如何設定】</h4></td></tr>    
+                <tr><td>
+                    <ul>
+                      <li>點選主功能列中「檔案」→「開啟新頁」，跳出「開啟新頁」的對話窗後點選「XQ交易」。</li><br>
+            <div align="center"><img src="/application/images/xqtrade/order7.png" ></div><br>
+            <li>點選後跳出「欄框設定精靈」，再點選「XQ交易」，市場選「期權」，類別選「未平倉」。</li><br>                      
+            <div align="center"><img src="/application/images/xqtrade/query06.png" ></div><br>
+            <li>按下完成後就會在自設頁面中出現「期權未平倉」。</li>                      
+                    </ul>
+                  </td></tr>
+        <tr> 
+          <td class=tt1><h4>【畫面說明】</h4>
+          </td>
+        </tr>
+        <tr> 
+          <td> 
+            <div align="center"><img src="/application/images/xqtrade/query25.png" ></div><br>
+            <ul>
+                <li>查詢頁面的有兩個下拉選單</li><br>
+        <li>第一個下拉選單可以依照各帳號查詢。</li><br>              
+        <li>第二個下拉選單可以分各種交易作查詢，包含全部交易，期貨單式，期貨複式，選擇權單式，選擇權複式，當沖交易。</li><br>
+        <li>欄位列出逐一部位與損益狀況。</li>       
+                              
+             </ul>
+       
+          </td>           
+        </tr>
+        
+    </table>
+
+</div>
+<!--tab12-->
+
+</div>
+<!--content-->
+
+</div>
+<!--main-->
+<%= render :partial => "shared/application_footer" %>
+<!--link-->
+</div>
+<!--container-->

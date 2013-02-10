@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 TestDevise::Application.routes.draw do
+  #resources :uploads
+
   mount RedactorRails::Engine => '/redactor_rails'
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -13,22 +15,31 @@ TestDevise::Application.routes.draw do
   match "/questions" => "static_pages#questions"
   match "/online_demonstrations" => "static_pages#online_demonstrations"
   match "/download_dms" => "static_pages#download_dms"
+
+  match "/xqtrade" => "static_pages#xqtrade"
+  match "/xqtrade_partner" => "static_pages#xqtrade_partner"
+  match "/xqtrade_ca" => "static_pages#xqtrade_ca"
+  match "/xqtrade_faq" => "static_pages#xqtrade_faq"
+  match "/xqtrade_manual" => "static_pages#xqtrade_manual"
+  match "/xqtrade_service" => "static_pages#xqtrade_service"
+
+
   match "/index" => "static_pages#index"
   match "/announcement" => "static_pages#announcement"
 
-  devise_for :users, :path_prefix => 'admin', :controllers => { :registrations => 'registrations'}  
-  resources :users    
+  devise_for :users, :path_prefix => 'admin', :controllers => {:registrations => 'registrations'}
+  resources :users
 
   #resources :posts
 
-  resources :news_updates
-  resources :banners
-  resources :experiences
-  resources :courses do
-    resources :enrollments
+  resources :news_updates, :only => [:index, :show]
+  #resources :banners
+  resources :experiences, :only => [:new, :create]
+  resources :courses, :only => [:index] do
+    resources :enrollments, :only => [:index, :new, :create]
   end
-  resources :categories do
-    resources :videos do
+  resources :categories, :only => [:show] do
+    resources :videos, :only => [:show, :download] do
       member do
         get 'download'
       end
@@ -38,19 +49,24 @@ TestDevise::Application.routes.draw do
   namespace :admin do
     resources :news_updates
     resources :banners
-    resources :experiences
+    resources :experiences do
+      collection do
+        get 'remove'
+      end
+    end
     resources :service_emails
     resources :categories do
       resources :videos
-    end  
+    end
     resources :courses do
       collection do
         get 'online'
         get 'offline'
       end
       resources :enrollments
-    end  
-  end  
+    end
+    #resources :uploads
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,130 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $(".list-title").css({cursor:"pointer"}).click(function () {
+            $(this).next().toggle("normal");
+
+            var closeFlag = $(this).children('span');
+
+            if (closeFlag.html() == '[-收合]') {
+                closeFlag.html('[+展開]');
+            } else {
+                closeFlag.html('[-收合]');
+            }
+
+        });
+    });
+
+</script>
+<style>
+    #banner {
+        background-image: url(<%= get_current_host_and_port %>application/images/xqtrade_faq.jpg)
+    }
+
+    #content .list-box {
+        border-bottom: 1px dashed #d3d3d3
+    }
+
+    #content .list-title {
+        margin: 10px 0;
+        background: url(<%= get_current_host_and_port %>application/images/q.jpg) left center no-repeat;
+        padding: 3px 0 0 35px
+    }
+
+    #content .list-title a {
+        font-size: 16px;
+        color: #a72c07
+    }
+
+    #content .list-title span {
+        color: #8e8e8e;
+    }
+
+    #content .list-text {
+        margin: 0 0 10px 0;
+        background: #f3f3f3;
+        padding: 10px;
+        display: none;
+    }
+
+    #content th {
+        color: #a72c07;
+        font: 700 16px "微軟正黑體";
+        text-shadow: 0 1px 0 #fff;
+        border-bottom: 3px double #DEDEDE;
+        height: 40px
+    }
+
+    #content td {
+        font-family: "verdana"
+    }
+</style>
+<%= render :partial => "shared/application_top" %><!--header-->
+<div id="container">
+<div id="main">
+<div id="banner">
+  <h2>常見問題</h2>
+</div>
+<!--banner-->
+<div id="content">
+<div class="list-box">
+  <div class="list-title"><a>一開啟XQ就看到登入失敗怎麼辦？</a> <span>[+展開]</span></div>
+  <div class="list-text"><font size=3>請到主選單=>系統=>下單中心=>模組設定，看登入資訊有什麼錯誤，如果是密碼錯誤請使用者更改密碼。其他錯誤請找客服。</font>
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>如何開通下單權限？</a> <span>[+展開]</span></div>
+  <div class="list-text"><font size=3>自行付費的XQ用戶預設有所有下單權限，<br/>
+    券商付費的XQ用戶預設只能下付費券商的單子。</font>
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>下單模組怎麼設定？</a> <span>[+展開]</span></div>
+  <div class="list-text"><font size=3>請到主選單=>系統=>下單中心=>模組設定，找[交易模組]的下拉選單，找自己要的券商，然後再去[代號]處命名，按下[新增]按鈕，底下委託中心會出現一個新模組，然後按下[設定]按鈕，填入[身分證][登入帳號][登入密碼]，接著按下[設定]按鈕旁邊的[登入]就可以登入。</font>
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>下單模組不小心刪掉了怎麼辦？</a> <span>[+展開]</span></div>
+  <div class="list-text">
+    <font size=3>同上，用下單模組設定的方式設定即可。</font>
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>我怎麼查詢目前的庫存？</a> <span>[+展開]</span></div>
+  <div class="list-text"> <font size=3>請到主選單=>交易=>證券庫存、期權庫存頁面。</font></div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>為什麼單子下不出去？</a> <span>[+展開]</span></div>
+  <div class="list-text"><font size=3>如果在下單列傳回訊息，請檢查下單設定是否正確，如果在委託確認時傳回請聯絡營業員，則請洽XQ客服或是券商。</font>
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>為什麼沒有填入股票張數卻被自動帶入張數？</a> <span>[+展開]</span></div>
+  <div class="list-text">
+    <font size=3>請至交易=>下單設定去修改單筆預設下單金額</font>
+ 
+  </div>
+</div>
+<!--list-box-->
+<div class="list-box">
+  <div class="list-title"><a>能不能增加我下單的券商？</a> <span>[+展開]</span></div>
+  <div class="list-text"> <font size=3>請向您的開戶券商反應。　</font></div>
+</div>
+<!--list-box-->
+</div>
+<!--content-->
+
+</div>
+<!--main-->
+<%= render :partial => "shared/application_footer" %>
+<!--link-->
+</div>
+<!--container-->

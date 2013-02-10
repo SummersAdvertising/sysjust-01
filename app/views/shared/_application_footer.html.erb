@@ -1,3 +1,14 @@
+<script type="text/javascript">
+$(function(){
+	var $win = $(window).scroll(function(){
+		if($win.scrollTop() >= 400){$('#back').fadeIn(500)} else {$('#back').fadeOut(500);}
+	});
+});
+</script>
+<style>
+#back{display:none;position:fixed;bottom:5px;left:5px}
+</style>
+<a id="back" href="#"><img src="<%= get_current_host_and_port %>application/images/back-to-top.png"></a>
 <div id="footer">嘉實資訊股份有限公司©2012 XQ.com.tw / All Right Reserved.
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客戶免付費電話：0800-006-098
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服信箱：<a href="mailto:XQservice@XQ.com.tw?Subject=Hello%20XQ">XQservice@XQ.com.tw</a></div>
@@ -30,27 +41,39 @@
          @category_02 = @categories[1]
          @category_03 = @categories[2]
       %>
-      <li><a href="<%= category_url(@category_01) if !@category_01.nil?%>"><%= @category_01.name if !@category_01.nil?%></a></li>
-      <li><a href="<%= category_url(@category_02) if !@category_02.nil?%>"><%= @category_02.name if !@category_02.nil?%></a></li>
-      <li><a href="<%= category_url(@category_03) if !@category_03.nil?%>"><%= @category_03.name if !@category_03.nil?%></a></li>
+      <li><a href="<%= category_url(@category_01) if @category_01%>"><%= @category_01.name if @category_01%></a></li>
+      <li><a href="<%= category_url(@category_02) if @category_02%>"><%= @category_02.name if @category_02%></a></li>
+      <li><a href="<%= category_url(@category_03) if @category_03%>"><%= @category_03.name if @category_03%></a></li>
     </ul>
   </div>
   <!--link-box-->
   <div class="link-box">
     <h5 class="link-title">下載專區</h5>
     <ul class="link-text">
-      <li><a href="http://login.xq.com.tw/dassvr/installer/setup.exe">XQ主程式</a></li>
-      <li><a href="http://login.xq.com.tw/dassvr/installer/update.exe">XQ自設畫面檔案</a></li>
-      <li><a href="http://www.xq.com.tw/aphelp/DAQ/default.htm">使用手冊</a></li>
+      <li><a href="<%= download_contents_url %>#setup">XQ主程式</a></li>
+      <li><a href="<%= download_contents_url %>#file">XQ自設畫面檔案</a></li>
+      <li><a href="<%= download_contents_url %>#manual">使用手冊</a></li>
     </ul>
   </div>
   <!--link-box-->
   <div class="link-box">
+    <h5 class="link-title">交易專區</h5>
+    <ul class="link-text">
+      <li><a href="<%= xqtrade_url %>">交易功能</a></li>
+      <li><a href="<%= xqtrade_partner_url %>">合作夥伴</a></li>
+      <li><a href="<%= xqtrade_ca_url %>">憑證中心</a></li>
+      <li><a href="<%= xqtrade_faq_url %>">常見問題</a></li>
+      <li><a href="<%= xqtrade_manual_url %>">使用手冊</a></li>
+      <li><a href="<%= xqtrade_service_url %>">客戶窗口</a></li>
+    </ul>
+  </div>
+  <!--link-box-->  
+  <div class="link-box">
     <h5 class="link-title">我要購買</h5>
     <ul class="link-text">
       <li><a href="<%= purchasing_url %>">方案及軟體</a></li>
-      <li><a href="#">產品訂購單下載</a></li>
-      <li><a href="#">傳真刷卡單下載</a></li>
+      <li><a href="<%= get_current_host_and_port %>/purchasing/XQ訂購單.doc">產品訂購單下載</a></li>
+      <li><a href="<%= get_current_host_and_port %>/purchasing/XQ信用卡扣款同意書.doc">傳真刷卡單下載</a></li>
     </ul>
   </div>
   <!--link-box-->

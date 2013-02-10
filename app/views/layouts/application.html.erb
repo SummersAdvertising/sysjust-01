@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <%= csrf_meta_tags %>
   <%= javascript_include_tag "application", "rails.validations" %>
   <link rel="stylesheet" href="<%= get_current_host_and_port %>css/customization.css">
   <%= csrf_meta_tags %>
@@ -44,27 +45,116 @@
   <% if params[:controller]=="categories" %>
       <title>實機教學 | XQ 嘉實全球贏家</title>
       <meta property="og:title" content="實機教學│XQ 嘉實全球贏家"/>
+      <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+      <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+      <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
+      <script src="<%= get_current_host_and_port %>build/jquery.js"></script>
+      <script src="<%= get_current_host_and_port %>build/mediaelement-and-player.min.js"></script>
+      <link rel="stylesheet" href="<%= get_current_host_and_port %>build/mediaelementplayer.min.css"/>
+      <script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
+
+      <script>
+          $(document).ready(function () {
+              <% if browser.ie7? || browser.ie8? || browser.safari?%>
+              $(".iframe").colorbox({iframe:true, width:"660", height:"590"});
+              <% else %>
+//              $(".inline").colorbox({inline:true});
+                <% @videos.each do |video| %>
+              $("#play-<%= video.id%>").colorbox({inline:true});
+                <% end %>
+              <% end %>
+          });
+      </script>
+      <script type="text/javascript">
+          function save() {
+              str = document.forms[0].input.value;
+              mydoc = window.open();
+              mydoc.document.write(str);
+              mydoc.document.execCommand("saveAs", true, ".html");
+              mydoc.close();
+              return false;
+          }
+      </script>
+      <style>
+          #main {
+              background: url(<%= get_current_host_and_port %>application/images/banner-vd.jpg) top right no-repeat #fff;
+              overflow: hidden
+          }
+
+          #side {
+              width: 156px;
+              text-align: right;
+              padding-top: 50px
+          }
+
+          #side li {
+              padding-right: 20px;
+              margin: 15px 0
+          }
+
+          #side a {
+              color: #000;
+              font-size: 15px
+          }
+
+          #side .active a {
+              color: #820000
+          }
+
+          #side .active {
+              background: url(<%= get_current_host_and_port %>application/images/vd-01.jpg) right center no-repeat;
+          }
+
+          #content {
+              margin: 0 0 0 0;
+              padding: 200px 90px 0 90px;
+              width: 664px
+          }
+
+          h4 {
+              color: #a72c07;
+              font-size: 18px;
+              height: 30px
+          }
+
+          hr {
+              width: 800px;
+              height: 25px;
+              *height: 1px;
+              border: 0;
+              border-top: 1px dashed #aaa;
+              margin-top: 25px
+          }
+
+          #content table a:hover img {
+              opacity: .85
+          }
+
+          #cboxLoadedContent {
+              margin-top: 50px;
+              padding: 5px
+          }
+      </style>
   <% end %>
 
   <meta name="Robots" content="index,follow"/>
-  <link rel="SHORTCUT ICON" href="http://sysjust.summers.com.tw/application/images/favicon.ico">
+  <link rel="SHORTCUT ICON" href="http://54.243.52.208/application/images/favicon.ico">
   <meta http-equiv="content-language" content="zh-TW"/>
-  <meta name="keywords" content="基金,法人,投資,股市,期貨,證券交易,外資 "/>
-  <meta name="description" content="股市漲漲跌跌，投資選擇基金還是期貨？XQ提供即時精確的證券交易資訊，從盤中大小事到超過百種專業指標，徹底掌握法人、陸資、外資多方觀點。深入了解市場，立足大中華，透析全球財經脈動 ，滿足您投資決策的種種需求，投資先看 XQ 全球贏家。"/>
-  <meta property="og:description" content="股市漲漲跌跌，投資選擇基金還是期貨？XQ提供即時精確的證券交易資訊，從盤中大小事到超過百種專業指標，徹底掌握法人、陸資、外資多方觀點。深入了解市場，立足大中華，透析全球財經脈動 ，滿足您投資決策的種種需求，投資先看 XQ 全球贏家。"/>
+  <meta name="keywords" content="台股,港股,陸股,美股,日股,韓股,指數,期貨,產業,個股,全球,即時金融行情,大中華 "/>
+  <meta name="description" content="整合全球股市 – 台、港、中、日、韓、美，隨時監控兩岸三地即時金融行情，全球化觀點分析市場，透過即時財經資料庫與強大的資訊分析能力，搭配彈性的個人化介面，精確提供專業投資人投資決策最佳方案！"/>
+  <meta property="og:description" content="整合全球股市 – 台、港、中、日、韓、美，隨時監控兩岸三地即時金融行情，全球化觀點分析市場，透過即時財經資料庫與強大的資訊分析能力，搭配彈性的個人化介面，精確提供專業投資人投資決策最佳方案！"/>
   <meta name="abstract" content="投資看 XQ，即時掌握全球市場資訊。 "/>
   <meta property="og:type" content="company"/>
   <meta property="og:site_name" content=" XQ 嘉實全球贏家"/>
   <meta name="DC.Rights" content="XQ 全球贏家"/>
-  <meta name="DC.Date" content="2012/6/19"/>
+  <meta name="DC.Date" content="2012/9/24"/>
   <meta name="DC.Subject" content="財經資訊的提供者 "/>
   <meta name="DC.Type" content="公司網站"/>
-  <link rel="image_src" href="http://sysjust.summers.com.tw/application/images/thumb.jpg">
-  <meta property="og:image" content="http://sysjust.summers.com.tw/application/images/thumb.jpg">
+  <link rel="image_src" href="http://54.243.52.208/application/images/thumb.jpg">
+  <meta property="og:image" content="http://54.243.52.208/application/images/thumb.jpg">
+
 </head>
 <body>
 <%= yield %>
-<%= render :partial => "shared/user_nav" if Rails.env.development? %>
-<%= debug(params) if Rails.env.development? %>
 </body>
 </html>

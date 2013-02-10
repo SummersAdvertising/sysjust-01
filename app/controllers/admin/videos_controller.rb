@@ -59,6 +59,7 @@ class Admin::VideosController < ApplicationController
         format.json { render json: @video.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /videos/1
@@ -84,8 +85,8 @@ class Admin::VideosController < ApplicationController
     @category = Category.find(params[:category_id])
     @video = Video.find(params[:id])
     @video.destroy
-
-    respond_to do |format|
+    
+    respond_to do |format|    	
       format.html { redirect_to admin_category_path(@category) }
       format.json { head :no_content }
     end

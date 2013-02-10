@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'redactor' %>
+
 <link rel="stylesheet" href="<%= get_current_host_and_port %>css/edit.css">
 <%= redactor_lang('zh_tw') %>
 <%= render :partial => "shared/admin_top" %>
@@ -21,7 +23,7 @@
     <div class="main-title">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td valign="top" class="title" height="22" width="98">
+          <td valign="top" class="title" height="22" width="98" title="標題">
             <% if params[:action]=="edit" %>
               <%=@news_update.updated_at.to_date%>
             <% else %> 
@@ -42,8 +44,8 @@
         </tr>
       </table>
     </div>
-    <div class="main-text"><%= f.text_area :content, :class => "redactor" %></div>
-    <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
+    <div class="main-text"><%= f.text_area :content, :class => "redactor", :title => '新聞內容' %></div>
+    <div class="button"><%= f.submit "" %><a><img src="<%=get_current_host_and_port%>images/save.png">儲存</a></div>
     <div class="button"><a href="<%=admin_news_updates_path%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
     <!--main-->     
   </div>

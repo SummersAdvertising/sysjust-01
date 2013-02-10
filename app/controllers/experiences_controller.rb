@@ -26,7 +26,8 @@ class ExperiencesController < ApplicationController
   # GET /experiences/new.json
   def new
     @experience = Experience.new
-
+    @finished = params[ :finished ]
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @experience }
@@ -42,16 +43,17 @@ class ExperiencesController < ApplicationController
   # POST /experiences.json
   def create
     @experience = Experience.new(params[:experience])
-    @experience.service_email = ServiceEmail.first.email.to_s()    
+    #@experience.service_email = ServiceEmail.first.email.to_s() if ServiceEmail.first
     respond_to do |format|
       if @experience.save       
-        ExperienceMailer.notify_email(@experience).deliver       
-        format.html { redirect_to new_experience_url, notice: 'Experience was successfully created.' }
+        ExperienceMailer.notify_email(@experience).deliver if ServiceEmail.first
+        format.html { redirect_to :action => 'new', :finished => true }
         format.json { render json: @experience, status: :created, location: @experience }
       else
         format.html { render action: "new" }
         format.json { render json: @experience.errors, status: :unprocessable_entity }
       end
+      #cookies[:thanks] = { :value => "true", :expires => 1.seconds.from_now }
       format.js
     end
   end

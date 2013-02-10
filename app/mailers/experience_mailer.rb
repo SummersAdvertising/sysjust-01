@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class ExperienceMailer < ActionMailer::Base
-  default from: ServiceEmail.first.email
+  # default from: ServiceEmail.first.email
+  default :from => "yingchauhuang@gmail.com"
 
   def notify_email(experience)
     @experience = experience    

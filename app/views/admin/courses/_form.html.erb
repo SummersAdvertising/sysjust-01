@@ -26,7 +26,7 @@
         </tr>
         <tr>
           <th width="7%" align="left" valign="top">時間</th>
-          <td width="50%" valign="top"><%= f.text_field :start_time,:readonly => true, :style => "width:133px" %><span style="padding:0 5px">~</span><%= f.text_field :end_time,:readonly => true, :style => "width:133px" %></td>
+          <td width="50%" valign="top"><%= f.text_field :start_time, :style => "width:133px", :value => (@course.start_time.to_s( :date ) if !@course.start_time.nil?) %><span style="padding:0 5px">~</span><%= f.text_field :end_time, :style => "width:133px", :value => (@course.end_time.to_s( :date ) if !@course.end_time.nil?) %></td>
           <th width="7%" align="left" valign="top">講師</th>
           <td width="36%" colspan="5" valign="top"><%= f.text_field :lecturer %></td>
         </tr>
@@ -61,7 +61,7 @@
         </tr>
       </table>
     </div>
-    <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
+    <div class="button"><%= f.submit "" %><a><img src="<%=get_current_host_and_port%>images/save.png">儲存</a></div>
     <div class="button"><a href="<%=online_admin_courses_path%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
     <!--main-->
   </div>

@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<style>
+    #banner{background-image:url(<%= get_current_host_and_port %>application/images/xqtrade_partner.jpg)}
+    #content{font-size:24px;padding:75px 0}
+    #content span{font-size:14px}
+    h4{font-size:24px;color:#a72c07;padding:0 0 10px 0;border-bottom:1px dashed #D3D3D3}
+    h5{font-size:19px;color:#a72c07}
+    #content a:hover img{opacity:.8;filter:alpha(opacity=80)}
+    #content p{font-size:13px}
+    #content p a{font-size:13px;color:#363636}
+</style>
+<%= render :partial => "shared/application_top" %><!--header-->
+<div id="container">
+  <div id="main">
+    <div id="banner">
+      <h2>合作夥伴</h2>
+    </div>
+    <!--banner-->
+    <div id="content">
+    <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="50%"><a href="http://www.esunsec.com.tw/index.asp" target="_blank">
+      <img src="https://ap2.esunsec.com.tw/11Q3web/img/left.jpg" /></a></td>
+          
+        </tr>
+      </table>
+  <font size=4>自2000年至今，玉山證券秉持玉山專業服務責任的精神，致力於培育專業穩健的投資專員及研究團隊，以追求顧客滿意為永續經營之目標，欲成為最受顧客信賴的投資理財靠山。在2002年玉山證券成為玉山金控百分之百轉投資之子公司，並於2012年信用評等短期達到最高等級F1而長期達到A高信用品質，受到專業的高度肯定。</font>
+      <br>
+    <br>
+  <h4 id="manual">專業團隊</h4>
+         <font size=3>擁有熱忱的專業研究團隊，提供優質的證券服務</font>
+      <br>
+    <br>
+  <h4 id="manual">整合通路</h4>
+         <font size=3>持續增設服務據點及玉山銀行之共同服務網絡，提供高效率、高品質的服務</font>
+      <br>
+    <br>
+  <h4 id="manual">E化平台</h4>
+         <font size=3>電子下單平台提供更多元而穩定的下單環境</font>
+      <br>
+    <br>
+  <h4 id="manual">嚴密風險管理</h4>
+         <font size=3>嚴謹的風險管理及內控流程是對顧客最高的承諾及保障</font>
+      <br>
+      <br>
+
+    </div>
+    <!--content-->
+
+  </div>
+  <!--main-->
+  <%= render :partial => "shared/application_footer" %>
+  <!--link-->
+</div>
+<!--container-->

@@ -5,7 +5,7 @@ a{text-decoration:none}
 #header-inside{width:1000px;margin:0 auto;height:179px;overflow:hidden;*overflow:none;}
 h1{float:left;margin-top:30px;}
 #nav{width:826px;height:42px;float:right;margin-top:81px;}
-#nav li{width:118px;height:42px;float:left;text-align:center;}
+#nav li{width:100px;height:42px;float:left;text-align:center;}
 #nav li a{display:block;width:100%;height:30px;padding-top:12px;font:700 18px "微軟正黑體";color:#fbcabf}
 
 #nav .active{background:url(../images/active.jpg) 0 0 no-repeat}

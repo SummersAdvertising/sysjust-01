@@ -8,6 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 admin_user = User.new
+admin_user.name= "admin"
 admin_user.email = "admin@sysjust.com.tw"
 admin_user.password = "123456"
 admin_user.password_confirmation = "123456"
@@ -15,6 +16,7 @@ admin_user.is_admin = true
 admin_user.save!
 
 user = User.new
+user.name= "user"
 user.email = "user@sysjust.com.tw"
 user.password = "123456"
 user.password_confirmation = "123456"
@@ -31,7 +33,7 @@ banner_01.hyperlink_02 = "http://www.yahoo.com.tw/news/20120716"
 banner_01.title_03 = "台美公司對應"
 banner_01.content_03 = "對應相關公司，輕鬆掌握連動關係"
 banner_01.hyperlink_03 = "http://www.yahoo.com.tw/news/20120716"
-banner_01.save
+banner_01.save!
 
 banner_02 = Banner.new
 banner_02.category = "籌碼篇"
@@ -44,7 +46,7 @@ banner_02.hyperlink_02 = "http://www.yahoo.com.tw/news/20120716"
 banner_02.title_03 = "台美公司對應"
 banner_02.content_03 = "對應相關公司，輕鬆掌握連動關係"
 banner_02.hyperlink_03 = "http://www.yahoo.com.tw/news/20120716"
-banner_02.save
+banner_02.save!
 
 banner_03 = Banner.new
 banner_03.category = "選股篇"
@@ -57,7 +59,7 @@ banner_03.hyperlink_02 = "http://www.yahoo.com.tw/news/20120716"
 banner_03.title_03 = "台美公司對應"
 banner_03.content_03 = "對應相關公司，輕鬆掌握連動關係"
 banner_03.hyperlink_03 = "http://www.yahoo.com.tw/news/20120716"
-banner_03.save
+banner_03.save!
 
 banner_04 = Banner.new
 banner_04.category = "技術分析篇"
@@ -70,44 +72,44 @@ banner_04.hyperlink_02 = "http://www.yahoo.com.tw/news/20120716"
 banner_04.title_03 = "台美公司對應"
 banner_04.content_03 = "對應相關公司，輕鬆掌握連動關係"
 banner_04.hyperlink_03 = "http://www.yahoo.com.tw/news/20120716"
-banner_04.save
+banner_04.save!
 
 service_email = ServiceEmail.new
 service_email.email = "rails.test.action.mailer@gmail.com"
-service_email.save
+service_email.save!
 
 category_01 = Category.new
 category_01.name = "獨家操作教戰"
-category_01.save
+category_01.save!
 
 category_02 = Category.new
 category_02.name = "獨家資訊教戰"
-category_02.save
+category_02.save!
 
 category_03 = Category.new
 category_03.name = "獨家分析教戰"
-category_03.save
+category_03.save!
 
 news_update_01 = NewsUpdate.new
 news_update_01.title= "title 01"
 news_update_01.source= "source 01"
 news_update_01.category= "category 01"
 news_update_01.content= "content 01"
-news_update_01.save
+news_update_01.save!
 
 news_update_02 = NewsUpdate.new
 news_update_02.title= "title 02"
 news_update_02.source= "source 02"
 news_update_02.category= "category 02"
 news_update_02.content= "content 02"
-news_update_02.save
+news_update_02.save!
 
 news_update_03 = NewsUpdate.new
 news_update_03.title= "title 03"
 news_update_03.source= "source 03"
 news_update_03.category= "category 03"
 news_update_03.content= "content 03"
-news_update_03.save
+news_update_03.save!
 
 two_days_latter = Time.now + 2.days
 three_days_latter = Time.now + 3.days
@@ -126,7 +128,7 @@ course_01.address = "address 01"
 course_01.content = "content 01"
 course_01.registration_quota = 99
 course_01.is_display = true
-course_01.save
+course_01.save!
 
 course_02 = Course.new
 course_02.session = "session 02"
@@ -138,7 +140,7 @@ course_02.address = "address 02"
 course_02.content = "content 02"
 course_02.registration_quota = 99
 course_02.is_display = true
-course_02.save
+course_02.save!
 
 course_03 = Course.new
 course_03.session = "session 03"
@@ -150,4 +152,12 @@ course_03.address = "address 03"
 course_03.content = "content 03"
 course_03.registration_quota = 99
 course_03.is_display = true
-course_03.save
+course_03.save!
+
+i = 0;
+num = 33;
+
+while i < num  do
+  Experience.create(contact_person: i.to_s(), phone_number: i.to_s(), email: "vincent@summers.com.tw", attendant_number: i, company_name: i.to_s(), professional_title: i.to_s())
+  i +=1;
+end

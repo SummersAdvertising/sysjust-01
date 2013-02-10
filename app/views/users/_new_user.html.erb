@@ -1,39 +1,18 @@
- <%= form_for(@user) do |f| %>
+<%= form_for(@user, :validate => true) do |f| %>
   <div class="main-text">    
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <th width="10%">姓名</th>
-        <% @user.errors.full_messages.each do |msg| %>
-          <%if msg.include?("Name")%>
-            <%= msg %>
-          <%end%>
-        <% end %>
+        <th width="10%" title="姓名">姓名</th>
         <td width="20%"><%= f.text_field :name %></td>
-
-        <th width="10%">帳號</th>
-        <% @user.errors.full_messages.each do |msg| %>
-          <%if msg.include?("Email")%>
-            <%= msg %>
-          <%end%>
-        <% end %>
+        <th width="10%" title="帳號">帳號</th>
         <td width="60%"><%= f.text_field :email %></td>
       </tr>
     </table>
     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px">
       <tr>
-        <th width="10%">密碼</th>
-        <% @user.errors.full_messages.each do |msg| %>
-          <%if msg.include?("Password")%>
-            <%= msg %>
-          <%end%>
-        <% end %>
+        <th width="10%" title="密碼">密碼</th>
         <td width="37%"><%= f.password_field :password %></td>
-        <th width="15%">確認密碼</th>
-        <% @user.errors.full_messages.each do |msg| %>
-          <%if msg.include?("Password confirmation")%>
-            <%= msg %>
-          <%end%>
-        <% end %>
+        <th width="15%" title="確認密碼">確認密碼</th>
         <td width="38%"><%= f.password_field :password_confirmation %></td>
       </tr>
     </table>

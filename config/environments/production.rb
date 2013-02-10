@@ -1,4 +1,15 @@
 # -*- encoding : utf-8 -*-
+
+def compile_asset?(path)
+  if File.basename(path) =~ /^[^_].*\.\w+$/
+    puts "Compiling: #{path}"
+    true
+  else
+    puts "Ignoring: #{path}"
+    false
+  end
+end
+
 TestDevise::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -47,8 +58,13 @@ TestDevise::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  
+  #config.assets.precompile = [ method(:compile_asset?).to_proc ]
   config.assets.precompile += %w( rails.validations.js )
+  config.assets.precompile += %w( admin.js )
+  config.assets.precompile += %w( redactor.js )
   #config.assets.precompile += %w( ckeditor/* )
+
 
 
   # Disable delivery errors, bad email addresses will be ignored
@@ -68,7 +84,7 @@ TestDevise::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = { :host => 'sysjust.summers.com.tw' }
+  config.action_mailer.default_url_options = { :host => '54.243.52.208' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
@@ -77,12 +93,12 @@ TestDevise::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-      :address => "smtp.gmail.com",
-      :port => "587",
-      :domain => "gmail.com",
-      :authentication => "plain",
-      :user_name => "rails.test.action.mailer@gmail.com",
-      :password => "3edc&UJM",
+      :address => "email-smtp.us-east-1.amazonaws.com",
+      :port => "25",
+      :authentication => :login,
+      :user_name => "AKIAJLCN7SPJLWZP3WTA",
+      :password => "Amjdrcy2Ayg2NmtN20eGCZJ351hm9f6ZtI3MaD6YfnR0",
       :enable_starttls_auto => true
    }
+   
 end

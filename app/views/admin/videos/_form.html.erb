@@ -1,58 +1,89 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".inline").colorbox({inline:true, width:"590", height:"250", overlayClose: false, escKey: false});
+    });
+</script>
+<style>
+#msg{width:590px;height:180px;padding:50px 0 0 0;text-align:center}
+#msg p{font:300 22px "微軟正黑體";color:red}
+</style>
+<a href="#msg" class='inline' id="wait" style="display:none">display wait</a>
+<div style="display:none">
+  <div id="msg">
+    <p>影片上傳中，請勿關閉此視窗。</p>
+    <img src="<%= get_current_host_and_port %>application/images/circle.gif">
+  </div>
+  <!--msg-->
+</div>
 <%= render :partial => "shared/admin_top" %>
 <!--top-out-->
 <div id="container">
   <%= render :partial => "shared/admin_side" %>
   <!--side-->
   <%= form_for [:admin, @category, @video], :validate => true do |f| %>
-<!--     <% if @video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+      <!--
+      <% if @video.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+	
+	      <ul>
+	      <% @video.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %> 
+  	-->
+      <div id="main" class="right">
+        <div class="main-title">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="16%" height="22" valign="top" class="title" title="標題">
+                <% if params[:action]=="edit" %>
+                    <%= @video.updated_at.to_date %>
+                <% else %>
+                    <%= Time.now.to_date %>
+                <% end %>
+              </td>
+              <td width="64%" valign="middle" class="text"><%= f.text_field :title %></td>
+              <td width="20%" valign="middle" class="text"><a class="category"><%= @category.name %></a></td>
+            </tr>
+          </table>
+        </div>
+        <div class="main-text">
+          <%= f.text_area :content, :rows => 0, :cols => 0, :class => 'autogrow', :title => '影片說明' %>
+        </div>
+        <div class="main-text">
+          <table width="100%" border="0" cellspacing="10" cellpadding="0">
+            <tr>
+              <th width="13%" align="left">新增影片</th>
+              <td width="87%" align="left"><%= f.file_field :video, id: "upload_video", :class => ("skipCheck" if params[ :action ] != 'new' && params[ :action ] != 'create' ) %></td>
+            </tr>
+            <tr>
+              <th width="13%" align="left"></th>
+              <td width="87%" align="left" class="tips">〈上傳格式：mp4、m4v〉</td>
+            </tr>
+            <tr>
+              <th width="13%" align="left">新增縮圖</th>
+              <td width="87%" align="left"><%= f.file_field :image, id: "upload_image", :class => ("skipCheck" if params[ :action ] != 'new' && params[ :action ] != 'create' ) %></td>
+            </tr>
+            <tr>
+              <th width="13%" align="left"></th>
+              <td width="87%" align="left" class="tips">〈上傳格式：jpg、jpeg、gif、png〉</td>
+            </tr>
+          </table>
 
-      <ul>
-      <% @video.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %> -->
-  <div id="main" class="right">
-    <div class="main-title">
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="16%" height="22" valign="top" class="title">
-            <% if params[:action]=="edit" %>
-                <%=@video.updated_at.to_date%>
-            <% else %>
-                <%=Time.now.to_date%>
-            <% end %>
-          </td>
-          <td width="64%" valign="middle" class="text"><%= f.text_field :title %></td>
-          <td width="20%" valign="middle" class="text"><a class="category"><%= @category.name %></a></td>
-        </tr>
-      </table>
-    </div>
-    <div class="main-text">
-      <%= f.text_area :content, :rows => 0, :cols => 0, :class => 'autogrow' %>
-    </div>
-    <div class="main-text">
-      <table width="100%" border="0" cellspacing="10" cellpadding="0">
-        <tr>
-          <th width="13%" align="left">新增影片</th>
-          <td width="87%" align="left"><%= f.file_field :video %></td>
-
-        </tr>
-        <tr>
-          <th align="left">新增縮圖</th>
-          <td align="left"><%= f.file_field :image %></td>
-        </tr>
-      </table>
-
-    </div>
-    <div class="button"><%= f.submit "" %><img src="<%=get_current_host_and_port%>images/save.png">儲存</div>
-    <div class="button"><a href="<%=admin_category_path(@category)%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
-  </div>
+        </div>
+        <div class="button"><%= f.submit "" %>
+          <a><img src="<%= get_current_host_and_port %>images/save.png">儲存</a></div>
+        <div class="button">
+          <a href="<%= admin_category_path(@category) %>"><img src="<%= get_current_host_and_port %>images/cancel.png">取消</a>
+        </div>
+      </div>
   <% end %>
-  <!--main--> 
+  <!--main-->
 </div>
 <!--container-->
 <div id="footer"></div>

@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'mysql2'
 gem 'devise'
 gem 'capistrano'
@@ -14,7 +14,7 @@ gem "paperclip"
 gem 'magic_encoding'
 gem "settingslogic"
 gem 'carrierwave'
-gem "rmagick"
+#gem "rmagick"
 gem 'client_side_validations'
 gem 'pry', :group => :development
 gem "ckeditor", "3.7.1"
@@ -52,3 +52,12 @@ gem 'jquery-rails'
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
+
+gem 'jquery-fileupload-rails', :git => "git@github.com:vincentopensourcetaiwan/jquery-fileupload-rails.git"
+gem 'twitter-bootstrap-rails'
+gem 'kaminari'
+gem 'newrelic_rpm'
+gem "browser"
+gem 'quiet_assets', group: :development
+gem 'thin', group: :development
+gem "awesome_print", group: :development

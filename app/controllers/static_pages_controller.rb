@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     require 'open-uri'
     require 'json'
 
-    original_data = open("http://203.67.19.12/daqSite/js/NewSysNotice4.aspx?A=20").read
+    original_data = open("http://www.xq.com.tw/daqSite/js/NewSysNotice4.aspx?A=20").read
     encode_data = original_data.encode('UTF-8')
     remove_oNoties = encode_data.gsub("var oNoties=", "")
     remove_colon = remove_oNoties.gsub(";", "")
@@ -362,15 +362,15 @@ class StaticPagesController < ApplicationController
   end
 
   def file_01
-    send_file Rails.root.to_s()+"/public/download_contents/外匯整合畫面.dap"
+    send_file Rails.root.to_s()+"/public/download_contents/Foreign_Exchange.dap"
   end
 
   def file_02
-    send_file Rails.root.to_s()+"/public/download_contents/美股重要個股(對照台股相關).dap"
+    send_file Rails.root.to_s()+"/public/download_contents/Main_American_Stocks.dap"
   end
 
   def file_03
-    send_file Rails.root.to_s()+"/public/download_contents/中港台產業比較.dap"
+    send_file Rails.root.to_s()+"/public/download_contents/Comparison_with_CN_HK_TW.dap"
   end
 
 
@@ -399,109 +399,99 @@ class StaticPagesController < ApplicationController
     @newsupdate_03 = @newsupdates[2]
     @newsupdate_04 = @newsupdates[3]
 
-    current_month = Time.now.month
-    current_day = Time.now.day
-    current_year = Time.now.year
-    current_time = current_year * 365 + current_month * 30 + current_day
+    current_time = Time.now
 
     @courses = Course.display.start_time.recent
-    @display_courses = [@courses[0], @courses[1], @courses[2]]
-    i = 0
-
-    @courses.each do |course|
-      date_time = course.start_time.split(' ')
-      date = date_time[0]
-      date_split = date.split('/')
-      month = date_split[0].to_i()
-      day = date_split[1].to_i()
-      year = date_split[2].to_i()
-      temp_start_time = year * 365 + month * 30 + day
-      if temp_start_time > current_time
-        @display_courses[i] = course
-        i=i+1
-      end
-      if i >= 2
-        break
-      end
+    @display_courses = []
+    
+    i = 0    
+    
+    until i >= @courses.length || i >= 3 do
+    	@display_courses.push( @courses[i] ) if @courses[i].is_display
+    	i=i+1
     end
-
     require 'open-uri'
     require 'json'
-
-    original_data = open("http://203.67.19.12/daqSite/js/NewSysNotice4.aspx?A=20").read
-    encode_data = original_data.encode('UTF-8')
-    remove_oNoties = encode_data.gsub("var oNoties=", "")
-    remove_colon = remove_oNoties.gsub(";", "")
-    remove_array = remove_colon.split(',array:')
-    remove_array= remove_array[0]
-    records = remove_array.split(',i')
-
-    records_00 = records[0].split(':{')
-    records_00 = records_00[1]
-    records_00 = records_00.gsub("}", "")
-    records_00_split = records_00.split(',')
-    records_00_T1 = records_00_split[0]
-    records_00_T1 = records_00_T1.gsub("T1:", "")
-    records_00_T1 = records_00_T1.gsub("'", "")
-    records_00_T2 = records_00_split[1]
-    records_00_Title = records_00_split[2]
-    records_00_Title = records_00_Title.gsub("Title:", "")
-    records_00_Title = records_00_Title.gsub("'", "")
-    records_00_Detail = records_00_split[3]
-    records_00_Detail = records_00_Detail.gsub("Detail:", "")
-    records_00_Detail = records_00_Detail.gsub("'", "")
-    records_00_Detail = records_00_Detail.gsub("\n", "<br />")
-    @record_00 = Array[records_00_T1, records_00_T2, records_00_Title, records_00_Detail]
-
-    records_01 = records[1].split(':{')
-    records_01 = records_01[1]
-    records_01 = records_01.gsub("}", "")
-    records_01_split = records_01.split(',')
-    records_01_T1 = records_01_split[0]
-    records_01_T1 = records_01_T1.gsub("T1:", "")
-    records_01_T1 = records_01_T1.gsub("'", "")
-    records_01_T2 = records_01_split[1]
-    records_01_Title = records_01_split[2]
-    records_01_Title = records_01_Title.gsub("Title:", "")
-    records_01_Title = records_01_Title.gsub("'", "")
-    records_01_Detail = records_01_split[3]
-    records_01_Detail = records_01_Detail.gsub("Detail:", "")
-    records_01_Detail = records_01_Detail.gsub("'", "")
-    records_01_Detail = records_01_Detail.gsub("\n", "<br />")
-    @record_01 = Array[records_01_T1, records_01_T2, records_01_Title, records_01_Detail]
-
-    records_02 = records[2].split(':{')
-    records_02 = records_02[1]
-    records_02 = records_02.gsub("}", "")
-    records_02_split = records_02.split(',')
-    records_02_T1 = records_02_split[0]
-    records_02_T1 = records_02_T1.gsub("T1:", "")
-    records_02_T1 = records_02_T1.gsub("'", "")
-    records_02_T2 = records_02_split[1]
-    records_02_Title = records_02_split[2]
-    records_02_Title = records_02_Title.gsub("Title:", "")
-    records_02_Title = records_02_Title.gsub("'", "")
-    records_02_Detail = records_02_split[3]
-    records_02_Detail = records_02_Detail.gsub("Detail:", "")
-    records_02_Detail = records_02_Detail.gsub("'", "")
-    records_02_Detail = records_02_Detail.gsub("\n", "<br />")
-    @record_02 = Array[records_02_T1, records_02_T2, records_02_Title, records_02_Detail]
-
-    records_03 = records[3].split(':{')
-    records_03 = records_03[1]
-    records_03 = records_03.gsub("}", "")
-    records_03_split = records_03.split(',')
-    records_03_T1 = records_03_split[0]
-    records_03_T1 = records_03_T1.gsub("T1:", "")
-    records_03_T1 = records_03_T1.gsub("'", "")
-    records_03_T2 = records_03_split[1]
-    records_03_Title = records_03_split[2]
-    records_03_Title = records_03_Title.gsub("Title:", "")
-    records_03_Title = records_03_Title.gsub("'", "")
-    records_03_Detail = records_03_split[3]
-    records_03_Detail = records_03_Detail.gsub("Detail:", "")
-    records_03_Detail = records_03_Detail.gsub("'", "")
-    records_03_Detail = records_03_Detail.gsub("\n", "<br />")
-    @record_03 = Array[records_03_T1, records_03_T2, records_03_Title, records_03_Detail]
+    
+    begin
+    	original_data = open("http://203.67.19.12/daqSite/js/NewSysNotice4.aspx?A=20").read
+    rescue
+    	#do nothing
+    else
+	    encode_data = original_data.encode('UTF-8')
+	    remove_oNoties = encode_data.gsub("var oNoties=", "")
+	    remove_colon = remove_oNoties.gsub(";", "")
+	    remove_array = remove_colon.split(',array:')
+	    remove_array= remove_array[0]
+	    records = remove_array.split(',i')
+	
+	    records_00 = records[0].split(':{')
+	    records_00 = records_00[1]
+	    records_00 = records_00.gsub("}", "")
+	    records_00_split = records_00.split(',')
+	    records_00_T1 = records_00_split[0]
+	    records_00_T1 = records_00_T1.gsub("T1:", "")
+	    records_00_T1 = records_00_T1.gsub("'", "")
+	    records_00_T2 = records_00_split[1]
+	    records_00_Title = records_00_split[2]
+	    records_00_Title = records_00_Title.gsub("Title:", "")
+	    records_00_Title = records_00_Title.gsub("'", "")
+	    records_00_Detail = records_00_split[3]
+	    records_00_Detail = records_00_Detail.gsub("Detail:", "")
+	    records_00_Detail = records_00_Detail.gsub("'", "")
+	    records_00_Detail = records_00_Detail.gsub("\n", "<br />")
+	    @record_00 = Array[records_00_T1, records_00_T2, records_00_Title, records_00_Detail]
+	
+	    records_01 = records[1].split(':{')
+	    records_01 = records_01[1]
+	    records_01 = records_01.gsub("}", "")
+	    records_01_split = records_01.split(',')
+	    records_01_T1 = records_01_split[0]
+	    records_01_T1 = records_01_T1.gsub("T1:", "")
+	    records_01_T1 = records_01_T1.gsub("'", "")
+	    records_01_T2 = records_01_split[1]
+	    records_01_Title = records_01_split[2]
+	    records_01_Title = records_01_Title.gsub("Title:", "")
+	    records_01_Title = records_01_Title.gsub("'", "")
+	    records_01_Detail = records_01_split[3]
+	    records_01_Detail = records_01_Detail.gsub("Detail:", "")
+	    records_01_Detail = records_01_Detail.gsub("'", "")
+	    records_01_Detail = records_01_Detail.gsub("\n", "<br />")
+	    @record_01 = Array[records_01_T1, records_01_T2, records_01_Title, records_01_Detail]
+	
+	    records_02 = records[2].split(':{')
+	    records_02 = records_02[1]
+	    records_02 = records_02.gsub("}", "")
+	    records_02_split = records_02.split(',')
+	    records_02_T1 = records_02_split[0]
+	    records_02_T1 = records_02_T1.gsub("T1:", "")
+	    records_02_T1 = records_02_T1.gsub("'", "")
+	    records_02_T2 = records_02_split[1]
+	    records_02_Title = records_02_split[2]
+	    records_02_Title = records_02_Title.gsub("Title:", "")
+	    records_02_Title = records_02_Title.gsub("'", "")
+	    records_02_Detail = records_02_split[3]
+	    records_02_Detail = records_02_Detail.gsub("Detail:", "")
+	    records_02_Detail = records_02_Detail.gsub("'", "")
+	    records_02_Detail = records_02_Detail.gsub("\n", "<br />")
+	    @record_02 = Array[records_02_T1, records_02_T2, records_02_Title, records_02_Detail]
+	
+	    records_03 = records[3].split(':{')
+	    records_03 = records_03[1]
+	    records_03 = records_03.gsub("}", "")
+	    records_03_split = records_03.split(',')
+	    records_03_T1 = records_03_split[0]
+	    records_03_T1 = records_03_T1.gsub("T1:", "")
+	    records_03_T1 = records_03_T1.gsub("'", "")
+	    records_03_T2 = records_03_split[1]
+	    records_03_Title = records_03_split[2]
+	    records_03_Title = records_03_Title.gsub("Title:", "")
+	    records_03_Title = records_03_Title.gsub("'", "")
+	    records_03_Detail = records_03_split[3]
+	    records_03_Detail = records_03_Detail.gsub("Detail:", "")
+	    records_03_Detail = records_03_Detail.gsub("'", "")
+	    records_03_Detail = records_03_Detail.gsub("\n", "<br />")
+	    @record_03 = Array[records_03_T1, records_03_T2, records_03_Title, records_03_Detail]
+	    end
   end
 end

@@ -18,9 +18,9 @@
 
     <li>
       <%if (params[:controller]=="admin/categories") || (params[:controller]=="admin/videos") %>
-        <a href="<%=admin_category_path(Category.first)%>" id="video" class="active">實機線上影片</a>
+        <a href="<%=admin_category_path(Category.first) if Category.first%>" id="video" class="active">實機線上影片</a>
       <% else %>
-        <a href="<%=admin_category_path(Category.first)%>" id="video">實機線上影片</a>
+        <a href="<%=admin_category_path(Category.first) if Category.first%>" id="video">實機線上影片</a>
       <%end%>
     </li>
 
@@ -34,9 +34,9 @@
     
     <li>
       <%if params[:controller]=="admin/banners"%>
-        <a href="<%=admin_banner_path(Banner.first)%>" id="banner" class="active">專家秘訣模組</a>
+        <a href="<%=admin_banner_path(Banner.first) if Banner.first%>" id="banner" class="active">專家秘訣模組</a>
       <% else %>
-        <a href="<%=admin_banner_path(Banner.first)%>" id="banner">專家秘訣模組</a>
+        <a href="<%=admin_banner_path(Banner.first) if Banner.first%>" id="banner">專家秘訣模組</a>
       <%end%>
     </li>
       <% if current_user.is_admin? %>
