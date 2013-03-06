@@ -3,7 +3,7 @@ body{width:1024px;margin:0 auto;font-family:微軟正黑體}
 a{text-decoration:none}
 
 h1{float:left;margin-top:30px;height:93px}
-#nav{width:588px;margin-top:60px;height:32px;float:right;position:relative}
+#nav{width:688px;margin-top:60px;height:32px;float:right;position:relative}
 #nav li{width:98px;height:32px;float:left;text-align:center;}
 #nav li a{display:block;width:100%;height:100%;padding-top:6px;font:700 16px "微軟正黑體";color:#fff}
 #nav li a:hover{color:#FBCABF}
@@ -12,6 +12,11 @@ h1{float:left;margin-top:30px;height:93px}
 #nav-child li{float:left;text-align:center;width:80px;height:30px;}
 #nav-child li a{display:block;font:700 13px "微軟正黑體";color:#FBCABF}
 #nav li:hover #nav-child{display:block}
+
+#nav-xqtrade{width:515px;height:30px;display:none;position:absolute;top:30px;left:0px;background:#980405;border-radius:5px}
+#nav-xqtrade li{float:left;text-align:center;width:80px;height:30px;}
+#nav-xqtrade li a{display:block;font:700 13px "微軟正黑體";color:#FBCABF}
+#nav li:hover #nav-xqtrade{display:block}
 
 #banner{clear:both;background:url(../images/index-banner.png) 0 0 no-repeat;height:305px;width:100%}
 #banner .tabs{float:left;width:21%;padding:115px 0 0 0}

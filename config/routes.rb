@@ -15,6 +15,15 @@ TestDevise::Application.routes.draw do
   match "/questions" => "static_pages#questions"
   match "/online_demonstrations" => "static_pages#online_demonstrations"
   match "/download_dms" => "static_pages#download_dms"
+
+  match "/xqtrade" => "static_pages#xqtrade"
+  match "/xqtrade_partner" => "static_pages#xqtrade_partner"
+  match "/xqtrade_ca" => "static_pages#xqtrade_ca"
+  match "/xqtrade_faq" => "static_pages#xqtrade_faq"
+  match "/xqtrade_manual" => "static_pages#xqtrade_manual"
+  match "/xqtrade_service" => "static_pages#xqtrade_service"
+
+
   match "/index" => "static_pages#index"
   match "/announcement" => "static_pages#announcement"
 

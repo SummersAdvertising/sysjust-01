@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<style>
+    #banner{background-image:url(<%= get_current_host_and_port %>application/images/xqtrade_ca.jpg)}
+    #content{font-size:24px;padding:75px 0}
+    #content span{font-size:14px}
+    h4{font-size:24px;color:#a72c07;padding:0 0 10px 0;border-bottom:1px dashed #D3D3D3}
+    h5{font-size:19px;color:#a72c07}
+    #content a:hover img{opacity:.8;filter:alpha(opacity=80)}
+    #content p{font-size:13px}
+    #content p a{font-size:13px;color:#363636}
+</style>
+<%= render :partial => "shared/application_top" %><!--header-->
+<div id="container">
+  <div id="main">
+    <div id="banner">
+      <h2>憑證中心</h2>
+    </div>
+    <!--banner-->
+    <div id="content">
+
+      <h4 id="manual">使用者無憑證或是憑證過期請到此下載。</h4>
+      <p></font><font size=3>以下為各券商憑證申請中心，請使用者到各開戶券商的憑證中心下載下單所需相關憑證</font></p>
+      <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="50%" align="left"><a href="https://ap2.esunsec.com.tw/ca/Defaultn.asp" target="_blank"><font size=4><strong>玉山證券憑證中心</strong></a></td>
+
+          <td width="50%" align="left"><a href="http://www.fubon-ebroker.com/fubon/page_602.fs" target="_blank"></a></td>
+                
+        </tr>
+    
+      </table>
+      <br>
+      
+    
+    </div>
+    <!--content-->
+
+  </div>
+  <!--main-->
+  <%= render :partial => "shared/application_footer" %>
+  <!--link-->
+</div>
+<!--container-->

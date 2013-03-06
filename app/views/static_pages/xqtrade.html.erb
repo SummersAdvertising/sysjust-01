@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<style>
+    #banner{background-image:url(<%= get_current_host_and_port %>application/images/xqtrade.jpg)}
+    #content{font-size:24px;padding:75px 0}
+    #content span{font-size:14px}
+    h4{font-size:24px;color:#a72c07;padding:0 0 10px 0;border-bottom:1px dashed #D3D3D3}
+    h5{font-size:19px;color:#a72c07}
+    #content a:hover img{opacity:.8;filter:alpha(opacity=80)}
+    #content p{font-size:13px}
+    #content p a{font-size:13px;color:#363636}
+    #content table{margin:25px auto}    
+</style>
+<%= render :partial => "shared/application_top" %><!--header-->
+<div id="container">
+  <div id="main">
+    <div id="banner">
+      <h2>交易功能</h2>
+    </div>
+    <!--banner-->
+    <div id="content">
+
+      <h4 id="manual">多帳號整合，隱密全方位</h4>
+         <font size=3>在同一家券商下可設定多組帳號，帳號狀況一目了然，讓你不在慌亂之中錯失良機。<BR>針對下單權限作控管與別名區分，加強隱密性與安全性，個人化而貼心的設計，絕對能讓您安心地下單，快樂地收穫。</font>
+    <br>
+    <br>    
+    <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">                
+    <p>
+    <img src="/application/images/xqtrade/001.png">
+    <p>
+      </table>
+
+      <h4 id="manual">API完美串接，設定只需30秒</h4>
+         <font size=3>XQ與下單券商無縫接軌，不要再煩惱API設定或花時間親自撰寫程式了!<BR>只需要帳號、密碼和憑證，30秒XQ就能變身成為您專屬的下單機。</font>
+      <br>
+    <br>    
+    <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">                
+    <p>
+    <img src="/application/images/xqtrade/005.png">
+    <p>
+      </table>
+    
+    <h4 id="manual">行情帶下單，分秒必爭</h4>
+         <font size=3>在XQ上任何有報價行情處點擊，直接帶入下單介面，讓您不需要再搖頭晃腦，左右為難。<BR>簡單的介面讓您立即上手，從個股分析、報價到下單，搶盡先機。</font>
+      <br>
+    <br>    
+    <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">                
+    <p>
+    <img src="/application/images/xqtrade/003.png">
+    <p>
+      </table>
+  
+  <h4 id="manual">精準的查詢頁面，下單狀況一覽無遺</h4>
+         <font size=3>將所有帳號的委託回報與成交回報有效整合，可依帳戶查詢、依交易查詢、依個股查詢。<BR>不管橫的查直的查都沒問題，讓您3秒掌握所有下單狀況!</font>
+      <br>
+    <br>    
+    <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">                
+    <p>
+    <img src="/application/images/xqtrade/004.png">
+    <p>
+      </table>
+    
+    <h4 id="manual">自訂個人化介面，自由度無限</h4>
+         <font size=3>不管是下單畫面、委託畫面或是庫存畫面，你都可任意將其設定為想要的配置樣貌，自由不受限。<BR>想將下單、報價、技術分析和新聞結合至單一畫面?您需要XQ的個人化介面讓您想怎麼看就怎麼看!</font>
+      <br>
+    <br>    
+    <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">                
+    <p>
+    <img src="/application/images/xqtrade/006.png">
+    <p>
+      </table>
+    
+      <p>如有任何使用上的問題，歡迎於上班時間來電0800-006-098免費客服專線，將有專人為您解說，或email至客服信箱：<a href="mailto:XQservice@XQ.com.tw" target="_blank">XQservice@XQ.com.tw</a> <br>
+        我們也將在最短時間內回覆給您，謝謝。</p>
+
+
+    </div>
+    <!--content-->
+
+  </div>
+  <!--main-->
+  <%= render :partial => "shared/application_footer" %>
+  <!--link-->
+</div>
+<!--container-->

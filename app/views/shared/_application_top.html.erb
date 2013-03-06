@@ -33,6 +33,16 @@
           <li><a href="<%= download_contents_url %>">下載專區</a></li>
       <% end %>
 
+      <% if params[:controller]=="static_pages" || params[:action]=="xqtrade" %>
+          <% if params[:action]=="xqtrade" || params[:action]=="xqtrade_ca" || params[:action]=="xqtrade_faq" || params[:action]=="xqtrade_manual" || params[:action]=="xqtrade_service" || params[:action]=="xqtrade_partner" %>
+              <li class="active"><a href="<%= xqtrade_url %>">交易專區</a></li>
+          <% else %>
+              <li><a href="<%= xqtrade_url %>">交易專區</a></li>
+          <% end %>
+      <% else %>
+          <li><a href="<%= xqtrade_url %>">交易專區</a></li>
+      <% end %>
+
       <% if params[:controller]=="static_pages" && params[:action]=="purchasing" %>
           <li class="active"><a href="<%= purchasing_url %>">我要購買</a></li>
       <% else %>
@@ -77,6 +87,49 @@
             </ul>
         <% end %>
     <% end %>
+
+   <% if params[:controller]=="static_pages" || params[:action]=="xqtrade" %>
+        <% if params[:action]=="xqtrade" || params[:action]=="xqtrade_partner" || params[:action]=="xqtrade_ca" || params[:action]=="xqtrade_faq" || params[:action]=="xqtrade_manual" || params[:action]=="xqtrade_service" %>
+            <ul id="nav-child">
+              <% if params[:action]=="xqtrade" %>
+                  <li class="active"><a href="<%= xqtrade_url %>">交易功能</a></li>
+              <% else %>
+                  <li><a href="<%= xqtrade_url %>">交易功能</a></li>
+              <% end %>
+
+              <% if params[:action]=="xqtrade_partner" %>
+                  <li class="active"><a href="<%= xqtrade_partner_url %>">合作夥伴</a></li>
+              <% else %>
+                  <li><a href="<%= xqtrade_partner_url %>">合作夥伴</a></li>
+              <% end %>
+
+              <% if params[:action]=="xqtrade_ca" %>
+                  <li class="active"><a href="<%= xqtrade_ca_url %>">憑證中心</a></li>
+              <% else %>
+                  <li><a href="<%= xqtrade_ca_url %>">憑證中心</a></li>
+              <% end %>
+
+              <% if params[:action]=="xqtrade_faq" %>
+                  <li class="active"><a href="<%= xqtrade_faq_url %>">常見問題</a></li>
+              <% else %>
+                  <li><a href="<%= xqtrade_faq_url %>">常見問題</a></li>
+              <% end %>
+
+              <% if params[:action]=="xqtrade_manual" %>
+                  <li class="active"><a href="<%= xqtrade_manual_url %>">使用手冊</a></li>
+              <% else %>
+                  <li><a href="<%= xqtrade_manual_url %>">使用手冊</a></li>
+              <% end %>
+
+              <% if params[:action]=="xqtrade_service" %>
+                  <li class="active"><a href="<%= xqtrade_service_url %>">客服窗口</a></li>
+              <% else %>
+                  <li><a href="<%= xqtrade_service_url %>">客服窗口</a></li>
+              <% end %>
+            </ul>
+        <% end %>
+   <% end %>
+
   </div>
   <!--header-inside-->
 </div>
