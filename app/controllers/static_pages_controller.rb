@@ -4,13 +4,6 @@ class StaticPagesController < ApplicationController
     require 'open-uri'
     require 'json'
 
-    original_data = open("http://www.xq.com.tw/daqSite/js/NewSysNotice4.aspx?A=20").read
-    encode_data = original_data.encode('UTF-8')
-    remove_oNoties = encode_data.gsub("var oNoties=", "")
-    remove_colon = remove_oNoties.gsub(";", "")
-    remove_array = remove_colon.split(',array:')
-    remove_array= remove_array[0]
-    records = remove_array.split(',i')
 
     get_record_to_data(20)
 
@@ -74,8 +67,8 @@ class StaticPagesController < ApplicationController
     require 'open-uri'
     require 'json'
     
-	    
-	    get_record_to_data 20
+	get_record_to_data 4
+	
   end
   
 private
@@ -84,11 +77,10 @@ private
 		return if num <= 0
 		
 	    begin
-	    	original_data = open("http://203.67.19.12/daqSite/js/NewSysNotice4.aspx?A=20").read
+	    	original_data = open("http://www.xq.com.tw/daqsite/js/newsysnotice4.aspx?A=" + num.to_s).read
 	    rescue
 	    	#do nothing
 	    else
-	        
 		    encode_data = original_data.encode('UTF-8')
 		    remove_oNoties = encode_data.gsub("var oNoties=", "")
 		    remove_colon = remove_oNoties.gsub(";", "")
