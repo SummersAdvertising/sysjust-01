@@ -400,25 +400,25 @@
     <td width="69%" align="left" valign="top">
     <div id="announcement">
     <h3>【系統公告】</h3>
-    <% if @record_00.nil?
+    <% if @data.length <= 0
     		%>
     			<h3>系統公告暫時無法取得，請稍後重試。</h3>
     		<%
     else %>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <th width="12%" align="left" valign="top"><%= @record_00[0][0..-6] %></th>
-        <td width="38%" align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=0#0"><%= @record_00[2] %></a></td>
+        <th width="12%" align="left" valign="top"><%= @data[0][0][0..-6] %></th>
+        <td width="38%" align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=0#0"><%= @data[0][2] %></a></td>
       
-	    <th width="12%" align="left" valign="top"><%= @record_01[0][0..-6] %></th>
-        <td width="38%" align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=1#1"><%= @record_01[2] %></a></td>
+	    <th width="12%" align="left" valign="top"><%= @data[1][0][0..-6] %></th>
+        <td width="38%" align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=1#1"><%= @data[1][2] %></a></td>
       </tr>
       <tr>
-        <th align="left" valign="top"><%= @record_02[0][0..-6] %></th>
-        <td align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=2#2"><%= @record_02[2] %></a></td>
+        <th align="left" valign="top"><%= @data[2][0][0..-6] %></th>
+        <td align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=2#2"><%= @data[2][2] %></a></td>
       
-	    <th align="left" valign="top"><%= @record_03[0][0..-6] %></th>
-        <td align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=3#3"><%= @record_03[2] %></a></td>
+	    <th align="left" valign="top"><%= @data[3][0][0..-6] %></th>
+        <td align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=3#3"><%= @data[3][2] %></a></td>
       </tr>
     </table>
     <% end %>

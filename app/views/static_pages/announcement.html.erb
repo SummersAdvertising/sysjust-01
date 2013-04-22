@@ -57,6 +57,11 @@
     <div id="banner">
       <h2>系統公告</h2>
     </div>
+    <% if @data.length <= 0
+    		%>
+    			<h3>系統公告暫時無法取得，請稍後重試。</h3>
+    		<%
+    else %>
     <!--banner-->
     <div id="content">
       <% i=0 %>
@@ -72,6 +77,7 @@
       <!--list-box-->
     </div>
     <!--content-->
+    <% end %>
   </div>
   <!--main-->
   <%= render :partial => "shared/application_footer" %>
