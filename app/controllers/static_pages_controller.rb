@@ -1,5 +1,15 @@
 # -*- encoding : utf-8 -*-
 class StaticPagesController < ApplicationController
+	
+	def show
+		
+		respond_to do | format |
+			format.html { render :template => 'static_pages/' + params[:id] }		
+		end
+	
+	end
+
+
   def announcement
     require 'open-uri'
     require 'json'

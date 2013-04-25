@@ -45,5 +45,3 @@ q:before, q:after {
 table {
 	vertical-align: middle;
 }
-
-*:focus { outline: none; }

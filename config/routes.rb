@@ -2,6 +2,8 @@
 TestDevise::Application.routes.draw do
   #resources :uploads
 
+  resources :cross_reader, :only => :show
+
   mount RedactorRails::Engine => '/redactor_rails'
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -26,6 +28,11 @@ TestDevise::Application.routes.draw do
 
   match "/index" => "static_pages#index"
   match "/announcement" => "static_pages#announcement"
+  
+  
+  match "page/:id" => "static_pages#show"
+  
+  resources :page
 
   devise_for :users, :path_prefix => 'admin', :controllers => {:registrations => 'registrations'}
   resources :users

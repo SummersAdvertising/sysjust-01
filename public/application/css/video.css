@@ -1,0 +1,9 @@
+#main{background:url(../images/banner-vd.jpg) top right no-repeat #fff;overflow:hidden}
+#side{width:179px;text-align:right;padding-top:50px}
+#side li{padding-right:20px;margin:15px 0}
+#side a{color:#000;font-size:15px}
+#side .active a{color:#820000}
+#side .active{background:url(../images/vd-01.jpg) right center no-repeat;}
+#content{margin:0;padding:200px 90px 0 90px;width:664px}
+h4{color:#a72c07;font-size:18px;height:30px}
+hr {width: 800px;height: 25px;border: 0;border-top:1px dashed #aaa;margin-top:25px}

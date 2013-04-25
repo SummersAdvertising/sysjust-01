@@ -1,0 +1,14 @@
+#main{overflow:hidden}
+#side{width:182px;text-align:right;padding-top:50px;background:url(../images/left.jpg) right top no-repeat;min-height:381px}
+#side li{padding-right:30px;margin:15px 0}
+#side a{color:#000;font-size:15px}
+#side .active a{color:#820000}
+#side .active{background:url(../images/vd-01.jpg) right center no-repeat;}
+#content{margin:0;width:842px;padding:0;color:#000}
+#content table{margin:0 0 50px 0}
+#content span{color:#4b4b4b;font-size:13px}
+.tab_content{padding:200px 70px 0 70px;}
+#tab1{background:url(../images/banner-ods-1.jpg) top left no-repeat}
+#tab2{background:url(../images/banner-ods-2.jpg) top left no-repeat}
+#tab3{background:url(../images/banner-ods-3.jpg) top left no-repeat}
+h4{color:#a72c07;font:300 18px "微軟正黑體"}

@@ -8,27 +8,50 @@ $(function(){
 <style>
 #back{display:none;position:fixed;bottom:5px;left:5px}
 </style>
-<a id="back" href="#"><img src="<%= get_current_host_and_port %>application/images/back-to-top.png"></a>
-<div id="footer">嘉實資訊股份有限公司©2012 XQ.com.tw / All Right Reserved.
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客戶免付費電話：0800-006-098
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服信箱：<a href="mailto:XQservice@XQ.com.tw?Subject=Hello%20XQ">XQservice@XQ.com.tw</a></div>
+
+
+<div id="footer"> <span>嘉實資訊股份有限公司©2012 XQ.com.tw / All Right Reserved.</span> <span style="margin:0 100px">客戶免付費電話：0800-006-098</span> <span>客服信箱：<a href="mailto:XQservice@XQ.com.tw" target="_blank">XQservice@XQ.com.tw</a> </span> </div>
 <!--footer-->
+
 <div id="link">
   <div class="link-box">
     <h5 class="link-title">產品特色</h5>
     <ul class="link-text">
-      <li><a href="<%= traits_url %>">XQ全球贏家三大特色</a></li>
+      <li><a href="<%= traits_url %>">三大特色</a></li>
       <li><a href="<%= online_demonstrations_url %>">線上體驗產品</a></li>
-      <li><a href="<%= new_experience_url %>">申請實機體驗</a></li>
+      <li><a href="<%= new_experience_url %>">申請試用</a></li>
       <li><a href="<%= download_dms_url %>">DM下載</a></li>
       <li><a href="<%= questions_url %>">常見問題</a></li>
     </ul>
   </div>
   <!--link-box-->
   <div class="link-box">
+    <h5 class="link-title">策略雷達</h5>
+    <ul class="link-text">
+      <li><a href="#">功能介紹</a></li>
+      <li><a href="#">影片教學</a></li>
+      <li><a href="#">討論區</a></li>
+      <li><a href="#">常見問題</a></li>
+      <li><a href="#">函數搜尋</a></li>
+    </ul>
+  </div>
+  <!--link-box-->
+  <div class="link-box">
+    <h5 class="link-title">交易區</h5>
+    <ul class="link-text">
+      <li><a href="<%= xqtrade_url %>">交易功能</a></li>
+      <li><a href="<%= xqtrade_partner_url %>">合作夥伴</a></li>
+      <li><a href="<%= xqtrade_ca_url %>">憑證中心</a></li>
+      <li><a href="<%= xqtrade_faq_url %>">常見問題</a></li>
+      <li><a href="<%= xqtrade_manual_url %>">使用手冊</a></li>
+      <li><a href="<%= xqtrade_service_url %>">客服窗口</a></li>
+    </ul>
+  </div>
+  <!--link-box-->
+  <div class="link-box">
     <h5 class="link-title">實務課程</h5>
     <ul class="link-text">
-      <li><a href="<%= courses_url %>">XQ課程</a></li>
+      <li><a href="<%= courses_url %>">講座課程</a></li>
     </ul>
   </div>
   <!--link-box-->
@@ -48,34 +71,36 @@ $(function(){
   </div>
   <!--link-box-->
   <div class="link-box">
-    <h5 class="link-title">下載專區</h5>
+    <h5 class="link-title">下載區</h5>
     <ul class="link-text">
       <li><a href="<%= download_contents_url %>#setup">XQ主程式</a></li>
+      <li><a href="#">XQ+XS策略雷達主程式</a></li>
+      <li><a href="<%= download_contents_url %>#manual">XQ使用手冊</a></li>
+      <li><a href="#">XS策略雷達使用手冊</a></li>
       <li><a href="<%= download_contents_url %>#file">XQ自設畫面檔案</a></li>
-      <li><a href="<%= download_contents_url %>#manual">使用手冊</a></li>
     </ul>
   </div>
   <!--link-box-->
   <div class="link-box">
-    <h5 class="link-title">交易專區</h5>
+    <h5 class="link-title">專家分享</h5>
     <ul class="link-text">
-      <li><a href="<%= xqtrade_url %>">交易功能</a></li>
-      <li><a href="<%= xqtrade_partner_url %>">合作夥伴</a></li>
-      <li><a href="<%= xqtrade_ca_url %>">憑證中心</a></li>
-      <li><a href="<%= xqtrade_faq_url %>">常見問題</a></li>
-      <li><a href="<%= xqtrade_manual_url %>">使用手冊</a></li>
-      <li><a href="<%= xqtrade_service_url %>">客戶窗口</a></li>
+      <li><a href="#">專家分享</a></li>
     </ul>
   </div>
-  <!--link-box-->  
+  <!--link-box-->
   <div class="link-box">
     <h5 class="link-title">我要購買</h5>
     <ul class="link-text">
       <li><a href="<%= purchasing_url %>">方案及軟體</a></li>
-      <li><a href="<%= get_current_host_and_port %>/purchasing/XQ訂購單.doc">產品訂購單下載</a></li>
-      <li><a href="<%= get_current_host_and_port %>/purchasing/XQ信用卡扣款同意書.doc">傳真刷卡單下載</a></li>
     </ul>
   </div>
   <!--link-box-->
+  <div class="link-box">
+    <h5 class="link-title">粉絲團</h5>
+    <ul class="link-text">
+      <li><a href="#">粉絲團</a></li>
+    </ul>
+  </div>
+  <!--link-box--> 
 </div>
 <!--link-->

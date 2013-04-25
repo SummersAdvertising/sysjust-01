@@ -1,10 +1,13 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<% if params[ :controller ] == 'static_pages' %>
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/<%= params[ :id ] %>.css">
+<% end %>
+
+
 <div id="header">
   <div id="header-inside">
     <h1><a href="<%= root_url %>"><img src="<%= get_current_host_and_port %>application/images/logo.png" title="XQ全球贏家"/></a></h1>
     <ul id="nav">
-      <li><a href="<%= root_url %>">回首頁</a></li>
-
-
       <% if params[:controller]=="static_pages" || params[:controller]=="experiences" %>
           <% if params[:action]=="traits" || params[:action]=="questions" || params[:action]=="online_demonstrations" || params[:action]=="download_dms" || params[:controller]=="experiences" %>
               <li class="active"><a href="<%= traits_url %>">產品特色</a></li>
@@ -28,9 +31,9 @@
       <% end %>
 
       <% if params[:controller]=="static_pages" && params[:action]=="download_contents" %>
-          <li class="active"><a href="<%= download_contents_url %>">下載專區</a></li>
+          <li class="active"><a href="<%= download_contents_url %>">下載區</a></li>
       <% else %>
-          <li><a href="<%= download_contents_url %>">下載專區</a></li>
+          <li><a href="<%= download_contents_url %>">下載區</a></li>
       <% end %>
 
       <% if params[:controller]=="static_pages" || params[:action]=="xqtrade" %>
@@ -48,7 +51,15 @@
       <% else %>
           <li><a href="<%= purchasing_url %>">我要購買</a></li>
       <% end %>
-
+      
+      <% if params[:controller]=="static_pages" && params[:id].to_s.split('-')[0] == "share" %>
+      	<li class="active"><a href="<%= page_path( "share-main" ) %>">專家分享</a></li>
+      <% else %>
+      	<li><a href="<%= page_path( "share-main" ) %>">專家分享</a></li>
+      <% end %>
+      
+      <li><a href="#">討論區</a></li>
+      
       <li><a href="http://www.facebook.com/pages/XQ%E5%85%A8%E7%90%83%E8%B4%8F%E5%AE%B6/178222061342" target="_blank">粉絲團</a></li>
     </ul>
     <!--nav-->
@@ -128,6 +139,10 @@
               <% end %>
             </ul>
         <% end %>
+   <% end %>
+
+   
+   <% if params[:controller]=="static_pages" || params[:action]=="show" %>
    <% end %>
 
   </div>
