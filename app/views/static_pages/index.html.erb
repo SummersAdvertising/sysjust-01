@@ -68,12 +68,12 @@ $(function(){
 	      <li><a href="<%= questions_url %>">常見問題</a></li>
         </ul>
       </li>
-      <li><a href="#">策略雷達</a>
+      <li><a href="<%= page_path( :id => 'radar-intro' ) %>">策略雷達</a>
         <ul class="child" id="child-2">
-          <li><a href="#">功能介紹</a></li>
-          <li><a href="#">影片教學</a></li>
-          <li><a href="#">討論區</a></li>
-          <li><a href="#">常見問題</a></li>
+          <li><a href="<%= page_path( :id => 'radar-intro' ) %>">功能介紹</a></li>
+          <li><a href="<%= category_path( :id => 1 ) %>">影片教學</a></li>
+          <li><a href="<%= posts_path %>">討論區</a></li>
+          <li><a href="<%= page_path( :id => 'radar-qa' ) %>">常見問題</a></li>
           <li><a href="#">函數搜尋</a></li>
         </ul>
       </li>
@@ -342,7 +342,7 @@ $(function(){
 	              —<%= course.session %>
 	              /<%= course.start_time.to_s( :date ) %>
                   <% if course.registration_quota - course.enrollments.count==0 %>
-                      （已額滿）
+                      <!--（已額滿）-->
                   <% end %>
 	            </a></li>          	
           <% end %>

@@ -2,8 +2,8 @@
 #main a:hover{text-decoration:underline}
 
 #content{padding:0}
-#content h3{color:#a72c07;font:300 17px "微軟正黑體";line-height:1.3em;padding:17px 0 0 0}
-#content h4{color:#a72c07;font:300 15px "Myriad Pro",微軟正黑體;line-height:1.3em;padding:0 0 10px 0;border-bottom:1px dashed #D3D3D3}
+#content h3{color:#a72c07;font:300 17px "Microsoft JhengHei";line-height:1.3em;padding:17px 0 0 0}
+#content h4{color:#a72c07;font:300 15px "Myriad Pro",Microsoft JhengHei;line-height:1.3em;padding:0 0 10px 0;border-bottom:1px dashed #D3D3D3}
 #content p{padding:10px 0 0 0}
 #content .spr{height:70px}
 

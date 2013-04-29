@@ -1,18 +1,6 @@
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
-<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
-<style>
-    #banner{background-image:url(<%= get_current_host_and_port %>application/images/banner-dl.jpg)}
-    h4{font-size:24px;color:#a72c07;padding:0 0 10px 0;border-bottom:1px dashed #D3D3D3}
-    #content{margin-top:50px}
-    #content table{margin:25px auto}
-    #content a:hover img{opacity:.8;filter:alpha(opacity=80)}
-    #content p{font-size:13px}
-	#content p a{font-size:13px;color:#363636}
-    h5{font-size:19px;color:#a72c07}
-</style>
-<%= render :partial => "shared/application_top" %><!--header-->
-<!--header-->
+<% @css_path = get_current_host_and_port + "application/css/download_contents.css" %>
+<%= render :partial => "shared/application_top" %>
+
 <div id="container">
   <div id="main">
     <div id="banner">
@@ -21,62 +9,73 @@
     </div>
     <!--banner-->
     <div id="content">
-      <h4 id="setup">XQ主程式</h4>
-      <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td width="50%"><a href="http://login.xq.com.tw/dassvr/installer/setup.exe" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dl-01.jpg" width="319" height="108" /></a></td>
-          <td width="50%"><a href="http://login.xq.com.tw/dassvr/installer/update.exe" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dl-02.jpg" width="319" height="108" /></a></td>
+          <td width="46%" align="left" valign="top"><h4>XQ主程式</h4>
+            <a href="http://login.xq.com.tw/dassvr/installer/setup.exe" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dl-01.jpg" width="319" height="108"></a><br />
+            <a href="http://login.xq.com.tw/dassvr/installer/update.exe" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dl-02.jpg" width="319" height="108" /></a><br />
+            <br />
+            <br /></td>
+          <td width="8%" align="left" valign="top">&nbsp;</td>
+          <td width="46%" align="left" valign="top"><h4>XQ+XS策略雷達主程式</h4>
+            <img src="<%= get_current_host_and_port %>application/images/dl-01.jpg" width="319" height="108" /></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top"><h4>XQ使用手冊</h4>
+            <p>XQ內建豐富系統看盤及分析頁面，多樣又實用的設計，滿足使用者即時或非即時的資訊使用，除此之外更提供最彈性、最強大的個人化看盤介面，由使用者自行規劃符合自己所需的頁面。詳細的內容讓您輕鬆學會如何使用XQ。</p>
+            <a href="http://www.xq.com.tw/aphelp/DAQ/default.htm" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dl-03.jpg" width="308" height="76" /></a><br />
+            <br />
+            <br />
+          </td>
+          <td align="left" valign="top">&nbsp;</td>
+          <td align="left" valign="top"><h4>XS策略雷達使用手冊</h4>
+            <p>XS策略雷達全新推出，提供豐富的技術指標供您自訂圖形指標，進階警示支援大量股票快速掃描、將您的投資邏輯一一實現，看盤做決策如您所願。詳細的內容讓您輕鬆開始操作XS策略雷達。<br />
+              <br />
+            </p>
+            <img src="<%= get_current_host_and_port %>application/images/dl-03.jpg" width="308" height="76" /><br />
+            <br /></td>
+        </tr>
+        <tr>
+          <td colspan="3" align="left" valign="top"><h4>XQ自設畫面檔案</h4>
+            <div id="custom">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+              <tr>
+                <td width="37%" rowspan="2" align="left" valign="top"><a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb-dl-04.jpg"><img src="<%= get_current_host_and_port %>application/images/dl-04.jpg" width="231" height="139" /></a></td>
+                <td width="63%" height="97" align="left" valign="top"><h5>外匯整合畫面</h5>
+                  透過自設畫面整合所有的外匯商品，同步的觀察各項商品即時走勢，與歷史趨勢圖以及相關的財經新聞。<br />
+                  <br /></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><a href="http://new.xq.com.tw/download_contents/file_01"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a><br />
+                  <br /></td>
+              </tr>
+              <tr>
+                <td width="37%" rowspan="2" align="left" valign="top"><a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb-dl-05.jpg"><img src="<%= get_current_host_and_port %>application/images/dl-05.jpg" width="232" height="139" /></a></td>
+                <td width="63%" height="97" align="left" valign="top"><h5>美股重要個股（對照台股相關）</h5>
+                  美國重要公司是世界上舉足輕重的跨國企業，透過系統觀察相關公司漲跌狀況，瞭解該公司對那些台灣相關企業會造成影響。 </td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><a href="http://new.xq.com.tw/download_contents/file_02"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a><br />
+                  <br /></td>
+              </tr>
+              <tr>
+                <td width="37%" rowspan="2" align="left" valign="top"><a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb-dl-06.jpg"><img src="<%= get_current_host_and_port %>application/images/dl-06.jpg" width="232" height="140" /></a></td>
+                <td width="63%" height="97" align="left" valign="top"><h5>中港台產業比較</h5>
+                  XQ內的細產業是掌握產業脈動變化的好工具，台、陸、港股彼此間影響與連動性越來越密切，透過XQ自設畫面同步觀察與比較，讓投資人的視野不在局限於台灣的市場。</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><a href="http://new.xq.com.tw/download_contents/file_03"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a></td>
+              </tr>
+            </table></div></td>
         </tr>
       </table>
-      <h4 id="manual">XQ使用手冊</h4>
-      <p> XQ內建豐富系統看盤及分析頁面，多樣又實用的設計，滿足使用者即時或非即時的資訊使用，除此之外更提供最彈性、最強大的個人化看盤介面，由使用者自行規劃符合自己所需的頁面。詳細的內容讓您輕鬆學會如何使用XQ。</p>
-      <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="100%" align="left"><a href="http://www.xq.com.tw/aphelp/DAQ/default.htm" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dl-03.jpg" width="308" height="76" /></a></td>
-        </tr>
-      </table>
-      <br>
-      <h4 id="file">XQ自設畫面檔案</h4>
-      <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="38%" rowspan="2"><img src="<%= get_current_host_and_port %>application/images/dl-04.jpg" width="231" height="139" /></td>
-          <td width="62%" height="97" valign="top"><h5>外匯整合畫面</h5>
-            透過自設畫面整合所有的外匯商品，同步的觀察各項商品即時走勢，與歷史趨勢圖以及相關的財經新聞。</td>
-        </tr>
-        <tr>
-          <td><a href="<%= download_contents_file_01_path %>" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a></td>
-        </tr>
-      </table>
-
-      <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="38%" rowspan="2"><img src="<%= get_current_host_and_port %>application/images/dl-05.jpg" width="232" height="139" /></td>
-          <td width="62%" height="97" valign="top"><h5>美股重要個股（對照台股相關）</h5>
-            美國重要公司是世界上舉足輕重的跨國企業，透過系統觀察相關公司漲跌狀況，瞭解該公司對那些台灣相關企業會造成影響。 </td>
-        </tr>
-        <tr>
-          <td><a href="<%= download_contents_file_02_path %>" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a></td>
-        </tr>
-      </table>
-
-      <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="38%" rowspan="2"><img src="<%= get_current_host_and_port %>application/images/dl-06.jpg" width="232" height="140" /></td>
-          <td width="62%" height="97" valign="top"><h5>中港台產業比較</h5>
-            XQ內的細產業是掌握產業脈動變化的好工具，台、陸、港股彼此間影響與連動性越來越密切，透過XQ自設畫面同步觀察與比較，讓投資人的視野不在局限於台灣的市場。</td>
-        </tr>
-        <tr>
-          <td><a href="<%= download_contents_file_03_path %>" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a></td>
-        </tr>
-      </table>
-
-      <p>如有任何使用上的問題，歡迎於上班時間來電0800-006-098免費客服專線，將有專人為您解說，或email至客服信箱：<a href="mailto:XQservice@XQ.com.tw" target="_blank">XQservice@XQ.com.tw</a> <br>
-        我們也將在最短時間內回覆給您，謝謝。</p>
-    </div>
-    <!--content-->
+    
   </div>
-  <!--main-->
-  <%= render :partial => "shared/application_footer" %>
-  <!--link-->
+</div>
+<!--main-->
+
+
+<%= render :partial => "shared/application_footer" %>
+<!--link-->
 </div>
 <!--container-->
