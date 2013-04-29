@@ -1,399 +1,374 @@
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css" />
-<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery-1.7.2.js"></script>
-<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
+<% @css_path = get_current_host_and_port + "application/css/online-demonstrations.css" %>
+<%= render :partial => "shared/application_top" %>
+
 <script>
-    $(document).ready(function(){
-        $(".iframe").colorbox({iframe:true, width:"780", height:"650"});
-        $("#click").click(function(){
-            $('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-            return false;
-        });
-    });
+$(document).ready(function(){
+	$(".iframe").colorbox({iframe:true, width:"910", height:"80%"});
+	$("#click").click(function(){ 
+		$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+		return false;
+	});
+});
 
-    $(function(){
-        // 預設顯示第一個 Tab
-        var _showTab = 0;
-        var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
-        $($defaultLi.find('a').attr('href')).siblings().hide();
-
-        // 當 li 頁籤被點擊時...
-        // 若要改成滑鼠移到 li 頁籤就切換時, 把 click 改成 mouseover
-        $('ul.tabs li').click(function() {
-            // 找出 li 中的超連結 href(#id)
-            var $this = $(this),
-                    _clickTab = $this.find('a').attr('href');
-            // 把目前點擊到的 li 頁籤加上 .active
-            // 並把兄弟元素中有 .active 的都移除 class
-            $this.addClass('active').siblings('.active').removeClass('active');
-            // 淡入相對應的內容並隱藏兄弟元素
-            $(_clickTab).stop(false, true).fadeIn().siblings().hide();
-
-            return false;
-        }).find('a').focus(function(){
-                    this.blur();
-                });
-    });
+$(function(){
+	var _showTab = 0;
+	var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
+	$($defaultLi.find('a').attr('href')).siblings().hide();
+	$('ul.tabs li').click(function() {
+		var $this = $(this),
+			_clickTab = $this.find('a').attr('href');
+		$this.addClass('active').siblings('.active').removeClass('active');
+		$(_clickTab).stop(false, true).fadeIn().siblings().hide();
+ 
+		return false;
+	}).find('a').focus(function(){
+		this.blur();
+	});
+});
 </script>
-<style>
-    #main{overflow:hidden}
-    #side{width:182px;text-align:right;padding-top:50px;background:url(<%= get_current_host_and_port %>application/images/left.jpg) right top no-repeat;min-height:381px}
-    #side li{padding-right:30px;margin:15px 0}
-    #side a{color:#000;font-size:15px}
-    #side .active a{color:#820000}
-    #side .active{background:url(<%= get_current_host_and_port %>application/images/vd-01.jpg) right center no-repeat;}
-    #content{margin:0;width:818px;padding:0;color:#000}
-    #content table{margin:0 0 50px 0}
-    #content span{color:#4b4b4b;font-size:13px}
-    .tab_content{padding:200px 70px 0 70px;}
-    #tab1{background:url(<%= get_current_host_and_port %>application/images/banner-ods-1.jpg) top left no-repeat}
-    #tab2{background:url(<%= get_current_host_and_port %>application/images/banner-ods-2.jpg) top left no-repeat}
-    #tab3{background:url(<%= get_current_host_and_port %>application/images/banner-ods-3.jpg) top left no-repeat}
-    h4{color:#a72c07;font:300 18px "微軟正黑體"}
-	#content table a:hover img{opacity:.85}
-	#cboxLoadedContent{margin-top:50px}
-</style>
-<%= render :partial => "shared/application_top" %><!--header-->
+
+<!--header-->
 <div id="container">
-<div id="main">
-<div id="side" class="left">
-  <ul class="tabs">
-    <li><a href="#tab1">資深投資人</a></li>
-    <li><a href="#tab2">法人操盤手</a></li>
-    <li><a href="#tab3">研究分析師</a></li>
-  </ul>
-</div>
-<!--side-->
-<div id="content" class="right">
-<div id="tab1" class="tab_content">
-  <p style="margin-bottom:50px">如果您是有深厚股市實戰經驗的投資老手，XQ 全球贏家強大的技術面與籌碼面分析能力，盤中買賣力道等多項獨家指標，指引市場多空氣勢，個人化彈性選股模式的靈活運用，讓您如魚得水，更增威力。</p>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-01.jpg"/></td>
-      <td colspan="2"><h4>個股主力進出剖析，明細呈現蛛絲馬跡</h4>
-        <span>片長/1:10　　檔案大小/4.75mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">券商動態盡收眼底，細膩觀察必能洞見獨家情勢</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/main/main_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/main/main.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-02.jpg"/></td>
-      <td colspan="2"><h4>三大法人買賣超排行，重點參考指標展示</h4>
-        <span>片長/0:44　　檔案大小/2.71mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">外資、投信、自營商買賣超個股排行，最多種的時間區段選擇，為業界之最。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/legal/legal_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/legal/legal.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-03.jpg"/></td>
-      <td colspan="2"><h4>台港中即時財經新聞，每天超過千則</h4>
-        <span>片長/0:55　　檔案大小/4.47mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">包括精實財經新聞、香港經濟日報、上海證券報、中央社等專業媒體一網打盡。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/hotnews/hotnews_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/hotnews/hotnews.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-04.jpg"/></td>
-      <td colspan="2"><h4>精密美觀技術分析，深刻展現圖形藝術</h4>
-        <span>片長/1:21　　檔案大小/2.48mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">多元技術線圖可設定顯示，絕妙配色與細膩畫質，讓您看圖更清晰，思路更明朗。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/tech/tech_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/tech/tech.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-05.jpg"/></td>
-      <td colspan="2"><h4>盤中篩選特色個股，搜尋標的快狠準</h4>
-        <span>片長/1:08　檔案大小/3.7mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">內建五十種選股報價類型，還可於盤中輕鬆勾選選<br />
-        股條件，黃金、死亡交叉等個股最新突破動態立即<br />
-        揭示。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/report/report_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/report/report.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-06.jpg"/></td>
-      <td colspan="2"><h4>相關商品一覽無遺，價差套利兩相宜</h4>
-        <span>片長/2:03　　檔案大小/1.9mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">即時瀏覽個股相關商品訊息，包括權證、特別股公司債等，讓您能夠採取多元策略，掌握獲利先機。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/relate/relate_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/relate/own.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-07.jpg"/></td>
-      <td colspan="2"><h4>技術作圖工具，迅速畫出精準線圖</h4>
-        <span>片長/1:26　　檔案大小/2.28mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">包括趨勢線、水平線、垂直線、平行線、黃金率、甘式角等繪圖工具，還有橡皮擦可輕鬆修改繪圖線條。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/draw/draw_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/draw/draw.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-08.jpg"/></td>
-      <td colspan="2"><h4>獨家短線法寶，熱門訊號立即報告</h4>
-        <span>片長/1:51　　檔案大小/7.53mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">協助使用者精準掌握盤中價量異常波動之個股，讓使用者進一步透過其他決策參考工具，找出短線可能有較大幅度波動的股票。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/short/short_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/short/short.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
+  <div id="main">
+    <div id="side" class="left">
+      <ul class="tabs">
+        <li><a href="#tab1">資深投資人</a></li>
+        <li><a href="#tab2">法人操盤手</a></li>
+        <li><a href="#tab3">研究分析師</a></li>
+      </ul>
+    </div>
+    <!--side-->
+    
+    <div id="content" class="right">
+      <div id="tab1" class="tab_content">
+      <p style="margin-bottom:50px">如果您是有深厚股市實戰經驗的投資老手，XQ 全球贏家強大的技術面與籌碼面分析能力，盤中買賣力道等多項獨家指標，指引市場多空氣勢，個人化彈性選股模式的靈活運用，讓您如魚得水，更增威力。</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-01.jpg"/></td>
+    <td colspan="2"><h4>個股主力進出剖析，明細呈現蛛絲馬跡</h4>
+    <span>片長/1:10　　檔案大小/4.75mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">券商動態盡收眼底，細膩觀察必能洞見獨家情勢</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-02.jpg"/></td>
+    <td colspan="2"><h4>三大法人買賣超排行，重點參考指標展示</h4>
+    <span>片長/0:44　　檔案大小/2.71mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">外資、投信、自營商買賣超個股排行，最多種的時間區段選擇，為業界之最。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-03.jpg"/></td>
+    <td colspan="2"><h4>台港中即時財經新聞，每天超過千則</h4>
+    <span>片長/0:55　　檔案大小/4.47mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">包括精實財經新聞、香港經濟日報、上海證券報、中央社等專業媒體一網打盡。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-04.jpg"/></td>
+    <td colspan="2"><h4>精密美觀技術分析，深刻展現圖形藝術</h4>
+    <span>片長/1:21　　檔案大小/2.48mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">多元技術線圖可設定顯示，絕妙配色與細膩畫質，讓您看圖更清晰，思路更明朗。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-05.jpg"/></td>
+    <td colspan="2"><h4>盤中篩選特色個股，搜尋標的快狠準</h4>
+    <span>片長/1:08　檔案大小/3.7mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">內建五十種選股報價類型，還可於盤中輕鬆勾選選<br />
+      股條件，黃金、死亡交叉等個股最新突破動態立即<br />
+      揭示。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-06.jpg"/></td>
+    <td colspan="2"><h4>相關商品一覽無遺，價差套利兩相宜</h4>
+    <span>片長/2:03　　檔案大小/1.9mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">即時瀏覽個股相關商品訊息，包括權證、特別股公司債等，讓您能夠採取多元策略，掌握獲利先機。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-07.jpg"/></td>
+    <td colspan="2"><h4>技術作圖工具，迅速畫出精準線圖</h4>
+    <span>片長/1:26　　檔案大小/2.28mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">包括趨勢線、水平線、垂直線、平行線、黃金率、甘式角等繪圖工具，還有橡皮擦可輕鬆修改繪圖線條。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-08.jpg"/></td>
+    <td colspan="2"><h4>獨家短線法寶，熱門訊號立即報告</h4>
+    <span>片長/1:51　　檔案大小/7.53mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">協助使用者精準掌握盤中價量異常波動之個股，讓使用者進一步透過其他決策參考工具，找出短線可能有較大幅度波動的股票。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
 
-</div>
-<!--tab1-->
-<div id="tab2" class="tab_content">
-  <p style="margin-bottom:50px">如果您是日理萬券，眼觀四面耳聽八方的操盤手，XQ全球贏家能幫助您洞悉市場變化，讓您睥睨群雄，快、狠、準地挑出最佳標的，一舉擊敗大盤，展現最佳績效。</p>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-09.jpg"/></td>
-      <td colspan="2"><h4>超過100種細產業指標，XQ獨家揭露</h4>
-        <span>片長/0:50　　檔案大小/4.84mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">比8類股、19類股更精準，超過100種細產業指標，更具參考與比較標準，立刻掌握趨勢。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/index/index_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/index/index.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-10.jpg"/></td>
-      <td colspan="2"><h4>參考商品完整呈現，股價連動不遺漏</h4>
-        <span>片長/0:50　　檔案大小/2.96mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">藉由檢視個股的參考互動公司如競爭者、上游廠商、國內外主要客戶股價，看出股價是否連動。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/refer/refer_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/refer/refer.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-11.jpg"/></td>
-      <td colspan="2"><h4>自設選股條件，勝利方程式掌握在己</h4>
-        <span>片長/2:03　　檔案大小/6.67mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">由市場面、基本面、技術面、籌碼面與財務面建立個人選股哲學，尋找標的輕鬆無比。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/own/own_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/own/own.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-12.jpg"/></td>
-      <td colspan="2"><h4>中港台知名企業，產業地位全揭示</h4>
-        <span>片長/0:44　　檔案大小/3.07mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">兩岸三地個股產業地位精要揭示，市佔率、產能、營運內容等關鍵資訊，利用一句話讓您立刻明瞭。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/position/position_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/position/position.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-13.jpg"/></td>
-      <td colspan="2"><h4>同一報價組合中，竟有各式金融商品</h4>
-        <span>片長/0:55　檔案大小/4.52mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">台股、期權、外匯、債券、貴金屬、認股權證、中港日韓歐美知名個股、DR‧‧‧均可加入同一報價組合，威力無窮。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/port/port_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/port/port.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-14.jpg"/></td>
-      <td colspan="2"><h4>獨家各式商品組合，主題式報價瀏覽</h4>
-        <span>片長/2:03　　檔案大小/1.9mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">在報價組合中，您可自由選擇多樣系統提供之商品組合類型例如概念股、集團股、看盤應用分類...等，每項均內建多個實用報價組合以供參考，並持續更新。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/various/various_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/various/various.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-</div>
-<!--tab2-->
-<div id="tab3" class="tab_content">
-  <p style="margin-bottom:50px">如果您是深入剖析總體經濟指標、國際金融情勢變化、產業導向分析的研究人員，XQ全球贏家強大的財經資訊功能特色，必定能讓您事半功倍，不用再鎮日埋首書報堆毫無頭緒。</p>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-15.jpg"/></td>
-      <td colspan="2"><h4>美中台英德法，總經指標全方位鎖定</h4>
-        <span>片長/1:32　　檔案大小/7.06mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">提供完整的台灣、中國及美國的總體經濟指標分析及評論，以及十項指標長期走勢追蹤。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/indicator/indicator_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/indicator/indicator.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-16.jpg"/></td>
-      <td colspan="2"><h4>圖解產業結構， 相關互動一目瞭然</h4>
-        <span>片長/0:54　　檔案大小/2.82mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">簡易清楚的關聯圖解釋產業整體結構，輕鬆了解產業上下游互動關係與成本分配數據。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/industry/industry_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/industry/industry.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-17.jpg"/></td>
-      <td colspan="2"><h4>歷史新聞資料庫，全方位搜尋對照</h4>
-        <span>片長/1:22　　檔案大小/4.03mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">強大的檢索功能可依關鍵字與時間區間搜尋個股六年間歷史新聞資料，還可對照技術線圖顯示</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/news/news_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/news/news.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-18.jpg"/></td>
-      <td colspan="2"><h4>原物料行情揭示，產業多空每日監看</h4>
-        <span>片長/0:55　　檔案大小/4.92mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">國內上百種原物料價格，以產業別清楚分類，配合長期走勢圖顯示，掌握原物料行情，才能領先探知產業脈動。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/raw/raw_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/raw/raw.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-19.jpg"/></td>
-      <td colspan="2"><h4>全球重要商品行情揭示，長期投資重要參考</h4>
-        <span>片長/0:48　檔案大小/3.00mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">全球重要商品行情包括能源、軟性商品、一般金屬與貴金屬、航運類、橡膠類等的各種關鍵商品，如布蘭特原油、波羅的海指數等最新收盤價、漲跌幅等，以及長期走勢。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/merchandise/merchandise_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/merchandise/merchandise.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-20.jpg"/></td>
-      <td colspan="2"><h4>國際金融與股市行情，全球動態一手掌握</h4>
-        <span>片長/1:13　　檔案大小/2.94mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">華人關注的國際股市即時走勢與報價，還有重要匯率、貴金屬即時報價，還可檢視商品盤勢與技術線型。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/exchange/exchange_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/exchange/exchange.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-21.jpg"/></td>
-      <td colspan="2"><h4>個股營運結構全揭示，公司互動說分明</h4>
-        <span>片長/0:57　　檔案大小/3.76mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">營運結構圖示個股上下游，並列出客戶與供應商比重；公司互動表列與個股密切互動之公司，除了上下游與競爭者，還包括轉投資、被投資與策略聯盟等個股。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/operate/operate_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/operate/operate.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-22.jpg"/></td>
-      <td colspan="2"><h4>關鍵報告資訊，報導評論最客觀</h4>
-        <span>片長/1:29　　檔案大小/5.04mb</span></td>
-    </tr>
-    <tr>
-      <td height="75" colspan="2">提供了獨家台灣與大陸各區域原物料最新報價、熱門產業與焦點個股的報導評論，統整國際知名媒體與研究機構報導，更具參考價值。</td>
-    </tr>
-    <tr>
-      <td width="24%"><a class='iframe' href="http://www.xq.com.tw/daqsite/demo/key/key_view.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></a></td>
-      <td width="32%"><a href="http://www.xq.com.tw/daqsite/demo/key/key.exe"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></a></td>
-    </tr>
-  </table>
-</div>
-<!--tab3-->
-</div>
-<!--content-->
-
-</div>
-<!--main-->
+      </div>
+      <!--tab1-->
+      <div id="tab2" class="tab_content"> 
+      <p style="margin-bottom:50px">如果您是日理萬券，眼觀四面耳聽八方的操盤手，XQ全球贏家能幫助您洞悉市場變化，讓您睥睨群雄，快、狠、準地挑出最佳標的，一舉擊敗大盤，展現最佳績效。</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-09.jpg"/></td>
+    <td colspan="2"><h4>超過100種細產業指標，XQ獨家揭露</h4>
+    <span>片長/0:50　　檔案大小/4.84mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">比8類股、19類股更精準，超過100種細產業指標，更具參考與比較標準，立刻掌握趨勢。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-10.jpg"/></td>
+    <td colspan="2"><h4>參考商品完整呈現，股價連動不遺漏</h4>
+    <span>片長/0:50　　檔案大小/2.96mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">藉由檢視個股的參考互動公司如競爭者、上游廠商、國內外主要客戶股價，看出股價是否連動。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-11.jpg"/></td>
+    <td colspan="2"><h4>自設選股條件，勝利方程式掌握在己</h4>
+    <span>片長/2:03　　檔案大小/6.67mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">由市場面、基本面、技術面、籌碼面與財務面建立個人選股哲學，尋找標的輕鬆無比。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-12.jpg"/></td>
+    <td colspan="2"><h4>中港台知名企業，產業地位全揭示</h4>
+    <span>片長/0:44　　檔案大小/3.07mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">兩岸三地個股產業地位精要揭示，市佔率、產能、營運內容等關鍵資訊，利用一句話讓您立刻明瞭。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-13.jpg"/></td>
+    <td colspan="2"><h4>同一報價組合中，竟有各式金融商品</h4>
+    <span>片長/0:55　檔案大小/4.52mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">台股、期權、外匯、債券、貴金屬、認股權證、中港日韓歐美知名個股、DR‧‧‧均可加入同一報價組合，威力無窮。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-14.jpg"/></td>
+    <td colspan="2"><h4>獨家各式商品組合，主題式報價瀏覽</h4>
+    <span>片長/2:03　　檔案大小/1.9mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">在報價組合中，您可自由選擇多樣系統提供之商品組合類型例如概念股、集團股、看盤應用分類...等，每項均內建多個實用報價組合以供參考，並持續更新。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+      </div>
+      <!--tab2-->
+      <div id="tab3" class="tab_content"> 
+      <p style="margin-bottom:50px">如果您是深入剖析總體經濟指標、國際金融情勢變化、產業導向分析的研究人員，XQ全球贏家強大的財經資訊功能特色，必定能讓您事半功倍，不用再鎮日埋首書報堆毫無頭緒。</p>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-15.jpg"/></td>
+    <td colspan="2"><h4>美中台英德法，總經指標全方位鎖定</h4>
+    <span>片長/1:32　　檔案大小/7.06mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">提供完整的台灣、中國及美國的總體經濟指標分析及評論，以及十項指標長期走勢追蹤。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-16.jpg"/></td>
+    <td colspan="2"><h4>圖解產業結構， 相關互動一目瞭然</h4>
+    <span>片長/0:54　　檔案大小/2.82mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">簡易清楚的關聯圖解釋產業整體結構，輕鬆了解產業上下游互動關係與成本分配數據。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-17.jpg"/></td>
+    <td colspan="2"><h4>歷史新聞資料庫，全方位搜尋對照</h4>
+    <span>片長/1:22　　檔案大小/4.03mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">強大的檢索功能可依關鍵字與時間區間搜尋個股六年間歷史新聞資料，還可對照技術線圖顯示</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-18.jpg"/></td>
+    <td colspan="2"><h4>原物料行情揭示，產業多空每日監看</h4>
+    <span>片長/0:55　　檔案大小/4.92mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">國內上百種原物料價格，以產業別清楚分類，配合長期走勢圖顯示，掌握原物料行情，才能領先探知產業脈動。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-19.jpg"/></td>
+    <td colspan="2"><h4>全球重要商品行情揭示，長期投資重要參考</h4>
+    <span>片長/0:48　檔案大小/3.00mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">全球重要商品行情包括能源、軟性商品、一般金屬與貴金屬、航運類、橡膠類等的各種關鍵商品，如布蘭特原油、波羅的海指數等最新收盤價、漲跌幅等，以及長期走勢。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-20.jpg"/></td>
+    <td colspan="2"><h4>國際金融與股市行情，全球動態一手掌握</h4>
+    <span>片長/1:13　　檔案大小/2.94mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">華人關注的國際股市即時走勢與報價，還有重要匯率、貴金屬即時報價，還可檢視商品盤勢與技術線型。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-21.jpg"/></td>
+    <td colspan="2"><h4>個股營運結構全揭示，公司互動說分明</h4>
+    <span>片長/0:57　　檔案大小/3.76mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">營運結構圖示個股上下游，並列出客戶與供應商比重；公司互動表列與個股密切互動之公司，除了上下游與競爭者，還包括轉投資、被投資與策略聯盟等個股。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="44%" rowspan="3" align="left" valign="middle"><img src="<%= get_current_host_and_port %>application/images/ods-22.jpg"/></td>
+    <td colspan="2"><h4>關鍵報告資訊，報導評論最客觀</h4>
+    <span>片長/1:29　　檔案大小/5.04mb</span></td>
+  </tr>
+  <tr>
+    <td height="75" colspan="2">提供了獨家台灣與大陸各區域原物料最新報價、熱門產業與焦點個股的報導評論，統整國際知名媒體與研究機構報導，更具參考價值。</td>
+  </tr>
+  <tr>
+    <td width="24%"><img src="<%= get_current_host_and_port %>application/images/vd-02.jpg" width="147" height="41" /></td>
+    <td width="32%"><img src="<%= get_current_host_and_port %>application/images/vd-03.jpg" width="147" height="41" /></td>
+  </tr>
+</table>
+      </div>
+      <!--tab3--> 
+    </div>
+    <!--content--> 
+    
+  </div>
+  <!--main-->
+  
 <%= render :partial => "shared/application_footer" %>
 <!--link-->
 </div>

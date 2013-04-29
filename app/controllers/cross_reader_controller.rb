@@ -5,8 +5,8 @@ class CrossReaderController < ApplicationController
 		url = ""
 	
 		case params[ :id ]			
-			when 'share-main'
-				url = "http://203.67.19.84/KMDJ/REST/Blog.svc/31/last/5"
+			when 'month-writing'
+				url = "http://203.67.19.84/KMDJ/REST/Blog.svc/31/list/month/#{params[:year]}/#{params[:month]}"
 			else
 		end
 		

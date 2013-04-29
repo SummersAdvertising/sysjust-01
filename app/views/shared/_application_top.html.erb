@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
-<% if params[ :controller ] == 'static_pages' %>
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/<%= params[ :id ] %>.css">
+<% if !@css_path.nil? %>
+<link rel="stylesheet" href="<%= @css_path %>">
 <% end %>
 
 
@@ -17,13 +17,25 @@
       <% else %>
           <li><a href="<%= traits_url %>">產品特色</a></li>
       <% end %>
+      
+        <li <%= 'class="active"'.html_safe if (params[ :controller ] == "static_pages" && params[:id].to_s.split('-')[0] == "radar") || params[ :controller ] == "posts"  %>><a href="<%= page_path( :id => 'radar-intro' ) %>">策略雷達</a></li>
+
+      <% if params[:controller]=="static_pages" || params[:action]=="xqtrade" %>
+          <% if params[:action]=="xqtrade" || params[:action]=="xqtrade_ca" || params[:action]=="xqtrade_faq" || params[:action]=="xqtrade_manual" || params[:action]=="xqtrade_service" || params[:action]=="xqtrade_partner" %>
+              <li class="active"><a href="<%= xqtrade_url %>">交易區</a></li>
+          <% else %>
+              <li><a href="<%= xqtrade_url %>">交易區</a></li>
+          <% end %>
+      <% else %>
+          <li><a href="<%= xqtrade_url %>">交易區</a></li>
+      <% end %>
 
       <% if params[:controller]=="courses" %>
           <li class="active"><a href="<%= courses_url %>">實務課程</a></li>
       <% else %>
           <li><a href="<%= courses_url %>">實務課程</a></li>
       <% end %>
-
+      
       <% if params[:controller]=="categories" %>
           <li class="active"><a href="<%= category_url(Category.first) if Category.first%>">實機教學</a></li>
       <% else %>
@@ -36,30 +48,18 @@
           <li><a href="<%= download_contents_url %>">下載區</a></li>
       <% end %>
 
-      <% if params[:controller]=="static_pages" || params[:action]=="xqtrade" %>
-          <% if params[:action]=="xqtrade" || params[:action]=="xqtrade_ca" || params[:action]=="xqtrade_faq" || params[:action]=="xqtrade_manual" || params[:action]=="xqtrade_service" || params[:action]=="xqtrade_partner" %>
-              <li class="active"><a href="<%= xqtrade_url %>">交易專區</a></li>
-          <% else %>
-              <li><a href="<%= xqtrade_url %>">交易專區</a></li>
-          <% end %>
-      <% else %>
-          <li><a href="<%= xqtrade_url %>">交易專區</a></li>
-      <% end %>
-
       <% if params[:controller]=="static_pages" && params[:action]=="purchasing" %>
           <li class="active"><a href="<%= purchasing_url %>">我要購買</a></li>
       <% else %>
           <li><a href="<%= purchasing_url %>">我要購買</a></li>
       <% end %>
       
-      <% if params[:controller]=="static_pages" && params[:id].to_s.split('-')[0] == "share" %>
-      	<li class="active"><a href="<%= page_path( "share-main" ) %>">專家分享</a></li>
+      <% if params[:controller]=="writings" %>
+      	<li class="active"><a href="<%= writings_path %>">專家分享</a></li>
       <% else %>
-      	<li><a href="<%= page_path( "share-main" ) %>">專家分享</a></li>
+      	<li><a href="<%= writings_path %>">專家分享</a></li>
       <% end %>
-      
-      <li><a href="#">討論區</a></li>
-      
+            
       <li><a href="http://www.facebook.com/pages/XQ%E5%85%A8%E7%90%83%E8%B4%8F%E5%AE%B6/178222061342" target="_blank">粉絲團</a></li>
     </ul>
     <!--nav-->
@@ -140,9 +140,15 @@
             </ul>
         <% end %>
    <% end %>
-
    
-   <% if params[:controller]=="static_pages" || params[:action]=="show" %>
+   <% if (params[:controller]=="static_pages" && params[:id].to_s.split('-')[0] == "radar") || params[ :controller ] == "posts" %>
+    <ul id="nav-child">
+          <li <%= 'class="active"'.html_safe if params[:id]=="radar-intro" %>><a href="<%= page_path( :id => "radar-intro" ) %>">功能介紹</a></li>
+          <li><a href="<%= category_path( :id => 1 ) %>">影片教學</a></li>
+          <li <%= 'class="active"'.html_safe if params[:controller]=="posts" %>><a href="<%= posts_path %>">討論區</a></li>
+          <li <%= 'class="active"'.html_safe if params[:id]=="radar-qa" %>><a href="<%= page_path( :id => "radar-qa" ) %>">常見問題</a></li>
+          <li><a href="#">函數搜尋</a></li>   
+    </ul>
    <% end %>
 
   </div>

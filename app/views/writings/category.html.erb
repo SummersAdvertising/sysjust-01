@@ -1,0 +1,38 @@
+<% @css_path = get_current_host_and_port + "application/css/writing-category.css" %>
+<%= render :partial => "shared/application_top" %>
+
+<div id="container">
+  <div id="main">
+    <div id="content">
+      <h3>分類：<%= @category["classname"] %></h3>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th width="23%" align="left" valign="middle">發表日期</th>
+          <th width="77%" align="left" valign="middle">文章標題</th>
+        </tr>
+        <% @writings.each do | writing | %>	        
+	        <tr>
+	          <td align="left" valign="middle"><%= Time.parse(writing["date"]).to_date %></td>
+	          <td align="left" valign="middle"><a href="<%= writing_path( :id => writing["id"] ) %>"><%= writing["title"] %></a></td>
+	        </tr>
+        <% end %>
+      </table>
+      <div id="pages">
+        <ul>
+        <% (1..@list["totalPages"]).each do | i | %>        
+          <li <%= 'class="active"'.html_safe if i == params[ :page ].to_i %>><a href="<%= category_writing_path( :id => params[ :id ], :page => i ) %>"><%= i %></a></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+    <!--content-->
+    <%= render :partial => "aside" %>
+  </div>
+  <!--main-->
+  
+  <%= render :partial => "shared/application_footer" %>
+  
+  </div>
+<!--container-->
+</body>
+</html>

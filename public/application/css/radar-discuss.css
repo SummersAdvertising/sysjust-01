@@ -1,0 +1,19 @@
+#main{background:url(../images/banner-rd2.jpg) 0 0 no-repeat #fff;overflow:hidden;padding:200px 10px 50px 10px;overflow:hidden}
+#main a:hover{text-decoration:underline}
+
+#content{padding:0;color:#555;font-size:13px}
+#content a{color:#333;font-size:13px}
+#content em{color:#aa3600}
+#content th{height:37px;background:url(../images/rd-th.jpg) 0 0 repeat-x #BB4007;color:#fff;font:300 18px "微軟正黑體"}
+#content td{border-right:1px solid #CDCBCA;padding:15px 0}
+#content table{border-left:1px solid #CDCBCA;border-bottom:1px solid #CDCBCA}
+#content tr:nth-child(2n-1) {background:#FFFBE9}
+#content .tbl{padding:0 0 0 20px}
+#content span{font:300 11px "微軟正黑體";color:#a6a6a6}
+
+/*---頁碼---*/
+#pages{text-align:center;width:100%;margin:20px 0}
+#pages li{display:inline}
+#pages a{display:inline-block;width:29px;height:24px;margin:0 2.5px;padding:5px 0 0 0;font:300 15px "verdana";border:1px solid #D1D1D1;color:#aa3600}
+#pages a:hover{background:#FFF1DA;border:1px solid #F4A47E;text-decoration:none}
+#pages .active a{;background:#6F6F6F;border:1px solid #6F6F6F;color:#fff}

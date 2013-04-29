@@ -29,4 +29,34 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     admin_news_updates_path
   end
+  
+ 
+  	def check_and_parse_str( url )
+	
+		data_str = read_remote( url )
+		
+		data = ActiveSupport::JSON.decode(data_str)
+	
+		if data_str.nil? || data_str.length <= 0 || data.nil?
+			respond_to do | format |
+				format.html{ redirect_to root_url }
+			end
+		end
+		
+		return data
+		
+	end
+
+	def read_remote( url )
+	   	
+		begin
+	   		data_str = open(url).read
+	   	rescue
+	   		return nil
+	   	else	   			   		
+	   		return data_str
+	   	end
+	   	
+	end
+  
 end

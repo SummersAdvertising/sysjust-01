@@ -1,0 +1,41 @@
+<% @css_path = get_current_host_and_port + "application/css/writing-index.css" %>
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/share-main.css">
+<%= render :partial => "shared/application_top" %>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'zh-TW'}
+</script>
+
+
+
+<div id="container">
+  <div id="main">
+    <div id="content">   	
+    
+   <% @writings.each do | writing | %>
+			<div class="article">
+				 <div class="article-title"> <span><a href="{SHARE_CATEGORY_LINK}"><%= writing["classname"] %></a>｜<%= writing["date"] %></span>
+					<h3><%= writing["title"] %></h3>
+					<div class="social"> 
+						<iframe src="//www.facebook.com/plugins/like.php?href=<%=u writing["url"]%>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=433197170080910" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:71px; height:21px;" allowTransparency="true"></iframe>
+						<g:plusone size="medium" href="<%=u writing["url"]%>"></g:plusone>
+					</div><!-- social -->
+				</div>
+				<div class="article-content">
+					<p><%= writing["abstract"] %><a href="<%= writing_path( :id => writing["id"] ) %>">(繼續閱讀)</a></p>
+				</div>
+			</div>
+	<% end %>
+			
+  </div>
+    <!--content-->
+    
+    <%= render :partial => "aside" %>
+    
+  </div>
+  <!--main-->
+  
+  <%= render :partial => "shared/application_footer" %>
+  
+</div>

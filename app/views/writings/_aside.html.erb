@@ -1,0 +1,148 @@
+<div id="aside">
+      <div id="category">
+        <h4>【文章分類】</h4>
+        <ul>
+        <% @categories.each do | category | %>        	
+          <li><a href="<%= category_writing_path( :id => category['classno'] ) %>"><%= "#{category['classname']}(#{category['count']})" %></a></li>
+        <% end %>
+        </ul>
+      </div>
+      <!--category-->
+      <div id="publish">
+      	<div id="month-article-template" style="display:none;"><li><a href="{WRITING_LINK}">{WRITING_TITLE}</a></li></div>
+        <h4>【文章張貼】</h4>
+        <ol>
+        
+        <% # predefines
+        
+        	current_year = nil
+        	change_flag = false
+        	counter = 0
+        %>
+        
+<% @summery.each do | block | %>
+		
+	<% if current_year != block["year"] 	
+		current_year = block["year"]    
+		change_flag = true		
+	%>        				
+		<li><a href="#"><img src="<%= get_current_host_and_port %>application/images/share-p2.gif"><%= block["year"] %> 
+		<span id="year_<%= current_year %>_num"></span></a>
+        	<ol>        
+	<% end %>
+	
+	<% counter += block["count"] %>
+		<li><a class="month-title" data-year="<%= current_year %>" data-month="<%= block["month"] %>" href="javascript: void(0);" ><img src="<%= get_current_host_and_port %>application/images/share-p2.gif"><%= t("date.month_names")[block["month"]] %> (<%= block["count"] %>)</a>
+			<ol class="month-articles"></ol>			
+			
+		</li>				
+	<% if change_flag %>	
+        	</ol>
+		</li>
+		<script type="text/javascript">
+			// 好吧，鳥事都在這邊做吧
+			$('#year_<%= current_year %>_num').html('(' + <%= counter %> + ')');
+		</script>
+    <%    
+		counter = 0
+	%>
+    <% end %>
+    	
+        <% end %>
+        	<!--
+          <li><a href="#"><img src="images/share-p2.gif">2013 (43)</a>
+            <ol>
+              <li><a href="#"><img src="images/share-p2.gif">四月 (8)</a>
+                <ol>
+                  <li><a href="#">【勞退基金台股 600億活水來了】美國本周重要經濟數據預覽</a></li>
+                  <li><a href="#">【2013年報稅注意- 6大新措施】申報放寬扶養 小額退稅 特別扣除額</a></li>
+                  <li><a href="#">小媽精選1020413-0415基金資訊</a></li>
+                  <li><a href="#">春電展周三登場 3C大廠優惠齊殺</a></li>
+                  <li><a href="#">風蕭蕭兮~~台股8000不復還</a></li>
+                  <li><a href="#">行庫限貸可壓桃園炒風嗎？中古屋交易是關鍵</a></li>
+                  <li><a href="#">04.12 季線月線反壓在上。/歐斯麥</a></li>
+                  <li><a href="#">投資行事曆 / Mr.X艾克斯</a></li>
+                </ol>
+                <a href="#"><img src="images/share-p1.gif">三月 (10)</a></li>
+              <li><a href="#"><img src="images/share-p1.gif">二月 (12)</a></li>
+              <li><a href="#"><img src="images/share-p1.gif">一月 (13)</a></li>
+            </ol>
+          </li>
+          -->
+        </ol>
+      </div>
+      <!--publish--> 
+    </div>
+    <!--aside--> 
+    
+    
+ <script type="text/javascript">
+ // 好吧開工
+
+function assign_vars( template, data_ary ) {	
+
+	var replace_ary = [];
+
+	// 取代標的
+	for( var i in data_ary ) {
+		var article = template;
+		var set = data_ary[i];
+		
+		for( var col in set ) {
+			article = article.replace('{' + col + '}', set[col])
+		}
+		
+		replace_ary.push(article);
+		
+	}		
+	
+	return replace_ary;
+}
+
+$('.month-title').click(function() {
+
+	var container = $(this).parent().children('.month-articles');
+
+	if ( container.children().length > 0 ) {
+		container.toggle();
+		return;
+	}
+
+	$.ajax(
+	{ 
+		url: "<%= cross_reader_path( :id => 'month-writing' ) + '.json' %>", 
+		dataType: 'json',
+		data: { year: $(this).data('year'), month: $(this).data('month') },
+		success: function(data) {
+				
+			// 這裡放樣板初始化
+			var template = $('#month-article-template').html();
+			var data_ary = [];
+	
+			for( var i in data ) {
+				var set = data[i];
+				
+				// 設定資料
+				var assign_ary = {
+					'WRITING_TITLE'				: set.title,
+					'WRITING_LINK'				: "<%= writings_path %>/" + set.id,
+				}
+				
+				data_ary.push( assign_ary );
+			}
+			
+			
+			var obj_ary = assign_vars( template, data_ary );		
+			
+			for( var i in obj_ary ) {
+				var article = obj_ary[i];			
+				$(article).appendTo(container);
+			}		
+		
+		}	
+	});
+});
+
+ 
+ 
+ </script>

@@ -1,0 +1,10 @@
+#main{background:url(../images/banner-rd3.jpg) 0 0 no-repeat #fff;overflow:hidden;padding:200px 30px 50px 50px;overflow:hidden}
+#main a:hover{text-decoration:underline}
+
+#content a{color:#777;font-size:13px}
+#content{padding:0px 40px 40px 30px}
+#content .list-box{border-bottom:1px dashed #d3d3d3}
+#content .list-title{margin:10px 0;background:url(../images/q.jpg) left center no-repeat;padding:3px 0 0 35px}
+#content .list-title a{font-size:16px;color:#a72c07}
+#content .list-title span{color:#8e8e8e;}
+#content .list-text{margin:0 0 10px 35px;background:#f3f3f3;padding:10px;display:none;}

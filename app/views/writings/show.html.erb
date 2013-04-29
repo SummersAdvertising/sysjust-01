@@ -1,0 +1,49 @@
+<% @css_path = get_current_host_and_port + "application/css/writing-show.css" %>
+<%= render :partial => "shared/application_top" %>
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {lang: 'zh-TW'}
+</script>
+<div id="container">
+  <div id="main">
+    <div id="content">
+      <div class="article">
+        <div class="article-title">
+          <h3><%= @writing["title"] %></h3>
+        <div class="social" id="social-up"> <span><%= @writing["date"] %></span>
+        
+        <iframe src="//www.facebook.com/plugins/like.php?href=<%=u @writing["url"]%>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=433197170080910" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:71px; height:21px;" allowTransparency="true"></iframe>
+        
+        <g:plusone size="medium" href="<%=u @writing["url"]%>"></g:plusone>
+        
+        </div>
+        </div>
+        <!--article-title-->
+        <div class="article-content"><%= @writing["body"].html_safe %></div><!--article-content-->
+          <div class="article-footer">
+        <div class="social" id="social-down"> 
+        <a href="#"><img src="images/fb.gif"/></a>
+        <g:plusone size="medium" href="<%=u @writing["url"]%>"></g:plusone> <a href="<%= writings_path %>" id="back">&lt;上一頁</a></div>
+        <p>文章分類：<a href="<%= category_writing_path( :id => @writing["classno"] ) %>"><%= @writing["classname"]%></a></p>
+        <ul>
+        <li>同類型文章推薦</li>
+        <% @category_writings.each do | writing | %> 
+        <% next if writing["id"] == @writing["id"] %>
+        <li><%= link_to writing["title"], writing_path( :id => writing["id"] ) %></li>
+        <% end %>
+        </ul>
+        </div><!--article-footer-->
+      </div>
+      <!--article--> 
+    </div>
+    <!--content-->
+    <%= render :partial => "aside" %>
+  </div>
+  <!--main-->
+  
+  <%= render :partial => "shared/application_footer" %>
+</div>
+<!--container-->
+</body>
+</html>

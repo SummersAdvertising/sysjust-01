@@ -33,6 +33,13 @@ TestDevise::Application.routes.draw do
   match "page/:id" => "static_pages#show"
   
   resources :page
+  resources :posts
+  
+  resources :writings do
+  	member do 
+  		get "category"
+  	end
+  end
 
   devise_for :users, :path_prefix => 'admin', :controllers => {:registrations => 'registrations'}
   resources :users

@@ -1,19 +1,7 @@
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
-<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
-<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-<style>
-    #banner {background-image: url(<%= get_current_host_and_port %>application/images/banner-pch.jpg)}
-    #content {overflow: hidden;font-size: 16px}
-    #content .left {width: 67%}
-    #content .right {width: 33%;text-align: right;padding:40px 0 0 0}
-    #content .right img:hover {opacity: .8;filter: alpha(opacity=80)}
-    .box {border: 1px solid #EAEAEA;border-radius: 5px;padding: 40px 0 20px 10px;position: relative;}
-    .box img {position: absolute;top: -2px;left: 15px}
-    #content span {color: #900000}
-    #content table{margin-bottom:60px}
-    #content p{color:#5e5e5e;font-size:14px}
-</style>
-<%= render :partial => "shared/application_top" %><!--header-->
+<% @css_path = get_current_host_and_port + "application/css/purchasing.css" %>
+<%= render :partial => "shared/application_top" %>
+
+
 <div id="container">
   <div id="main">
     <div id="banner">
@@ -21,53 +9,74 @@
     </div>
     <!--banner-->
     <div id="content">
-      <div class="left">
+      <div id="note"><img src="<%= get_current_host_and_port %>application/images/pur-01.png"></div>
+      <div id="plan-a" class="plan">
+        <h3>台、港、中、美、日、韓 即時+XS策略雷達</h3>
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td valign="middle" style="padding:0 0 0 190px;background:url(<%= get_current_host_and_port %>application/images/pch-03.jpg) top left no-repeat" height="42">台、港、中 即時+盤後</td>
+            <td colspan="2" class="title"><img src="<%= get_current_host_and_port %>application/images/pch-05.jpg" width="116" height="24" /></td>
           </tr>
           <tr>
-            <td><div class="box"><img src="<%= get_current_host_and_port %>application/images/pch-05.jpg" width="116" height="24" /> 即時：台、港、中個股、期貨、選擇權、摩台指、國際指數、貴金屬、匯率<br>
-              盤後：台、港、中個股（包含技術分析、基本分析、財務分析、個股新聞、<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;屬產業…） </div></td>
-          </tr>
-          <tr>
-            <td align="right" height="37" style="font-size:14px">資訊服務費／月繳 <span style="font-size:19px"> 新台幣 $8,000元</span></td>
+            <td width="500" class="text"><p>即時：台、港、中個股、期貨、選擇權、摩台指、國際指數、</p>
+              <p>　　　貴金屬、匯率<br />
+                盤後：台、港、中個股（包含技術分析、基本分析、財務分析、<br />
+                　　　個股新聞、所屬產業…）<br />
+                <br />
+                策略雷達：自訂指標，進階警示，警示清單，即時訊號監看等<br />
+                　　　　　多種客製化強大看盤功能。 <br />
+                <span>（策略雷達前三個月免費，免費試用期間 2013/05/01-2013/07/31）</span> </p></td>
+            <td width="402" align="left" valign="top" class="button"><a href="http://www.moneydj.com/e/newage/buyproduct0912_XQSIX3Mpay.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/pur-02.jpg" width="123" height="89" /></a> <a href="http://www.moneydj.com/e/newage/buyproduct0912_XQSIX6Mpay.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/pur-03.jpg" width="123" height="89" /></a> <a href="http://www.moneydj.com/e/newage/buyproduct0912_XQSIX1Ypay.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/pur-04.jpg" width="123" height="89" /></a></td>
           </tr>
         </table>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td valign="middle" style="padding:0 0 0 190px;background:url(<%= get_current_host_and_port %>application/images/pch-04.jpg) top left no-repeat" height="46">台、港、中、美、日、韓 即時+盤後</td>
-          </tr>
-          <tr>
-            <td><div class="box"><img src="<%= get_current_host_and_port %>application/images/pch-05.jpg" width="116" height="24" /> 即時：台、港、中個股、期貨、選擇權、摩台指、國際指數、貴金屬、匯率<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（美日韓個股為延遲報價） <br>
-              盤後：台、港、中、美、日、韓個股（包含技術分析、基本分析、財務分析、<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;個股新聞、所屬產業…）</div></td>
-          </tr>
-          <tr>
-            <td align="right" height="37" style="font-size:14px">資訊服務費／月繳 <span style="font-size:19px"> 新台幣$10,000元</span><span>（港幣$4,000元）</span></td>
-          </tr>
-        </table>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td valign="middle" style="padding:0 0 0 160px;background:url(<%= get_current_host_and_port %>application/images/pch-06.jpg) center left no-repeat" height="46">繳費一年期滿歸客戶所有</td>
-          </tr>
-          <tr>
-            <td><div class="box" style="padding:15px 10px"> LCD monitor （17吋） x2 + 腳架 + 2Port VGA Card</div></td>
-          </tr>
-          <tr>
-            <td align="right" height="67" style="font-size:14px"><span style="font-size:19px">新台幣3,000元/月</span><br>
-              硬體直接購買價：<span>新台幣30,000元</span></td>
-          </tr>
-        </table>
-        <p>若想進一步了解每項產品的差異，歡迎來電洽詢：0800-006-098 或請洽嘉實經銷商！</p>
       </div>
-      <div class="right"> <a href="<%= get_current_host_and_port %>/purchasing/XQ信用卡扣款同意書.doc"><img src="<%= get_current_host_and_port %>application/images/pch-01.jpg" width="258" height="89" /></a> <a href="<%= get_current_host_and_port %>/purchasing/XQ訂購單.doc"><img src="<%= get_current_host_and_port %>application/images/pch-02.jpg" width="258" height="100" /></a> </div>
+      <div id="plan-b" class="plan">
+        <h3>台、港、中、美、日、韓 即時+盤後</h3>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td colspan="2" class="title"><img src="<%= get_current_host_and_port %>application/images/pch-05.jpg" width="116" height="24" /></td>
+          </tr>
+          <tr>
+            <td width="500" class="text"><p>即時：台、港、中個股、期貨、選擇權、摩台指、國際指數、<br />
+              　　　貴金屬、匯率（美日韓個股為延遲報價）<br />
+                盤後：台、港、中、美、日、韓個股（包含技術分析、基本分<br />
+                　　　析、財務分析、個股新聞、所屬產業…）</p></td>
+            <td width="402" align="left" valign="top" class="button"><a href="http://www.moneydj.com/e/newage/buyproduct0912_XQSIX3Mpay.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/pur-02.jpg" width="123" height="89" /></a> <a href="http://www.moneydj.com/e/newage/buyproduct0912_XQSIX6Mpay.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/pur-03.jpg" width="123" height="89" /></a> <a href="http://www.moneydj.com/e/newage/buyproduct0912_XQSIX1Ypay.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/pur-04.jpg" width="123" height="89" /></a></td>
+          </tr>
+        </table>
+      </div>
+      <div id="plan-c" class="plan">
+        <h3>台、港、中 即時+盤後</h3>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td colspan="2" class="title"><img src="<%= get_current_host_and_port %>application/images/pch-05.jpg" width="116" height="24" /></td>
+          </tr>
+          <tr>
+            <td width="500" class="text"><p>即時：台、港、中個股、期貨、選擇權、摩台指、國際指數、<br />
+              　　　貴金屬、匯率<br />
+                盤後：台、港、中個股（包含技術分析、基本分析、財務分析、<br />
+                　　　個股新聞、所屬產業…）</p></td>
+            <td width="402" align="left" valign="top" class="button"><a href="http://www.moneydj.com/e/newage/buyproduct0912_XQTCH3Mpay.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/pur-02.jpg" width="123" height="89" /></a> <a href="http://www.moneydj.com/e/newage/buyproduct0912_XQTCH6Mpay.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/pur-03.jpg" width="123" height="89" /></a> <a href="http://www.moneydj.com/e/newage/buyproduct0912_XQTCH1Ypay.html" target="_blank"><img src="<%= get_current_host_and_port %>application/images/pur-04.jpg" width="123" height="89" /></a></td>
+          </tr>
+        </table>
+      </div>
+      <div id="rent">
+      <h3>繳費一年期滿歸客戶所有</h3>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  		<tr>
+    		<td>LCD monitor （17吋） x2 + 腳架 + 2Port VGA Card</td>
+    		<td align="right"><span>新台幣3,000元/月</span></td>
+  		</tr>
+	  </table>
+      <div id="price">硬體直接購買價：<span>新台幣30,000元</span></div>
+      </div>
+      <div id="tip">若想進一步了解每項產品的差異，歡迎來電洽詢：0800-006-098 或請洽嘉實經銷商！</div>
     </div>
-    <!--content-->
+    <!--content--> 
   </div>
   <!--main-->
-  <%= render :partial => "shared/application_footer" %>
+  
+  
+<%= render :partial => "shared/application_footer" %>
+<!--link-->
 </div>
 <!--container-->
