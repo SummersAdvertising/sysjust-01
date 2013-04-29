@@ -78,6 +78,10 @@ service_email = ServiceEmail.new
 service_email.email = "rails.test.action.mailer@gmail.com"
 service_email.save!
 
+category_00 = Category.new
+category_00.name = "全新策略教戰"
+category_00.save!
+
 category_01 = Category.new
 category_01.name = "獨家操作教戰"
 category_01.save!

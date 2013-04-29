@@ -26,3 +26,5 @@
 /public/uploads
 
 /.idea
+
+/config/deploy/*
