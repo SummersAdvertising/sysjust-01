@@ -10,7 +10,7 @@ $(function(){
 </style>
 
 
-<div id="footer"> <span>嘉實資訊股份有限公司©2012 XQ.com.tw / All Right Reserved.</span> <span style="margin:0 100px">客戶免付費電話：0800-006-098</span> <span>客服信箱：<a href="mailto:XQservice@XQ.com.tw" target="_blank">XQservice@XQ.com.tw</a> </span> </div>
+<div id="footer"> <span>嘉實資訊股份有限公司©2013 XQ.com.tw / All Right Reserved.</span> <span style="margin:0 100px">客戶免付費電話：0800-006-098</span> <span>客服信箱：<a href="mailto:XQservice@XQ.com.tw" target="_blank">XQservice@XQ.com.tw</a> </span> </div>
 <!--footer-->
 
 <div id="link">
@@ -28,10 +28,10 @@ $(function(){
   <div class="link-box">
     <h5 class="link-title">策略雷達</h5>
     <ul class="link-text">
-      <li><a href="#">功能介紹</a></li>
-      <li><a href="#">影片教學</a></li>
-      <li><a href="#">討論區</a></li>
-      <li><a href="#">常見問題</a></li>
+      <li><a href="<%= page_path( :id => 'radar-intro' ) %>">功能介紹</a></li>
+      <li><a href="<%= category_path( :id => 1 ) %>">影片教學</a></li>
+      <li><a href="<%= posts_path %>">討論區</a></li>
+      <li><a href="<%= page_path( :id => 'radar-qa' ) %>">常見問題</a></li>
       <li><a href="#">函數搜尋</a></li>
     </ul>
   </div>
@@ -59,11 +59,13 @@ $(function(){
     <h5 class="link-title">實機教學</h5>
     <ul class="link-text">
       <%
-         @categories = Category.limit(3)
+         @categories = Category.limit(4)
          @category_01 = @categories[0]
          @category_02 = @categories[1]
          @category_03 = @categories[2]
+		 @category_04 = @categories[3]
       %>
+	  <li><a href="<%= category_url(@category_04) if @category_04%>"><%= @category_04.name if @category_04%></a></li>
       <li><a href="<%= category_url(@category_01) if @category_01%>"><%= @category_01.name if @category_01%></a></li>
       <li><a href="<%= category_url(@category_02) if @category_02%>"><%= @category_02.name if @category_02%></a></li>
       <li><a href="<%= category_url(@category_03) if @category_03%>"><%= @category_03.name if @category_03%></a></li>
@@ -84,7 +86,7 @@ $(function(){
   <div class="link-box">
     <h5 class="link-title">專家分享</h5>
     <ul class="link-text">
-      <li><a href="#">專家分享</a></li>
+      <li><a href="<%= writings_path %>">專家分享</a></li>
     </ul>
   </div>
   <!--link-box-->
@@ -98,7 +100,7 @@ $(function(){
   <div class="link-box">
     <h5 class="link-title">粉絲團</h5>
     <ul class="link-text">
-      <li><a href="#">粉絲團</a></li>
+      <li><a href="http://www.facebook.com/pages/XQ%E5%85%A8%E7%90%83%E8%B4%8F%E5%AE%B6/178222061342" target="_blank">粉絲團</a></li>
     </ul>
   </div>
   <!--link-box--> 
