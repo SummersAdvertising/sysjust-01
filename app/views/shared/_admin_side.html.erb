@@ -18,9 +18,9 @@
 
     <li>
       <%if (params[:controller]=="admin/categories") || (params[:controller]=="admin/videos") %>
-        <a href="<%=admin_category_path(Category.first) if Category.first%>" id="video" class="active">實機線上影片</a>
+        <a href="<%=admin_category_path(Category.last) if Category.last%>" id="video" class="active">實機線上影片</a>
       <% else %>
-        <a href="<%=admin_category_path(Category.first) if Category.first%>" id="video">實機線上影片</a>
+        <a href="<%=admin_category_path(Category.last) if Category.last%>" id="video">實機線上影片</a>
       <%end%>
     </li>
 

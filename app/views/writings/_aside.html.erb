@@ -49,26 +49,6 @@
     <% end %>
     	
         <% end %>
-        	<!--
-          <li><a href="#"><img src="images/share-p2.gif">2013 (43)</a>
-            <ol>
-              <li><a href="#"><img src="images/share-p2.gif">四月 (8)</a>
-                <ol>
-                  <li><a href="#">【勞退基金台股 600億活水來了】美國本周重要經濟數據預覽</a></li>
-                  <li><a href="#">【2013年報稅注意- 6大新措施】申報放寬扶養 小額退稅 特別扣除額</a></li>
-                  <li><a href="#">小媽精選1020413-0415基金資訊</a></li>
-                  <li><a href="#">春電展周三登場 3C大廠優惠齊殺</a></li>
-                  <li><a href="#">風蕭蕭兮~~台股8000不復還</a></li>
-                  <li><a href="#">行庫限貸可壓桃園炒風嗎？中古屋交易是關鍵</a></li>
-                  <li><a href="#">04.12 季線月線反壓在上。/歐斯麥</a></li>
-                  <li><a href="#">投資行事曆 / Mr.X艾克斯</a></li>
-                </ol>
-                <a href="#"><img src="images/share-p1.gif">三月 (10)</a></li>
-              <li><a href="#"><img src="images/share-p1.gif">二月 (12)</a></li>
-              <li><a href="#"><img src="images/share-p1.gif">一月 (13)</a></li>
-            </ol>
-          </li>
-          -->
         </ol>
       </div>
       <!--publish--> 
@@ -104,9 +84,13 @@ $('.month-title').click(function() {
 	var container = $(this).parent().children('.month-articles');
 
 	if ( container.children().length > 0 ) {
-		container.toggle();
+		container.toggle('fast');
 		return;
 	}
+	
+	var loading = $('<img height="15" style="padding: 4px 0 0 4px;" src="<%= get_current_host_and_port %>application/images/loading-light.gif" />');
+	
+	$(this).append(loading);
 
 	$.ajax(
 	{ 
@@ -114,6 +98,8 @@ $('.month-title').click(function() {
 		dataType: 'json',
 		data: { year: $(this).data('year'), month: $(this).data('month') },
 		success: function(data) {
+			
+			loading.remove();
 				
 			// 這裡放樣板初始化
 			var template = $('#month-article-template').html();
@@ -133,12 +119,12 @@ $('.month-title').click(function() {
 			
 			
 			var obj_ary = assign_vars( template, data_ary );		
-			
+			container.hide();
 			for( var i in obj_ary ) {
 				var article = obj_ary[i];			
 				$(article).appendTo(container);
 			}		
-		
+			container.toggle('fast');
 		}	
 	});
 });

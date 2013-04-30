@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112030041) do
+ActiveRecord::Schema.define(:version => 20130430042427) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20121112030041) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "priority"
+    t.string   "namehash"
   end
 
   create_table "ckeditor_assets", :force => true do |t|

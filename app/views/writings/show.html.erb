@@ -11,11 +11,9 @@
       <div class="article">
         <div class="article-title">
           <h3><%= @writing["title"] %></h3>
-        <div class="social" id="social-up"> <span><%= @writing["date"] %></span>
-        
-        <iframe src="//www.facebook.com/plugins/like.php?href=<%=u @writing["url"]%>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=433197170080910" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:71px; height:21px;" allowTransparency="true"></iframe>
-        
-        <g:plusone size="medium" href="<%=u @writing["url"]%>"></g:plusone>
+        <div class="social" id="social-up"> <span><%= @writing["date"] %></span>        
+        <a style="display: inline-block; height: 29px;" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%=u @writing["url"]%>"><img src="<%=get_current_host_and_port %>application/images/fb.gif"/></a>
+        <g:plusone size="medium" href="http://jv-testweb"></g:plusone>
         
         </div>
         </div>
@@ -23,7 +21,9 @@
         <div class="article-content"><%= @writing["body"].html_safe %></div><!--article-content-->
           <div class="article-footer">
         <div class="social" id="social-down"> 
-        <a href="#"><img src="images/fb.gif"/></a>
+        
+        <iframe src="//www.facebook.com/plugins/like.php?href=<%=u @writing["url"]%>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=433197170080910" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:71px; height:21px;" allowTransparency="true"></iframe>
+        
         <g:plusone size="medium" href="<%=u @writing["url"]%>"></g:plusone> <a href="<%= writings_path %>" id="back">&lt;上一頁</a></div>
         <p>文章分類：<a href="<%= category_writing_path( :id => @writing["classno"] ) %>"><%= @writing["classname"]%></a></p>
         <ul>

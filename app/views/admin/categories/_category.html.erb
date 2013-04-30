@@ -3,6 +3,12 @@
     <tr>
       <td class="title" height="27" width="16%">三大面向</td>
       <td class="text" width="84%">
+      	<% if @category == @category_xs%>
+      		<a href="<%=admin_category_path(@category_xs) if @category_xs%>" class="active"><%=@category_xs.name if @category_xs%></a>
+      	<% else %>
+      		<a href="<%=admin_category_path(@category_xs) if @category_xs%>"><%=@category_xs.name if @category_xs%></a>
+      	<% end %>
+      	
       	<% if @category == @category_01%>
       		<a href="<%=admin_category_path(@category_01) if @category_01%>" class="active"><%=@category_01.name if @category_01%></a>
       	<% else %>
@@ -20,6 +26,7 @@
       	<% else %>
       		<a href="<%=admin_category_path(@category_03) if @category_03%>"><%=@category_03.name if @category_03%></a>
       	<% end %>      	
+      	
       </td>
     </tr>
   </table>

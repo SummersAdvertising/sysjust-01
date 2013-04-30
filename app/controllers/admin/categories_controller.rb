@@ -24,6 +24,8 @@ class Admin::CategoriesController < ApplicationController
     @category_02 = @categories[1]
     @category_03 = @categories[2]
 
+    @category_xs = Category.where( :namehash => "xs").first;
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @category }
