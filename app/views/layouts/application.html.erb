@@ -111,7 +111,7 @@
   </script>
   <style>
       #main {
-          background: url(<%= get_current_host_and_port %>application/images/banner-vd.jpg) top right no-repeat #fff;
+          background: url('<%= get_current_host_and_port %>application/images/banner-vd<%= '2' if @category.id == @category_xs.id %>.jpg') top right no-repeat #fff!important;
           overflow: hidden
       }
 
@@ -141,7 +141,7 @@
 
       #content {
           margin: 0 0 0 0;
-          padding: 200px 90px 0 90px;
+          padding: 200px 90px 0 90px!important;
           width: 664px
       }
 
