@@ -24,6 +24,8 @@ class CategoriesController < ApplicationController
     @category_03 = @categories[2]
     @videos = @category.videos.all
 
+    @category_xs = Category.where( :namehash => "xs").first
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @category }

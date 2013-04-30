@@ -3,6 +3,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   layout :layout_by_resource
+  
+  before_filter :setup_meta
+  before_filter :set_meta
+  
+  def setup_meta
+  	$meta_title = nil
+  end
+  
+  def set_meta
+  #do nothing
+  end
 
   def layout_by_resource
     if devise_controller? && resource_name == :user

@@ -59,7 +59,7 @@ $(function(){
   <div id="top">
     <h1><img src="<%= get_current_host_and_port %>application/images/logo.png" title="XQ全球贏家" /></h1>
     <ul id="nav">
-      <li><a href="traits.html">產品特色</a></li>
+      <li><a href="traits.html">產品特色</a>
         <ul class="child" id="child-1">
           <li><a href="<%= traits_url %>">三大特色</a></li>
           <li><a href="<%= online_demonstrations_url %>">線上體驗產品</a></li>
@@ -338,7 +338,7 @@ $(function(){
     <div id="course">
       <ul>
           <% @display_courses.each do | course |  %>          	
-	          	<li><a href="<%= courses_url %>#<%=course.id %>"><%= course.subject %>
+	          	<li><a href="<%= courses_url %>#<%=course.id %>"><%= course.subject.to_s.length > 20 ? course.subject.to_s[0, 18] + '...' : course.subject.to_s %>
 	              —<%= course.session %>
 	              /<%= course.start_time.to_s( :date ) %>
                   <% if course.registration_quota - course.enrollments.count==0 %>

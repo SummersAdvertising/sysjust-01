@@ -37,9 +37,9 @@
       <% end %>
       
       <% if params[:controller]=="categories" %>
-          <li class="active"><a href="<%= category_url(Category.first) if Category.first%>">實機教學</a></li>
+          <li class="active"><a href="<%= category_url(Category.last) if Category.last%>">實機教學</a></li>
       <% else %>
-          <li><a href="<%= category_url(Category.first) if Category.first%>">實機教學</a></li>
+          <li><a href="<%= category_url(Category.last) if Category.last%>">實機教學</a></li>
       <% end %>
 
       <% if params[:controller]=="static_pages" && params[:action]=="download_contents" %>
@@ -144,7 +144,7 @@
    <% if (params[:controller]=="static_pages" && params[:id].to_s.split('-')[0] == "radar") || params[ :controller ] == "posts" %>
     <ul id="nav-child">
           <li <%= 'class="active"'.html_safe if params[:id]=="radar-intro" %>><a href="<%= page_path( :id => "radar-intro" ) %>">功能介紹</a></li>
-          <li><a href="<%= category_path( :id => 1 ) %>">影片教學</a></li>
+          <li><a href="<%= category_path( Category.last ) %>">影片教學</a></li>
           <li <%= 'class="active"'.html_safe if params[:controller]=="posts" %>><a href="<%= posts_path %>">討論區</a></li>
           <li <%= 'class="active"'.html_safe if params[:id]=="radar-qa" %>><a href="<%= page_path( :id => "radar-qa" ) %>">常見問題</a></li>
           <li><a href="#">函數搜尋</a></li>   

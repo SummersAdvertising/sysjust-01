@@ -13,7 +13,7 @@
           <h3><%= @writing["title"] %></h3>
         <div class="social" id="social-up"> <span><%= @writing["date"] %></span>        
         <a style="display: inline-block; height: 29px;" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%=u @writing["url"]%>"><img src="<%=get_current_host_and_port %>application/images/fb.gif"/></a>
-        <g:plusone size="medium" href="http://jv-testweb"></g:plusone>
+        <g:plusone size="medium" href="<%=u @writing["url"]%>"></g:plusone>
         
         </div>
         </div>

@@ -1,14 +1,11 @@
 # -*- encoding : utf-8 -*-
 class StaticPagesController < ApplicationController
-	
-	def show
 		
+	def show		
 		respond_to do | format |
 			format.html { render :template => 'static_pages/' + params[:id] }		
-		end
-	
+		end	
 	end
-
 
   def announcement
     require 'open-uri'
@@ -82,6 +79,18 @@ class StaticPagesController < ApplicationController
   end
   
 private
+	def set_meta
+	
+		if params[ :action ] == "show"
+			
+			if params[ :id ].to_s.match(/^radar/)
+				$meta_title = '	策略雷達'
+			end
+		
+		end
+	
+	end
+
 	def get_record_to_data(num)	
 	    @data = []    
 		return if num <= 0

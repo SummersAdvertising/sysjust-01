@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>無標題文件</title>
 
 <meta name="Robots" content="index,follow"/>
 <link rel="SHORTCUT ICON" href="<%= get_current_host_and_port %>/application/images/favicon.ico">
@@ -63,6 +62,12 @@
   <title>我要購買 | XQ 嘉實全球贏家</title>
   <meta property="og:title" content="我要購買│XQ 嘉實全球贏家"/>
 <% end %>
+
+<% if params[:controller] == 'static_pages' && params[:action].to_s.match(/^xqtrade/) %>
+  <title>交易專區 | XQ 嘉實全球贏家</title>
+  <meta property="og:title" content="交易專區│XQ 嘉實全球贏家"/>
+<% end %>
+
 <% if params[:controller]=="experiences" %>
   <title>申請實機體驗 | XQ 嘉實全球贏家</title>
   <meta property="og:title" content="申請實機體驗│XQ 嘉實全球贏家"/>
@@ -71,6 +76,13 @@
   <title>實務課程資訊 | XQ 嘉實全球贏家</title>
   <meta property="og:title" content="實務課程資訊│XQ 嘉實全球贏家"/>
 <% end %>
+
+<% if !$meta_title.nil? %>
+	<title><%= "#{$meta_title}│XQ 嘉實全球贏家" %></title>
+	<meta property="og:title" content="<%= "#{$meta_title}│XQ 嘉實全球贏家" %>"/>
+<% end %>
+
+
 <% if params[:controller]=="categories" %>
   <title>實機教學 | XQ 嘉實全球贏家</title>
   <meta property="og:title" content="實機教學│XQ 嘉實全球贏家"/>
