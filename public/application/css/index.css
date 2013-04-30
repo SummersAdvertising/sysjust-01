@@ -83,6 +83,7 @@ a{text-decoration:none}
 .tab1 #tab1-2{background:url(../images/main-center-tab1-2a.png) 0 0 no-repeat;width:224px}
 .tab1 .active #tab1-2{background:url(../images/main-center-tab1-2b.png) 0 0 no-repeat}
  #tab1-content{width:708px;height:436px;background:url(../images/main-center-bg.jpg) 0 0 no-repeat;padding:20px 0 0 2px}
+ #tab1-content a:hover{opacity:.85;filter:alpha(opacity=85);}
 
 .tab2 {overflow:hidden;width:635px;height:33px;background:url(../images/main-center-tab1bg.jpg) 0 0 no-repeat;padding:9px 0 0 30px}
 .tab2 li{float:left;text-shadow:0 1px 0 #E4C994;color:#773f11}
