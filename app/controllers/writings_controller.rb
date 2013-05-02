@@ -13,7 +13,7 @@ class WritingsController < ApplicationController
 		@id = params[ :id ]
 		
 		@writing = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/article/#{@id}" )		
-		@category_writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/list/class/1/5")	end
+		@category_writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/list/class/#{@writing["classno"]}/5")	end
 	
 	def category
 		

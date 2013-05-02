@@ -26,17 +26,17 @@
 		current_year = block["year"]    
 		change_flag = true		
 	%>        				
-		<li><a href="#"><img src="<%= get_current_host_and_port %>application/images/share-p2.gif"><%= block["year"] %> 
+		<li class="fold"><a href="javascript: void(0);"><img src="<%= get_current_host_and_port %>application/images/share-p2.gif"><%= block["year"] %> 
 		<span id="year_<%= current_year %>_num"></span></a>
         	<ol>        
 	<% end %>
 	
 	<% counter += block["count"] %>
-		<li><a class="month-title" data-year="<%= current_year %>" data-month="<%= block["month"] %>" href="javascript: void(0);" ><img src="<%= get_current_host_and_port %>application/images/share-p2.gif"><%= t("date.month_names")[block["month"]] %> (<%= block["count"] %>)</a>
+		<li class="fold"><a class="month-title" data-year="<%= current_year %>" data-month="<%= block["month"] %>" href="javascript: void(0);" ><img src="<%= get_current_host_and_port %>application/images/share-p1.gif"><%= t("date.month_names")[block["month"]] %> (<%= block["count"] %>)</a>
 			<ol class="month-articles"></ol>			
 			
 		</li>				
-	<% if change_flag %>	
+	<% if change_flag %>
         	</ol>
 		</li>
 		<script type="text/javascript">
@@ -58,6 +58,15 @@
     
  <script type="text/javascript">
  // 好吧開工
+
+$('#publish li.fold a').click(function() {
+	
+	var image_path = 'application/images/';
+	$(this).children('img[src*=share-p]').each(function(){ 
+		var image = $(this).attr('src'); 
+		$(this).attr('src', /share-p1\.gif$/.test(image) ? image_path + 'share-p2.gif' : image_path + 'share-p1.gif') 
+	});
+});
 
 function assign_vars( template, data_ary ) {	
 
