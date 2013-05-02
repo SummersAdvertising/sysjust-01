@@ -61,9 +61,10 @@
 
 $('#publish li.fold a').click(function() {
 	
-	var image_path = 'application/images/';
+	var image_path = '<%= get_current_host_and_port %>application/images/';
 	$(this).children('img[src*=share-p]').each(function(){ 
 		var image = $(this).attr('src'); 
+		console.log(/share-p1\.gif$/.test(image) ? image_path + 'share-p2.gif' : image_path + 'share-p1.gif');
 		$(this).attr('src', /share-p1\.gif$/.test(image) ? image_path + 'share-p2.gif' : image_path + 'share-p1.gif') 
 	});
 });
