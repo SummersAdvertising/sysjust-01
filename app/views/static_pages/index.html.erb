@@ -315,19 +315,19 @@ $(function(){
         <li>
         	<a href="<%= news_updates_url %>?news_id=<%= @newsupdate_01.id if @newsupdate_01 %>">
         		<%= @newsupdate_01.updated_at.to_date if @newsupdate_01 %> /
-                <%= @newsupdate_01.title if @newsupdate_01 %>
+                <%= @newsupdate_01.title.to_s.length > 20 ? @newsupdate_01.title.to_s[0, 20] + '...' : @newsupdate_01.title.to_s %>
             </a> 
         </li>
         <li>
         	<a href="<%= news_updates_url %>?news_id=<%= @newsupdate_02.id if @newsupdate_02 %>">
         		<%= @newsupdate_02.updated_at.to_date if @newsupdate_02 %> /
-                <%= @newsupdate_02.title if @newsupdate_02 %>
+                <%= @newsupdate_02.title.to_s.length > 20 ? @newsupdate_02.title.to_s[0, 20] + '...' : @newsupdate_02.title.to_s %>
             </a> 
         </li>
         <li>
         	<a href="<%= news_updates_url %>?news_id=<%= @newsupdate_03.id if @newsupdate_03 %>">
         		<%= @newsupdate_03.updated_at.to_date if @newsupdate_03 %> /
-                <%= @newsupdate_03.title if @newsupdate_03 %>
+                <%= @newsupdate_03.title.to_s.length > 20 ? @newsupdate_03.title.to_s[0, 20] + '...' : @newsupdate_03.title.to_s %>
             </a> 
         </li>
       </ul>
@@ -337,9 +337,8 @@ $(function(){
     <div id="course">
       <ul>
           <% @display_courses.each do | course |  %>          	
-	          	<li><a href="<%= courses_url %>#<%=course.id %>"><%= course.subject.to_s.length > 20 ? course.subject.to_s[0, 18] + '...' : course.subject.to_s %>
+	          	<li><%= course.start_time.to_s( :date ) %> / <a href="<%= courses_url %>#<%=course.id %>"><%= course.subject.to_s.length > 20 ? course.subject.to_s[0, 18] + '...' : course.subject.to_s %>
 	              —<%= course.session %>
-	              /<%= course.start_time.to_s( :date ) %>
                   <% if course.registration_quota - course.enrollments.count==0 %>
                       <!--（已額滿）-->
                   <% end %>

@@ -6,24 +6,24 @@
 #social-down{overflow:hidden}
 #social-down a{float:left;}
 #social-down #back{float:right;position:relative;top:5px;}
-.article-title h3{color:#ae2901;font:300 20px ""微軟正黑體"";line-height:1.7em}
+.article-title h3{color:#ae2901;font:300 20px "微軟正黑體";line-height:1.7em}
 .article-content{padding:20px 0}
 .article-footer p{padding:20px 0 5px 20px;color:#373737;clear:both}
 .article-footer p a{color:#373737}
 .article-footer ul{background:#F3F3F3;padding:10px 20px}
-.article-footer li{color:#cb441a;font:900 15px ""微軟正黑體"";padding:5px 0}
-.article-footer li a{font:300 14px ""微軟正黑體"";color:#000;text-decoration:underline}
+.article-footer li{color:#cb441a;font:900 15px "微軟正黑體";padding:5px 0}
+.article-footer li a{font:300 14px "微軟正黑體";color:#000;text-decoration:underline}
 
 /*---側邊欄(共用)---*/
 #main{background:url(../images/banner-sh.jpg) 0 0 no-repeat #fff;overflow:hidden;padding:200px 30px 50px 50px;overflow:hidden}
 #main a:hover{text-decoration:underline}
 #aside{width:246px;padding:0 0 0 40px;float:right}
-#aside h4{color:#cb441a;font:300 22px ""微軟正黑體"";height:40px}
+#aside h4{color:#cb441a;font:300 22px "微軟正黑體";height:40px}
 #aside a{color:#474747}
 #category{margin:0 0 40px 0}
-#category a{font:300 16px ""微軟正黑體"";line-height:2em}
+#category a{font:300 16px "微軟正黑體";line-height:2em}
 #category ul{padding:0 0 0 10px}
-#publish a{font:300 14px ""微軟正黑體"";line-height:1.7em}
+#publish a{font:300 14px "微軟正黑體";line-height:1.7em}
 #publish img{margin:0 5px 0 0}
 #publish ol{padding:0 0 0 10px}
 #publish li ol{padding:0 0 0 20px}

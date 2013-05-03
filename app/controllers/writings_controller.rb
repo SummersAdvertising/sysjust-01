@@ -8,7 +8,7 @@ class WritingsController < ApplicationController
 				@writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/last/5")
 				format.html
 			rescue
-				format.html { redirect_to root_url }
+				format.html { redirect_to page_path( :id => "sorry" ) }
 			end			
 		end
 	   
@@ -23,7 +23,7 @@ class WritingsController < ApplicationController
 				@writing = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/article/#{@id}" )		
 				@category_writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/list/class/#{@writing["classno"]}/5")
 			rescue
-				format.html { redirect_to root_url }
+				format.html { redirect_to page_path( :id => "sorry" ) }
 			end
 			
 			format.html 
