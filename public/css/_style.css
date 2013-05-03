@@ -114,8 +114,8 @@ h2{font:italic 300 18px "細明體";padding:5px 0 0 10px}
 
 .main-sign{width:400px!important;margin:0 auto}
 .main-sign table,.main-form table{margin:20px 0}
-.main-sign table td,.main-form table td{padding:5px 0;font:300 15px "Microsoft JhengHei";color:#222}
-.main-sign table td span,.main-form table td span{font:300 12px "Microsoft JhengHei";color:#777}
+.main-sign table td,.main-form table td{padding:5px 0;font:300 15px ""微軟正黑體"";color:#222}
+.main-sign table td span,.main-form table td span{font:300 12px ""微軟正黑體"";color:#777}
 .main-sign table input{width:97%;background:#fff;border:1px solid #ccc!important;border-radius:5px;padding:8px 5px}
 .main-form input{width:53%;background:#fff;border:1px solid #ccc!important;border-radius:5px;padding:8px 5px}
 .main-form{padding-left:35px}

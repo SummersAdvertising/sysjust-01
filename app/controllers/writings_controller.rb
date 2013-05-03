@@ -3,8 +3,14 @@ class WritingsController < ApplicationController
 	before_filter :setup_sidebar
 
 	def index
-	
-		@writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/last/5")
+		respond_to do | format |
+			begin
+				@writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/last/5")
+				format.html
+			rescue
+				format.html { redirect_to root_url }
+			end			
+		end
 	   
 	end
 	
@@ -12,8 +18,15 @@ class WritingsController < ApplicationController
 	
 		@id = params[ :id ]
 		
-		@writing = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/article/#{@id}" )		
-		@category_writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/list/class/#{@writing["classno"]}/5")	end
+		respond_to do | format |
+			begin
+				@writing = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/article/#{@id}" )		
+				@category_writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/list/class/#{@writing["classno"]}/5")
+			rescue
+				format.html { redirect_to root_url }
+			end
+		end
+	end
 	
 	def category
 		
@@ -41,8 +54,12 @@ private
 
 	def setup_sidebar
 		
-		@categories  = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/class" )
-		@summery = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/count/month" )
+		begin
+			@categories  = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/class" )
+			@summery = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/count/month" )
+		rescue
+		
+		end
 	
 	end
 	

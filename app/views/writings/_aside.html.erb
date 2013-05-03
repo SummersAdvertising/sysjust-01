@@ -59,15 +59,22 @@
  <script type="text/javascript">
  // 好吧開工
 
-$('#publish li.fold a').click(function() {
+$('#publish li.fold a').click(function(e) {
+	
+	e.preventDefault();
 	
 	var image_path = '<%= get_current_host_and_port %>application/images/';
 	$(this).children('img[src*=share-p]').each(function(){ 
 		var image = $(this).attr('src'); 
-		console.log(/share-p1\.gif$/.test(image) ? image_path + 'share-p2.gif' : image_path + 'share-p1.gif');
 		$(this).attr('src', /share-p1\.gif$/.test(image) ? image_path + 'share-p2.gif' : image_path + 'share-p1.gif') 
 	});
+	
+	// switch children
+	$(this).siblings('ol').toggle('fast');
+	
 });
+
+	
 
 function assign_vars( template, data_ary ) {	
 
@@ -94,13 +101,13 @@ $('.month-title').click(function() {
 	var container = $(this).parent().children('.month-articles');
 
 	if ( container.children().length > 0 ) {
-		container.toggle('fast');
 		return;
 	}
+	if ( !$(this).has('.loading').length ) {		
+		var loading = $('<img class="loading" height="15" style="padding: 4px 0 0 4px;" src="<%= get_current_host_and_port %>application/images/loading-light.gif" />');		
+		$(this).append(loading);
+	}
 	
-	var loading = $('<img height="15" style="padding: 4px 0 0 4px;" src="<%= get_current_host_and_port %>application/images/loading-light.gif" />');
-	
-	$(this).append(loading);
 
 	$.ajax(
 	{ 
@@ -109,7 +116,9 @@ $('.month-title').click(function() {
 		data: { year: $(this).data('year'), month: $(this).data('month') },
 		success: function(data) {
 			
-			loading.remove();
+			if (loading) {
+				loading.remove();
+			}
 				
 			// 這裡放樣板初始化
 			var template = $('#month-article-template').html();
@@ -127,7 +136,7 @@ $('.month-title').click(function() {
 				data_ary.push( assign_ary );
 			}
 			
-			
+			container.children().remove();
 			var obj_ary = assign_vars( template, data_ary );		
 			container.hide();
 			for( var i in obj_ary ) {

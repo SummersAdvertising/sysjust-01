@@ -1,6 +1,6 @@
 /*-----------------------------------------------------------------------全域---*/
 
-body{background:url(../images/bg.jpg) 0 0 repeat;font-family:Microsoft JhengHei}
+body{background:url(../images/bg.jpg) 0 0 repeat;font-family:"微軟正黑體"}
 a{text-decoration:none}
 .left{float:left}
 .right{float:right}
@@ -9,18 +9,18 @@ a{text-decoration:none}
 
 #header{height:179px;background:url(../images/header.jpg) 0 0 repeat-x}
 #header-inside{width:1024px;margin:0 auto;height:149px;position:relative;padding:30px 0 0 0}
-#home{position:absolute;top:70px;left:-50px;color:#FBCABF;font:900 14px "Microsoft JhengHei"}
+#home{position:absolute;top:70px;left:-50px;color:#FBCABF;font:900 14px ""微軟正黑體""}
 #home:hover{color:#fff}
 h1{float:left}
 #nav{float:right;padding:51px 0 0 0}
 #nav li{height:42px;float:left;margin:0 5px;border-radius:5px 5px 0 0}
-#nav li a{display:block;height:36px;padding:6px 10px 0 10px;font:900 16px "Microsoft JhengHei";color:#fbcabf}
+#nav li a{display:block;height:36px;padding:6px 10px 0 10px;font:900 16px ""微軟正黑體"";color:#fbcabf}
 #nav .active{background:url(../images/active.jpg) 0 0 no-repeat}
 #nav .active a,#nav li:hover a{color:#fff}
 
 #nav-child{height:42px;clear:both;margin:0 0 0 50px}
 #nav-child li{height:42px;float:left;text-align:center;margin:10px 5px 0 5px;}
-#nav-child li a{display:block;padding:7px 12px;font:700 15px "Microsoft JhengHei";color:#fff}
+#nav-child li a{display:block;padding:7px 12px;font:700 15px ""微軟正黑體"";color:#fff}
 #nav-child .active a{background:#8F0707;border:2px solid #F37650;border-radius:10px}
 
 /*-----------------------------------------------------------------------頁身---*/
@@ -31,7 +31,7 @@ h1{float:left}
 /*-----------------------------------------------------------------------橫幅---*/
 
 #banner{background-color:#FAFAFA;height:150px;background-position: top right;	background-repeat:no-repeat}
-#banner h2{color:#4b4b4b;font:300 48px "Microsoft JhengHei";padding:70px 0 0 60px;text-shadow:0 1px 0 #fff}
+#banner h2{color:#4b4b4b;font:300 48px ""微軟正黑體"";padding:70px 0 0 60px;text-shadow:0 1px 0 #fff}
 #banner h3{color:#4b4b4b;font-size:15px;position:relative;bottom:5px;left:63px}
 
 /*-----------------------------------------------------------------------頁身---*/
@@ -40,16 +40,16 @@ h1{float:left}
 
 /*-----------------------------------------------------------------------頁尾---*/
 
-#footer{color:#545454;font:300 13px "Microsoft JhengHei";padding:18px 18px 0 18px;text-shadow:0 1px 0 #fff;overflow:hidden;width:100%;height:22px}
+#footer{color:#545454;font:300 13px ""微軟正黑體"";padding:18px 18px 0 18px;text-shadow:0 1px 0 #fff;overflow:hidden;width:100%;height:22px}
 #footer span{float:left}
-#footer a{color:#545454;font:300 13px "Microsoft JhengHei"}
+#footer a{color:#545454;font:300 13px ""微軟正黑體""}
 
 /*-----------------------------------------------------------------------地圖---*/
 
 #link{height:220px;background:url(../images/link.jpg) 0 0 repeat-x;
 overflow:hidden;padding:30px 0 0 0}
 .link-box{float:left;margin:0 17px}
-.link-title{color:#4E1303;font:300 16px "Microsoft JhengHei";height:30px;}
+.link-title{color:#4E1303;font:300 16px ""微軟正黑體"";height:30px;}
 .link-text li{height:25px;}
-.link-text a{color:#231815;font:300 14px "Microsoft JhengHei"}
+.link-text a{color:#231815;font:300 14px ""微軟正黑體""}
 .link-text a:hover{text-decoration:underline}

@@ -46,15 +46,14 @@ class ApplicationController < ActionController::Base
 	
 		data_str = read_remote( url )
 		
-		data = ActiveSupport::JSON.decode(data_str)
-	
+		data = ActiveSupport::JSON.decode(data_str)			
+		
 		if data_str.nil? || data_str.length <= 0 || data.nil?
-			respond_to do | format |
-				format.html{ redirect_to root_url }
-			end
+			throw
 		end
 		
 		return data
+			
 		
 	end
 

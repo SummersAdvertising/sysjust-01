@@ -1,8 +1,8 @@
 #banner {background-image: url(../images/banner-pch.jpg)}
 #note{position:relative;top:0;left:-66px}
 
-#content{font:300 16px "Microsoft JhengHei";line-height:1.7em}
-.plan h3{font:300 16px "Microsoft JhengHei";height:40px;padding:12px 0 0 200px}
+#content{font:300 16px ""微軟正黑體"";line-height:1.7em}
+.plan h3{font:300 16px ""微軟正黑體"";height:40px;padding:12px 0 0 200px}
 #plan-a h3{background:url(../images/pur-05.jpg) 0 0 no-repeat;padding:12px 0 0 175px}
 #plan-b h3{background:url(../images/pur-06.jpg) 0 0 no-repeat}
 #plan-c h3{background:url(../images/pur-07.jpg) 0 0 no-repeat}
@@ -13,13 +13,13 @@
 .plan .text{padding:10px}
 .plan .button a{margin:0 5px 0 0}
 .plan .button a:hover{opacity:.9;filter:alpha(opacity=90)}
-.plan span{color:#ad0000;font:300 14px "Microsoft JhengHei";line-height:1.7em}
+.plan span{color:#ad0000;font:300 14px ""微軟正黑體"";line-height:1.7em}
 
 #rent{margin:50px 0}
 #rent table{border:1px solid #F1F1F1;border-radius:5px}
 #rent td{padding:10px}
 #rent h3{background:url(../images/pch-06.jpg) 0 12px no-repeat;height:30px;padding:12px 0 0 175px}
 #rent span{color:#900000}
-#rent #price{text-align:right;font:300 14px "Microsoft JhengHei";padding:10px 0}
+#rent #price{text-align:right;font:300 14px ""微軟正黑體"";padding:10px 0}
 
-#tip{font:300 14px "Microsoft JhengHei";color:#5e5e5e}
+#tip{font:300 14px ""微軟正黑體"";color:#5e5e5e}

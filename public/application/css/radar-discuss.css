@@ -4,12 +4,12 @@
 #content{padding:0;color:#555;font-size:13px}
 #content a{color:#333;font-size:13px}
 #content em{color:#aa3600}
-#content th{height:37px;background:url(../images/rd-th.jpg) 0 0 repeat-x #BB4007;color:#fff;font:300 18px "Microsoft JhengHei"}
+#content th{height:37px;background:url(../images/rd-th.jpg) 0 0 repeat-x #BB4007;color:#fff;font:300 18px ""微軟正黑體""}
 #content td{border-right:1px solid #CDCBCA;padding:15px 0}
 #content table{border-left:1px solid #CDCBCA;border-bottom:1px solid #CDCBCA}
 #content tr:nth-child(2n-1) {background:#FFFBE9}
 #content .tbl{padding:0 0 0 20px}
-#content span{font:300 11px "Microsoft JhengHei";color:#a6a6a6}
+#content span{font:300 11px ""微軟正黑體"";color:#a6a6a6}
 
 /*---頁碼---*/
 #pages{text-align:center;width:100%;margin:20px 0}

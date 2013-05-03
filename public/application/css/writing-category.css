@@ -1,6 +1,6 @@
 /*---文章區---*/
 #content{padding:0 40px 0 0;width:617px;float:left;border-right:1px solid #ddd}
-#content h3{font:300 18px Microsoft JhengHei;height:40px}
+#content h3{font:300 18px "微軟正黑體";height:40px}
 #content th{border-bottom:1px solid #EDC795;color:#672700;background:url(../images/share-th.jpg) 0 0 repeat-x;height:34px;padding:0 0 0 20px}
 #content td{height:44px;padding:0 0 0 20px;border-bottom:1px dashed #D3D3D3;color:#6d6b6b}
 #content td a{color:#000}
@@ -17,12 +17,12 @@
 #main a:hover{text-decoration:underline}
 
 #aside{width:246px;padding:0 0 0 40px;float:right}
-#aside h4{color:#cb441a;font:300 22px Microsoft JhengHei;height:40px}
+#aside h4{color:#cb441a;font:300 22px "微軟正黑體";height:40px}
 #aside a{color:#474747}
 #category{margin:0 0 40px}
-#category a{font:300 16px Microsoft JhengHei;line-height:2em}
+#category a{font:300 16px "微軟正黑體";line-height:2em}
 #category ul{padding:0 0 0 10px}
-#publish a{font:300 14px Microsoft JhengHei;line-height:1.7em}
+#publish a{font:300 14px "微軟正黑體";line-height:1.7em}
 #publish img{margin:0 5px 0 0}
 #publish ol{padding:0 0 0 10px}
 #publish li ol{padding:0 0 0 20px}

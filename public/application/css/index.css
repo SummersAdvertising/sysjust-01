@@ -14,7 +14,7 @@ textarea,input
 -moz-box-sizing: border-box; 
 box-sizing: border-box}
 html{background:url(../images/index-bg.jpg) 0 0 repeat-x #F3F3F3}
-body{width:1024px;margin:0 auto;font-family:Microsoft JhengHei}
+body{width:1024px;margin:0 auto;font-family:"微軟正黑體"}
 a{text-decoration:none}
 
 /*-----------------------------------------------------------------------頁首---*/
@@ -25,7 +25,7 @@ a{text-decoration:none}
 /*-導航-*/
 #nav{width:810px;float:right;padding:31px 0 0 0;height:32px;position:relative}
 #nav li{display:inline;margin: 0 0 0 15px;padding:0 0 15px 0}
-#nav li a {font:700 16px "Microsoft JhengHei";color:#fff}
+#nav li a {font:700 16px ""微軟正黑體"";color:#fff}
 #nav li a:hover{color:#FBCABF}
 #nav li:hover .child{display:block}
 
@@ -33,7 +33,7 @@ a{text-decoration:none}
 .child{display:none;position:absolute;background:#980405;border-radius:5px;padding:5px;margin:5px 0 0 0}
 .child li{margin:0 5px!important}
 .child li a:hover{color:#fff!important}
-.child li a{font:700 13px "Microsoft JhengHei"!important;color:#FBCABF!important}
+.child li a{font:700 13px ""微軟正黑體""!important;color:#FBCABF!important}
 #child-1{margin-left:5px}
 #child-2{margin-left:90px}
 #child-3{margin-left:170px}
@@ -43,12 +43,12 @@ a{text-decoration:none}
 #banner{clear:both;background:url(../images/index-banner.png) 0 0 no-repeat;height:305px;width:100%}
 #banner .tabs{float:left;width:21%;padding:115px 0 0 0}
 #banner .tabs li{width:100%;height:40px;padding:10px 0 0 50px}
-#banner .tabs li a{color:#c7c7c7;font:700 18px "Microsoft JhengHei";text-shadow:0 -1px 0 #000}
+#banner .tabs li a{color:#c7c7c7;font:700 18px ""微軟正黑體"";text-shadow:0 -1px 0 #000}
 #banner .tabs .active{background:url(../images/index-active.png) 10px 0 no-repeat}
 #banner .tabs .active a{color:#fbdf5d;}
 #banner .content{float:right;width:79%;height:100%;padding:20px 20px 0 0}
 #banner .tab_content .text{color:#fff;padding:15px;text-align:left;width:224px;height:110px}
-#banner .tab_content .text h4{font:700 20px "Microsoft JhengHei"}
+#banner .tab_content .text h4{font:700 20px ""微軟正黑體""}
 #banner .tab_content .text p{line-height:20px}
 #banner .tab_content .tab_text1{background:url(../images/index-text1.png) 0 0 no-repeat}
 #banner .tab_content .tab_text2{background:url(../images/index-text2.png) 0 0 no-repeat;padding-top:28px}
@@ -91,14 +91,14 @@ a{text-decoration:none}
 .tab2 .active a{color:#7D0E0E}
 .tab2 li span{margin:0 5px}
 
-#tab2-content{padding:10px 30px 0 30px;font:300 14px "Microsoft JhengHei";position:relative}
-#tab2-content h3{color:#A72C07;font:300 22px "Microsoft JhengHei";height:35px;border-bottom:1px dashed #BAAF91}
+#tab2-content{padding:10px 30px 0 30px;font:300 14px ""微軟正黑體"";position:relative}
+#tab2-content h3{color:#A72C07;font:300 22px ""微軟正黑體"";height:35px;border-bottom:1px dashed #BAAF91}
 #tab2-content p{line-height:1.9em;padding:15px 0 0 0}
 .lightbox{position:absolute;top:60px;right:30px}
 .lightbox img{border:2px solid #fff;box-shadow:2px 2px 10px #555}
 
-#radar{padding:10px 30px 0 30px;font:300 14px "Microsoft JhengHei";position:relative;background:url(../images/main-center-tab2bg.jpg) 15px 0 no-repeat}
-#radar h3{color:#A72C07;font:300 22px "Microsoft JhengHei";height:35px;border-bottom:1px dashed #BAAF91}
+#radar{padding:10px 30px 0 30px;font:300 14px ""微軟正黑體"";position:relative;background:url(../images/main-center-tab2bg.jpg) 15px 0 no-repeat}
+#radar h3{color:#A72C07;font:300 22px ""微軟正黑體"";height:35px;border-bottom:1px dashed #BAAF91}
 #radar p{line-height:2.7em;padding:15px 0 0 0}
 
 /*---粉絲團---*/
@@ -108,8 +108,8 @@ a{text-decoration:none}
 /*-----------------------------------------------------------------------頁身(下)---*/
 
 #main-bottom{height:100px;overflow:hidden;margin:0 0 20px 0}
-#annc{float:left;width:708px;font:300 13px "Microsoft JhengHei";color:#636363}
-#annc a{font:300 13px "Microsoft JhengHei";color:#636363}
+#annc{float:left;width:708px;font:300 13px ""微軟正黑體"";color:#636363}
+#annc a{font:300 13px ""微軟正黑體"";color:#636363}
 #annc h3{height:35px;font-size:17px}
 #annc td{padding:5px 0}
 
@@ -117,16 +117,16 @@ a{text-decoration:none}
 
 /*-----------------------------------------------------------------------頁尾---*/
 
-#footer{color:#545454;font:300 13px "Microsoft JhengHei";padding:0 18px;text-shadow:0 1px 0 #fff;overflow:hidden;width:100%;height:30px}
+#footer{color:#545454;font:300 13px ""微軟正黑體"";padding:0 18px;text-shadow:0 1px 0 #fff;overflow:hidden;width:100%;height:30px}
 #footer span{float:left}
-#footer a{color:#545454;font:300 13px "Microsoft JhengHei"}
+#footer a{color:#545454;font:300 13px ""微軟正黑體""}
 
 /*-----------------------------------------------------------------------地圖---*/
 
 #link{height:220px;background:url(../images/link.jpg) 0 0 repeat-x;
 overflow:hidden;padding:30px 0 0 0}
 .link-box{float:left;margin:0 17px}
-.link-title{color:#4E1303;font:300 16px "Microsoft JhengHei";height:30px;}
+.link-title{color:#4E1303;font:300 16px ""微軟正黑體"";height:30px;}
 .link-text li{height:25px;}
-.link-text a{color:#231815;font:300 14px "Microsoft JhengHei"}
+.link-text a{color:#231815;font:300 14px ""微軟正黑體""}
 .link-text a:hover{text-decoration:underline}
