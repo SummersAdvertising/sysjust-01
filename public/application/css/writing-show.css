@@ -5,7 +5,7 @@
 .social span{color:#6e6e6e;position:relative;top:-12px;margin:0 10px 0 0}
 #social-down{overflow:hidden}
 #social-down a{float:left;}
-#social-down #back{float:right;position:relative;top:5px;}
+#social-down #back-link{float:right;position:relative;top:5px;}
 .article-title h3{color:#ae2901;font:300 20px "微軟正黑體";line-height:1.7em}
 .article-content{padding:20px 0}
 .article-footer p{padding:20px 0 5px 20px;color:#373737;clear:both}
