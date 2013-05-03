@@ -64,10 +64,10 @@ a{text-decoration:none}
 
 #main-top{height:141px;margin:0 0 20px 0;overflow:hidden}
 #main-top div{float:left}
-#main-top a{font-size:13px;color:#777;line-height:1.7em}
+#main-top a{font-size:13px;color:#777;line-height:1.8em}
 #news{background:url(../images/index-02.png) 0 0 no-repeat;width:400px;height:141px}
 #course{background:url(../images/index-03.png) 0 0 no-repeat;width:426px;height:141px}
-#main-top ul{padding:45px 20px 0 20px}
+#main-top ul{padding:45px 20px 0 20px;font-size:13px;color:#777;line-height:1.8em}
 
 /*-----------------------------------------------------------------------頁身(中)---*/
 
