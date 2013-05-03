@@ -3,6 +3,8 @@
 
 <script>
 $(function(){
+
+
 	var _showTab = 0;
 	var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
 	$($defaultLi.find('a').attr('href')).siblings().hide();
@@ -16,6 +18,11 @@ $(function(){
 	}).find('a').focus(function(){
 		this.blur();
 	});
+	
+	
+	if ( window.location.hash && window.location.hash.substr(1).match( /^tab\d/ ) ) {	
+		$('a[href^=#' + window.location.hash.substr(1) + ']').click();
+	}
 })
 </script>
 
