@@ -25,6 +25,8 @@ class WritingsController < ApplicationController
 			rescue
 				format.html { redirect_to root_url }
 			end
+			
+			format.html 
 		end
 	end
 	
