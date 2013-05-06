@@ -22,6 +22,7 @@ $(function(){
 	
 	if ( window.location.hash && window.location.hash.substr(1).match( /^tab\d/ ) ) {	
 		$('a[href^=#' + window.location.hash.substr(1) + ']').click();
+		window.scrollTo(0,0);
 	}
 })
 </script>
