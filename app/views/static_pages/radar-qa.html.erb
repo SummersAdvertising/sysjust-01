@@ -23,9 +23,9 @@ jQuery(document).ready(function($){
   <div id="main">
     <div id="content">
       <div class="list-box">
-        <div class="list-title"><a>哪裏有函數的定義說明?</a> <span>[+展開]</span></div>
-        <div class="list-text">我們收集市場上完整函數的資料，您可以由下列網址查詢您要的函數說明，及使用範例。<br>
-          <a href="#">http://203.67.19.12/XSWebHelp/index.xdjhtm </a> </div>
+        <div class="list-title"><a>哪裏有函數的定義說明？</a> <span>[+展開]</span></div>
+        <div class="list-text">我們提供完整函數資料，您可以由下列網址查詢您要的函數說明，及使用範例。<br>
+          <a href="http://kmfile.funddj.com/XSWebHelp/index.xdjhtm" target="_blank">http://kmfile.funddj.com/XSWebHelp/index.xdjhtm </a> </div>
       </div>
       <!--list-box-->
       <div class="list-box">
@@ -38,11 +38,11 @@ jQuery(document).ready(function($){
       <!--list-box-->
       <div class="list-box">
         <div class="list-title"><a>是否有提供相關的教學課程？</a> <span>[+展開]</span></div>
-        <div class="list-text">有，近一期的課程，可以查看<a href="course.html">[實務課程]</a>。</div>
+        <div class="list-text">有，近一期的課程，可以查看<a href="<%= courses_url %>">[實務課程]</a>。</div>
       </div>
       <!--list-box-->
       <div class="list-box">
-        <div class="list-title"><a>使用XS策略雷達有快速鍵嗎？</a> <span>[+展開]</span></div>
+        <div class="list-title"><a>使用XScript編寫文件有如同Word一樣的快速鍵嗎？</a> <span>[+展開]</span></div>
         <div class="list-text">有，快速鍵如下所示：<br />
           <img src="<%= get_current_host_and_port %>application/images/rd-tb.jpg"/> </div>
       </div>
@@ -80,6 +80,11 @@ jQuery(document).ready(function($){
       <div class="list-box">
         <div class="list-title"><a>同時跑很多警示條件的話,會影響報價嗎？</a> <span>[+展開]</span></div>
         <div class="list-text">視使用者電腦等級而定，效能越好的電腦影響越小，或可到沒有影響，亦與條件寫法有關。</div>
+      </div>
+      <!--list-box--> 
+      <div class="list-box">
+        <div class="list-title"><a>為何匯入別人提供的進階警示或指標會失敗呢？</a> <span>[+展開]</span></div>
+        <div class="list-text">腳本為進階警示及指標的基本要素，因此必須先執行匯出及匯入腳本，再匯出及匯入進階警示或指標。為了保護著作人的權益，在移轉文檔程序較為嚴謹，以免辛苦結晶之作輕易遭人挪用。因此匯入時步驟及限制需依照標準程序才能移轉成功，並請確認雙方的XQ版本是否一致，若版本不同，亦有可能發生不相容之問題。</div>
       </div>
       <!--list-box--> 
       
