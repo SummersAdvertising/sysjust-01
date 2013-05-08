@@ -16,16 +16,23 @@
         <% # predefines
         
         	current_year = nil
-        	change_flag = false
         	counter = 0
+        	change_flag = false
         %>
         
-<% @summery.each do | block | %>
+<% @summery.each do | block | %>	
+	<%	if current_year != block["year"] 	
+			change_flag = true	 if !current_year.nil?
+			current_year = block["year"]    
+	%>        	
 		
-	<% if current_year != block["year"] 	
-		current_year = block["year"]    
-		change_flag = true		
-	%>        				
+		<% if change_flag %>	
+	        	</ol>
+			</li> <!-- month changed -->
+		<%
+       	change_flag = false		
+       	end # 用來決定結尾的 %>
+       	
 		<li class="fold"><a href="javascript: void(0);"><img src="<%= get_current_host_and_port %>application/images/share-p2.gif"><%= block["year"] %> 
 		<span id="year_<%= current_year %>_num"></span></a>
         	<ol>        
@@ -33,20 +40,27 @@
 	
 	<% counter += block["count"] %>
 		<li class="fold"><a class="month-title" data-year="<%= current_year %>" data-month="<%= block["month"] %>" href="javascript: void(0);" ><img src="<%= get_current_host_and_port %>application/images/share-p1.gif"><%= t("date.month_names")[block["month"]] %> (<%= block["count"] %>)</a>
-			<ol class="month-articles"></ol>			
-			
+			<ol class="month-articles"></ol>						
 		</li>				
+		
+		
+	<% # 跑完月份了  %>	
 	<% if change_flag %>
-        	</ol>
-		</li>
 		<script type="text/javascript">
 			// 好吧，鳥事都在這邊做吧
 			$('#year_<%= current_year %>_num').html('(' + <%= counter %> + ')');
 		</script>
-    <%    
-		counter = 0
-	%>
+	    <%    
+			counter = 0
+		%>
     <% end %>
+
+
+	<% if block == @summery.last  # 全部都跑完了，要補上這個 %>			
+        	</ol>
+		</li>
+		<%	end	%>
+    
     	
         <% end %>
         </ol>
