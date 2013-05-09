@@ -17,7 +17,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
+    @category = Category.where( "id = '#{params[:id]}' OR  namehash = '#{params[:id]}'").first
+    
     @categories = Category.limit(3)
     @category_01 = @categories[0]
     @category_02 = @categories[1]

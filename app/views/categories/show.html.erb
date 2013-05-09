@@ -4,7 +4,7 @@
   <div id="main">
     <div id="side" class="left">
       <ul class="tabs">
-        <% if params[:id]== @category_xs.id.to_s() %>
+        <% if params[:id]== @category_xs.id.to_s() || params[:id] == 'xs' %>
             <li class="active"><a href="<%= category_path(@category_xs) %>"><%= @category_xs.name %></a></li>
         <% else %>
             <li><a href="<%= category_path(@category_xs) %>"><%= @category_xs.name %></a></li>
