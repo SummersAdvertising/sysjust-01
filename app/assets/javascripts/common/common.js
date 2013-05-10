@@ -15,7 +15,6 @@ function checkForm() {
 		}
 		
 		var labeledMessage = $('label.message[for="' + $(this).attr('id') + '"]');
-		console.log(labeledMessage);
 		
 		if ( $(this).attr('type') == 'file' && $(this).val().length > 0) {
 			
