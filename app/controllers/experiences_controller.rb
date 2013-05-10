@@ -28,6 +28,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new
     @finished = params[ :finished ]
     
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @experience }
