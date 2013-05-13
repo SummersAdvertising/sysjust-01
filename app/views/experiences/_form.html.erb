@@ -100,15 +100,15 @@
               <td>Email</td>
               <td colspan="3"><%= f.text_field :email %></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td>公司名稱</td>
-              <td colspan="3"><%= f.text_field :company_name %></td>
+              <td colspan="3"><%= f.text_field :company_name, :value=>"none" %></td>
             </tr>
-            <tr>
+            <tr style="display:none;">
               <td>職稱</td>
-              <td><%= f.text_field :professional_title %></td>
+              <td><%= f.text_field :professional_title, :value=>"none" %></td>
               <td align="center" valign="middle">參加人數</td>
-              <td><%= f.number_field :attendant_number %></td>
+              <td><%= f.number_field :attendant_number, :value=>1 %></td>
             </tr>
           </table>
           <div style="display:none">
