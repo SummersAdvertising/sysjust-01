@@ -5,7 +5,7 @@ class WritingsController < ApplicationController
 	def index
 		respond_to do | format |
 			begin
-				@writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/last/5")
+				@writings = check_and_parse_str("http://#{$api_domain}/KMDJ/REST/Blog.svc/#{$blog_id}/last/5")
 				format.html
 			rescue
 				format.html { redirect_to page_path( :id => "sorry" ) }
@@ -20,8 +20,8 @@ class WritingsController < ApplicationController
 		
 		respond_to do | format |
 			begin
-				@writing = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/article/#{@id}" )		
-				@category_writings = check_and_parse_str("http://203.67.19.84/KMDJ/REST/Blog.svc/31/list/class/#{@writing["classno"]}/5")
+				@writing = check_and_parse_str( "http://#{$api_domain}/KMDJ/REST/Blog.svc/#{$blog_id}/article/#{@id}" )		
+				@category_writings = check_and_parse_str("http://#{$api_domain}/KMDJ/REST/Blog.svc/#{$blog_id}/list/class/#{@writing["classno"]}/5")
 			rescue
 				format.html { redirect_to page_path( :id => "sorry" ) }
 			end
@@ -55,10 +55,11 @@ class WritingsController < ApplicationController
 private
 
 	def setup_sidebar
+	
 		
 		begin
-			@categories  = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/class" )
-			@summery = check_and_parse_str( "http://203.67.19.84/KMDJ/REST/Blog.svc/31/count/month" )
+			@categories  = check_and_parse_str( "http://#{$api_domain}/KMDJ/REST/Blog.svc/#{$blog_id}/class" )
+			@summery = check_and_parse_str( "http://#{$api_domain}/KMDJ/REST/Blog.svc/#{$blog_id}/count/month" )
 		rescue
 		
 		end

@@ -6,7 +6,7 @@ class CrossReaderController < ApplicationController
 	
 		case params[ :id ]			
 			when 'month-writing'
-				url = "http://203.67.19.84/KMDJ/REST/Blog.svc/31/list/month/#{params[:year]}/#{params[:month]}"
+				url = "http://#{$api_domain}/KMDJ/REST/Blog.svc/#{$blog_id}/list/month/#{params[:year]}/#{params[:month]}"
 			else
 		end
 		
