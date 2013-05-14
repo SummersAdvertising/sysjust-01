@@ -14,8 +14,9 @@
     <div id="content">   	
     
    <% @writings.each do | writing | %>
+   
 			<div class="article">
-				 <div class="article-title"> <span><a href="{SHARE_CATEGORY_LINK}"><%= writing["classname"] %></a>｜<%= writing["date"] %></span>
+				 <div class="article-title"> <span><%= writing["date"] %></span>
 					<h3><%= writing["title"] %></h3>
 					<div class="social"> 
 						<iframe src="//www.facebook.com/plugins/like.php?href=<%=u writing["url"]%>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=433197170080910" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:71px; height:21px;" allowTransparency="true"></iframe>
