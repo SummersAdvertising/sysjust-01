@@ -1,3 +1,4 @@
+# encoding: utf-8
 class WritingsController < ApplicationController
 
 	before_filter :setup_sidebar
@@ -56,6 +57,7 @@ private
 
 	def setup_sidebar
 	
+		$meta_title = "專家分享"
 		
 		begin
 			@categories  = check_and_parse_str( "http://#{$api_domain}/KMDJ/REST/Blog.svc/#{$blog_id}/class" )
