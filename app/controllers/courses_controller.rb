@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.display.start_time.recent
+    @courses = Course.display.order( "start_time ASC" )
 
     respond_to do |format|
       format.html # index.html.erb
