@@ -103,6 +103,28 @@ private
 		    encode_data = original_data.encode('UTF-8')
 		    remove_oNoties = encode_data.gsub("var oNoties=", "")
 		    remove_colon = remove_oNoties.gsub(";", "")
+		    
+		    parsed_data = eval(remove_colon)
+		    
+		    parsed_data.each do | row |
+		    
+		    	begin 
+		    	
+		    	 if row[0] == :array
+		    	 	next
+		    	 end
+		    	 
+				rescue
+					next
+				else
+		    	 rowData = row[1]
+		    	 @record = Array[rowData[:T1], rowData[:T2], rowData[:Title], rowData[:Detail]]
+
+		    	 @data.push(@record)
+				end
+		    end
+		    
+=begin		    
 		    remove_array = remove_colon.split(',array:')
 		    remove_array= remove_array[0]
 		    records = remove_array.split(',i')	    
@@ -133,6 +155,8 @@ private
 				end
 		
 		    }
+		    
+=end		    
 		    
 		end	
 	end
