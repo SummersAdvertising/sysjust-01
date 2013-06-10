@@ -107,13 +107,13 @@ a{text-decoration:none}
 
 /*-----------------------------------------------------------------------頁身(下)---*/
 
-#main-bottom{height:100px;overflow:hidden;margin:0 0 20px 0}
+#main-bottom{height:140px;overflow:hidden;margin:0 0 20px 0}
 #annc{float:left;width:708px;font:300 13px "微軟正黑體";color:#636363}
 #annc a{font:300 13px "微軟正黑體";color:#636363}
 #annc h3{height:35px;font-size:17px}
 #annc td{padding:5px 0}
 
-#other{float:right;width:295px;height:100px}
+#other{float:right;width:295px;height:140px}
 
 /*-----------------------------------------------------------------------頁尾---*/
 
