@@ -24,7 +24,7 @@
 					</div><!-- social -->
 				</div>
 				<div class="article-content">
-					<p><%= writing["abstract"] %>... <a href="<%= writing_path( :id => writing["id"] ) %>" style="color: #cb441a;">(繼續閱讀)</a></p>
+					<p><%= writing["abstract"].html_safe %>... <a href="<%= writing_path( :id => writing["id"] ) %>" style="color: #cb441a;">(繼續閱讀)</a></p>
 				</div>
 			</div>
 	<% end %>
