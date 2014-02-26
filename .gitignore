@@ -28,3 +28,5 @@
 /.idea
 
 /config/deploy/*
+
+/old_cap

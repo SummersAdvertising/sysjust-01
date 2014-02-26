@@ -47,6 +47,11 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
+group :development do
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+end
+
 # To use debugger
 # gem 'debugger'
 
@@ -56,7 +61,6 @@ gem 'therubyracer', :platforms => :ruby
 gem 'jquery-fileupload-rails', :git => "git@github.com:vincentopensourcetaiwan/jquery-fileupload-rails.git"
 gem 'twitter-bootstrap-rails'
 gem 'kaminari'
-gem 'newrelic_rpm'
 gem "browser"
 gem 'quiet_assets', group: :development
 gem 'thin', group: :development
