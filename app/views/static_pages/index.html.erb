@@ -73,17 +73,15 @@ $(function(){
           <li><a href="<%= category_path( :id => 'xs' ) %>">影片教學</a></li>
           <li><a href="<%= posts_path %>">討論區</a></li>
           <li><a href="<%= page_path( :id => 'radar-qa' ) %>">常見問題</a></li>
-          <li><a target="_blank" href="http://kmfile.funddj.com/XSWebHelp/index.xdjhtm">函數搜尋</a></li>
+          <li><a href="http://xshelp.xq.com.tw">函數搜尋</a></li>
         </ul>
       </li>
       <li><a href="xqtrade.html">交易區</a>
         <ul class="child" id="child-3">
 	      <li><a href="<%= xqtrade_url %>">交易功能</a></li>
 	      <li><a href="<%= xqtrade_partner_url %>">合作夥伴</a></li>
-	      <li><a href="<%= xqtrade_ca_url %>">憑證中心</a></li>
 	      <li><a href="<%= xqtrade_faq_url %>">常見問題</a></li>
 	      <li><a href="<%= xqtrade_manual_url %>">使用手冊</a></li>
-	      <li><a href="<%= xqtrade_service_url %>">客服窗口</a></li>
         </ul>
       </li>
       <li><a href="<%= courses_url %>">實務課程</a></li>
@@ -427,7 +425,7 @@ $(function(){
     <!--product-->
     <div id="fans">
           <h3><img src="<%= get_current_host_and_port %>application/images/index-10.png" width="294" height="32" /></h3>
-		  <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FXQ%25E5%2585%25A8%25E7%2590%2583%25E8%25B4%258F%25E5%25AE%25B6%2F178222061342&amp;width=285&amp;height=450&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=true&amp;header=true" scrolling="no" frameborder="0" style="overflow:hidden; width:285px; height:450px;margin: 13px 0px 0 0px;" allowTransparency="true"></iframe>
+		  <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FXQ%25E5%2585%25A8%25E7%2590%2583%25E8%25B4%258F%25E5%25AE%25B6%2F178222061342&amp;width=285&amp;height=450&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=true&amp;header=true" scrolling="no" frameborder="0" style="overflow:hidden; width:285px; height:450px;margin: 29px 0px 0 5px;" allowTransparency="true"></iframe>		  
     </div>
     <!--fans--> 
   </div>
@@ -459,11 +457,18 @@ $(function(){
 	    </table>
 	    <% end %>
   </div>
-  <div id="other">
-	<a href="https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia/id642738082?ls=1&mt=8">
-	  		<img src="<%= get_current_host_and_port %>application/images/285x140-XQweb.png" width="285" height="140" />
-	  	</a>
-  </div>
+  	<div id="other">
+      <table id="banner-tbl" width="285" height="140" border="0" cellpadding="0" cellspacing="0" style="margin:0px 5px;">
+        <tr>
+          <td colspan="3"><img src="<%= get_current_host_and_port %>application/images/285x140-XQweb_01.gif" width="285" height="28" alt="XQ 全球贏家 APPs"></td>
+        </tr>
+        <tr>
+          <td><a href="https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia/id642738082?ls=1&mt=8"><img src="<%= get_current_host_and_port %>application/images/285x140-XQweb_02.gif" width="94" height="112" alt="XQ for iPad" style="border:0;"></a></td>
+          <td><img src="<%= get_current_host_and_port %>application/images/285x140-XQweb_03.gif" width="97" height="112" alt=""></td>
+          <td><a href="https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia-shou-ji-ban/id775687957?mt=8&ign-mpt=uo%3D4"><img src="<%= get_current_host_and_port %>application/images/285x140-XQweb_04.gif" width="94" height="112" alt="XQ for iPhone" style="border:0;"></a></td>
+        </tr>
+      </table>
+	</div>
   </div>
 </div>
 

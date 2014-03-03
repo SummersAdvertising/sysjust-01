@@ -119,12 +119,6 @@
                   <li><a href="<%= xqtrade_partner_url %>">合作夥伴</a></li>
               <% end %>
 
-              <% if params[:action]=="xqtrade_ca" %>
-                  <li class="active"><a href="<%= xqtrade_ca_url %>">憑證中心</a></li>
-              <% else %>
-                  <li><a href="<%= xqtrade_ca_url %>">憑證中心</a></li>
-              <% end %>
-
               <% if params[:action]=="xqtrade_faq" %>
                   <li class="active"><a href="<%= xqtrade_faq_url %>">常見問題</a></li>
               <% else %>
@@ -136,12 +130,6 @@
               <% else %>
                   <li><a href="<%= xqtrade_manual_url %>">使用手冊</a></li>
               <% end %>
-
-              <% if params[:action]=="xqtrade_service" %>
-                  <li class="active"><a href="<%= xqtrade_service_url %>">客服窗口</a></li>
-              <% else %>
-                  <li><a href="<%= xqtrade_service_url %>">客服窗口</a></li>
-              <% end %>
             </ul>
         <% end %>
    <% end %>
@@ -152,7 +140,7 @@
           <li><a href="<%= category_path( Category.last ) %>">影片教學</a></li>
           <li <%= 'class="active"'.html_safe if params[:controller]=="posts" %>><a href="<%= posts_path %>">討論區</a></li>
           <li <%= 'class="active"'.html_safe if params[:id]=="radar-qa" %>><a href="<%= page_path( :id => "radar-qa" ) %>">常見問題</a></li>
-          <li><a href="http://kmfile.funddj.com/XSWebHelp/index.xdjhtm" target="_blank">函數搜尋</a></li>   
+          <li><a href="http://xshelp.xq.com.tw">函數搜尋</a></li>   
     </ul>
    <% end %>
 

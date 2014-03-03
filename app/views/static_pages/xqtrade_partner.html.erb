@@ -9,6 +9,8 @@
     #content a:hover img{opacity:.8;filter:alpha(opacity=80)}
     #content p{font-size:13px}
     #content p a{font-size:13px;color:#363636}
+    #content table tr td.col2 { text-align:right;vertical-align:top;  }
+    #content h4 { margin-top: 32px; }
 </style>
 <%= render :partial => "shared/application_top" %><!--header-->
 <div id="container">
@@ -18,32 +20,45 @@
     </div>
     <!--banner-->
     <div id="content">
-    <table width="80%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
-          <td width="50%"><a href="http://www.esunsec.com.tw/index.asp" target="_blank">
-      <img src="https://ap2.esunsec.com.tw/11Q3web/img/left.jpg" /></a></td>
-          
+          <td class="col1" width="50%"><a href="http://www.esunsec.com.tw/index.asp" target="_blank">
+          <img src="https://ap2.esunsec.com.tw/11Q3web/img/left.jpg" /></a></td>
+          <td class="col2" width="50%"><a href="http://www.tcsc.com.tw/z/z00.htm" target="_blank">
+          <img width="409" src="http://www.tcsc.com.tw/z/Main_Image/Type_Red/Logo.gif" /></a></td>
+        </tr>
+        <tr>
+          <td class="col1" width="50%"><a href="https://www.capital.com.tw/" target="_blank">
+          <img src="https://www.capital.com.tw/images_v2011/logo.png" /></a></td>
+          <td class="col2" width="50%"><a href="http://www.ftsi.com.tw/" target="_blank">
+          <img width="409" src="http://www.ftsi.com.tw/0_COMMON/images/logo.gif" /></a></td>
         </tr>
       </table>
-  <font size=4>自2000年至今，玉山證券秉持玉山專業服務責任的精神，致力於培育專業穩健的投資專員及研究團隊，以追求顧客滿意為永續經營之目標，欲成為最受顧客信賴的投資理財靠山。在2002年玉山證券成為玉山金控百分之百轉投資之子公司，並於2012年信用評等短期達到最高等級F1而長期達到A高信用品質，受到專業的高度肯定。</font>
-      <br>
-    <br>
-  <h4 id="manual">專業團隊</h4>
-         <font size=3>擁有熱忱的專業研究團隊，提供優質的證券服務</font>
-      <br>
-    <br>
-  <h4 id="manual">整合通路</h4>
-         <font size=3>持續增設服務據點及玉山銀行之共同服務網絡，提供高效率、高品質的服務</font>
-      <br>
-    <br>
-  <h4 id="manual">E化平台</h4>
-         <font size=3>電子下單平台提供更多元而穩定的下單環境</font>
-      <br>
-    <br>
-  <h4 id="manual">嚴密風險管理</h4>
-         <font size=3>嚴謹的風險管理及內控流程是對顧客最高的承諾及保障</font>
-      <br>
-      <br>
+        <h4 id="setup">客戶服務</h4>
+        <table width="60%" border="0" align="center" cellpadding="" cellspacing="25">
+          <tr>
+            <td width="50%"><font size=4>嘉實XQ全球贏家客服專線 </font></td>
+            <td><font size=4 style="color:red">0800-094-168</font></td>
+          </tr>
+          <tr>  
+            <td width="50%"><font size=4>玉山VIP客服專線</font></td>
+            <td><font size=4 style="color:red">02-5580-5013</font></td>
+          </tr>
+          <tr>  
+            <td width="50%"><font size=4>第一金證券客服專線</font></td>
+            <td><font size=4 style="color:red">0800-538-080</font></td>
+          </tr>
+          <tr>  
+            <td width="50%"><font size=4>大眾證券客服專線</font></td>
+            <td><font size=4 style="color:red">0800-058-588</font></td>
+          </tr>
+          <tr>  
+            <td width="50%"><font size=4>群益證券客服專線</font></td>
+            <td><font size=4 style="color:red">02-412-8878</font></td>
+          </tr>
+        </table>
+        <p>如有任何使用上的問題，可email至客服信箱：<a href="mailto:XQservice@XQ.com.tw" target="_blank">XQservice@XQ.com.tw</a>  
+          我們也將在最短時間內回覆給您，謝謝。</p>
 
     </div>
     <!--content-->

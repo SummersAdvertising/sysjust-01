@@ -118,7 +118,7 @@ private
 					next
 				else
 		    	 rowData = row[1]
-		    	 @record = Array[rowData[:T1], rowData[:T2], rowData[:Title], rowData[:Detail]]
+		    	 @record = Array[rowData[:T1], rowData[:T2], rowData[:Title], replace_notice_content(rowData[:Detail])]
 
 		    	 @data.push(@record)
 				end
@@ -159,6 +159,10 @@ private
 =end		    
 		    
 		end	
+	end
+
+	def replace_notice_content(content)
+		content.gsub(/#Link([^\(]*)\(([^\(]*)\)/, '<a href="\2" target="blank">\1</a>')
 	end
   
 end
