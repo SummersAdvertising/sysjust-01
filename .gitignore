@@ -30,3 +30,6 @@
 /config/deploy/*
 
 /old_cap
+
+/.ruby-version
+
