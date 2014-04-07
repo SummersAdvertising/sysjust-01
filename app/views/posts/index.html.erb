@@ -16,7 +16,7 @@
   
   <% @posts.each do | post | %>  
   <tr>
-    <td class="tbl"><a target="_blank" href="<%= post["lastposturl"].to_s.gsub(/((\#lastpost)|(\&page=end))/, '') %>"><%= post["title"] %></a></td>
+    <td class="tbl"><a target="_blank" href="<%= post["lastposturl"].to_s.gsub(/((\#lastpost)|(\&page=end))/, '') %>"><%= post["title"].html_safe %></a></td>
     <td align="center"><a target="_blank" href="<%= post["forumurl"] %>"><%= post["forumname"] %></a></td>
     <td align="center"><a target="_blank" href="<%= post["posterurl"] %>"><%= post["poster"] %></a></td>
     <td align="center"><em><%= post["replycount"] %></em> / <%= post["viewcount"] %></td>

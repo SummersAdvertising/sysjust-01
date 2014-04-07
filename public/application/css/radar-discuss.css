@@ -9,7 +9,9 @@
 #content table{border-left:1px solid #CDCBCA;border-bottom:1px solid #CDCBCA}
 #content tr:nth-child(2n-1) {background:#FFFBE9}
 #content .tbl{padding:0 0 0 20px}
+#content .tbl>a>span{font-size:13px;}
 #content span{font:300 11px "微軟正黑體";color:#a6a6a6}
+
 
 /*---頁碼---*/
 #pages{text-align:center;width:100%;margin:20px 0}
