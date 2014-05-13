@@ -140,7 +140,8 @@
           <li><a href="<%= category_path( Category.last ) %>">影片教學</a></li>
           <li <%= 'class="active"'.html_safe if params[:controller]=="posts" %>><a href="<%= posts_path %>">討論區</a></li>
           <li <%= 'class="active"'.html_safe if params[:id]=="radar-qa" %>><a href="<%= page_path( :id => "radar-qa" ) %>">常見問題</a></li>
-          <li><a href="http://xshelp.xq.com.tw">函數搜尋</a></li>   
+          <li><a href="http://xshelp.xq.com.tw/xslesson/">語法教學</a></li>
+          <li><a href="http://xshelp.xq.com.tw">函數搜尋</a></li>
     </ul>
    <% end %>
 
