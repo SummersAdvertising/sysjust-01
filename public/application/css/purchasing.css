@@ -3,9 +3,10 @@
 
 #content{font:300 16px "微軟正黑體";line-height:1.7em}
 .plan h3{font:300 16px "微軟正黑體";height:40px;padding:12px 0 0 200px}
-#plan-a h3{background:url(../images/pur-05.jpg) 0 0 no-repeat;padding:12px 0 0 175px}
-#plan-b h3{background:url(../images/pur-06.jpg) 0 0 no-repeat}
-#plan-c h3{background:url(../images/pur-07.jpg) 0 0 no-repeat}
+#plan-a h3{background:url(../images/pur-tita.jpg) 0 0 no-repeat;padding:12px 0 0 175px}
+#plan-b h3{background:url(../images/pur-titb.jpg) 0 0 no-repeat;padding:12px 0 0 175px}
+#plan-c h3{background:url(../images/pur-titc.jpg) 0 0 no-repeat}
+#plan-d	h3{background:url(../images/pur-titd.jpg) 0 0 no-repeat}
 
 .plan{margin:50px 0 0 0}
 .plan table{border:1px solid #F1F1F1;border-radius:5px}
