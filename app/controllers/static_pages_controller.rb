@@ -22,6 +22,21 @@ class StaticPagesController < ApplicationController
   def download_contents
   end
 
+  def download_detection
+  	user_agent = request.env['HTTP_USER_AGENT']
+
+  	case 
+  	when user_agent =~ /iPod|iPhone/
+  		download_url = "https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia-shou-ji-ban/id775687957?mt=8&ign-mpt=uo%3D4"
+	when user_agent =~ /iPad/
+		download_url = "https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia/id642738082?ls=1&mt=8"
+	when user_agent =~ /Android/
+		download_url = "https://play.google.com/store/apps/details?id=djapp.app.xqm"
+	end
+	#如果空值表示不支援的裝置，直接顯示頁面
+  	redirect_to download_url if download_url
+  end
+
   def file_01
     send_file Rails.root.to_s()+"/public/download_contents/Foreign_Exchange.dap"
   end

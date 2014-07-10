@@ -13,6 +13,7 @@ TestDevise::Application.routes.draw do
   match "/download_contents/file_01" => "static_pages#file_01"
   match "/download_contents/file_02" => "static_pages#file_02"
   match "/download_contents/file_03" => "static_pages#file_03"
+  match "/download_detection" => "static_pages#download_detection"
   match "/traits" => "static_pages#traits"
   match "/questions" => "static_pages#questions"
   match "/online_demonstrations" => "static_pages#online_demonstrations"
