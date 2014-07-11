@@ -34,7 +34,11 @@ class StaticPagesController < ApplicationController
 		download_url = "https://play.google.com/store/apps/details?id=djapp.app.xqm"
 	end
 	#如果空值表示不支援的裝置，直接顯示頁面
-  	redirect_to download_url if download_url
+	if download_url
+  		redirect_to download_url 
+  	else
+  		render layout: false
+  	end
   end
 
   def file_01
