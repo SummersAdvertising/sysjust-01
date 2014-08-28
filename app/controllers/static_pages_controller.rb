@@ -30,8 +30,8 @@ class StaticPagesController < ApplicationController
   		download_url = "https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia-shou-ji-ban/id775687957?mt=8&ign-mpt=uo%3D4"
 	when user_agent =~ /iPad/
 		download_url = "https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia/id642738082?ls=1&mt=8"
-	#when user_agent =~ /Android/
-	#	download_url = "https://play.google.com/store/apps/details?id=djapp.app.xqm"
+	when user_agent =~ /Android/
+		download_url = "https://play.google.com/store/apps/details?id=djapp.app.xqm"
 	end
 	#如果空值表示不支援的裝置，直接顯示頁面
 	if download_url
