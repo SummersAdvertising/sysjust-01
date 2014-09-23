@@ -11,6 +11,6 @@ $(document).ready(
                 "imageGetJson":"/redactor_rails/pictures",
                 "path":"/assets/redactor-rails",
                 "css":"style.css",
-                "buttons": ['image'], "lang":'zh_tw'}
+                "buttons": ['image','unorderedlist', 'orderedlist'], "lang":'zh_tw'}
         );
     });

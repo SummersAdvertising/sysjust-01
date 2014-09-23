@@ -7,3 +7,87 @@ h5{font: 300 20px "微軟正黑體";color: #a72c07}
 #content a:hover img{opacity:0.9;filter:alpha(opacity=90)}
 #custom {margin:40px auto;width:80%}
 #custom img{margin:0}
+
+#ver-tbl {
+	border-bottom: 1px solid #cdcbca;
+	border-left: 1px solid #cdcbca;
+	border-right: 1px solid #cdcbca;
+
+	font: 15px/1.6em 微軟正黑體, Verdana, Lucida, Arial, Helvetica, KBC,sans-serif;
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	line-height: 180%;
+}
+
+#ver-tbl th {
+	height: 37px;
+	font: 300 18px "微軟正黑體";
+	font-size: 16px;
+	background-image: url(../images/tbl-th.jpg);
+	background-repeat: repeat-x;
+	color: #FFF;
+}
+
+#ver-tbl td {
+	padding: 5px 4px;
+}
+
+#ver-tbl .release {
+	text-align: center;
+}
+
+#ver-tbl .logo {
+	text-align: right;
+}
+
+#ver-tbl .logo img {
+	padding: 2px;
+	margin: 0 0 0 0 ;
+}
+
+#ver-tbl .version {
+	text-align: left;
+}
+
+#ver-tbl .files {
+	text-align: left;
+}
+
+#ver-tbl tr.first td {
+	border-bottom: 1px #CCCCCC dotted;
+}
+
+#ver-tbl .memo {
+	vertical-align: top;
+	text-align: left;
+}
+
+
+#ver-tbl a img {
+	border: none;
+}
+
+#ver-tbl a:link {
+	color: #cb441a;
+	text-decoration: none;
+}
+
+#ver-tbl a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+
+#ver-tbl a:hover, a:active, a:focus {
+	text-decoration: underline;
+	color: #cb441a;
+}
+
+#ver-tbl ol, #ver-tbl li {
+	list-style: initial;
+}
+
+#ver-tbl .memo p {
+	padding: 0;
+}

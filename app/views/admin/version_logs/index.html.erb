@@ -1,0 +1,33 @@
+<%= render :partial => "shared/admin_top" %>
+<!--top-out-->
+<div id="container">
+  <%= render :partial => "shared/admin_side" %>
+  <!--side-->
+  <div id="main" class="right">
+    <div class="button"><a href="<%=new_admin_version_log_path%>"><img src="<%=get_current_host_and_port%>images/add.png">新增版本</a></div>
+    <div class="main-list">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr class="main-list-title">
+          <th width="17%" align="center" scope="col">版本</th>
+          <th width="17%" align="left" scope="col">更新日期</th>
+          <th width="46%" align="center" scope="col">說明</th>
+          <th width="9%" align="center" scope="col">編輯</th>
+          <th width="9%" align="center" scope="col">刪除</th>
+        </tr>
+        <% @version_logs.each do |version_log| %>
+          <tr>
+            <td align="center"><%= version_log.version.to_s %></td>
+            <td align="center"><%= version_log.release_date.to_date %></td>
+            <td align="left"><a href="<%=edit_admin_version_log_path(version_log)%>"> <%= "#{strip_tags(version_log.memo)[0..20]}..." %> </a></td>
+            <td align="center"><a href="<%=edit_admin_version_log_path(version_log)%>"><img src="<%=get_current_host_and_port%>images/edit.png"></a></td>
+            <td align="center"><a href='<%=admin_version_log_path(version_log)%>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%=get_current_host_and_port%>images/delete.png"></a></td>
+          </tr>       
+        <% end %> 
+      </table>
+    </div>
+  </div>
+  <!--main--> 
+</div>
+<!--container-->
+<div id="footer"></div>
+<!--footer-->

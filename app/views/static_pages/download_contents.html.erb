@@ -11,24 +11,48 @@
     <div id="content">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td width="46%" align="left" valign="top"><h4>XQ主程式</h4>
-            <a href="http://login.xq.com.tw/dassvr/installer/setup.exe" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dl-01.jpg" width="319" height="108"></a><br />
-            <a href="http://login.xq.com.tw/dassvr/installer/update.exe" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dl-02.jpg" width="319" height="108" /></a><br />
-            <br />
-            <br /></td>
-          <td width="8%" align="left" valign="top">&nbsp;</td>
-          <td width="46%" align="left" valign="top"><h4>XQ+XS策略雷達主程式</h4>
-            <a href="http://login.xq.com.tw/dassvr/installer/setup.exe"><img src="<%= get_current_host_and_port %>application/images/dl-01.jpg" width="319" height="108" /></a></td>
+          <td colspan="3" align="left" valign="top">
+            <table id="ver-tbl" width="100%" border="1" cellspacing="0" cellpadding="0"
+            >
+            <thead>
+            <tr>
+              <th width="10%" class="logo">&nbsp;</th>
+              <th width="8%" class="version">版本</th>
+              <th width="20%" class="release">更新日期</th>
+              <th width="16%" class="files">下載點</th>
+              <th >說明</th>
+            </tr>
+            </thead>
+            <% @version_logs.each_with_index do |version_log, index| %>
+            <tr class="<%= "first" if index == 0 %>">
+              <td class="logo"><% if index == 0  %><img src="<%= get_current_host_and_port %>application/images/new.png" />
+              <% end %>
+              </td>
+              <td class="version"><%= version_log.version.to_s %></td>
+              <td class="release"><%= version_log.release_date.to_s %></td>
+              <td class="files">
+                <ul>
+                  <li><a href="http://login.xq.com.tw/dassvr/installer/<%=version_log.version%>/setup.exe">完整安裝</a></li>
+                  <li><a href="http://login.xq.com.tw/dassvr/installer/<%=version_log.version%>/update.exe">升級程式</a></li>
+                </ul>
+              </td>
+              <td class="memo"><%= raw(version_log.memo) %></td>
+            </tr>
+            <% end %>
+            </table>
+            <br/>
+            <br/>
+          </td>
         </tr>
         <tr>
-          <td align="left" valign="top"><h4>XQ使用手冊</h4>
+          <td align="left" valign="top" width="46%"><h4>XQ使用手冊</h4>
             <p>XQ內建豐富系統看盤及分析頁面，多樣又實用的設計，滿足使用者即時或非即時的資訊使用，除此之外更提供最彈性、最強大的個人化看盤介面，由使用者自行規劃符合自己所需的頁面。詳細的內容讓您輕鬆學會如何使用XQ。</p>
             <a href="http://www.xq.com.tw/aphelp/DAQ/default.htm" target="_blank"><img src="<%= get_current_host_and_port %>application/images/dl-03.jpg" width="308" height="76" /></a><br />
             <br />
             <br />
           </td>
-          <td align="left" valign="top">&nbsp;</td>
-          <td align="left" valign="top"><h4>XS策略雷達使用手冊</h4>
+          <td align="left" valign="top" width="8%">&nbsp;</td>
+          <td align="left" valign="top" width="46%"><h4>XS策略雷達使用手冊</h4>
             <p>XS策略雷達全新推出，提供豐富的技術指標供您自訂圖形指標，進階警示支援大量股票快速掃描、將您的投資邏輯一一實現，看盤做決策如您所願。詳細的內容讓您輕鬆開始操作XS策略雷達。<br />
               <br />
             </p>

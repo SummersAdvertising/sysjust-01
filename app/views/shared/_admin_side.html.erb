@@ -39,6 +39,13 @@
         <a href="<%=admin_banner_path(Banner.first) if Banner.first%>" id="banner">專家秘訣模組</a>
       <%end%>
     </li>
+    <li>
+      <%if params[:controller]=="admin/version_logs"%>
+        <a href="<%=admin_version_logs_path%>" id="log" class="active">版本記錄</a>  
+      <% else %>
+        <a href="<%=admin_version_logs_path%>" id="log">版本記錄</a>
+      <%end%>
+    </li>
       <% if current_user.is_admin? %>
       <li>
         <%if params[:controller]=="users" && params[:action]=="index"%>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  version: 9.99
+  update: 2014-08-28
+  memo: MyText
+
+two:
+  version: 9.99
+  update: 2014-08-28
+  memo: MyText

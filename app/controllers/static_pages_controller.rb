@@ -20,6 +20,7 @@ class StaticPagesController < ApplicationController
   end
 
   def download_contents
+  	@version_logs = VersionLog.all.take(2)
   end
 
   def download_detection

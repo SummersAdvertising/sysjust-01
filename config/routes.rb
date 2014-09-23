@@ -62,6 +62,7 @@ TestDevise::Application.routes.draw do
   end
 
   namespace :admin do
+    resources :version_logs
     resources :news_updates
     resources :banners
     resources :experiences do
