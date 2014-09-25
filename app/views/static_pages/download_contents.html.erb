@@ -28,12 +28,12 @@
               <td class="logo"><% if index == 0  %><img src="<%= get_current_host_and_port %>application/images/new.png" />
               <% end %>
               </td>
-              <td class="version"><%= version_log.version.to_s %></td>
+              <td class="version"><%= sprintf('%.2f', version_log.version) %></td>
               <td class="release"><%= version_log.release_date.to_s %></td>
               <td class="files">
                 <ul>
-                  <li><a href="http://login.xq.com.tw/dassvr/installer/<%=version_log.version%>/setup.exe">完整安裝</a></li>
-                  <li><a href="http://login.xq.com.tw/dassvr/installer/<%=version_log.version%>/update.exe">升級程式</a></li>
+                  <li><a href="http://login.xq.com.tw/dassvr/installer/DAQ/TW/<%=sprintf('%.2f', version_log.version) %>/setup.exe">完整安裝</a></li>
+                  <li><a href="http://login.xq.com.tw/dassvr/installer/DAQ/TW/<%=sprintf('%.2f', version_log.version)%>/update.exe">升級程式</a></li>
                 </ul>
               </td>
               <td class="memo"><%= raw(version_log.memo) %></td>

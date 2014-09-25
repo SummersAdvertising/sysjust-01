@@ -16,7 +16,7 @@
         </tr>
         <% @version_logs.each do |version_log| %>
           <tr>
-            <td align="center"><%= version_log.version.to_s %></td>
+            <td align="center"><%= sprintf('%.2f', version_log.version) %></td>
             <td align="center"><%= version_log.release_date.to_date %></td>
             <td align="left"><a href="<%=edit_admin_version_log_path(version_log)%>"> <%= "#{strip_tags(version_log.memo)[0..20]}..." %> </a></td>
             <td align="center"><a href="<%=edit_admin_version_log_path(version_log)%>"><img src="<%=get_current_host_and_port%>images/edit.png"></a></td>
