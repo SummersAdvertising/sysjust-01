@@ -28,6 +28,10 @@
     <div class="main-title" style="margin-top:10px">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
+          <td class="title2" height="27">產品</td>
+          <td colspan="3"><%= f.select(:appid, [['XQ全球贏家','DAQ'],['XQ策略高手','DAQXQLITE']], :prompt => 'Select') %></td>
+        </tr>
+        <tr>
           <td class="title2" height="27" width="94">版本(數字)</td>
           <td class="text" width="233"><%= f.text_field :version %></td>
           <td class="title2" width="94" style="border-left:1px solid #ccc">更新日期</td>
@@ -38,7 +42,7 @@
     <div class="main-text"><%= f.text_area :memo, :class => "redactor", :title => '說明內容' %></div>
     <div class="button"><%= f.submit "" %><a><img src="<%=get_current_host_and_port%>images/save.png">儲存</a></div>
     <div class="button"><a href="<%=admin_version_logs_path%>"><img src="<%=get_current_host_and_port%>images/cancel.png">取消</a></div>
-    <!--main-->     
+    <!--main-->
   </div>
   <% end %>
 </div>

@@ -1,17 +1,17 @@
 <link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/index.css">
 
 <script>
-$(function(){	
+$(function(){
 	var _showTab = 0;
 	var $defaultLi = $('#banner .tabs li').eq(_showTab).addClass('active');
-	$($defaultLi.find('a').attr('href')).siblings().hide(); 
-	
-	$('#banner .tabs li').click(function() {		
+	$($defaultLi.find('a').attr('href')).siblings().hide();
+
+	$('#banner .tabs li').click(function() {
 		var $this = $(this),
-			_clickTab = $this.find('a').attr('href');		
-		$this.addClass('active').siblings('.active').removeClass('active');		
+			_clickTab = $this.find('a').attr('href');
+		$this.addClass('active').siblings('.active').removeClass('active');
 		$(_clickTab).stop(false, true).fadeIn().siblings().hide();
- 
+
 		return false;
 	}).find('a').focus(function(){
 		this.blur();
@@ -23,12 +23,12 @@ $(function(){
 	var _showTab = 0;
 	var $defaultLi = $('.tab1 li').eq(_showTab).addClass('active');
 	$($defaultLi.find('a').attr('href')).siblings().hide();
-	$('.tab1 li').click(function() {		
+	$('.tab1 li').click(function() {
 		var $this = $(this),
-			_clickTab = $this.find('a').attr('href');		
-		$this.addClass('active').siblings('.active').removeClass('active');		
+			_clickTab = $this.find('a').attr('href');
+		$this.addClass('active').siblings('.active').removeClass('active');
 		$(_clickTab).stop(false, true).fadeIn().siblings().hide();
- 
+
 		return false;
 	}).find('a').focus(function(){
 		this.blur();
@@ -40,12 +40,12 @@ $(function(){
 	var _showTab = 0;
 	var $defaultLi = $('.tab2 li').eq(_showTab).addClass('active');
 	$($defaultLi.find('a').attr('href')).siblings().hide();
-	$('.tab2 li').click(function() {		
+	$('.tab2 li').click(function() {
 		var $this = $(this),
-			_clickTab = $this.find('a').attr('href');		
-		$this.addClass('active').siblings('.active').removeClass('active');		
+			_clickTab = $this.find('a').attr('href');
+		$this.addClass('active').siblings('.active').removeClass('active');
 		$(_clickTab).stop(false, true).fadeIn().siblings().hide();
- 
+
 		return false;
 	}).find('a').focus(function(){
 		this.blur();
@@ -60,16 +60,15 @@ $(function(){
     <ul id="nav">
       <li><a href="traits.html">產品特色</a>
         <ul class="child" id="child-1">
-          <li><a href="<%= traits_url %>">三大特色</a></li>
-          <li><a href="<%= questions_url %>">常見問題</a></li>
-          <li><a href="<%= online_demonstrations_url %>">線上體驗</a></li>
-          <li><a href="<%= download_dms_url %>">ＤＭ下載</a></li>
-          <li><a href="<%= new_experience_url %>">申請試用</a></li>	      
+          <li><a href="<%= traits_url %>">XQ全球贏家</a></li>
+					<li><a href="<%= traits_of_xqlite_url %>">XQ策略高手</a></li>
+          <li><a href="<%= new_experience_url %>">申請試用</a></li>
+					<li><a href="<%= questions_url %>">常見問題</a></li>
         </ul>
       </li>
-      <li><a href="<%= page_path( :id => 'radar-intro' ) %>">策略雷達</a>
+      <li><a href="<%= page_path( :id => 'radar-intro' ) %>">策略功能</a>
         <ul class="child" id="child-2">
-          <li><a href="<%= page_path( :id => 'radar-intro' ) %>">功能介紹</a></li>
+          <li><a href="<%= page_path( :id => 'radar-intro' ) %>">策略雷達</a></li>
           <li><a href="<%= category_path( :id => 'xs' ) %>">影片教學</a></li>
           <li><a href="<%= posts_path %>">討論區</a></li>
           <li><a href="<%= page_path( :id => 'radar-qa' ) %>">常見問題</a></li>
@@ -77,7 +76,7 @@ $(function(){
           <li><a href="http://xshelp.xq.com.tw">函數搜尋</a></li>
         </ul>
       </li>
-      <li><a href="xqtrade.html">交易區</a>
+      <li><a href="xqtrade.html">交易功能</a>
         <ul class="child" id="child-3">
 	      <li><a href="<%= xqtrade_url %>">交易功能</a></li>
 	      <li><a href="<%= xqtrade_partner_url %>">合作夥伴</a></li>
@@ -85,402 +84,119 @@ $(function(){
 	      <li><a href="<%= xqtrade_manual_url %>">使用手冊</a></li>
         </ul>
       </li>
-      <li><a href="<%= courses_url %>">實務課程</a></li>
-	  <li><a href="<%= category_url(Category.last) if Category.last %>">實機教學</a></li>
-	  <li><a href="<%= download_contents_url %>">下載區</a></li>
-      <li><a href="<%= writings_path %>">專家分享</a></li>
-      <li><a href="<%= purchasing_url %>">我要購買</a></li>
+			<li>
+          <a href="<%= courses_url %>">實務課程</a>
+          <ul class="child" id="child-4">
+              <li><a href="<%= courses_url %>">講座課程</a></li>
+          </ul>
+      </li>
+			<li>
+				<a href="<%= category_url(Category.last) %>">實機教學</a>
+        <ul class="child" id="child-5">
+            <li><a href="<%= category_url(Category.last) %>">全新策略教戰</a></li>
+            <li><a href="<%= category_url(1) %>">獨家操作教戰</a></li>
+            <li><a href="<%= category_url(2) %>">獨家資訊教戰</a></li>
+            <li><a href="<%= category_url(3) %>">獨家分析教戰</a></li>
+						<li><a href="<%= online_demonstrations_url %>">線上體驗</a></li>
+        </ul>
+			</li>
+			<li>
+          <a href="<%= writings_path %>">專家分享</a>
+          <ul class="child" id="child-6">
+              <li><a href="<%= writings_path %>">專家分享</a></li>
+          </ul>
+      </li>
+	  	<li>
+				<a href="<%= download_contents_url %>">下載區</a>
+				<ul class="child" id="child-7">
+					<li><a href="<%= download_contents_url %>">程式下載</a></li>
+          <li><a href="<%= customize_url %>">自設畫面</a></li>
+          <li><a href="<%= manual_url %>">使用手冊</a></li>
+					<li><a href="<%= download_dms_url %>">ＤＭ下載</a></li>
+				</ul>
+			</li>
+      <li><a href="<%= purchasing_url %>">我要購買</a>
+				<ul class="child" id="child-8">
+            <li><a href="<%= purchasing_url %>">XQ旗艦版</a></li>
+            <li><a href="<%= purchasing_xqlite_url %>">XQ輕量版</a></li>
+        </ul>
+			</li>
       <li><a href="http://www.facebook.com/pages/XQ%E5%85%A8%E7%90%83%E8%B4%8F%E5%AE%B6/178222061342" target="_blank">粉絲團</a></li>
     </ul>
   </div>
   <!--top-->
   <div id="banner">
-<ul class="tabs">
-  <li><a href="#tab1">策　略　篇</a></li>
-  <li><a href="#tab2">籌　碼　篇</a></li>
-  <li><a href="#tab3">選　股　篇</a></li>
-  <li><a href="#tab4">產　業　篇</a></li>
-</ul>
 <!--tabs-->
-<div class="content">
-  <div id="tab1" class="tab_content">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="33%" align="center"><a href="<%= @banner_01.hyperlink_01 if @banner_01 %>">
-          <div class="tab_text1 text">
-            <h4><%= @banner_01.title_01 if @banner_01 %></h4>
-
-            <p><%= raw @banner_01.content_01.gsub("\n", "<br />").html_safe if @banner_01 %></p>
-          </div>
-          <div class="tab_img">
-            <% if @banner_01 %>
-                <% if @banner_01.excerpt_image_01? %>
-                    <img src="<%= @banner_01.excerpt_image_01.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-        </a></td>
-        <td width="34%" align="center"><a href="<%= @banner_01.hyperlink_02 if @banner_01 %>">
-          <div class="tab_img">
-            <% if @banner_01 %>
-                <% if @banner_01.excerpt_image_02? %>
-                    <img src="<%= @banner_01.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-          <div class="tab_text2 text">
-            <h4><%= @banner_01.title_02 if @banner_01 %></h4>
-
-            <p><%= raw @banner_01.content_02.gsub("\n", "<br />").html_safe if @banner_01 %></p>
-          </div>
-        </a></td>
-        <td width="33%" align="center"><a href="<%= @banner_01.hyperlink_03 if @banner_01 %>">
-          <div class="tab_text3 text">
-            <h4><%= @banner_01.title_03 if @banner_01 %></h4>
-
-            <p><%= raw @banner_01.content_03.gsub("\n", "<br />").html_safe if @banner_01 %></p>
-          </div>
-          <div class="tab_img">
-            <% if @banner_01 %>
-                <% if @banner_01.excerpt_image_03? %>
-                    <img src="<%= @banner_01.excerpt_image_03.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-        </a></td>
-      </tr>
-    </table>
-  </div>
-  <!--tab1-->
-  <div id="tab2" class="tab_content">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="33%" align="center"><a href="<%= @banner_02.hyperlink_01 if @banner_02 %>">
-          <div class="tab_text1 text">
-            <h4><%= @banner_02.title_01 if @banner_02 %></h4>
-
-            <p><%= raw @banner_02.content_01.gsub("\n", "<br />").html_safe if @banner_02 %></p>
-          </div>
-          <div class="tab_img">
-            <% if @banner_02 %>
-                <% if @banner_02.excerpt_image_01? %>
-                    <img src="<%= @banner_02.excerpt_image_01.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-        </a></td>
-        <td width="34%" align="center"><a href="<%= @banner_02.hyperlink_02 if @banner_02 %>">
-          <div class="tab_img">
-            <% if @banner_02 %>
-                <% if @banner_02.excerpt_image_02? %>
-                    <img src="<%= @banner_02.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-          <div class="tab_text2 text">
-            <h4><%= @banner_02.title_02 if @banner_02 %></h4>
-
-            <p><%= raw @banner_02.content_02.gsub("\n", "<br />").html_safe if @banner_02 %></p>
-          </div>
-        </a></td>
-        <td width="33%" align="center"><a href="<%= @banner_02.hyperlink_03 if @banner_02 %>">
-          <div class="tab_text3 text">
-            <h4><%= @banner_02.title_03 if @banner_02 %></h4>
-
-            <p><%= raw @banner_02.content_03.gsub("\n", "<br />").html_safe if @banner_02 %></p>
-          </div>
-          <div class="tab_img">
-            <% if @banner_02 %>
-                <% if @banner_02.excerpt_image_03? %>
-                    <img src="<%= @banner_02.excerpt_image_03.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-        </a></td>
-      </tr>
-    </table>
-  </div>
-  <!--tab2-->
-  <div id="tab3" class="tab_content">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="33%" align="center"><a href="<%= @banner_03.hyperlink_01 if @banner_03 %>">
-          <div class="tab_text1 text">
-            <h4><%= @banner_03.title_01 if @banner_03 %></h4>
-
-            <p><%= raw @banner_03.content_01.gsub("\n", "<br />").html_safe if @banner_03 %></p>
-          </div>
-          <div class="tab_img">
-            <% if @banner_03 %>
-                <% if @banner_03.excerpt_image_01? %>
-                    <img src="<%= @banner_03.excerpt_image_01.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-        </a></td>
-        <td width="34%" align="center"><a href="<%= @banner_03.hyperlink_02 if @banner_03 %>">
-          <div class="tab_img">
-            <% if @banner_03 %>
-                <% if @banner_03.excerpt_image_02? %>
-                    <img src="<%= @banner_03.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-          <div class="tab_text2 text">
-            <h4><%= @banner_03.title_02 if @banner_03 %></h4>
-
-            <p><%= raw @banner_03.content_02.gsub("\n", "<br />").html_safe if @banner_03 %></p>
-          </div>
-        </a></td>
-        <td width="33%" align="center"><a href="<%= @banner_03.hyperlink_03 if @banner_03 %>">
-          <div class="tab_text3 text">
-            <h4><%= @banner_03.title_03 if @banner_03 %></h4>
-
-            <p><%= raw @banner_03.content_03.gsub("\n", "<br />").html_safe if @banner_03 %></p>
-          </div>
-          <div class="tab_img">
-            <% if @banner_03 %>
-                <% if @banner_03.excerpt_image_03? %>
-                    <img src="<%= @banner_03.excerpt_image_03.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-        </a></td>
-      </tr>
-    </table>
-  </div>
-  <!--tab3-->
-  <div id="tab4" class="tab_content">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="33%" align="center"><a href="<%= @banner_04.hyperlink_01 if @banner_04 %>">
-          <div class="tab_text1 text">
-            <h4><%= @banner_04.title_01 if @banner_04 %></h4>
-
-            <p><%= raw @banner_04.content_01.gsub("\n", "<br />").html_safe if @banner_04 %></p>
-          </div>
-          <div class="tab_img">
-            <% if @banner_04 %>
-                <% if @banner_04.excerpt_image_01? %>
-                    <img src="<%= @banner_04.excerpt_image_01.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-        </a></td>
-        <td width="34%" align="center"><a href="<%= @banner_04.hyperlink_02 if @banner_04 %>">
-          <div class="tab_img">
-            <% if @banner_04 %>
-                <% if @banner_04.excerpt_image_02? %>
-                    <img src="<%= @banner_04.excerpt_image_02.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-          <div class="tab_text2 text">
-            <h4><%= @banner_04.title_02 if @banner_04 %></h4>
-
-            <p><%= raw @banner_04.content_02.gsub("\n", "<br />").html_safe if @banner_04 %></p>
-          </div>
-        </a></td>
-        <td width="33%" align="center"><a href="<%= @banner_04.hyperlink_03 if @banner_04 %>">
-          <div class="tab_text3 text">
-            <h4><%= @banner_04.title_03 if @banner_04 %></h4>
-
-            <p><%= raw @banner_04.content_03.gsub("\n", "<br />").html_safe if @banner_04 %></p>
-          </div>
-          <div class="tab_img">
-            <% if @banner_04 %>
-                <% if @banner_04.excerpt_image_03? %>
-                    <img src="<%= @banner_04.excerpt_image_03.url(:medium) %>" width="247" height="154"/>
-                <% end %>
-            <% end %>
-          </div>
-        </a></td>
-      </tr>
-    </table>
-  </div>
-  <!--tab4-->
-</div>
+<div class="content"><a href="<%= traits_url %>"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xq.png" width="1010" height="251" /></a></div>
+<div class="content"><a href="<%= traits_of_xqlite_url %>"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xqlite.png" width="1010" height="251" /></a></div>
 <!--content-->
 </div>
 <!--banner-->
 </div>
 <!--header-->
 <div id="main">
-  <div id="main-top">
-    <div id="app"> <a href="<%= new_experience_url %>"><img src="<%= get_current_host_and_port %>application/images/index-01.png" width="178" height="138"/></a> </div>
-    <div id="news" style="margin:0 10px">
+	<div id="main-top">
+   <!--course-->
+    <div id="course">
       <ul>
-        <li>
-        	<a href="<%= news_updates_url %>?news_id=<%= @newsupdate_01.id if @newsupdate_01 %>">
-        		<%= @newsupdate_01.updated_at.to_date if @newsupdate_01 %> /
-                <%= @newsupdate_01.title.to_s.length > 20 ? @newsupdate_01.title.to_s[0, 20] + '...' : @newsupdate_01.title.to_s %>
-            </a> 
-        </li>
-        <li>
-        	<a href="<%= news_updates_url %>?news_id=<%= @newsupdate_02.id if @newsupdate_02 %>">
-        		<%= @newsupdate_02.updated_at.to_date if @newsupdate_02 %> /
-                <%= @newsupdate_02.title.to_s.length > 20 ? @newsupdate_02.title.to_s[0, 20] + '...' : @newsupdate_02.title.to_s %>
-            </a> 
-        </li>
-        <li>
-        	<a href="<%= news_updates_url %>?news_id=<%= @newsupdate_03.id if @newsupdate_03 %>">
-        		<%= @newsupdate_03.updated_at.to_date if @newsupdate_03 %> /
-                <%= @newsupdate_03.title.to_s.length > 20 ? @newsupdate_03.title.to_s[0, 20] + '...' : @newsupdate_03.title.to_s %>
-            </a> 
-        </li>
+				<% @display_courses.each do | course |  %>
+          	<li><%= course.start_time.to_s( :date ) %> / <a href="<%= courses_url %>#<%=course.id %>"><%= course.subject.to_s.length > 20 ? course.subject.to_s[0, 18] + '...' : course.subject.to_s %>
+              —<%= course.session %>
+                <% if course.registration_quota - course.enrollments.count==0 %>
+                    <!--（已額滿）-->
+                <% end %>
+            </a></li>
+        <% end %>
       </ul>
     </div>
     <!--news-->
-        
-    <div id="course">
+     <div id="news" style="margin:0 10px">
       <ul>
-          <% @display_courses.each do | course |  %>          	
-	          	<li><%= course.start_time.to_s( :date ) %> / <a href="<%= courses_url %>#<%=course.id %>"><%= course.subject.to_s.length > 20 ? course.subject.to_s[0, 18] + '...' : course.subject.to_s %>
-	              —<%= course.session %>
-                  <% if course.registration_quota - course.enrollments.count==0 %>
-                      <!--（已額滿）-->
-                  <% end %>
-	            </a></li>          	
-          <% end %>
+        <li>
+					<a href="<%= news_updates_url %>?news_id=<%= @newsupdate_01.id if @newsupdate_01 %>">
+        		<%= @newsupdate_01.updated_at.to_date if @newsupdate_01 %> /
+                <%= @newsupdate_01.title.to_s.length > 20 ? @newsupdate_01.title.to_s[0, 20] + '...' : @newsupdate_01.title.to_s %>
+            </a>
+        </li>
+        <li>
+					<a href="<%= news_updates_url %>?news_id=<%= @newsupdate_02.id if @newsupdate_02 %>">
+        		<%= @newsupdate_02.updated_at.to_date if @newsupdate_02 %> /
+                <%= @newsupdate_02.title.to_s.length > 20 ? @newsupdate_02.title.to_s[0, 20] + '...' : @newsupdate_02.title.to_s %>
+            </a>
+        </li>
+        <li>
+					<a href="<%= news_updates_url %>?news_id=<%= @newsupdate_03.id if @newsupdate_03 %>">
+        		<%= @newsupdate_03.updated_at.to_date if @newsupdate_03 %> /
+                <%= @newsupdate_03.title.to_s.length > 20 ? @newsupdate_03.title.to_s[0, 20] + '...' : @newsupdate_03.title.to_s %>
+            </a>
+        </li>
       </ul>
     </div>
-    <!--course--> 
+
   </div>
   <div id="main-center">
-    <div id="product">
-      <ul class="tab1">
-        <li><a id="tab1-1" href="#feature">產品特色</a></li>
-        <li><a id="tab1-2" href="#radar">策略雷達</a></li>
-      </ul>
-      <!--tabs-->
-      <div id="tab1-content">
-        <div id="feature">
-          <ul class="tab2">
-            <li><a href="#tab2-1">全球財經資訊的專家</a></li>
-            <li><span>／</span></li>
-            <li><a href="#tab2-2">強大的資料分析中心</a></li>
-            <li><span>／</span></li>
-            <li><a href="#tab2-3">個人化介面完美演出</a></li>
-          </ul>
-          <div id="tab2-content">
-            <div id="tab2-1">
-              <h3>全球財經資訊的專家</h3>
-              <p> 一、 中港台三地股市同步揭示，兩岸經濟清楚鋪陳<br>
-                二、 67 種細產業指數，充分掌握類股輪動韻律<br>
-                三、 394 個細產業，中、港、台同產業個股同台比競爭力、比行情<br>
-                四、 日、韓股市一併掌握，亞洲重要情勢全在彈指之間<br>
-                五、 歐、美等重要市場股票報價不遺露，全球景氣波動不缺席<br>
-                六、 全球重要商品行情全到位，拉高視野才能出奇致勝<br>
-                七、 財經消息即時掌握，歷史新聞全方位搜尋<br>
-                八、 美、中、台、英、德、法經濟指標追蹤公佈，景氣趨勢全面鎖定<br>
-                九、 圖解產業結構，相關互動一目瞭然<br>
-                十、 透視營運結構，掌握獲利風向球<br>
-                <br>
-                <a href="<%= traits_url( :anchor => 'tab1' ) %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png" border="0"/></a> </p>
-              <a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb01.jpg"><img src="<%= get_current_host_and_port %>application/images/lb01s.jpg" border="0"/></a> </div>
-            <div id="tab2-2">
-              <h3>強大的資料分析中心</h3>
-              <p> 一、 參考商品完整呈現，股價連動不遺漏<br>
-                二、 針對資深投資人量身打造 XQ全球贏家獨家指標<br>
-                三、 個股分析圖表並重，基本面籌碼面財務面, 面面俱到<br>
-                四、 豐富的技術分析功能<br>
-                五、全部商品歷史價位都可相互比較，知歷史可以探未來<br>
-                六、 多樣化分析選項，讓您選股得心應手不遺漏<br>
-                七、 相關商品一覽無遺，套利，價差操作兩相宜<br>
-                八、 台股精選報價，特別報價，,強力選股雷達<br>
-                九、 高手秘技齊分享，投資典範永相隨<br>
-                <br>
-                <a href="<%= traits_url( :anchor => 'tab2' ) %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png"/></a> </p>
-              <a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb03.jpg"><img src="<%= get_current_host_and_port %>application/images/lb03s.jpg" border="0"/></a></div>
-            <div id="tab2-3">
-              <h3>個人化介面完美演出</h3>
-              <p> 一、 各種金融商品呈現於同一報價組合，聰明掌握世界脈動<br>
-                二、 自設看盤畫面，節省更多寶貴時間與心力<br>
-                三、 報價欄位隨您訂，排序輪播任您設<br>
-                四、 我的最愛以及書籤列隨時加，快捷頁碼直接引用<br>
-                五、警示設定靈活設，警示紀錄急通報<br>
-                六、 史上功能最強個人化系統<br>
-                <br>
-                <a href="<%= traits_url( :anchor => 'tab3' ) %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png"/></a> </p>
-              <a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb02.jpg"><img src="<%= get_current_host_and_port %>application/images/lb02s.jpg" border="0"/></a></div>
-          </div>
-          <!--tab2-content--> 
-        </div>
-        <!--feature-->
-        <div id="radar">
-          <h3>即時行情掃描，掌握投資先機</h3>
-          <p> 一、58種技術指標供您自訂指標圖形，彈性、獲利大無限<br>
-            二、指標繪圖您決定，隨時掌握買賣時機點<br>
-            三、進階警示快速掃描、監控標的股，它的一舉一動您同步知曉<br>
-            四、將您抽象的交易判斷邏輯具體化為實用的工具，重複運用得心應手<br>
-            五、多種觸發模式選擇，針對不同標的與需求一一滿足<br>
-            六、單次觸發模式活用於任何時刻，挑選標的股簡潔有力<br>
-            七、聲音警示功能幫您盯盤，不需用眼，股市動態盡在股掌之間<br>
-            <br>
-            <a href="<%= page_path( :id => 'radar-intro' ) %>"><img src="<%= get_current_host_and_port %>application/images/index-more.png"/></a> </p>
-          <a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb04.jpg"><img src="<%= get_current_host_and_port %>application/images/lb04s.jpg" border="0"/></a> </div>
-        <!--radar--> 
-      </div>
-      <!--tab1-content--> 
-    </div>
+		<!--product-->
+	  <div class="download"><img src="<%= get_current_host_and_port %>application/images/new/spacer.gif" alt="" width="586" height="220" usemap="#Map" border="0"/>
+	    <map name="Map" id="Map">
+	      <area shape="rect" coords="32,50,266,199" href="dn.html" alt="全球贏家下載" />
+	      <area shape="rect" coords="308,49,543,190" href="dn.html" alt="策略高手下載" />
+	    </map>
+	  </div>
     <!--product-->
     <div id="fans">
-          <h3><img src="<%= get_current_host_and_port %>application/images/index-10.png" width="294" height="32" /></h3>
-		  <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FXQ%25E5%2585%25A8%25E7%2590%2583%25E8%25B4%258F%25E5%25AE%25B6%2F178222061342&amp;width=285&amp;height=450&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=true&amp;header=true" scrolling="no" frameborder="0" style="overflow:hidden; width:285px; height:450px;margin: 29px 0px 0 5px;" allowTransparency="true"></iframe>		  
+			<div class="fb-page" data-href="https://www.facebook.com/pages/XQ%E5%85%A8%E7%90%83%E8%B4%8F%E5%AE%B6/178222061342"
+				data-width="386" data-height="210" data-hide-cover="true" data-show-facepile="true"
+				data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/XQ%E5%85%A8%E7%90%83%E8%B4%8F%E5%AE%B6/178222061342"><a href="https://www.facebook.com/pages/XQ%E5%85%A8%E7%90%83%E8%B4%8F%E5%AE%B6/178222061342">XQ全球贏家</a></blockquote></div></div>
     </div>
-    <!--fans--> 
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3&appId=122124481186450";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+    <!--fans-->
   </div>
   <!--main-center-->
-  <div id="main-bottom">
-    
-  <div id="annc">         
-    <h3>【系統公告】</h3>
-	    <% if @data.length <= 0
-	    		%>
-	    			<h3>系統公告暫時無法取得，請稍後重試。</h3>
-	    		<%
-	    else %>
-	    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-	      <tr>
-	        <td width="12%" align="left" valign="top"><%= @data[0][0][0..-6] %></td>
-	        <td width="38%" align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=0#0"><%= @data[0][2].to_s.length > 18 ? @data[0][2].to_s[0, 18] + '...' : @data[0][2].to_s %></a></td>
-	      
-		    <td width="12%" align="left" valign="top"><%= @data[1][0][0..-6] %></td>
-	        <td width="38%" align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=1#1"><%= @data[1][2] %></a></td>
-	      </tr>
-	      <tr>
-	        <td align="left" valign="top"><%= @data[2][0][0..-6] %></td>
-	        <td align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=2#2"><%= @data[2][2] %></a></td>
-	      
-		    <td align="left" valign="top"><%= @data[3][0][0..-6] %></td>
-	        <td align="left" valign="top"><a href="<%= announcement_url %>?announcement_id=3#3"><%= @data[3][2] %></a></td>
-	      </tr>
-	    </table>
-	    <% end %>
-  </div>
-  	<div id="other">
-      <table id="banner-tbl" width="285" height="140" border="0" cellpadding="0" cellspacing="0" style="margin:0px 5px;">
-        <tr>
-          <td colspan="3"><img src="<%= get_current_host_and_port %>application/images/xqapps-1.png" width="285" height="28" alt="XQ 全球贏家 APPs"></td>
-        </tr>
-        <tr>
-          <td rowspan="4"><img src="<%= get_current_host_and_port %>application/images/xqapps-2.png" width="111" height="112" alt=""></td>
-          <td rowspan="4"><a href="<%=download_detection_url()%>"><img src="<%= get_current_host_and_port %>application/images/xqapps-3.png" width="103" height="112" alt=""></a></td>
-          <td><img src="<%= get_current_host_and_port %>application/images/xqapps-4.png" width="71" height="26" alt=""></td>
-        </tr>
-        <tr>
-          <td><a href="https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia-shou-ji-ban/id775687957?mt=8&ign-mpt=uo%3D4" target="_blank"><img src="<%= get_current_host_and_port %>application/images/xqapps-5.png" width="71" height="20" alt="iPhone"></a></td>
-        </tr>
-        <tr>
-          <td><a href="https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia/id642738082?ls=1&mt=8" target="_blank"><img src="<%= get_current_host_and_port %>application/images/xqapps-6.png" width="71" height="23" alt="iPad"></a></td>
-        </tr>
-        <tr>
-          <td><a href ="https://play.google.com/store/apps/details?id=djapp.app.xqm" target="_blank"><img src="<%= get_current_host_and_port %>application/images/xqapps-7.png" width="71" height="43" alt="Android Phone"></a></td>
-        </tr>
-      </table>
-	</div>
-  </div>
-</div>
-
-
 <%= render :partial => "shared/application_footer" %>

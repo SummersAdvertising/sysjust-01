@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140828091127) do
+ActiveRecord::Schema.define(:version => 20150608173532) do
 
   create_table "banners", :force => true do |t|
     t.string   "category"
@@ -174,8 +174,9 @@ ActiveRecord::Schema.define(:version => 20140828091127) do
     t.decimal  "version",      :precision => 5, :scale => 2
     t.date     "release_date"
     t.text     "memo"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
+    t.string   "appid",                                      :default => "DAQ"
   end
 
   create_table "videos", :force => true do |t|

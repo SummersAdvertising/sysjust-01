@@ -13,14 +13,14 @@ $(function(){
 			_clickTab = $this.find('a').attr('href');
 		$this.addClass('active').siblings('.active').removeClass('active');
 		$(_clickTab).stop(false, true).fadeIn().siblings().hide();
- 
+
 		return false;
 	}).find('a').focus(function(){
 		this.blur();
 	});
-	
-	
-	if ( window.location.hash && window.location.hash.substr(1).match( /^tab\d/ ) ) {	
+
+
+	if ( window.location.hash && window.location.hash.substr(1).match( /^tab\d/ ) ) {
 		$('a[href^=#' + window.location.hash.substr(1) + ']').click();
 		window.scrollTo(0,0);
 	}
@@ -29,6 +29,9 @@ $(function(){
 
 <!--header-->
 <div id="container">
+	<div id="banner">
+      <h2></h2>
+  </div>
   <div id="main">
     <div id="side" class="left">
       <ul class="tabs">
@@ -39,7 +42,7 @@ $(function(){
     </div>
     <!--side-->
     <div id="content" class="right">
-      <div id="tab1" class="tab_content">
+			<div id="tab1" class="tab_content">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="70%"><h4>一、中港台三地股市同步揭示，兩岸經濟清楚鋪陳</h4></td>
@@ -178,7 +181,7 @@ $(function(){
         </table>
       </div>
       <!--tab1-->
-      <div id="tab2" class="tab_content"> 
+      <div id="tab2" class="tab_content">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="70%"><h4>一、參考商品完整呈現，股價連動不遺漏</h4></td>
@@ -296,7 +299,7 @@ $(function(){
         </table>
       </div>
       <!--tab2-->
-      <div id="tab3" class="tab_content"> 
+      <div id="tab3" class="tab_content">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td width="70%"><h4>一、各種金融商品呈現於同一報價組合，聰明掌握世界脈動</h4></td>
@@ -366,13 +369,13 @@ $(function(){
           </tr>
         </table>
       </div>
-      <!--tab3--> 
+      <!--tab3-->
     </div>
-    <!--content--> 
-    
+    <!--content-->
+
   </div>
   <!--main-->
-  
+
 <%= render :partial => "shared/application_footer" %>
 <!--link-->
 </div>

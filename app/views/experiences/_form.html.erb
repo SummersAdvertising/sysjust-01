@@ -76,6 +76,22 @@
         font-weight: 700;
         color: #555
     }
+
+
+    .dash{border-bottom: 1px dashed #d3d3d3; margin:30px 0 60px 0;}
+
+    .tit01{ font-size:36px; font: "微軟正黑體"; color:#5A5A5A; margin:20px 0 20px 0;}
+
+    #content1{padding:40px 120px }
+    #content1 input {
+      width: 100%;
+      padding: 5px 0;
+      border: 1px solid #DADADA;}
+      #content1 p {
+      color: #a72c07;
+      margin: 0 0 20px 0;
+      padding: 0 0 0 10px;
+    }
 </style>
 
 <%= render :partial => "shared/application_top" %><!--header-->
@@ -86,18 +102,19 @@
     </div>
     <!--banner-->
     <%= form_for(@experience, :validate => true) do |f| %>
-        <div id="content">
-          <p>心動嗎？線上體驗XQ全球贏家還不夠？快來實際感受一下XQ全球贏家獨特的魅力，滿足您投資決策的所有需求</p>
-          <table width="550" border="0" cellspacing="10" cellpadding="0">
+        <div id="content1">
+          <div class="tit01" width="100%" align="center">XQ全球贏家</div>
+          <p width="100%" align="center">心動嗎？線上體驗XQ全球贏家還不夠？快來實際感受一下XQ全球贏家獨特的魅力，滿足您投資決策的所有需求</p>
+          <table width="700" border="0" cellspacing="10" cellpadding="0" align="center">
             <tr>
-              <td width="15%">聯絡人姓名</td>
+              <td width="15%" align="right">聯絡人姓名</td>
               <td width="36%"><%= f.text_field :contact_person %>
               </td>
-              <td width="13%" align="center" valign="middle">聯絡電話</td>
+              <td width="13%" align="right" valign="middle">聯絡電話</td>
               <td width="36%"><%= f.text_field :phone_number %></td>
             </tr>
             <tr>
-              <td>Email</td>
+              <td align="right">Email</td>
               <td colspan="3"><%= f.text_field :email %></td>
             </tr>
             <tr style="display:none;">
@@ -118,13 +135,24 @@
             <!--msg-->
           </div>
           <hr>
-          <table width="100%" border="0" cellspacing="10" cellpadding="0">
+          <table width="64%" border="0" cellspacing="10" cellpadding="0">
             <tr>
-              <td align="right"><a href="<%= new_experience_url %>" id="reset_button">清除重填</a></td>
-              <td align="right" width="195"><a href="#msg" class='inline' id="thanks"></a><%= f.submit "", {:id => 'send_button', :onClick => "return checkForm();"}  %>
+              <td width="58%" align="right"><a href="<%= new_experience_url %>" id="reset_button">清除重填</a></td>
+              <td width="42%" align="right"><a href="#msg" class='inline' id="thanks"></a><%= f.submit "", {:id => 'send_button', :onClick => "return checkForm();"}  %>
               </td>
             </tr>
           </table>
+
+          <div class="dash" ></div>
+          <div class="tit01" width="100%" align="center">XQ策略高手</div>
+          <p width="100%" align="center">下載主程式後，填寫資料就可以使用囉！</p>
+          <table width="100%" border="0" cellspacing="10" cellpadding="0">
+            <tr>
+              <td align="center"><a href="#"><img src="<%= get_current_host_and_port %>application/images/new/bt-download.png" width="195" height="47" alt=""/></a></td>
+            </tr>
+          </table>
+
+
         </div>
         <!--content-->
 

@@ -1,5 +1,130 @@
 /*-----------------------------------------------------------------------全域---*/
 
+
+/*-----------------------------------------------------------------------頁身(上)---*/
+
+
+.download{ width:586px; float:left; background-color: ; height:220px; background-image: url(../images/new/home-dl-bg.png)}
+
+#features {clear:both;height:530px;width:100%; margin:0 0 0 40px; }
+#features .content{width:950px;height:250px;padding: 0; margin:0 0 30px 0; background-color: #F5EFC9;}
+
+.dash{border-bottom: 1px dashed #d3d3d3; margin:30px 0 60px 0;}
+
+.tit01{ font-size:36px; font: "微軟正黑體"; color:#5A5A5A; margin:20px 0 20px 0;}
+
+#content1{padding:40px 120px }
+#content1 input {
+width: 100%;
+padding: 5px 0;
+border: 1px solid #DADADA;}
+#content1 p {
+color: #a72c07;
+margin: 0 0 20px 0;
+padding: 0 0 0 10px;
+}
+
+.tab_content1{padding:40px 40px 0 40px;}
+#tab-a {
+	background-repeat: no-repeat;
+	background-position: top left no-repeat;
+	background-image: url(../images/new/banner-trt-0.png)
+}
+#tab-b {
+	background-repeat: no-repeat;
+	background-position: top left no-repeat;
+	background-image: url(../images/new/banner-trt-0.png)
+}
+
+#ver-tbl-1 {
+
+
+	font: 15px/1.6em 微軟正黑體, Verdana, Lucida, Arial, Helvetica, KBC,sans-serif;
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	line-height: 180%;
+}
+
+#ver-tbl-1 th {
+	height: 37px;
+	font: 300 18px "微軟正黑體";
+	font-size: 16px;
+	background-image: url(../images/tbl-th.jpg);
+	background-repeat: repeat-x;
+	color: #FFF;
+}
+
+#ver-tbl-1 td {
+	padding: 5px 4px;
+}
+
+#ver-tbl-1 .release {
+	text-align: center;
+}
+
+#ver-tbl-1 .logo {
+	text-align: right;
+}
+
+#ver-tbl-1 .logo img {
+	padding: 2px;
+	margin: 0 0 0 0 ;
+}
+
+#ver-tbl-1 .version {
+	text-align: left;
+}
+
+#ver-tbl-1 .files {
+	text-align: left;
+}
+
+#ver-tbl-1 tr.first td {
+	border-bottom: 1px #CCCCCC dotted;
+}
+
+#ver-tbl-1 .memo {
+	vertical-align: top;
+	text-align: left;
+}
+
+
+#ver-tbl-1 a img {
+	border: none;
+}
+
+#ver-tbl-1 a:link {
+	color: #cb441a;
+	text-decoration: none;
+}
+
+#ver-tbl-1 a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+
+#ver-tbl-1 a:hover, a:active, a:focus {
+	text-decoration: underline;
+	color: #cb441a;
+}
+
+#ver-tbl-1 ol, #ver-tbl li {
+	list-style: initial;
+}
+
+#ver-tbl-1 .memo p {
+	padding: 0;
+}
+.align-c{ margin:0 auto;}
+
+#plan-e	h3{background:url(../images/new/XQlite-tita.png) 0 0 no-repeat; padding:12px 0 0 135px;font:300 16px "微軟正黑體";height:40px;}
+.xqlite-pdt{ width:764px; margin:30px auto;}
+
+
+/*------------*/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -10,16 +135,24 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 textarea,input
-{-webkit-box-sizing: border-box; 
--moz-box-sizing: border-box; 
+{-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
 box-sizing: border-box}
-html{background:url(../images/index-bg.jpg) 0 0 repeat-x #F3F3F3}
-body{width:1024px;margin:0 auto;font-family:"微軟正黑體"}
+html{}
+body{
+	width: 1024px;
+	margin: 0 auto;
+	font-family: "微軟正黑體";
+	background-repeat: repeat-x;
+	background-position: 0 0 repeat-x #F3F3F3;
+	background-image: url(../images/new/index-bg.jpg);
+	background-color: #F3F3F3
+}
 a{text-decoration:none}
 
 /*-----------------------------------------------------------------------頁首---*/
 
-#top{height:123px;padding:30px 0 0 0}
+#top{height:123px;padding:30px 0 0 0;}
 #top h1{width:210px;float:left}
 
 /*-導航-*/
@@ -37,55 +170,74 @@ a{text-decoration:none}
 #child-1{margin-left:5px}
 #child-2{margin-left:90px}
 #child-3{margin-left:170px}
+#child-4{margin-left:260px}
+#child-5{margin-left:340px}
+#child-6{margin-left:420px}
+#child-7{margin-left:500px}
+#child-8{margin-left:580px}
 
 /*-----------------------------------------------------------------------輪播---*/
 
-#banner{clear:both;background:url(../images/index-banner.png) 0 0 no-repeat;height:305px;width:100%}
+#banner{clear:both;height:530px;width:100%; margin:10px 0 0 0; }
 #banner .tabs{float:left;width:21%;padding:115px 0 0 0}
 #banner .tabs li{width:100%;height:40px;padding:10px 0 0 50px}
 #banner .tabs li a{color:#c7c7c7;font:700 18px "微軟正黑體";text-shadow:0 -1px 0 #000}
-#banner .tabs .active{background:url(../images/index-active.png) 10px 0 no-repeat}
+#banner .tabs .active{background:url(http://new.xq.com.tw/application/images/index-active.png) 10px 0 no-repeat}
 #banner .tabs .active a{color:#fbdf5d;}
-#banner .content{float:right;width:79%;height:100%;padding:20px 20px 0 0}
+#banner .content{width:1010px;height:250px;padding:0 0 0 0; margin:0 0 10px 0; background-color: #F5EFC9;}
 #banner .tab_content .text{color:#fff;padding:15px;text-align:left;width:224px;height:110px}
 #banner .tab_content .text h4{font:700 20px "微軟正黑體"}
 #banner .tab_content .text p{line-height:20px}
-#banner .tab_content .tab_text1{background:url(../images/index-text1.png) 0 0 no-repeat}
-#banner .tab_content .tab_text2{background:url(../images/index-text2.png) 0 0 no-repeat;padding-top:28px}
-#banner .tab_content .tab_text3{background:url(../images/index-text3.png) 0 0 no-repeat}
+#banner .tab_content .tab_text1{background:url(http://new.xq.com.tw/application/images/index-text1.png) 0 0 no-repeat}
+#banner .tab_content .tab_text2{background:url(http://new.xq.com.tw/application/images/index-text2.png) 0 0 no-repeat;padding-top:28px}
+#banner .tab_content .tab_text3{background:url(http://new.xq.com.tw/application/images/index-text3.png) 0 0 no-repeat}
 #banner .tab_content .tab_img img{box-shadow:0 3px 10px #555}
 
 /*-----------------------------------------------------------------------頁身---*/
 
-#main{padding:20px 0}
+#main{padding:10px 0}
 #main a:hover{text-decoration:underline}
 
 /*-----------------------------------------------------------------------頁身(上)---*/
 
-#main-top{height:141px;margin:0 0 20px 0;overflow:hidden}
+/*#main-top{height:141px;margin:0 0 20px 0;overflow:hidden}
 #main-top div{float:left}
 #main-top a{font-size:13px;color:#777;line-height:1.8em}
-#news{background:url(../images/index-02.png) 0 0 no-repeat;width:400px;height:141px}
-#course{background:url(../images/index-03.png) 0 0 no-repeat;width:426px;height:141px}
-#main-top ul{padding:45px 20px 0 20px;font-size:13px;color:#777;line-height:1.8em}
+#news{background:url(http://new.xq.com.tw/application/images/index-02.png) 0 0 no-repeat;width:480px;height:141px}
+#course{background:url(http://new.xq.com.tw/application/images/index-03.png) 0 0 no-repeat;width:456px;height:141px}
+#main-top ul{padding:45px 20px 0 20px;font-size:13px;color:#777;line-height:1.8em}*/
+
+#main-top{height:141px;margin:0 0 20px 0;overflow:hidden; }
+#main-top div{float:left}
+#main-top a{font-size:13px;color:#777;line-height:1.8em}
+#news{background:url(../images/new/index-02.png) 0 0 no-repeat;width:490px;height:141px}
+#course{
+	background-repeat: no-repeat;
+	background-position: 0 0 no-repeat;
+	background-image: url(../images/new/index-03.png);
+	width: 490px;
+	height: 141px;
+	margin-right:20px;
+}
+#main-top ul{padding:45px 15px 0 20px;font-size:13px;color:#777;line-height:1.8em}
 
 /*-----------------------------------------------------------------------頁身(中)---*/
 
-#main-center{height:497px;overflow:hidden;margin:0 0 20px 0}
+#main-center{overflow:hidden;margin:0 0 10px 0;}
 
 /*---產品特色---*/
 #product{float:left;width:708px;}
 .tab1 {overflow:hidden}
 .tab1 li{float:left;height:61px}
 .tab1 a{display:block;height:61px;text-indent:-7777px}
-.tab1 #tab1-1{background:url(../images/main-center-tab1-1b.png) 0 0 no-repeat;width:184px}
-.tab1 .active #tab1-1{background:url(../images/main-center-tab1-1a.png) 0 0 no-repeat}
-.tab1 #tab1-2{background:url(../images/main-center-tab1-2a.png) 0 0 no-repeat;width:224px}
-.tab1 .active #tab1-2{background:url(../images/main-center-tab1-2b.png) 0 0 no-repeat}
- #tab1-content{width:708px;height:436px;background:url(../images/main-center-bg.jpg) 0 0 no-repeat;padding:20px 0 0 2px}
+.tab1 #tab1-1{background:url(http://new.xq.com.tw/application/images/main-center-tab1-1b.png) 0 0 no-repeat;width:184px}
+.tab1 .active #tab1-1{background:url(http://new.xq.com.tw/application/images/main-center-tab1-1a.png) 0 0 no-repeat}
+.tab1 #tab1-2{background:url(http://new.xq.com.tw/application/images/main-center-tab1-2a.png) 0 0 no-repeat;width:224px}
+.tab1 .active #tab1-2{background:url(http://new.xq.com.tw/application/images/main-center-tab1-2b.png) 0 0 no-repeat}
+ #tab1-content{width:708px;height:436px;background:url(http://new.xq.com.tw/application/images/main-center-bg.jpg) 0 0 no-repeat;padding:20px 0 0 2px}
  #tab1-content a:hover{opacity:.85;filter:alpha(opacity=85);}
 
-.tab2 {overflow:hidden;width:635px;height:33px;background:url(../images/main-center-tab1bg.jpg) 0 0 no-repeat;padding:9px 0 0 30px}
+.tab2 {overflow:hidden;width:635px;height:33px;background:url(http://new.xq.com.tw/application/images/main-center-tab1bg.jpg) 0 0 no-repeat;padding:9px 0 0 30px}
 .tab2 li{float:left;text-shadow:0 1px 0 #E4C994;color:#773f11}
 .tab2 li a{color:#773f11;font-weight:900}
 .tab2 .active a{color:#7D0E0E}
@@ -97,12 +249,12 @@ a{text-decoration:none}
 .lightbox{position:absolute;top:60px;right:30px}
 .lightbox img{border:2px solid #fff;box-shadow:2px 2px 10px #555}
 
-#radar{padding:10px 30px 0 30px;font:300 14px "微軟正黑體";position:relative;background:url(../images/main-center-tab2bg.jpg) 15px 0 no-repeat}
+#radar{padding:10px 30px 0 30px;font:300 14px "微軟正黑體";position:relative;background:url(http://new.xq.com.tw/application/images/main-center-tab2bg.jpg) 15px 0 no-repeat}
 #radar h3{color:#A72C07;font:300 22px "微軟正黑體";height:35px;border-bottom:1px dashed #BAAF91}
 #radar p{line-height:2.7em;padding:15px 0 0 0}
 
 /*---粉絲團---*/
-#fans{width:295px;background:#F8F8F8;height:497px;border-radius:5px;float:right}
+#fans{width:386px;height:210px;float:right; margin-right:20px;}
 #fans h3{position:relative;top:10px;left:-7px}
 
 /*-----------------------------------------------------------------------頁身(下)---*/
@@ -117,13 +269,14 @@ a{text-decoration:none}
 
 /*-----------------------------------------------------------------------頁尾---*/
 
-#footer{color:#545454;font:300 13px "微軟正黑體";padding:0 18px;text-shadow:0 1px 0 #fff;overflow:hidden;width:100%;height:30px}
-#footer span{float:left}
+#footer{color:#545454;font:300 13px "微軟正黑體";padding:0 ;text-shadow:0 1px 0 #fff;overflow:hidden;width:100%;height:80px; margin-top:20px; line-height:21px;}
+#footer span{}
 #footer a{color:#545454;font:300 13px "微軟正黑體"}
+#footer .logo{ float:left; margin:0 20px 0 0;}
 
 /*-----------------------------------------------------------------------地圖---*/
 
-#link{height:220px;background:url(../images/link.jpg) 0 0 repeat-x;
+#link{height:220px;background:url(http://new.xq.com.tw/application/images/link.jpg) 0 0 repeat-x;
 overflow:hidden;padding:30px 0 0 0}
 .link-box{float:left;margin:0 17px}
 .link-title{color:#4E1303;font:300 16px "微軟正黑體";height:30px;}

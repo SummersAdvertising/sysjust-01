@@ -1,0 +1,246 @@
+<% @css_path = get_current_host_and_port + "application/css/traits.css" %>
+<%= render :partial => "shared/application_top" %>
+<style>
+#banner {
+	background-image: url(application/images/new/banner-customize.png);
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+.tab_content1{padding:40px 40px 0 40px;}
+#tab-a {
+	background-repeat: no-repeat;
+	background-position: top left no-repeat;
+	background-image: url(application/images/new/banner-trt-0.png)
+}
+#tab-b {
+	background-repeat: no-repeat;
+	background-position: top left no-repeat;
+	background-image: url(application/images/new/banner-trt-0.png)
+}
+
+#ver-tbl-1 {
+
+
+	font: 15px/1.6em 微軟正黑體, Verdana, Lucida, Arial, Helvetica, KBC,sans-serif;
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	line-height: 180%;
+}
+
+#ver-tbl-1 th {
+	height: 37px;
+	font: 300 18px "微軟正黑體";
+	font-size: 16px;
+	background-image: url(../images/tbl-th.jpg);
+	background-repeat: repeat-x;
+	color: #FFF;
+}
+
+#ver-tbl-1 td {
+	padding: 5px 4px;
+}
+
+#ver-tbl-1 .release {
+	text-align: center;
+}
+
+#ver-tbl-1 .logo {
+	text-align: right;
+}
+
+#ver-tbl-1 .logo img {
+	padding: 2px;
+	margin: 0 0 0 0 ;
+}
+
+#ver-tbl-1 .version {
+	text-align: left;
+}
+
+#ver-tbl-1 .files {
+	text-align: left;
+}
+
+#ver-tbl-1 tr.first td {
+	border-bottom: 1px #CCCCCC dotted;
+}
+
+#ver-tbl-1 .memo {
+	vertical-align: top;
+	text-align: left;
+}
+
+
+#ver-tbl-1 a img {
+	border: none;
+}
+
+#ver-tbl-1 a:link {
+	color: #cb441a;
+	text-decoration: none;
+}
+
+#ver-tbl-1 a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+
+#ver-tbl-1 a:hover, a:active, a:focus {
+	text-decoration: underline;
+	color: #cb441a;
+}
+
+#ver-tbl-1 ol, #ver-tbl li {
+	list-style: initial;
+}
+
+#ver-tbl-1 .memo p {
+	padding: 0;
+}
+</style>
+<script>
+$(function(){
+
+
+	var _showTab = 0;
+	var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
+	$($defaultLi.find('a').attr('href')).siblings().hide();
+	$('ul.tabs li').click(function() {
+		var $this = $(this),
+			_clickTab = $this.find('a').attr('href');
+		$this.addClass('active').siblings('.active').removeClass('active');
+		$(_clickTab).stop(false, true).fadeIn().siblings().hide();
+
+		return false;
+	}).find('a').focus(function(){
+		this.blur();
+	});
+
+
+	if ( window.location.hash && window.location.hash.substr(1).match( /^tab\d/ ) ) {
+		$('a[href^=#' + window.location.hash.substr(1) + ']').click();
+		window.scrollTo(0,0);
+	}
+})
+</script>
+
+<!--header-->
+<div id="container">
+	<div id="banner">
+		<h2>自設畫面</h2>
+      <h3>&nbsp;</h3>
+  </div>
+  <div id="main">
+    <div id="side" class="left">
+      <ul class="tabs">
+				<li><a href="#tab-a">XQ全球贏家</a></li>
+        <li><a href="#tab-b">XQ策略高手</a></li>
+      </ul>
+    </div>
+		<!--side-->
+    <div id="content" class="right">
+      <div id="tab-a" class="tab_content1">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100%" align="left" valign="top"><table id="ver-tbl-1" width="100%" border="1" cellspacing="0" cellpadding="0"
+            >
+             <tr>
+          <td colspan="3" align="left" valign="top"><h4 id="file">XQ全球贏家自設畫面檔案</h4>
+            <div id="custom">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+              <tr>
+                <td width="37%" rowspan="2" align="left" valign="top"><a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb-dl-04.jpg"><img src="<%= get_current_host_and_port %>application/images/dl-04.jpg" width="231" height="139" /></a></td>
+                <td width="63%" height="97" align="left" valign="top"><h5>外匯整合畫面</h5>
+                  透過自設畫面整合所有的外匯商品，同步的觀察各項商品即時走勢，與歷史趨勢圖以及相關的財經新聞。<br />
+                  <br /></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><a href="<%= get_current_host_and_port %>download_contents/file_01"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a><br />
+                  <br /></td>
+              </tr>
+              <tr>
+                <td width="37%" rowspan="2" align="left" valign="top"><a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb-dl-05.jpg"><img src="<%= get_current_host_and_port %>application/images/dl-05.jpg" width="232" height="139" /></a></td>
+                <td width="63%" height="97" align="left" valign="top"><h5>美股重要個股（對照台股相關）</h5>
+                  美國重要公司是世界上舉足輕重的跨國企業，透過系統觀察相關公司漲跌狀況，瞭解該公司對那些台灣相關企業會造成影響。 </td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><a href="<%= get_current_host_and_port %>download_contents/file_02"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a><br />
+                  <br /></td>
+              </tr>
+              <tr>
+                <td width="37%" rowspan="2" align="left" valign="top"><a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb-dl-06.jpg"><img src="<%= get_current_host_and_port %>application/images/dl-06.jpg" width="232" height="140" /></a></td>
+                <td width="63%" height="97" align="left" valign="top"><h5>中港台產業比較</h5>
+                  XQ內的細產業是掌握產業脈動變化的好工具，台、陸、港股彼此間影響與連動性越來越密切，透過XQ自設畫面同步觀察與比較，讓投資人的視野不在局限於台灣的市場。</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><a href="<%= get_current_host_and_port %>download_contents/file_03"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a></td>
+              </tr>
+            </table></div></td>
+        </tr>
+            </table>
+              <br/>
+              <br/></td>
+          </tr>
+        </table>
+      </div>
+      <!--tab1-->
+      <div id="tab-b" class="tab_content1">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="100%" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="100%" align="left" valign="top"><table id="ver-tbl-1" width="100%" border="1" cellspacing="0" cellpadding="0"
+            >
+             <tr>
+          <td colspan="3" align="left" valign="top"><h4 id="file">XQ策略高手自設畫面檔案</h4>
+            <div id="custom">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" >
+              <tr>
+                <td width="37%" rowspan="2" align="left" valign="top"><a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb-dl-04.jpg"><img src="<%= get_current_host_and_port %>application/images/dl-04.jpg" width="231" height="139" /></a></td>
+                <td width="63%" height="97" align="left" valign="top"><h5>外匯整合畫面</h5>
+                  透過自設畫面整合所有的外匯商品，同步的觀察各項商品即時走勢，與歷史趨勢圖以及相關的財經新聞。<br />
+                  <br /></td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><a href="<%= get_current_host_and_port %>download_contents/file_01"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a><br />
+                  <br /></td>
+              </tr>
+              <tr>
+                <td width="37%" rowspan="2" align="left" valign="top"><a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb-dl-05.jpg"><img src="<%= get_current_host_and_port %>application/images/dl-05.jpg" width="232" height="139" /></a></td>
+                <td width="63%" height="97" align="left" valign="top"><h5>美股重要個股（對照台股相關）</h5>
+                  美國重要公司是世界上舉足輕重的跨國企業，透過系統觀察相關公司漲跌狀況，瞭解該公司對那些台灣相關企業會造成影響。 </td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><a href="<%= get_current_host_and_port %>download_contents/file_02"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a><br />
+                  <br /></td>
+              </tr>
+              <tr>
+                <td width="37%" rowspan="2" align="left" valign="top"><a class="lightbox" href="<%= get_current_host_and_port %>application/images/lb-dl-06.jpg"><img src="<%= get_current_host_and_port %>application/images/dl-06.jpg" width="232" height="140" /></a></td>
+                <td width="63%" height="97" align="left" valign="top"><h5>中港台產業比較</h5>
+                  XQ內的細產業是掌握產業脈動變化的好工具，台、陸、港股彼此間影響與連動性越來越密切，透過XQ自設畫面同步觀察與比較，讓投資人的視野不在局限於台灣的市場。</td>
+              </tr>
+              <tr>
+                <td align="left" valign="top"><a href="<%= get_current_host_and_port %>download_contents/file_03"><img src="<%= get_current_host_and_port %>application/images/dm-03.jpg" width="144" height="38" /></a></td>
+              </tr>
+            </table></div></td>
+        </tr>
+            </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table>
+      </div>
+      <!--tab2-->
+    </div>
+    <!--content-->
+
+  </div>
+  <!--main-->
+
+<%= render :partial => "shared/application_footer" %>
+<!--link-->
+</div>
+<!--container-->

@@ -34,15 +34,21 @@ h1{float:left}
 #banner h2{color:#4b4b4b;font:300 48px "微軟正黑體";padding:70px 0 0 60px;text-shadow:0 1px 0 #fff}
 #banner h3{color:#4b4b4b;font-size:15px;position:relative;bottom:5px;left:63px}
 
+#banner_xqlite {background-color:#FAFAFA;height:150px;background-position: top right;	background-repeat:no-repeat}
+#banner_xqlite h2{color:#4b4b4b;font:300 48px "微軟正黑體";padding:70px 0 0 60px;text-shadow:0 1px 0 #fff}
+#banner_xqlite h3{color:#4b4b4b;font-size:15px;position:relative;bottom:5px;left:63px}
+
+
 /*-----------------------------------------------------------------------頁身---*/
 
 #content{padding:40px 60px}
 
 /*-----------------------------------------------------------------------頁尾---*/
 
-#footer{color:#545454;font:300 13px "微軟正黑體";padding:18px 18px 0 18px;text-shadow:0 1px 0 #fff;overflow:hidden;width:100%;height:22px}
-#footer span{float:left}
+#footer{color:#545454;font:300 13px "微軟正黑體";padding:0 ;text-shadow:0 1px 0 #fff;overflow:hidden;width:1024px;height:80px; padding-top:20px; line-height:21px; background-color:#FFFFFF;}
+#footer span{}
 #footer a{color:#545454;font:300 13px "微軟正黑體"}
+#footer .logo{ float:left; margin:0 20px 0 10px;}
 
 /*-----------------------------------------------------------------------地圖---*/
 

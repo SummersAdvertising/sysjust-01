@@ -1,0 +1,231 @@
+<% @css_path = get_current_host_and_port + "application/css/traits.css" %>
+<%= render :partial => "shared/application_top" %>
+
+<script>
+$(function(){
+
+
+	var _showTab = 0;
+	var $defaultLi = $('ul.tabs li').eq(_showTab).addClass('active');
+	$($defaultLi.find('a').attr('href')).siblings().hide();
+	$('ul.tabs li').click(function() {
+		var $this = $(this),
+			_clickTab = $this.find('a').attr('href');
+		$this.addClass('active').siblings('.active').removeClass('active');
+		$(_clickTab).stop(false, true).fadeIn().siblings().hide();
+
+		return false;
+	}).find('a').focus(function(){
+		this.blur();
+	});
+
+
+	if ( window.location.hash && window.location.hash.substr(1).match( /^tab\d/ ) ) {
+		$('a[href^=#' + window.location.hash.substr(1) + ']').click();
+		window.scrollTo(0,0);
+	}
+})
+</script>
+
+<!--header-->
+<div id="container">
+	<div id="banner_xqlite">
+      <h2></h2>
+  </div>
+  <div id="main">
+    <div id="side" class="left">
+      <ul class="tabs">
+				<li><a href="#tab1">強大資料分析　資訊完整</a></li>
+        <li><a href="#tab2">多券商下單　交易好幫手</a></li>
+        <li><a href="#tab3">策略模組　致勝關鍵點</a></li>
+        <li><a href="#tab4">權證策略　以小搏大</a></li>
+      </ul>
+    </div>
+    <!--side-->
+    <div id="content" class="right">
+			<div id="tab1" class="tab_content xqlite">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="70%"><h4>一、自設看盤畫面，節省寶貴時間與心力</h4></td>
+      <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-a01.png" width="692" height="392" /></p></td>
+    </tr>
+  </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>二、參考商品與相關商品完整呈現，股價連動不遺漏</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-a02.png" width="692" height="391" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>三、個股分析圖表並重，基本籌碼財務面面俱到</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-a03.png" width="692" height="386" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>四、齊備的技術分析功能</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-a04.png" width="692" height="390" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>五、圖解產業結構，相關互動一目瞭然</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-a05.png" width="692" height="441" /></p>
+              <br>
+              <p>&nbsp;</p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>六、透視營運結構，掌握獲利風向球</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-a06.png" width="692" height="382" /></p></td>
+          </tr>
+        </table>
+      </div>
+      <!--tab1-->
+      <div id="tab2" class="tab_content xqlite">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>一、多帳號整合，兼備隱密與全方位</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/xqtrade/001.png" width="529" height="300" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>二、API完美串接，變身專屬下單機</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/xqtrade/005.png" width="529" height="300" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>三、行情帶下單，分秒必爭搶盡先機</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/xqtrade/003.png" width="480" height="260" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>四、委託與成交回報有效整合，下單狀況一覽無遺</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td>
+            <p>◎目前合作券商：第一金證券、大眾證券、玉山證券、國票證券、統一證券、華南永昌證券、群益證券。<img src="<%= get_current_host_and_port %>application/images/xqtrade/004.png" width="692" height="415" /></p></td>
+          </tr>
+        </table>
+      </div>
+      <!--tab2-->
+      <div id="tab3" class="tab_content xqlite">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>一、自訂指標圖形，隨時掌握買賣時機點</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td valign="top"><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-c01.png" width="692" height="384" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>二、策略雷達快速掃描、監控標的股，一舉一動同步知曉</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-c02.png" width="692" height="445" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>三、抽象的交易判斷邏輯具體化為實用的工具，滿足不同盤勢變化應用</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td valign="top"><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-c03.png" width="692" height="378" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>四、多種觸發模式選擇，針對不同標的與需求一一滿足</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-c04.png" width="692" height="492" /></p></td>
+          </tr>
+        </table>
+      </div>
+      <div id="tab4" class="tab_content xqlite">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>一、以權追股，全方位搜尋提早佈局飆股</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td valign="top"><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-d1.png" width="692" height="468" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>二、以股追權，以小賺大參與行情</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-d02.png" width="692" height="468" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>三、策略靈活搭配，多空皆可賺</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td valign="top"><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-d03.png" width="692" height="404" /></p></td>
+          </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="70%"><h4>四、最佳下單，有效佈單出奇致勝</h4></td>
+            <td width="30%" rowspan="2" align="right" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><p><img src="<%= get_current_host_and_port %>application/images/new/xqlite-d4.png" width="692" height="334" /></p></td>
+          </tr>
+        </table>
+      </div>
+      <!--tab4-->
+    </div>
+    <!--content-->
+
+  </div>
+  <!--main-->
+
+<%= render :partial => "shared/application_footer" %>
+<!--link-->
+</div>
+<!--container-->

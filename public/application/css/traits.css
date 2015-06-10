@@ -12,3 +12,11 @@
 #tab2{background:url(../images/banner-trt-2.jpg) top left no-repeat}
 #tab3{background:url(../images/banner-trt-3.jpg) top left no-repeat}
 h4{color:#a72c07;font-size:17px;height:30px;margin-bottom:10px;border-bottom:1px dashed #d3d3d3}
+
+#banner{background-image: url(../images/new/banner-xq.png);;background-position: top center;}
+#banner_xqlite{background-image: url(../images/new/banner-xqlite.png);;background-position: top center;}
+
+#tab1.xqlite {background:url(../images/new/xqlite-banner-trt-1.png) top left no-repeat}
+#tab2.xqlite {background:url(../images/new/xqlite-banner-trt-2.png) top left no-repeat}
+#tab3.xqlite {background:url(../images/new/xqlite-banner-trt-3.png) top left no-repeat}
+#tab4.xqlite {background:url(../images/new/xqlite-banner-trt-4.png) top left no-repeat}

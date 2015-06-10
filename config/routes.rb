@@ -9,15 +9,20 @@ TestDevise::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   match "/purchasing" => "static_pages#purchasing"
+  match "/purchasing_xqlite" => "static_pages#purchasing_xqlite"
+
   match "/download_contents" => "static_pages#download_contents"
   match "/download_contents/file_01" => "static_pages#file_01"
   match "/download_contents/file_02" => "static_pages#file_02"
   match "/download_contents/file_03" => "static_pages#file_03"
   match "/download_detection" => "static_pages#download_detection"
   match "/traits" => "static_pages#traits"
+  match "/traits_of_xqlite" => "static_pages#traits_of_xqlite"
   match "/questions" => "static_pages#questions"
   match "/online_demonstrations" => "static_pages#online_demonstrations"
   match "/download_dms" => "static_pages#download_dms"
+  match "/customize" => "static_pages#customize"
+  match "/manual" => "static_pages#manual"
 
   match "/xqtrade" => "static_pages#xqtrade"
   match "/xqtrade_partner" => "static_pages#xqtrade_partner"
@@ -29,15 +34,15 @@ TestDevise::Application.routes.draw do
 
   match "/index" => "static_pages#index"
   match "/announcement" => "static_pages#announcement"
-  
-  
+
+
   match "page/:id" => "static_pages#show"
-  
+
   resources :page
   resources :posts
-  
+
   resources :writings do
-  	member do 
+  	member do
   		get "category"
   	end
   end

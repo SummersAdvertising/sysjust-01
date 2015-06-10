@@ -1,10 +1,10 @@
 # -*- encoding : utf-8 -*-
 class StaticPagesController < ApplicationController
-		
-	def show		
+
+	def show
 		respond_to do | format |
-			format.html { render :template => 'static_pages/' + params[:id] }		
-		end	
+			format.html { render :template => 'static_pages/' + params[:id] }
+		end
 	end
 
   def announcement
@@ -20,13 +20,15 @@ class StaticPagesController < ApplicationController
   end
 
   def download_contents
-  	@version_logs = VersionLog.all.take(2)
+  	@version_logs = VersionLog.where(appid: 'DAQ').take(2)
+
+		@version_logs_xqlite = VersionLog.where(appid: 'DAQXQLITE').take(2)
   end
 
   def download_detection
   	user_agent = request.env['HTTP_USER_AGENT']
 
-  	case 
+  	case
   	when user_agent =~ /iPod|iPhone/
   		download_url = "https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia-shou-ji-ban/id775687957?mt=8&ign-mpt=uo%3D4"
 	when user_agent =~ /iPad/
@@ -36,11 +38,25 @@ class StaticPagesController < ApplicationController
 	end
 	#如果空值表示不支援的裝置，直接顯示頁面
 	if download_url
-  		redirect_to download_url 
+  		redirect_to download_url
   	else
   		render layout: false
   	end
   end
+
+	#自設畫面
+	def customize
+
+	end
+
+	#使用手冊
+	def manual
+
+	end
+
+	#購買xqlite
+	def purchasing_xqlite
+	end
 
   def file_01
     send_file Rails.root.to_s()+"/public/download_contents/Foreign_Exchange.dap"
@@ -54,9 +70,13 @@ class StaticPagesController < ApplicationController
     send_file Rails.root.to_s()+"/public/download_contents/Comparison_with_CN_HK_TW.dap"
   end
 
-
+	#xq
   def traits
   end
+
+	#xqlite
+	def traits_of_xqlite
+	end
 
   def questions
   end
@@ -84,37 +104,37 @@ class StaticPagesController < ApplicationController
 
     @courses = Course.display.start_time.recent
     @display_courses = []
-    
-    i = 0    
-    
+
+    i = 0
+
     until i >= @courses.length || i >= 3 do
     	@display_courses.push( @courses[i] ) if @courses[i].is_display
     	i=i+1
     end
     require 'open-uri'
     require 'json'
-    
+
 	get_record_to_data 4
-	
+
   end
-  
+
 private
 	def set_meta
-	
+
 		if params[ :action ] == "show"
-			
+
 			if params[ :id ].to_s.match(/^radar/)
 				$meta_title = '	策略雷達'
 			end
-		
+
 		end
-	
+
 	end
 
-	def get_record_to_data(num)	
-	    @data = []    
+	def get_record_to_data(num)
+	    @data = []
 		return if num <= 0
-		
+
 	    begin
 	    	original_data = open("http://www.xq.com.tw/daqsite/js/newsysnotice4.aspx?A=" + num.to_s).read
 	    rescue
@@ -123,17 +143,17 @@ private
 		    encode_data = original_data.encode('UTF-8')
 		    remove_oNoties = encode_data.gsub("var oNoties=", "")
 		    remove_colon = remove_oNoties.gsub(";", "")
-		    
+
 		    parsed_data = eval(remove_colon)
-		    
+
 		    parsed_data.each do | row |
-		    
-		    	begin 
-		    	
+
+		    	begin
+
 		    	 if row[0] == :array
 		    	 	next
 		    	 end
-		    	 
+
 				rescue
 					next
 				else
@@ -143,14 +163,14 @@ private
 		    	 @data.push(@record)
 				end
 		    end
-		    
-=begin		    
+
+=begin
 		    remove_array = remove_colon.split(',array:')
 		    remove_array= remove_array[0]
-		    records = remove_array.split(',i')	    
-		    		    
+		    records = remove_array.split(',i')
+
 		    num.times { | i |
-		    	begin 
+		    	begin
 				    record = records[i].split(':{')
 				    record = record[1]
 				    record = record.gsub("}", "")
@@ -166,23 +186,23 @@ private
 				    record_Detail = record_Detail.gsub("Detail:", "")
 				    record_Detail = record_Detail.gsub("'", "")
 				    record_Detail = record_Detail.gsub("\n", "<br />")
-				    @record = Array[record_T1, record_T2, record_Title, record_Detail]    
-				    
+				    @record = Array[record_T1, record_T2, record_Title, record_Detail]
+
 				rescue
 					next
 				else
 					@data.push(@record)
 				end
-		
+
 		    }
-		    
-=end		    
-		    
-		end	
+
+=end
+
+		end
 	end
 
 	def replace_notice_content(content)
 		content.gsub(/#Link([^\(]*)\(([^\(]*)\)/, '<a href="\2" target="blank">\1</a>')
 	end
-  
+
 end

@@ -8,7 +8,8 @@
     <div class="main-list">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr class="main-list-title">
-          <th width="17%" align="center" scope="col">版本</th>
+          <th width="9%" align="center" scope="col">產品代碼</th>
+          <th width="8%" align="center" scope="col">版本</th>
           <th width="17%" align="left" scope="col">更新日期</th>
           <th width="46%" align="center" scope="col">說明</th>
           <th width="9%" align="center" scope="col">編輯</th>
@@ -16,17 +17,18 @@
         </tr>
         <% @version_logs.each do |version_log| %>
           <tr>
+            <td align="center"><%= version_log.appid %></td>
             <td align="center"><%= sprintf('%.2f', version_log.version) %></td>
             <td align="center"><%= version_log.release_date.to_date %></td>
             <td align="left"><a href="<%=edit_admin_version_log_path(version_log)%>"> <%= "#{strip_tags(version_log.memo)[0..20]}..." %> </a></td>
             <td align="center"><a href="<%=edit_admin_version_log_path(version_log)%>"><img src="<%=get_current_host_and_port%>images/edit.png"></a></td>
             <td align="center"><a href='<%=admin_version_log_path(version_log)%>' rel="nofollow" data-method="delete" data-confirm="您確定嗎？"><img src="<%=get_current_host_and_port%>images/delete.png"></a></td>
-          </tr>       
-        <% end %> 
+          </tr>
+        <% end %>
       </table>
     </div>
   </div>
-  <!--main--> 
+  <!--main-->
 </div>
 <!--container-->
 <div id="footer"></div>

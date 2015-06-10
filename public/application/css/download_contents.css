@@ -91,3 +91,25 @@ h5{font: 300 20px "微軟正黑體";color: #a72c07}
 #ver-tbl .memo p {
 	padding: 0;
 }
+
+
+#main{overflow:hidden}
+#side{width:182px;text-align:right;padding-top:50px;background:url(../images/left.jpg) right top no-repeat;min-height:381px}
+#side li{padding-right:15px;margin:15px 0}
+#side a{color:#000;font-size:15px}
+#side .active a{color:#820000}
+#side .active{background:url(../images/vd-01.jpg) right center no-repeat;}
+#content{margin:0;width:842px;padding:0}
+#content img{box-shadow:2px 2px 10px #777;margin:45px 0 0 0}
+/*#content table{margin-bottom:50px}*/
+.tab_content{padding:200px 40px 0 40px;}
+#tab1{background:url(../images/banner-trt-1.jpg) top left no-repeat}
+#tab2{background:url(../images/banner-trt-2.jpg) top left no-repeat}
+#tab3{background:url(../images/banner-trt-3.jpg) top left no-repeat}
+h4{color:#a72c07;font-size:17px;height:30px;margin-bottom:10px;border-bottom:1px dashed #d3d3d3}
+
+
+
+.tab_content1{padding:40px 40px 0 40px;}
+
+.xqm-qrcode { margin-bottom: 40px; }
