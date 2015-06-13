@@ -27,7 +27,7 @@ class ExperiencesController < ApplicationController
   def new
     @experience = Experience.new
     @finished = params[ :finished ]
-    
+
     
     respond_to do |format|
       format.html # new.html.erb
@@ -46,7 +46,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(params[:experience])
     #@experience.service_email = ServiceEmail.first.email.to_s() if ServiceEmail.first
     respond_to do |format|
-      if @experience.save       
+      if @experience.save
         ExperienceMailer.notify_email(@experience).deliver if ServiceEmail.first
         format.html { redirect_to :action => 'new', :finished => true }
         format.json { render json: @experience, status: :created, location: @experience }

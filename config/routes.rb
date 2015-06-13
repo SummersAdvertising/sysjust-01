@@ -16,6 +16,9 @@ TestDevise::Application.routes.draw do
   match "/download_contents/file_02" => "static_pages#file_02"
   match "/download_contents/file_03" => "static_pages#file_03"
   match "/download_detection" => "static_pages#download_detection"
+  match "/download_latest_xq" => "static_pages#download_latest_xq"
+  match "/download_latest_xqlite" => "static_pages#download_latest_xqlite"
+
   match "/traits" => "static_pages#traits"
   match "/traits_of_xqlite" => "static_pages#traits_of_xqlite"
   match "/questions" => "static_pages#questions"

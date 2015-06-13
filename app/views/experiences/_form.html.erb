@@ -32,7 +32,7 @@
     }
 
     #send_button {
-        background: url(http://54.243.52.208/application/images/afe-01.jpg) 0 0 repeat-x #D63B0D;
+        background: url(<%= get_current_host_and_port %>/application/images/afe-01.jpg) 0 0 repeat-x #D63B0D;
         width: 195px;
         height: 47px;
         border: 0 !important;
@@ -144,11 +144,11 @@
           </table>
 
           <div class="dash" ></div>
-          <div class="tit01" width="100%" align="center">XQ策略高手</div>
+          <div class="tit01" width="100%" align="center">XQ操盤高手</div>
           <p width="100%" align="center">下載主程式後，填寫資料就可以使用囉！</p>
           <table width="100%" border="0" cellspacing="10" cellpadding="0">
             <tr>
-              <td align="center"><a href="#"><img src="<%= get_current_host_and_port %>application/images/new/bt-download.png" width="195" height="47" alt=""/></a></td>
+              <td align="center"><a href="<%= download_latest_xq_url %>"><img src="<%= get_current_host_and_port %>application/images/new/bt-download.png" width="195" height="47" alt=""/></a></td>
             </tr>
           </table>
 

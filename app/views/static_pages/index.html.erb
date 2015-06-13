@@ -61,7 +61,7 @@ $(function(){
       <li><a href="traits.html">產品特色</a>
         <ul class="child" id="child-1">
           <li><a href="<%= traits_url %>">XQ全球贏家</a></li>
-					<li><a href="<%= traits_of_xqlite_url %>">XQ策略高手</a></li>
+					<li><a href="<%= traits_of_xqlite_url %>">XQ操盤高手</a></li>
           <li><a href="<%= new_experience_url %>">申請試用</a></li>
 					<li><a href="<%= questions_url %>">常見問題</a></li>
         </ul>
@@ -178,8 +178,12 @@ $(function(){
 		<!--product-->
 	  <div class="download"><img src="<%= get_current_host_and_port %>application/images/new/spacer.gif" alt="" width="586" height="220" usemap="#Map" border="0"/>
 	    <map name="Map" id="Map">
-	      <area shape="rect" coords="32,50,266,199" href="dn.html" alt="全球贏家下載" />
-	      <area shape="rect" coords="308,49,543,190" href="dn.html" alt="策略高手下載" />
+	      <% if @version_logs.length > 0 %>
+				 <area shape="rect" coords="32,50,266,199" href="<%= download_latest_xq_url %>" alt="全球贏家下載" />
+				<% end %>
+				<% if @version_logs_xqlite.length > 0 %>
+	      <area shape="rect" coords="308,49,543,190" href="<%= download_latest_xqlite_url %>" alt="操盤高手下載" />
+				<% end %>
 	    </map>
 	  </div>
     <!--product-->

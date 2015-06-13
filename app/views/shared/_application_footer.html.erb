@@ -14,18 +14,20 @@ $(function(){
   <div class="link-box">
     <h5 class="link-title">產品特色</h5>
     <ul class="link-text">
-      <li><a href="<%= traits_url %>">三大特色</a></li>
+      <li><a href="<%= traits_url %>">XQ全球贏家</a></li>
+			<li><a href="<%= traits_of_xqlite_url %>">XQ操盤高手</a></li>
+			<li><a href="<%= new_experience_url %>">申請試用</a></li>
       <li><a href="<%= questions_url %>">常見問題</a></li>
-      <li><a href="<%= online_demonstrations_url %>">線上體驗</a></li>
+      <!-- <li><a href="<%= online_demonstrations_url %>">線上體驗</a></li>
       <li><a href="<%= download_dms_url %>">DM下載</a></li>
-      <li><a href="<%= new_experience_url %>">申請試用</a></li>
+       -->
     </ul>
   </div>
   <!--link-box-->
   <div class="link-box">
-    <h5 class="link-title">策略雷達</h5>
+    <h5 class="link-title">策略功能</h5>
     <ul class="link-text">
-      <li><a href="<%= page_path( :id => 'radar-intro' ) %>">功能介紹</a></li>
+      <li><a href="<%= page_path( :id => 'radar-intro' ) %>">策略雷達</a></li>
       <li><a href="<%= category_path( :id => 'xs' ) %>">影片教學</a></li>
       <li><a href="<%= posts_path %>">討論區</a></li>
       <li><a href="<%= page_path( :id => 'radar-qa' ) %>">常見問題</a></li>
@@ -35,7 +37,7 @@ $(function(){
   </div>
   <!--link-box-->
   <div class="link-box">
-    <h5 class="link-title">交易區</h5>
+    <h5 class="link-title">交易功能</h5>
     <ul class="link-text">
       <li><a href="<%= xqtrade_url %>">交易功能</a></li>
       <li><a href="<%= xqtrade_partner_url %>">合作夥伴</a></li>
@@ -58,26 +60,17 @@ $(function(){
          @categories = Category.limit(4)
          @category_01 = @categories[0]
          @category_02 = @categories[1]
-         @category_03 = @categories[2]
-		 @category_04 = @categories[3]
+				 @category_03 = @categories[2]
+				 @category_04 = @categories[3]
       %>
 	  <li><a href="<%= category_url(@category_04) if @category_04%>"><%= @category_04.name if @category_04%></a></li>
       <li><a href="<%= category_url(@category_01) if @category_01%>"><%= @category_01.name if @category_01%></a></li>
       <li><a href="<%= category_url(@category_02) if @category_02%>"><%= @category_02.name if @category_02%></a></li>
       <li><a href="<%= category_url(@category_03) if @category_03%>"><%= @category_03.name if @category_03%></a></li>
+			<li><a href="<%= online_demonstrations_url %>">線上體驗</a></li>
     </ul>
   </div>
-  <!--link-box-->
-  <div class="link-box">
-    <h5 class="link-title">下載區</h5>
-    <ul class="link-text">
-      <li><a href="<%= download_contents_url %>">XQ主程式</a></li>
-      <li><a href="http://www.xq.com.tw/aphelp/DAQ/default.htm">XQ使用手冊</a></li>
-      <li><a href="<%= get_current_host_and_port %>download_contents/XS%20manual.pdf">XS策略雷達使用手冊</a></li>
-      <li><a href="<%= download_contents_url %>#file">XQ自設畫面檔案</a></li>
-    </ul>
-  </div>
-  <!--link-box-->
+	<!--link-box-->
   <div class="link-box">
     <h5 class="link-title">專家分享</h5>
     <ul class="link-text">
@@ -86,9 +79,20 @@ $(function(){
   </div>
   <!--link-box-->
   <div class="link-box">
+    <h5 class="link-title">下載區</h5>
+    <ul class="link-text">
+      <li><a href="<%= download_contents_url %>">程式下載</a></li>
+			<li><a href="<%= customize_url %>">自設畫面</a></li>
+			<li><a href="<%= manual_url %>">使用手冊</a></li>
+			<li><a href="<%= download_dms_url %>">ＤＭ下載</a></li>
+    </ul>
+  </div>
+  <!--link-box-->
+  <div class="link-box">
     <h5 class="link-title">我要購買</h5>
     <ul class="link-text">
-      <li><a href="<%= purchasing_url %>">方案及軟體</a></li>
+			<li><a href="<%= purchasing_url %>">XQ旗艦版</a></li>
+			<li><a href="<%= purchasing_xqlite_url %>">XQ輕量版</a></li>
     </ul>
   </div>
   <!--link-box-->

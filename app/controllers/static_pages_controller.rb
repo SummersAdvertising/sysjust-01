@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class StaticPagesController < ApplicationController
+	include ApplicationHelper
 
 	def show
 		respond_to do | format |
@@ -20,9 +21,9 @@ class StaticPagesController < ApplicationController
   end
 
   def download_contents
-  	@version_logs = VersionLog.where(appid: 'DAQ').take(2)
+  	@version_logs = VersionLog.where(appid: 'DAQ').order(version: :desc).take(2)
 
-		@version_logs_xqlite = VersionLog.where(appid: 'DAQXQLITE').take(2)
+		@version_logs_xqlite = VersionLog.where(appid: 'DAQXQLITE').order(version: :desc).take(2)
   end
 
   def download_detection
@@ -43,6 +44,24 @@ class StaticPagesController < ApplicationController
   		render layout: false
   	end
   end
+
+	def download_latest_xq
+		latest_logs = VersionLog.where(appid: 'DAQ').order(version: :desc).take(1)
+		if latest_logs.length > 0
+			redirect_to xq_download_link(latest_logs[0], true)
+		else
+			redirect_to index_url
+		end
+	end
+
+	def download_latest_xqlite
+		latest_logs = VersionLog.where(appid: 'DAQXQLITE').order(version: :desc).take(1)
+		if latest_logs.length > 0
+			redirect_to xqlite_download_link(latest_logs[0], true)
+		else
+			redirect_to index_url
+		end
+	end
 
 	#自設畫面
 	def customize
@@ -111,6 +130,12 @@ class StaticPagesController < ApplicationController
     	@display_courses.push( @courses[i] ) if @courses[i].is_display
     	i=i+1
     end
+
+		#download
+		@version_logs = VersionLog.where(appid: 'DAQ').order(version: :desc).take(1)
+		@version_logs_xqlite = VersionLog.where(appid: 'DAQXQLITE').order(version: :desc).take(1)
+
+
     require 'open-uri'
     require 'json'
 
