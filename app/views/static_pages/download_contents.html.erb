@@ -67,8 +67,8 @@ $(function(){
                   <td class="release"><%= version_log.release_date.to_s %></td>
                   <td class="files">
                     <ul>
-                      <li><a href="<%= xq_download_link(version_log) %>">完整安裝</a></li>
-                      <li><a href="<%= xq_download_link(version_log, false)%>">升級程式</a></li>
+                      <li><a href="<%= xq_download_link(version_log) %>" class="dl-act" pdt="DAQ">完整安裝</a></li>
+                      <li><a href="<%= xq_download_link(version_log, false)%>" class="dl-act" pdt="DAQ">升級程式</a></li>
                     </ul>
                   </td>
                   <td class="memo"><%= raw(version_log.memo) %></td>
@@ -85,9 +85,9 @@ $(function(){
             <img src="<%= get_current_host_and_port %>application/images/new/xqm.png" width="677" height="131" usemap="#DownloadMap" border="0" />
             <map name="DownloadMap" id="DownloadMap">
                 <area alt="自動偵測裝置" title="自動偵測裝置" href="http://new.xq.com.tw/download_detection" shape="rect" coords="7,4,126,128" style="outline:none;" target="_self" />
-                <area alt="iPhone版" title="iPhone版" href="https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia-shou-ji-ban/id775687957?mt=8&ign-mpt=uo%3D4" shape="rect" coords="131,5,305,129" style="outline:none;" target="_self" />
-                <area alt="iPad版" title="iPad版" href="https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia/id642738082?ls=1&mt=8" shape="rect" coords="312,9,489,122" style="outline:none;" target="_self" />
-                <area alt="Android版" title="Android版" href="https://play.google.com/store/apps/details?id=djapp.app.xqm" shape="rect" coords="497,8,674,121" style="outline:none;" target="_self" />
+                <area alt="iPhone版" title="iPhone版" href="https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia-shou-ji-ban/id775687957?mt=8&ign-mpt=uo%3D4" shape="rect" coords="131,5,305,129" style="outline:none;" target="_self" class="dl-act" pdt="XQM-IPHONE"/>
+                <area alt="iPad版" title="iPad版" href="https://itunes.apple.com/us/app/xq-quan-qiu-ying-jia/id642738082?ls=1&mt=8" shape="rect" coords="312,9,489,122" style="outline:none;" target="_self" class="dl-act" pdt="XQM-IPAD"/>
+                <area alt="Android版" title="Android版" href="https://play.google.com/store/apps/details?id=djapp.app.xqm" shape="rect" coords="497,8,674,121" style="outline:none;" target="_self" class="dl-act" pdt="XQM-ANDROID"/>
             </map>
           </div>
         </div>
@@ -115,8 +115,8 @@ $(function(){
                   <td class="release"><%= version_log.release_date.to_s %></td>
                   <td class="files">
                     <ul>
-                      <li><a href="<%= xqlite_download_link(version_log, true) %>">完整安裝</a></li>
-                      <li><a href="<%= xqlite_download_link(version_log, false) %>">升級程式</a></li>
+                      <li><a href="<%= xqlite_download_link(version_log, true) %>" class="dl-act" pdt="DAQXQLITE">完整安裝</a></li>
+                      <li><a href="<%= xqlite_download_link(version_log, false) %>" class="dl-act" pdt="DAQXQLITE">升級程式</a></li>
                     </ul>
                   </td>
                   <td class="memo"><%= raw(version_log.memo) %></td>

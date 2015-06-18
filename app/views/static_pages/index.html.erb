@@ -179,10 +179,10 @@ $(function(){
 	  <div class="download"><img src="<%= get_current_host_and_port %>application/images/new/spacer.gif" alt="" width="586" height="220" usemap="#Map" border="0"/>
 	    <map name="Map" id="Map">
 	      <% if @version_logs.length > 0 %>
-				 <area shape="rect" coords="32,50,266,199" href="<%= download_latest_xq_url %>" alt="全球贏家下載" />
+				 <area shape="rect" coords="32,50,266,199" href="<%= download_latest_xq_url %>" class="dl-act" pdt="DAQ" alt="全球贏家下載" />
 				<% end %>
 				<% if @version_logs_xqlite.length > 0 %>
-	      <area shape="rect" coords="308,49,543,190" href="<%= download_latest_xqlite_url %>" alt="操盤高手下載" />
+	      <area shape="rect" coords="308,49,543,190" href="<%= download_latest_xqlite_url %>" class="dl-act" pdt="DAQXQLITE" alt="操盤高手下載" />
 				<% end %>
 	    </map>
 	  </div>
