@@ -178,13 +178,15 @@ a{text-decoration:none}
 
 /*-----------------------------------------------------------------------輪播---*/
 
-#banner{clear:both;height:530px;width:100%; margin:10px 0 0 0; }
+#banner{clear:both;height:509px;width:1010px; margin:10px 0 0 0; }
 #banner .tabs{float:left;width:21%;padding:115px 0 0 0}
 #banner .tabs li{width:100%;height:40px;padding:10px 0 0 50px}
 #banner .tabs li a{color:#c7c7c7;font:700 18px "微軟正黑體";text-shadow:0 -1px 0 #000}
 #banner .tabs .active{background:url(http://new.xq.com.tw/application/images/index-active.png) 10px 0 no-repeat}
 #banner .tabs .active a{color:#fbdf5d;}
 #banner .content{width:1010px;height:250px;padding:0 0 0 0; margin:0 0 10px 0; background-color: #F5EFC9;}
+#banner .content-l{width:500px;height:509px;padding:0 0 0 0; margin:0 0 5px 0; background-color: #F5EFC9; float:left;}
+#banner .content-r{width:500px;height:509px;padding:0 0 0 0; margin:0 0 0px 0; background-color: #F5EFC9; float:right;}
 #banner .tab_content .text{color:#fff;padding:15px;text-align:left;width:224px;height:110px}
 #banner .tab_content .text h4{font:700 20px "微軟正黑體"}
 #banner .tab_content .text p{line-height:20px}

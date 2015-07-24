@@ -127,8 +127,24 @@ $(function(){
   <!--top-->
   <div id="banner">
 <!--tabs-->
-<div class="content"><a href="<%= traits_url %>"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xq.png" width="1010" height="251" /></a></div>
-<div class="content"><a href="<%= traits_of_xqlite_url %>"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xqlite.png" width="1010" height="251" /></a></div>
+<!-- <div class="content"><a href="<%= traits_url %>"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xq.png" width="1010" height="251" /></a></div>
+<div class="content"><a href="<%= traits_of_xqlite_url %>"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xqlite.png" width="1010" height="251" /></a></div> -->
+<div class="content-l"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xqlite.png" width="500" height="509" border="0" usemap="#Map2" />
+  <map name="Map2" id="Map2">
+		<% if @version_logs_xqlite.length > 0 %>
+    <area shape="rect" coords="166,421,327,469" href="<%= download_latest_xqlite_url %>" alt="操盤高手下載" />
+		<% end %>
+  </map>
+</div>
+<div class="content-r"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xq.png" width="500" height="509" border="0" usemap="#Map3" />
+  <map name="Map3" id="Map3">
+		<% if @version_logs.length > 0 %>
+    <area shape="rect" coords="325,424,479,466" href="<%= download_latest_xq_url %>" alt="全球贏家下載" />
+		<% end %>
+    <area shape="rect" coords="365,474,444,497" href="<%= new_experience_url %>" alt="申請試用" />
+  </map>
+</div>
+
 <!--content-->
 </div>
 <!--banner-->
@@ -178,11 +194,11 @@ $(function(){
 		<!--product-->
 	  <div class="download"><img src="<%= get_current_host_and_port %>application/images/new/spacer.gif" alt="" width="586" height="220" usemap="#Map" border="0"/>
 	    <map name="Map" id="Map">
-	      <% if @version_logs.length > 0 %>
-				 <area shape="rect" coords="32,50,266,199" href="<%= download_latest_xq_url %>" class="dl-act" pdt="DAQ" alt="全球贏家下載" />
+	      <% if @version_logs_xqlite.length > 0 %>
+				 <area shape="rect" coords="38,51,289,202" href="<%= download_latest_xqlite_url %>" class="dl-act" pdt="DAQ" alt="操盤高手下載" />
 				<% end %>
-				<% if @version_logs_xqlite.length > 0 %>
-	      <area shape="rect" coords="308,49,543,190" href="<%= download_latest_xqlite_url %>" class="dl-act" pdt="DAQXQLITE" alt="操盤高手下載" />
+				<% if @version_logs.length > 0 %>
+	      <area shape="rect" coords="302,46,557,201" href="<%= download_latest_xq_url %>" class="dl-act" pdt="DAQXQLITE" alt="全球贏家下載" />
 				<% end %>
 	    </map>
 	  </div>
