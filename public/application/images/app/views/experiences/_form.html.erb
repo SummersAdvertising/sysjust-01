@@ -1,0 +1,165 @@
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/reset.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/style.css">
+<link rel="stylesheet" href="<%= get_current_host_and_port %>application/css/colorbox.css"/>
+<script type="text/javascript" src="<%= get_current_host_and_port %>application/js/jquery.colorbox-min.js"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        <% if @finished %>
+            $.colorbox({html:'<div id="msg"><p>感謝您，我們將由專員盡速與您連絡</p></div>'});
+        <% end %>
+    };
+</script>
+<style>
+    #banner {
+        background-image: url(<%= get_current_host_and_port %>application/images/banner-afe.jpg)
+    }
+
+    #content {
+        padding: 50px
+    }
+
+    #content input {
+        width: 100%;
+        padding: 5px 0;
+        border: 1px solid #DADADA
+    }
+
+    #content p {
+        color: #a72c07;
+        margin: 0 0 20px 0;
+        padding: 0 0 0 10px
+    }
+
+    #send_button {
+        background: url(<%= get_current_host_and_port %>/application/images/afe-01.jpg) 0 0 repeat-x #D63B0D;
+        width: 195px;
+        height: 47px;
+        border: 0 !important;
+        cursor: pointer
+    }
+
+    #send_button:hover {
+        opacity: .85
+    }
+
+    hr {
+        background: url(<%= get_current_host_and_port %>application/images/cs-hr.jpg) 0 0 no-repeat;
+        width: 800px;
+        height: 14px;
+		*height:1px;
+        border: 0
+    }
+
+    #reset_button {
+        color: #222
+    }
+
+    #msg {
+        text-align: center;
+        width: 550px;
+        font: 300 14px "微軟正黑體";
+        padding: 20px
+    }
+
+    #msg table {
+        border: 1px solid #777
+    }
+
+    #msg p {
+        font: 300 24px "微軟正黑體";
+        color: #a72c07;
+        margin: 20px 0
+    }
+
+    #msg th {
+        font-weight: 700;
+        color: #555
+    }
+
+
+    .dash{border-bottom: 1px dashed #d3d3d3; margin:30px 0 60px 0;}
+
+    .tit01{ font-size:36px; font: "微軟正黑體"; color:#5A5A5A; margin:20px 0 20px 0;}
+
+    #content1{padding:40px 120px }
+    #content1 input {
+      width: 100%;
+      padding: 5px 0;
+      border: 1px solid #DADADA;}
+      #content1 p {
+      color: #a72c07;
+      margin: 0 0 20px 0;
+      padding: 0 0 0 10px;
+    }
+</style>
+
+<%= render :partial => "shared/application_top" %><!--header-->
+<div id="container">
+  <div id="main">
+    <div id="banner">
+      <h2>申請試用</h2>
+    </div>
+    <!--banner-->
+    <%= form_for(@experience, :validate => true) do |f| %>
+        <div id="content1">
+          <div class="tit01" width="100%" align="center">XQ全球贏家</div>
+          <p width="100%" align="center">心動嗎？線上體驗XQ全球贏家還不夠？快來實際感受一下XQ全球贏家獨特的魅力，滿足您投資決策的所有需求</p>
+          <table width="700" border="0" cellspacing="10" cellpadding="0" align="center">
+            <tr>
+              <td width="15%" align="right">聯絡人姓名</td>
+              <td width="36%"><%= f.text_field :contact_person %>
+              </td>
+              <td width="13%" align="right" valign="middle">聯絡電話</td>
+              <td width="36%"><%= f.text_field :phone_number %></td>
+            </tr>
+            <tr>
+              <td align="right">Email</td>
+              <td colspan="3"><%= f.text_field :email %></td>
+            </tr>
+            <tr style="display:none;">
+              <td>公司名稱</td>
+              <td colspan="3"><%= f.text_field :company_name, :value=>"none" %></td>
+            </tr>
+            <tr style="display:none;">
+              <td>職稱</td>
+              <td><%= f.text_field :professional_title, :value=>"none" %></td>
+              <td align="center" valign="middle">參加人數</td>
+              <td><%= f.number_field :attendant_number, :value=>1 %></td>
+            </tr>
+          </table>
+          <div style="display:none">
+            <div id="msg">
+              <p>感謝您，我們將由專員盡速與您連絡</p>
+            </div>
+            <!--msg-->
+          </div>
+          <hr>
+          <table width="64%" border="0" cellspacing="10" cellpadding="0">
+            <tr>
+              <td width="58%" align="right"><a href="<%= new_experience_url %>" id="reset_button">清除重填</a></td>
+              <td width="42%" align="right"><a href="#msg" class='inline' id="thanks"></a><%= f.submit "", {:id => 'send_button', :onClick => "return checkForm();"}  %>
+              </td>
+            </tr>
+          </table>
+
+          <div class="dash" ></div>
+          <div class="tit01" width="100%" align="center">XQ操盤高手</div>
+          <p width="100%" align="center">下載主程式後，填寫資料就可以使用囉！</p>
+          <table width="100%" border="0" cellspacing="10" cellpadding="0">
+            <tr>
+              <td align="center"><a href="<%= download_latest_xqlite_url %>" class="dl-act" pdt="DAQXQLITE"><img src="<%= get_current_host_and_port %>application/images/new/bt-download.png" width="195" height="47" alt=""/></a></td>
+            </tr>
+          </table>
+
+
+        </div>
+        <!--content-->
+
+    <% end %>
+
+  </div>
+  <!--main-->
+  <%= render :partial => "shared/application_footer" %>
+</div>
+<!--container-->
