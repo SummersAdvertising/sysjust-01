@@ -132,14 +132,14 @@ $(function(){
 <div class="content-l"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xqlite.png" width="500" height="509" border="0" usemap="#Map2" />
   <map name="Map2" id="Map2">
 		<% if @version_logs_xqlite.length > 0 %>
-    <area shape="rect" coords="166,421,327,469" href="<%= download_latest_xqlite_url %>" alt="操盤高手下載" />
+    <area shape="rect" coords="166,421,327,469" href="<%= download_latest_xqlite_url %>" class="dl-act" pdt="DAQ" alt="操盤高手下載" />
 		<% end %>
   </map>
 </div>
 <div class="content-r"><img src="<%= get_current_host_and_port %>application/images/new/banner-home-xq.png" width="500" height="509" border="0" usemap="#Map3" />
   <map name="Map3" id="Map3">
 		<% if @version_logs.length > 0 %>
-    <area shape="rect" coords="325,424,479,466" href="<%= download_latest_xq_url %>" alt="全球贏家下載" />
+    <area shape="rect" coords="325,424,479,466" href="<%= download_latest_xq_url %>" class="dl-act" pdt="DAQXQLITE" alt="全球贏家下載" />
 		<% end %>
     <area shape="rect" coords="365,474,444,497" href="<%= new_experience_url %>" alt="申請試用" />
   </map>

@@ -198,7 +198,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   $(function(){
     $('.dl-act').click(function(e){
       var pdt = $(this).attr('pdt') || 'unknown';
-      dataLayer.push({'download': pdt});
+      dataLayer.push({'event': pdt});
     });
   });
 </script>
