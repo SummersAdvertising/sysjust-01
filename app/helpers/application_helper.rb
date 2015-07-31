@@ -8,14 +8,14 @@ module ApplicationHelper
     file_name = "setup.exe"
     file_name = (full) ? "setup.exe" : "update.exe"
 
-  	"http://login.xq.com.tw/dassvr/installer/DAQ/TW/#{sprintf('%.2f', log.version)}/#{file_name}"
+  	"http://login3.xq.com.tw/dassvr/installer/DAQ/TW/#{sprintf('%.2f', log.version)}/#{file_name}"
   end
 
   def xqlite_download_link(log, full = true)
     file_name = "setup.exe"
     file_name = (full) ? "xqlitesetup.exe" : "xqliteupdate.exe"
 
-    "http://login.xq.com.tw/dassvr/installer/DAQXQLITE/TW/#{sprintf('%.2f', log.version)}/#{file_name}"
+    "http://login3.xq.com.tw/dassvr/installer/DAQXQLITE/TW/#{sprintf('%.2f', log.version)}/#{file_name}"
   end
 
 end
