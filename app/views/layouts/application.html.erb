@@ -193,15 +193,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-WMXRLD');</script>
 <!-- End Google Tag Manager -->
 <%= yield %>
-
-<script>
-  $(function(){
-    $('.dl-act').click(function(e){
-      var pdt = $(this).attr('pdt') || 'unknown';
-      dataLayer.push({'event': pdt});
-    });
-  });
-</script>
 </body>
 
 </html>
